@@ -15,7 +15,7 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
   
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
-
+  <script src="https://kit.fontawesome.com/19dc9c9e6a.js" crossorigin="anonymous"></script>
   <title>Irin Sultana Munni</title>
 
 </head>
@@ -23,27 +23,28 @@
 <body>
   
   <!-- Navbar  -->
-  <nav class="navbar fixed-top navbar-expand-lg navbar-dark p-3 ">
+  
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark p-3  ">
     <div class="container">
-      <a class="navbar-brand" href="#">Irin Sultana Munni</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+      <a class="navbar-brand grow text-black " href="#">Irin Sultana Munni</a>
+      <button class="navbar-toggler bg-dark-subtle" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
 
 
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas offcanvas-end text-bg-light" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
         <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+          <h5 class="offcanvas-title " id="offcanvasNavbarLabel">Menu</h5>
           <button type="button" class="btn-close  btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link active text-black" aria-current="page" href="#">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Mediazioni</a>
+              <a class="nav-link text-black" href="#">Mediazioni</a>
             </li>
 
           </ul>
@@ -56,7 +57,7 @@
   <div data-aos="zoom-in-up">
     <div class="banner-image w-100 vh-100 d-flex justify-content-center align-items-center">
       <div class="content text-center">
-        <h1 class="text-white">Mediatrice Professionale</h1>
+        <h1 class="text-dark">Mediatrice Professionale</h1>
       </div>
     </div>
   </div>
@@ -161,16 +162,15 @@
 
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Launch demo modal
-</button>
+<button type="button" class="emailButton" data-bs-toggle="modal" data-bs-target="#emailModal">
+  <i class="fa-solid fa-envelope"></i></button>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="emailModal" tabindex="-1" aria-labelledby="emailModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">
+        <h1 class="modal-title fs-5" id="emailModalLabel">
           <h3 class="title">Contattami</h3>
 
         </h1>
@@ -220,8 +220,7 @@
           </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn text-bg-dark ">Invia</button>
       </div>
     </div>
   </div>
