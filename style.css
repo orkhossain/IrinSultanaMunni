@@ -120,8 +120,8 @@ border: none !important;
 .emailButton{
   z-index: 2;
   position: fixed;
-  right: 10px !important;
-  bottom: 10px !important;
+  right: 2vw;
+  bottom: 2vw ;
   border-radius: 50%;
   background-color: orange;
   height: 60px;
