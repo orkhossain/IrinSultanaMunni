@@ -290,28 +290,3 @@ padding: 20px;
   align-items: center;
   margin: 30px;
 }
-
-.m1 {
-  position: relative;
-  left: 0%;
-  animation: swap 20s linear infinite;
-}
-@keyframes swap {
-  0%, 49.99% {
-    left: 0%;
-  }
-  50.00%,
-  100% {
-    left: 100%;
-  }
-}
-/* Transition */
-
-@keyframes marquee {
-  0% {
-    transform: translateX(0)
-  }
-  100% {
-    transform: translateX(-100%)
-  }
-}
