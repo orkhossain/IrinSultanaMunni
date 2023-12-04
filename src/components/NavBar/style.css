@@ -1,0 +1,12 @@
+.logo-text {
+  display: inline-block; /* Ensures the transition takes effect */
+  transform-origin: center; /* Sets the transformation origin to the center */
+  -webkit-transition: width 0.5s;
+  transition: width 0.5s;
+  text-align: left;
+  overflow: hidden;
+}
+
+.grow {
+  width: 220px;
+}
