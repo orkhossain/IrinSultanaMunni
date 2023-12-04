@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from '@/components/NavBar'
 import Footer from '@/components/Footer'
 import Marquee from '@/components/Marquee'
-import Banner from '@/components/Banner'
+import Banner from '@/components/Tab'
 
 function Home() {
   return (
