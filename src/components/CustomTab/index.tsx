@@ -18,12 +18,13 @@ const StyledTabs = styled((props: any) => (
 const StyledTab = styled((props: any) => <Tab disableRipple {...props} />)(
   ({ theme }: any) => ({
     textTransform: 'none',
+    minWidth: '40px',
     fontWeight: theme.typography.fontWeightRegular,
-    fontSize: theme.typography.pxToRem(15),
-    color: 'grey',
+    fontSize: theme.typography.pxToRem(19),
+    boxShadow: '1px',
     '&.Mui-selected': {
       color: '#fff',
-      zIndex: '2',
+      zIndex: '+2',
     },
     '&.Mui-focusVisible': {
       backgroundColor: 'grey',

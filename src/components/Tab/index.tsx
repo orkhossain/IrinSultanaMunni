@@ -2,17 +2,23 @@ import React, { useState } from 'react'
 import Box from '@mui/material/Box'
 import { useTheme } from '@mui/material/styles'
 import SwipeableViews from 'react-swipeable-views'
-import { Button, MobileStepper } from '@mui/material'
+import { Button, MobileStepper, useMediaQuery } from '@mui/material'
 import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material'
 import CustomTabPanel from '../TabContent'
 import { StyledTabs, StyledTab } from '../CustomTab'
+import Content from '../Content'
 
 const AutoPlaySwipeableViewsComponent = SwipeableViews
 
 function CenteredTabs() {
   const [value, setValue] = useState(0)
-  const languages = ['Italiano', 'English', 'বাংলা', 'اردو', 'हिन्दी']
+
   const theme = useTheme()
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
+
+  const languages = !isMobile
+    ? ['Italiano', 'English', 'বাংলা', 'اردو', 'हिन्दी']
+    : ['🇬🇧', '🇮🇹', '🇧🇩', '🇵🇰', '🇮🇳']
 
   const handleChange = (newValue: number) => {
     setValue(newValue)
@@ -39,7 +45,7 @@ function CenteredTabs() {
             }
             aria-label="styled tabs example"
             sx={{
-              backgroundColor: 'white',
+              backgroundColor: 'lightgrey',
               padding: '2px',
               borderRadius: '25px',
             }}
@@ -52,7 +58,6 @@ function CenteredTabs() {
       </div>
       <AutoPlaySwipeableViewsComponent
         axis={'x'}
-        direction={'rtl'}
         resistance={true}
         index={value}
         enableMouseEvents={true}
@@ -61,7 +66,6 @@ function CenteredTabs() {
           padding: 3,
           minHeight: '800px',
           minWidth: '90vw',
-          opacity: 0.9,
           display: 'block',
           justifyContent: 'center',
           backgroundImage: `url('/3186532.jpg')`,
@@ -69,23 +73,23 @@ function CenteredTabs() {
           backgroundPosition: 'center',
           position: 'relative',
           top: '-20vh',
-          paddingTop: '20vh',
+          paddingTop: '18vh',
         }}
       >
         {languages.map((language, index) => (
           <CustomTabPanel key={index} value={value} index={index}>
-            {`Content for ${language}`} {/* Placeholder content */}
+            <Content />
           </CustomTabPanel>
         ))}
       </AutoPlaySwipeableViewsComponent>
       <MobileStepper
         steps={5}
         sx={{ position: 'relative', top: '-20vh' }}
-        position="static"
+        position="top"
         activeStep={value}
         nextButton={
           <Button size="small" onClick={handleNext} disabled={value === 4}>
-            Next
+            {languages[value + 1] ?? '   '}
             {theme.direction === 'rtl' ? (
               <KeyboardArrowLeft />
             ) : (
@@ -100,7 +104,7 @@ function CenteredTabs() {
             ) : (
               <KeyboardArrowLeft />
             )}
-            Back
+            {languages[value - 1]}
           </Button>
         }
       />
