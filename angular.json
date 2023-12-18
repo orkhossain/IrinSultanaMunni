@@ -69,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "irinsultanamunni:build:production"
+              "buildTarget": "irinsultanamunni:build:production"
             },
             "development": {
-              "browserTarget": "irinsultanamunni:build:development"
+              "buildTarget": "irinsultanamunni:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -80,7 +80,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "irinsultanamunni:build"
+            "buildTarget": "irinsultanamunni:build"
           }
         },
         "test": {
