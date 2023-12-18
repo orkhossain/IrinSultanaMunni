@@ -1,1 +1,43 @@
-<p>app-bar works!</p>
+ <header>
+      <mat-toolbar color="primary" class="app-toolbar">
+        <ng-container *ngIf="!isMobile">
+          <span (mouseenter)="setHovered(true)" (mouseleave)="setHovered(false)">
+            Irin
+          </span>
+          <ng-container *ngIf="hovered">
+            <span>Sultana Munni</span>
+          </ng-container>
+        </ng-container>
+        <ng-container *ngIf="isMobile">
+          <button mat-icon-button (click)="handleDarkModeToggle()">
+            <mat-icon>{{ darkMode ? 'brightness_4' : 'brightness_7' }}</mat-icon>
+          </button>
+          <button mat-icon-button (click)="handleDrawerToggle()">
+            <mat-icon>menu</mat-icon>
+          </button>
+        </ng-container>
+        <mat-list *ngIf="isMobile && drawerOpen" class="mobile-drawer">
+          <mat-list-item (click)="setDrawerOpen(false)">
+            <span>Item 1</span>
+          </mat-list-item>
+          <mat-list-item (click)="setDrawerOpen(false)">
+            <span>Item 2</span>
+          </mat-list-item>
+        </mat-list>
+      </mat-toolbar>
+      <mat-drawer-container class="mobile-drawer-container">
+        <mat-drawer [mode]="isMobile ? 'over' : 'side'" [opened]="drawerOpen" align="end">
+          <mat-drawer-content>
+            <mat-list class="mobile-drawer">
+              <mat-list-item (click)="setDrawerOpen(false)">
+                <span>Item 1</span>
+              </mat-list-item>
+              <mat-list-item (click)="setDrawerOpen(false)">
+                <span>Item 2</span>
+              </mat-list-item>
+              <!-- Add more list items if needed -->
+            </mat-list>
+          </mat-drawer-content>
+        </mat-drawer>
+      </mat-drawer-container>
+    </header>

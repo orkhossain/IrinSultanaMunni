@@ -1,0 +1,32 @@
+ .app-toolbar {
+      justify-content: space-between;
+    }
+    .mobile-drawer-container {
+      height: calc(100% - 64px); /* Adjust as needed */
+    }
+    .mobile-drawer {
+      width: 250px; /* Adjust as needed */
+    }
+
+
+.logo-text {
+  display: inline-block; /* Ensures the transition takes effect */
+  transform-origin: center; /* Sets the transformation origin to the center */
+  -webkit-transition: width 0.5s;
+  transition: width 0.5s;
+  text-align: left;
+  overflow: hidden;
+}
+
+.grow {
+  width: 220px;
+}
+
+.frosted-glass {
+  backdrop-filter: blur(10px); /* Adjust the blur value as needed */
+  background-color: rgba(255, 255, 255, 0.2); /* Adjust the opacity and color */
+}
+
+.full-width {
+  width: 100%;
+}

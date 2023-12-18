@@ -1,0 +1,11 @@
+  .chat-container {
+      position: fixed;
+    }
+    .chat-toggle {
+      position: fixed;
+      transition: all 0.3s ease;
+    }
+    .show-chat {
+      width: auto !important;
+      height: auto !important;
+    }

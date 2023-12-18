@@ -1,1 +1,21 @@
-<p>contact works!</p>
+<div *ngIf="showChat" class="chat-container" [style.bottom.px]="20" [style.right.px]="20">
+      <div class="chat-box" [style.width.px]="300" [style.border-radius.px]="8" [style.box-shadow]="'0 4px 8px rgba(0, 0, 0, 0.1)'" [style.background-color]="'#fff'" [style.z-index]="1000">
+        <div class="chat-header" style="padding: 16px; border-bottom: 1px solid #ddd; display: flex; align-items: center; justify-content: space-between;">
+          <h6>Contact Me</h6>
+          <button mat-icon-button (click)="closeChat()">
+            <mat-icon>close</mat-icon>
+          </button>
+        </div>
+        <div class="chat-messages" style="padding: 16px; max-height: 300px; overflow: auto;">
+          <p *ngFor="let msg of chatHistory; let i = index">{{ msg }}</p>
+        </div>
+        <div class="chat-input" style="padding: 16px; border-top: 1px solid #ddd;">
+          <mat-form-field appearance="outline" style="width: 100%;">
+            <input matInput placeholder="Type a message..." [(ngModel)]="message" (keypress)="onEnter($event)" />
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+    <button mat-fab class="chat-toggle" [class.show-chat]="showChat" (click)="toggleChat()" [style.bottom.px]="20" [style.right.px]="20" [style.z-index]="1000" [style.backgroundColor]="showChat ? 'transparent' : '#3f51b5'" [style.border-radius]="showChat ? '50%' : '8px'" [style.width.px]="showChat ? 'auto' : '50'" [style.height.px]="showChat ? 'auto' : '50'" [style.transition]="'all 0.3s ease'" color="showChat ? 'primary' : ''">
+      <mat-icon *ngIf="!showChat" style="font-size: 24px;">chat</mat-icon>
+    </button>
