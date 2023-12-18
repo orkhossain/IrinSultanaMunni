@@ -7,6 +7,8 @@ import { AppBarComponent } from './app-bar/app-bar.component';
 import { FooterComponent } from './footer/footer.component';
 import { MarqueeComponent } from './marquee/marquee.component';
 import { ContactComponent } from './contact/contact.component';
+import { BannerComponent } from './banner/banner.component';
+import { ServicesComponent } from './services/services.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { ContactComponent } from './contact/contact.component';
     AppBarComponent,
     FooterComponent,
     MarqueeComponent,
-    ContactComponent
+    ContactComponent,
+    BannerComponent,
+    ServicesComponent
   ],
   imports: [
     BrowserModule,
