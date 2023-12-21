@@ -57,58 +57,59 @@ function CenteredTabs() {
           </StyledTabs>
         </Box>
       </div>
-      <AutoPlaySwipeableViewsComponent
-        axis={'x'}
-        resistance={true}
-        index={value}
-        enableMouseEvents={true}
-        onChangeIndex={handleChange}
-        style={{
-          padding: 3,
-          minHeight: '800px',
-          minWidth: '90vw',
-          display: 'block',
-          justifyContent: 'center',
-          backgroundImage: `url('/3186532.jpg')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          position: 'relative',
-          top: '-20vh',
-          paddingTop: '18vh',
-        }}
-      >
-        {languages.map((language, index) => (
-          <CustomTabPanel key={index} value={value} index={index}>
-            <Content />
-          </CustomTabPanel>
-        ))}
-      </AutoPlaySwipeableViewsComponent>
-      <MobileStepper
-        steps={5}
-        sx={{ position: 'relative', top: '-20vh' }}
-        position="top"
-        activeStep={value}
-        nextButton={
-          <Button size="small" onClick={handleNext} disabled={value === 4}>
-            {languages[value + 1] ?? '   '}
-            {theme.direction === 'rtl' ? (
-              <KeyboardArrowLeft />
-            ) : (
-              <KeyboardArrowRight />
-            )}
-          </Button>
-        }
-        backButton={
-          <Button size="small" onClick={handleBack} disabled={value === 0}>
-            {theme.direction === 'rtl' ? (
-              <KeyboardArrowRight />
-            ) : (
-              <KeyboardArrowLeft />
-            )}
-            {languages[value - 1]}
-          </Button>
-        }
-      />
+      <div style={{ position: 'relative', top: '-20vh' }}>
+        <AutoPlaySwipeableViewsComponent
+          axis={'x'}
+          resistance={true}
+          index={value}
+          enableMouseEvents={true}
+          onChangeIndex={handleChange}
+          style={{
+            padding: 3,
+            minHeight: isMobile ? '70vh' : '90vh',
+            minWidth: '90vw',
+            display: 'block',
+            justifyContent: 'center',
+            backgroundImage: `url('/3186532.jpg')`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+
+            paddingTop: '18vh',
+          }}
+        >
+          {languages.map((language, index) => (
+            <CustomTabPanel key={index} value={value} index={index}>
+              <Content />
+            </CustomTabPanel>
+          ))}
+        </AutoPlaySwipeableViewsComponent>
+        <MobileStepper
+          steps={5}
+          sx={{ position: 'relative' }}
+          position="top"
+          activeStep={value}
+          nextButton={
+            <Button size="small" onClick={handleNext} disabled={value === 4}>
+              {languages[value + 1] ?? '   '}
+              {theme.direction === 'rtl' ? (
+                <KeyboardArrowLeft />
+              ) : (
+                <KeyboardArrowRight />
+              )}
+            </Button>
+          }
+          backButton={
+            <Button size="small" onClick={handleBack} disabled={value === 0}>
+              {theme.direction === 'rtl' ? (
+                <KeyboardArrowRight />
+              ) : (
+                <KeyboardArrowLeft />
+              )}
+              {languages[value - 1]}
+            </Button>
+          }
+        />
+      </div>
     </>
   )
 }

@@ -12,10 +12,13 @@ function Home() {
     <>
       <Navbar />
       <Banner />
-      <Services />
-      <Marquee />
-      <Contact />
-      <Footer />
+      <div style={{ position: 'relative', top: '-20vh' }}>
+        <Marquee />
+
+        <Services />
+        <Contact />
+        <Footer />
+      </div>
     </>
   )
 }
