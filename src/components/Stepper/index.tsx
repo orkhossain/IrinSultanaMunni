@@ -28,7 +28,7 @@ function TabStepper() {
 
   const icons: React.CSSProperties = {
     width: !isMobile ? '80px' : '30px',
-    marginTop: '2px',
+    // marginTop: !isMobile ? '2px' : '1px',
     fontSize: !isMobile ? '14px' : '1.7rem',
   }
 

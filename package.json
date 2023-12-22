@@ -36,6 +36,7 @@
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
+    "@types/react-animate-on-scroll": "^2.1.8",
     "@types/react-dom": "^18",
     "@types/react-swipeable-views": "^0.13.5",
     "eslint": "^8",

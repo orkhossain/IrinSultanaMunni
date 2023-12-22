@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Box from '@mui/material/Box'
 import { useTheme } from '@mui/material/styles'
 import { Button, MobileStepper, useMediaQuery } from '@mui/material'
@@ -8,6 +8,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { setValue, selectCount } from '../../slice/count'
 import { selectLanguage, setLanguage, setDictionary } from '@/slice/language'
 import exportData from '@/global/objects/languages'
+import { getDictionary } from '@/get-dictionary'
 
 export default function PillTab() {
   const { languages, flags } = exportData
@@ -25,6 +26,21 @@ export default function PillTab() {
   const handleChange = (newValue: number) => {
     dispatch(setValue(newValue))
   }
+
+  const lan = useSelector(selectLanguage)
+
+  useEffect(() => {
+    async function fetchDictionary() {
+      try {
+        const dictionary = await getDictionary(lan)
+        dispatch(setDictionary(dictionary))
+      } catch (error) {
+        console.error('Error fetching dictionary:', error)
+      }
+    }
+
+    fetchDictionary()
+  }, [dispatch, lan])
 
   return (
     <div
