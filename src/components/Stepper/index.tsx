@@ -5,24 +5,31 @@ import { Button, MobileStepper, useMediaQuery } from '@mui/material'
 import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material'
 import { useSelector, useDispatch } from 'react-redux'
 import { decrement, increment, selectCount } from '../../slice/count'
+import exportData from '@/global/objects/languages'
 
 function TabStepper() {
   const count = useSelector(selectCount)
   const dispatch = useDispatch()
+  const { languages, flags } = exportData
 
   const theme = useTheme()
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'))
+  const flagArray = Object.keys(flags)
+  const languagArray = Object.keys(languages)
 
-  const languages = !isMobile
-    ? ['Italiano', 'English', 'বাংলা', 'اردو', 'हिन्दी']
-    : ['🇬🇧', '🇮🇹', '🇧🇩', '🇵🇰', '🇮🇳']
-
+  const array = isMobile ? flagArray : languagArray
   const handleNext = () => {
     dispatch(increment())
   }
 
   const handleBack = () => {
     dispatch(decrement())
+  }
+
+  const icons: React.CSSProperties = {
+    width: !isMobile ? '80px' : '30px',
+    marginTop: '2px',
+    fontSize: !isMobile ? '14px' : '1.7rem',
   }
 
   return (
@@ -33,7 +40,7 @@ function TabStepper() {
         sx={{
           position: 'relative',
           bgcolor: 'transparent',
-          top: '-5vh',
+          top: isMobile ? '-6vh' : '-5vh',
           color: 'white !important',
           '& .MuiMobileStepper-dot': {
             display: 'none',
@@ -50,8 +57,8 @@ function TabStepper() {
             onClick={handleNext}
             disabled={count === 4}
           >
-            {<div style={{ width: '90px' }}>{languages[count + 1]}</div> ?? (
-              <div style={{ width: '90px' }}></div>
+            {<div style={icons}>{array[count + 1]}</div> ?? (
+              <div style={icons}></div>
             )}
             {theme.direction === 'rtl' ? (
               <KeyboardArrowLeft />
@@ -74,8 +81,8 @@ function TabStepper() {
             ) : (
               <KeyboardArrowLeft />
             )}
-            {<div style={{ width: '90px' }}>{languages[count - 1]}</div> ?? (
-              <div style={{ width: '90px' }}></div>
+            {<div style={icons}>{array[count - 1]}</div> ?? (
+              <div style={icons}></div>
             )}
           </Button>
         }

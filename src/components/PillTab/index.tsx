@@ -6,18 +6,21 @@ import { Button, MobileStepper, useMediaQuery } from '@mui/material'
 import { StyledTabs, StyledTab } from './CustomTabSelector'
 import { useSelector, useDispatch } from 'react-redux'
 import { setValue, selectCount } from '../../slice/count'
-import { BorderAll, Opacity } from '@mui/icons-material'
+import { selectLanguage, setLanguage, setDictionary } from '@/slice/language'
+import exportData from '@/global/objects/languages'
 
 export default function PillTab() {
+  const { languages, flags } = exportData
   const count = useSelector(selectCount)
   const dispatch = useDispatch()
 
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down('md'))
 
-  const languages = !isMobile
-    ? ['Italiano', 'English', 'বাংলা', 'اردو', 'हिन्दी']
-    : ['🇮🇹', '🇬🇧', '🇧🇩', '🇵🇰', '🇮🇳']
+  const flagArray = Object.keys(flags)
+  const languagArray = Object.keys(languages)
+
+  const array = isMobile ? flagArray : languagArray
 
   const handleChange = (newValue: number) => {
     dispatch(setValue(newValue))
@@ -33,9 +36,9 @@ export default function PillTab() {
       <Box zIndex={1}>
         <StyledTabs
           value={count}
-          onChange={(event: React.SyntheticEvent, newValue: number) =>
+          onChange={(event: React.SyntheticEvent, newValue: number) => {
             handleChange(newValue)
-          }
+          }}
           aria-label="styled tabs example"
           sx={{
             backgroundColor: `rgba(211, 211, 211, 0.4)`, // Set the background color with opacity
@@ -45,7 +48,7 @@ export default function PillTab() {
             borderRadius: '50px',
           }}
         >
-          {languages.map((language, index) => (
+          {array.map((language, index) => (
             <StyledTab key={index} label={language} />
           ))}
         </StyledTabs>

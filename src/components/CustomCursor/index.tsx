@@ -1,14 +1,15 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import './style.css'
 
-const CustomCursor = () => {
-  const cursor = React.useRef(null)
-  const cursorCircle = React.useRef(null)
+const CustomCursor: React.FC = () => {
+  const cursor = useRef<HTMLDivElement>(null)
+  const cursorCircle = useRef<HTMLDivElement>(null)
   const mouse = { x: -100, y: -100 }
   const pos = { x: 0, y: 0 }
   const speed = 0.1
+  const loopRef = useRef<number | null>(null)
 
-  const updateCoordinates = (e: { clientX: number; clientY: number }) => {
+  const updateCoordinates = (e: MouseEvent) => {
     mouse.x = e.clientX
     mouse.y = e.clientY
   }
@@ -18,14 +19,15 @@ const CustomCursor = () => {
 
     return () => {
       window.removeEventListener('mousemove', updateCoordinates)
+      loopRef.current && cancelAnimationFrame(loopRef.current)
     }
   }, [])
 
-  const getAngle = (diffX: number, diffY: number) => {
+  const getAngle = (diffX: number, diffY: number): number => {
     return (Math.atan2(diffY, diffX) * 180) / Math.PI
   }
 
-  const getSqueeze = (diffX: number, diffY: number) => {
+  const getSqueeze = (diffX: number, diffY: number): number => {
     const distance = Math.sqrt(Math.pow(diffX, 2) + Math.pow(diffY, 2))
     const maxSqueeze = 0.15
     const accelerator = 1500
@@ -46,42 +48,32 @@ const CustomCursor = () => {
     const rotate = `rotate(${angle}deg)`
     const translate = `translate3d(${pos.x}px, ${pos.y}px, 0)`
 
-    if (cursor.current) {
-      cursor.current.style.transform = translate
-    }
+    cursor.current?.style.setProperty('transform', translate)
+    cursorCircle.current?.style.setProperty('transform', `${rotate} ${scale}`)
 
-    if (cursorCircle.current) {
-      cursorCircle.current.style.transform = `${rotate} ${scale}`
-    }
+    loopRef.current = requestAnimationFrame(updateCursor)
   }
 
   useEffect(() => {
-    const loop = () => {
-      updateCursor()
-      requestAnimationFrame(loop)
-    }
-    requestAnimationFrame(loop)
+    loopRef.current = requestAnimationFrame(updateCursor)
 
-    const cursorModifiers = document.querySelectorAll('[cursor-class]')
+    const cursorModifiers =
+      document.querySelectorAll<HTMLDivElement>('[cursor-class]')
 
     cursorModifiers.forEach(cursorModifier => {
-      cursorModifier.addEventListener('mouseenter', function () {
-        const className = this.getAttribute('cursor-class')
-        if (cursor.current) {
-          cursor.current.classList.add(className)
-        }
+      cursorModifier.addEventListener('mouseenter', () => {
+        const className = cursorModifier.getAttribute('cursor-class')
+        cursor.current?.classList.add(className || '')
       })
 
-      cursorModifier.addEventListener('mouseleave', function () {
-        const className = this.getAttribute('cursor-class')
-        if (cursor.current) {
-          cursor.current.classList.remove(className)
-        }
+      cursorModifier.addEventListener('mouseleave', () => {
+        const className = cursorModifier.getAttribute('cursor-class')
+        cursor.current?.classList.remove(className || '')
       })
     })
 
     return () => {
-      cancelAnimationFrame(loop)
+      loopRef.current && cancelAnimationFrame(loopRef.current)
     }
   }, [])
 

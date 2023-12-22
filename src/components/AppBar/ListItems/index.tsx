@@ -15,19 +15,6 @@ import '../style.css'
 import AppLogo from '../AppLogo'
 import { Cancel } from '@mui/icons-material'
 
-const ListItemContent = ({ text, fontSize }: any) => (
-  <ListItem button>
-    <ListItemText
-      primary={text}
-      primaryTypographyProps={{
-        variant: 'h6',
-        textAlign: 'center',
-        fontSize,
-      }}
-    />
-  </ListItem>
-)
-
 const HideAppBar = () => {
   const [drawerOpen, setDrawerOpen] = React.useState(false)
 

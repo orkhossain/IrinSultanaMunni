@@ -22,6 +22,7 @@
     "gsap": "^3.12.4",
     "gsap-trial": "^3.12.4",
     "next": "14.0.3",
+    "next-intl": "^3.4.0",
     "react": "^18",
     "react-animate-on-scroll": "^2.1.7",
     "react-dom": "^18",
