@@ -21,6 +21,7 @@ import Image18 from 'public/logos/Image18.webp'
 import Image19 from 'public/logos/Image19.webp'
 import Image20 from 'public/logos/Image20.webp'
 import Image21 from 'public/logos/Image21.webp'
+import ScrollAnimation from 'react-animate-on-scroll'
 
 import Marquee from 'react-fast-marquee'
 
@@ -50,34 +51,46 @@ const imageUrls2 = [
   Image20,
   Image21,
 ]
-const CompanyMarquee = () => {
+const CompanyMarquee = ({ children }: any) => {
   return (
-    <>
-      <Marquee speed={200}>
-        {imageUrls.map((imageUrl, index) => (
-          <div key={index}>
-            <Image
-              src={imageUrl}
-              alt={`Image${index + 1}`}
-              style={{ padding: '20px' }}
-              height={'150'}
-            />
-          </div>
-        ))}
-      </Marquee>
-      <Marquee direction="right" speed={200}>
-        {imageUrls2.map((imageUrl, index) => (
-          <div key={index}>
-            <Image
-              src={imageUrl}
-              alt={`Image${index + 1}`}
-              style={{ padding: '20px' }}
-              height={'150'}
-            />
-          </div>
-        ))}
-      </Marquee>
-    </>
+    <div>
+      <ScrollAnimation
+        animateIn="bounceInRight"
+        animateOut="fadeOut"
+        animateOnce={true}
+      >
+        <Marquee speed={200}>
+          {imageUrls.map((imageUrl, index) => (
+            <div key={index} style={{ padding: '5vh 0vh 5vh 0vh' }}>
+              <Image
+                src={imageUrl}
+                alt={`Image${index + 1}`}
+                style={{ padding: '20px' }}
+                height={'150'}
+              />
+            </div>
+          ))}
+        </Marquee>
+      </ScrollAnimation>
+      <ScrollAnimation
+        animateIn="bounceInLeft"
+        animateOut="fadeOut"
+        animateOnce={true}
+      >
+        <Marquee direction="right" speed={200}>
+          {imageUrls2.map((imageUrl, index) => (
+            <div key={index} style={{ padding: '5vh 0vh 5vh 0vh' }}>
+              <Image
+                src={imageUrl}
+                alt={`Image${index + 1}`}
+                style={{ padding: '20px' }}
+                height={'150'}
+              />
+            </div>
+          ))}
+        </Marquee>
+      </ScrollAnimation>
+    </div>
   )
 }
 

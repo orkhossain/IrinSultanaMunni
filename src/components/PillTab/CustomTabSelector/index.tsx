@@ -10,6 +10,7 @@ const StyledTabs = styled((props: any) => (
         height: '100%',
         borderRadius: '25px',
         zIndex: '+1',
+        backgroundColor: 'white',
       },
     }}
   />
@@ -17,13 +18,15 @@ const StyledTabs = styled((props: any) => (
 
 const StyledTab = styled((props: any) => <Tab disableRipple {...props} />)(
   ({ theme }: any) => ({
+    height: '1rem',
     textTransform: 'none',
-    minWidth: '40px',
+    minWidth: '0px',
     fontWeight: theme.typography.fontWeightRegular,
-    fontSize: theme.typography.pxToRem(19),
-    boxShadow: '1px',
+    padding: 15,
+    fontSize: theme.typography.pxToRem(14),
+    boxShadow: '2px black',
     '&.Mui-selected': {
-      color: '#fff',
+      color: 'black',
       zIndex: '+2',
     },
     '&.Mui-focusVisible': {

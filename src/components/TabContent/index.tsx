@@ -21,7 +21,10 @@ function CustomTabPanel(props: TabPanelProps) {
     >
       {value === index && (
         <Box
-          sx={{ display: 'flex', justifyContent: 'center', padding: '20px' }}
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+          }}
         >
           {children}
         </Box>

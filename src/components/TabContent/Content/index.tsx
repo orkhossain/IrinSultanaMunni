@@ -5,19 +5,20 @@ import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import CardMedia from '@mui/material/CardMedia'
 import Typography from '@mui/material/Typography'
-import Slider from '../Swiper'
+import Slider from '../../Slider'
 import { useMediaQuery } from '@mui/material'
 
 export default function Content() {
   const theme = useTheme()
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'))
 
   const cardStyle: React.CSSProperties = {
     display: 'flex',
-    width: isMobile ? '90vw' : '80vw',
-    height: isMobile ? '70vh' : '65vh',
+    // width: isMobile ? '90vw' : '80vw',
+    height: isMobile ? '70vh' : '50vh',
     borderRadius: '25px',
     padding: '10px',
+    margin: '10px',
     backgroundColor: 'rgba(255, 255, 255, 0.25)',
     backdropFilter: 'blur(10px)',
     border: '1px solid rgba(255, 255, 255, 0.2)',

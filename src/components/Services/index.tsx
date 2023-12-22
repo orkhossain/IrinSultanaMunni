@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {
   Card,
   CardContent,
@@ -22,6 +22,7 @@ const ServicesComponent: React.FC = () => {
   }
 
   const containerStyle: React.CSSProperties = {
+    padding: '5vh 5vh 5vh 5vh',
     display: 'flex',
     flexDirection: !isMobile ? 'row' : 'column', // Initially display cards side by side
     height: !isMobile ? '50vh' : '100vh', // Occupying half the window height
@@ -59,7 +60,6 @@ const ServicesComponent: React.FC = () => {
           </Typography>
         </CardContent>
       </Card>
-
       <Card
         style={cardStyle}
         onMouseEnter={handleHover}
