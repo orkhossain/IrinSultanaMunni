@@ -40,7 +40,7 @@ function TabStepper() {
         sx={{
           position: 'relative',
           bgcolor: 'transparent',
-          top: isMobile ? '-6vh' : '-5vh',
+          top: isMobile ? '-8vh' : '-5vh',
           color: 'white !important',
           '& .MuiMobileStepper-dot': {
             display: 'none',

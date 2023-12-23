@@ -9,6 +9,7 @@ const CustomCursor: React.FC = () => {
   const speed = 0.1
   const loopRef = useRef<number | null>(null)
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const updateCoordinates = (e: MouseEvent) => {
     mouse.x = e.clientX
     mouse.y = e.clientY
@@ -21,7 +22,7 @@ const CustomCursor: React.FC = () => {
       window.removeEventListener('mousemove', updateCoordinates)
       loopRef.current && cancelAnimationFrame(loopRef.current)
     }
-  }, [])
+  }, [updateCoordinates])
 
   const getAngle = (diffX: number, diffY: number): number => {
     return (Math.atan2(diffY, diffX) * 180) / Math.PI

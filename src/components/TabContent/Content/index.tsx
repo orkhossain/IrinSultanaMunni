@@ -14,11 +14,10 @@ export default function Content() {
 
   const cardStyle: React.CSSProperties = {
     display: 'flex',
-    // width: isMobile ? '90vw' : '80vw',
-    height: isMobile ? '70vh' : '50vh',
+    height: isMobile ? '68vh' : '50vh',
     borderRadius: '25px',
     padding: '10px',
-    margin: '10px',
+    margin: '25% 0 8vh',
     backgroundColor: 'rgba(255, 255, 255, 0.25)',
     backdropFilter: 'blur(10px)',
     border: '1px solid rgba(255, 255, 255, 0.2)',
