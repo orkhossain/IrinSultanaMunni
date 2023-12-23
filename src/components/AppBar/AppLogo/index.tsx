@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react'
 import { Box, Slide, Typography } from '@mui/material'
+import ScrollAnimation from 'react-animate-on-scroll'
 
 const AppLogo = () => {
     const [hovered, setHovered] = useState(false)
@@ -27,6 +28,7 @@ const AppLogo = () => {
                     @Irin
                 </span>
             </Typography>
+
             <Slide
                 direction="right"
                 container={containerRef.current}

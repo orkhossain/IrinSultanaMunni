@@ -26,72 +26,72 @@ import ScrollAnimation from 'react-animate-on-scroll'
 import Marquee from 'react-fast-marquee'
 
 const imageUrls = [
-  Image1,
-  Image2,
-  Image3,
-  Image4,
-  Image5,
-  Image6,
-  Image7,
-  Image8,
-  Image9,
-  Image10,
+    Image1,
+    Image2,
+    Image3,
+    Image4,
+    Image5,
+    Image6,
+    Image7,
+    Image8,
+    Image9,
+    Image10,
 ]
 
 const imageUrls2 = [
-  Image11,
-  Image12,
-  Image13,
-  Image14,
-  Image15,
-  Image16,
-  Image17,
-  Image18,
-  Image19,
-  Image20,
-  Image21,
+    Image11,
+    Image12,
+    Image13,
+    Image14,
+    Image15,
+    Image16,
+    Image17,
+    Image18,
+    Image19,
+    Image20,
+    Image21,
 ]
 const CompanyMarquee = ({ children }: any) => {
-  return (
-    <div>
-      <ScrollAnimation
-        animateIn="bounceInRight"
-        animateOut="fadeOut"
-        animateOnce={true}
-      >
-        <Marquee speed={200}>
-          {imageUrls.map((imageUrl, index) => (
-            <div key={index} style={{ padding: '5vh 0vh 5vh 0vh' }}>
-              <Image
-                src={imageUrl}
-                alt={`Image${index + 1}`}
-                style={{ padding: '20px' }}
-                height={'150'}
-              />
-            </div>
-          ))}
-        </Marquee>
-      </ScrollAnimation>
-      <ScrollAnimation
-        animateIn="bounceInLeft"
-        animateOut="fadeOut"
-        animateOnce={true}
-      >
-        <Marquee direction="right" speed={200}>
-          {imageUrls2.map((imageUrl, index) => (
-            <div key={index} style={{ padding: '5vh 0vh 5vh 0vh' }}>
-              <Image
-                src={imageUrl}
-                alt={`Image${index + 1}`}
-                style={{ padding: '20px' }}
-                height={'150'}
-              />
-            </div>
-          ))}
-        </Marquee>
-      </ScrollAnimation>
-    </div>
-  )
+    return (
+        <div>
+            <ScrollAnimation
+                animateIn="slideInRight"
+                animateOut="slideOutLeft"
+                // animateOnce={true}
+            >
+                <Marquee speed={200}>
+                    {imageUrls.map((imageUrl, index) => (
+                        <div key={index} style={{ padding: '5vh 0vh 5vh 0vh' }}>
+                            <Image
+                                src={imageUrl}
+                                alt={`Image${index + 1}`}
+                                style={{ padding: '20px' }}
+                                height={'150'}
+                            />
+                        </div>
+                    ))}
+                </Marquee>
+            </ScrollAnimation>
+            <ScrollAnimation
+                animateIn="slideInLeft"
+                animateOut="slideOutRight"
+                // animateOnce={true}
+            >
+                <Marquee direction="right" speed={200}>
+                    {imageUrls2.map((imageUrl, index) => (
+                        <div key={index} style={{ padding: '5vh 0vh 5vh 0vh' }}>
+                            <Image
+                                src={imageUrl}
+                                alt={`Image${index + 1}`}
+                                style={{ padding: '20px' }}
+                                height={'150'}
+                            />
+                        </div>
+                    ))}
+                </Marquee>
+            </ScrollAnimation>
+        </div>
+    )
 }
 
 export default CompanyMarquee

@@ -8,6 +8,8 @@ import {
 } from '@mui/material'
 import { selectDictionary } from '@/slice/language'
 import { useSelector } from 'react-redux'
+import TranslateIcon from '@mui/icons-material/Translate'
+import ScrollAnimation from 'react-animate-on-scroll'
 
 const ServicesComponent: React.FC = () => {
     const dict = useSelector(selectDictionary)
@@ -42,7 +44,6 @@ const ServicesComponent: React.FC = () => {
     }
 
     const titleStyle: React.CSSProperties = {
-        fontSize: '18px',
         marginBottom: '8px',
     }
 
@@ -58,12 +59,18 @@ const ServicesComponent: React.FC = () => {
                 onMouseLeave={handleHoverExit}
             >
                 <CardContent>
-                    <Typography variant="h2" style={titleStyle}>
-                        {service1}
-                    </Typography>
-                    <Typography variant="body1" style={descriptionStyle}>
-                        {mediation}
-                    </Typography>
+                    <ScrollAnimation
+                        animateIn="fadeInUpBig"
+                        animateOut="fadeOutUpBig"
+                        animateOnce={true}
+                    >
+                        <Typography variant="h4" style={titleStyle}>
+                            {service1}
+                        </Typography>
+                        <Typography variant="body1" style={descriptionStyle}>
+                            {mediation}
+                        </Typography>
+                    </ScrollAnimation>
                 </CardContent>
             </Card>
             <Card
@@ -72,12 +79,18 @@ const ServicesComponent: React.FC = () => {
                 onMouseLeave={handleHoverExit}
             >
                 <CardContent>
-                    <Typography variant="h2" style={titleStyle}>
-                        {service2}
-                    </Typography>
-                    <Typography variant="body1" style={descriptionStyle}>
-                        {translation}
-                    </Typography>
+                    <ScrollAnimation
+                        animateIn="fadeInUpBig"
+                        animateOut="fadeOutUpBig"
+                        animateOnce={true}
+                    >
+                        <Typography variant="h4" style={titleStyle}>
+                            {service2}
+                        </Typography>
+                        <Typography variant="body1" style={descriptionStyle}>
+                            {translation}
+                        </Typography>
+                    </ScrollAnimation>
                 </CardContent>
             </Card>
         </div>

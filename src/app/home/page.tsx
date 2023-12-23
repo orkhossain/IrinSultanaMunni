@@ -8,6 +8,7 @@ import Services from '@/components/Services'
 import Contact from '@/components/Contact'
 import About from '@/components/About'
 import CustomCursor from '@/components/CustomCursor'
+import 'animate.css/animate.compat.css'
 
 import store from '../../store'
 import { Provider } from 'react-redux'
