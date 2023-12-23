@@ -1,6 +1,5 @@
 import React from 'react'
 import Box from '@mui/material/Box'
-import Typography from '@mui/material/Typography'
 
 interface TabPanelProps {
   children?: React.ReactNode
@@ -23,7 +22,7 @@ function CustomTabPanel(props: TabPanelProps) {
         <Box
           sx={{
             display: 'flex',
-            justifyContent: 'center',
+            justifyContent: 'flex-start',
           }}
         >
           {children}

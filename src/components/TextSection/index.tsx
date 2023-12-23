@@ -2,13 +2,16 @@ import React from 'react'
 import Typography from '@mui/material/Typography'
 import Box from '@mui/material/Box'
 import ScrollAnimation from 'react-animate-on-scroll'
-import CustomCursor from '../CustomCursor'
+import { useMediaQuery, useTheme } from '@mui/material'
 
 const QuoteComponent = () => {
+  const theme = useTheme()
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'))
+  const isSmall = useMediaQuery(theme.breakpoints.down('sm'))
+
   return (
     <ScrollAnimation animateIn="fadeIn" animateOut="fadeOut">
       <section>
-        {/* <CustomCursor /> */}
         <Box
           display="flex"
           justifyContent="center"
@@ -19,17 +22,16 @@ const QuoteComponent = () => {
           cursor-class="arrow"
         >
           <Typography
-            variant="h3"
+            variant={isMobile ? (isSmall ? 'h5' : 'h3') : 'h2'}
             className="image-container"
             sx={{
-              fontFamily: "'Parisienne', cursive, 'Pinyon Script', cursive", // Applying 'Parisienne' and fallback 'Pinyon Script'
+              fontFamily: "'Parisienne', cursive, 'Pinyon Script', cursive",
             }}
           >
             &quot;To have another language <br></br> &nbsp; &nbsp; &nbsp; &nbsp;
             is to possess a second soul.&quot; &nbsp;<br></br> &nbsp; &nbsp;
             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- &nbsp; Charlemagne
+            &nbsp; - &nbsp; Charlemagne
           </Typography>
         </Box>
       </section>
