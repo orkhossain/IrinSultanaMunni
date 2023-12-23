@@ -14,11 +14,12 @@ export default function Profile() {
     const theme = useTheme()
     const isMobile = useMediaQuery(theme.breakpoints.down('md'))
     const dict = useSelector(selectDictionary)
-    const title = dict.Index?.title ?? ''
+    const description = dict.Index?.description ?? ''
+    const description2 = dict.Index?.description ?? ''
 
     const cardStyle: React.CSSProperties = {
         display: 'flex',
-        // height: '50vh',
+        height: '50vh',
         borderRadius: '25px',
         padding: '1vh',
         margin: '0 3vh',
@@ -36,63 +37,54 @@ export default function Profile() {
     }
 
     const cardContentStyle: React.CSSProperties = {
-        padding: isMobile ? '4vw 0' : '3vw 2vw',
+        padding: isMobile ? '4vw 2vw' : '3vw 2vw',
         margin: '3vh 0',
         textAlign: 'left',
         backgroundColor: 'rgba(255, 255, 255, 0.25)',
         backdropFilter: 'blur(10px)',
-        // height: '100%',
+        width: isMobile ? '90vw' : '60vw',
         borderRadius: '25px',
     }
 
     return (
-        <section>
+        <>
             <Card style={cardStyle}>
-                <CardMedia
+                {/* <CardMedia
                     component="img"
                     style={cardMediaStyle}
                     image="/flags/uk.webp"
                     alt="Live from space album cover"
-                />
+                /> */}
                 <Slider
                     slidesData={[
                         <>
                             <CardContent style={cardContentStyle}>
-                                <Typography component="div" variant="h5">
+                                {/* <Typography component="div" variant="h4">
                                     Benvenuto sul mio sito! Mi chiamo Munni!
-                                </Typography>
+                                </Typography> */}
                                 <Typography
-                                    variant="subtitle1"
+                                    variant={isMobile ? 'body1' : 'h5'}
                                     color="text.secondary"
-                                    component="div"
+                                    component="span"
                                 >
-                                    Sono una mediatrice culturale professionale
-                                    con 10 anni di esperienza ed aiuto a creare
-                                    ponti tra culture diverse, fornendo supporto
-                                    e facilitando la comunicazione. Posseggo una
-                                    solida comprensione delle culture, delle
-                                    lingue e delle dinamiche interculturali,
-                                    particolarmente quelle sud asiatiche visto
-                                    le mie origini. La mia abilità nella
-                                    mediazione culturale aiuta a fare
-                                    comprendere prevenire malintesi e a
-                                    promuovere la comprensione e la
-                                    collaborazione tra le parti interessate. Ho
-                                    esperienza
+                                    {description}
                                 </Typography>
                             </CardContent>
                         </>,
-                        '',
+                        <>
+                            <CardContent style={cardContentStyle}>
+                                <Typography
+                                    variant={isMobile ? 'body1' : 'h5'}
+                                    color="text.secondary"
+                                    component="span"
+                                >
+                                    {description2}
+                                </Typography>
+                            </CardContent>
+                        </>,
                     ]}
                 />
-                <Box
-                    sx={{
-                        display: 'flex',
-                        flexDirection: 'row',
-                        justifyContent: 'space-between',
-                    }}
-                />
             </Card>
-        </section>
+        </>
     )
 }

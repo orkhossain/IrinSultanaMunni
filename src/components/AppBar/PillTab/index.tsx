@@ -25,7 +25,9 @@ export default function PillTab() {
 
     const handleChange = (newValue: number) => {
         dispatch(setValue(newValue))
-        // dispatch(setLanguage(array[newValue]))
+        dispatch(
+            setLanguage(flags[array[newValue]] || languages[array[newValue]])
+        )
     }
 
     const lan = useSelector(selectLanguage)

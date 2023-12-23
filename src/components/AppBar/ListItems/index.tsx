@@ -44,7 +44,7 @@ const HideAppBar = () => {
                 <List
                     className="listItem"
                     sx={{
-                        color: 'white',
+                        color: isMobile ? 'black' : 'white',
                         display: 'flex',
                         flexDirection: isMobile ? 'column' : 'row',
                         justifyContent: !isMobile
