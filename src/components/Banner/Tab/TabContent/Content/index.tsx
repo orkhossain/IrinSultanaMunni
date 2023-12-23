@@ -1,65 +1,38 @@
 import React from 'react'
 import { useTheme } from '@mui/material/styles'
 import Box from '@mui/material/Box'
-import Card from '@mui/material/Card'
-import CardContent from '@mui/material/CardContent'
-import CardMedia from '@mui/material/CardMedia'
 import Typography from '@mui/material/Typography'
-import Slider from '../../Slider'
 import { useMediaQuery } from '@mui/material'
 import { useSelector } from 'react-redux'
 import { selectDictionary } from '@/slice/language'
 
 export default function Content() {
-  const theme = useTheme()
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'))
-  const dict = useSelector(selectDictionary)
-  const title = dict.Index?.title ?? ''
+    const theme = useTheme()
+    const isMobile = useMediaQuery(theme.breakpoints.down('md'))
+    const dict = useSelector(selectDictionary)
+    const title = dict.Index?.title ?? ''
 
-  // const cardStyle: React.CSSProperties = {
-  //   display: 'flex',
-  //   height: isMobile ? '100%' : '50vh',
-  //   borderRadius: '25px',
-  //   padding: '10px',
-  //   margin: '25% 0 8vh',
-  //   backgroundColor: 'rgba(255, 255, 255, 0.25)',
-  //   backdropFilter: 'blur(10px)',
-  //   border: '1px solid rgba(255, 255, 255, 0.2)',
-  //   flexDirection: isMobile ? 'column' : 'row',
-  //   justifyContent: isMobile ? 'center' : 'space-evenly',
-  // }
-
-  // const cardMediaStyle: React.CSSProperties = {
-  //   width: isMobile ? '100%' : '30vw',
-  //   padding: '20px',
-  // }
-
-  // const cardContentStyle: React.CSSProperties = {
-  //   padding: isMobile ? '20px' : '40px',
-  //   textAlign: 'left',
-  // }
-
-  return (
-    <>
-      <Box
-        sx={{
-          width: '60vw',
-          display: 'flex',
-          justifyContent: 'flex-start',
-          alignItems: 'flex-end',
-          justifySelf: 'flex-start',
-          height: '70vh',
-        }}
-      >
-        <Typography
-          variant={isMobile ? 'h4' : 'h3'}
-          style={{ fontFamily: 'Cambria' }}
-        >
-          {title}
-        </Typography>
-      </Box>
-    </>
-  )
+    return (
+        <>
+            <Box
+                sx={{
+                    width: '60vw',
+                    display: 'flex',
+                    justifyContent: 'flex-start',
+                    alignItems: 'flex-end',
+                    justifySelf: 'flex-start',
+                    height: '70vh',
+                }}
+            >
+                <Typography
+                    variant={isMobile ? 'h4' : 'h3'}
+                    style={{ fontFamily: 'Cambria' }}
+                >
+                    {title}
+                </Typography>
+            </Box>
+        </>
+    )
 }
 
 // <Card style={cardStyle}>

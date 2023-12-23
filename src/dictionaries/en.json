@@ -1,9 +1,8 @@
 {
-  "Index": {
-    "title": "Empowering global connections through linguistic expertise",
+    "Index": {
+        "title": "Empowering global connections through linguistic expertise",
         "quote": "Empowering global connections through linguistic expertise",
-          "service": "সেবা",
-    "about":"সম্পর্কিত"
-
-  }
+        "service": "Service",
+        "about": "About Me"
+    }
 }
