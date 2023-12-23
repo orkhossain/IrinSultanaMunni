@@ -22,7 +22,7 @@ export default function Profile() {
         borderRadius: '25px',
         padding: '1vh',
         margin: '0 3vh',
-        backgroundImage: `url(/bg.jpg) 0.6`,
+        backgroundImage: `url(/bg.jpg)`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         // border: '1px solid rgba(255, 255, 255, 0.2)',
