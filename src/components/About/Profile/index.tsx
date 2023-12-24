@@ -13,6 +13,8 @@ import ScrollAnimation from 'react-animate-on-scroll'
 export default function Profile() {
     const theme = useTheme()
     const isMobile = useMediaQuery(theme.breakpoints.down('md'))
+    const isSmall = useMediaQuery(theme.breakpoints.down('sm'))
+
     const dict = useSelector(selectDictionary)
     const description = dict.Index?.description ?? ''
     const description2 = dict.Index?.description2 ?? ''
@@ -37,15 +39,17 @@ export default function Profile() {
     }
 
     const cardContentStyle: React.CSSProperties = {
+        display: 'flex',
         padding: isMobile ? '4vw 2vw' : '3vw 2vw',
-        margin: '1vh 0',
+        margin: '1vw',
         textAlign: 'left',
         backgroundColor: 'rgba(255, 255, 255, 0.25)',
         backdropFilter: 'blur(10px)',
-        width: isMobile ? '82vw' : '60vw',
+        width: isMobile ? (isSmall ? '85vw' : '90w') : '60vw',
         height: '100%',
         alignContent: 'center',
         borderRadius: '25px',
+        justifyContent: 'center',
     }
 
     return (
@@ -70,6 +74,7 @@ export default function Profile() {
                                         variant={isMobile ? 'body1' : 'h5'}
                                         color="text.secondary"
                                         component="span"
+                                        fontSize={isSmall ? '13px' : 'auto'}
                                     >
                                         {description}
                                     </Typography>
@@ -81,6 +86,7 @@ export default function Profile() {
                                         variant={isMobile ? 'body1' : 'h5'}
                                         color="text.secondary"
                                         component="span"
+                                        fontSize={isSmall ? '13px' : 'auto'}
                                     >
                                         {description2}
                                     </Typography>

@@ -14,7 +14,7 @@ export default function Slider(props: any) {
 
     return (
         <Swiper
-            width={isMobile ? (isSmall ? 580 : 700) : 1000}
+            width={isMobile ? (isSmall ? 500 : 800) : 1000}
             height={200}
             modules={[Navigation]}
             className="mySwiper"

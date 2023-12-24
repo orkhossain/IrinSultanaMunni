@@ -30,7 +30,7 @@ const ServiceCard = ({
     }
 
     const descriptionStyle: React.CSSProperties = {
-        fontSize: '22px',
+        fontSize: !isMobile ? '22px' : '18px',
         margin: ' 0 1vw',
         padding: '0 2vw',
         fontFamily: 'Cambria',
