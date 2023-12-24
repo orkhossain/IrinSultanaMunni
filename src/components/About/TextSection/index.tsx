@@ -37,8 +37,8 @@ const QuoteComponent = () => {
                     &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; is to possess a second
                     soul.&quot; &nbsp;
                     <br></br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp; &nbsp; &nbsp; - &nbsp; Charlemagne
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;
+                    - &nbsp; Charlemagne
                 </Typography>
             </Box>
         </>

@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { useState } from 'react'
 import {
     List,
     ListItem,
@@ -7,36 +7,28 @@ import {
     Drawer,
     useMediaQuery,
     useTheme,
-    Box,
-    Slide,
-    Typography,
     Link,
+    ListItemButton,
 } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
-import CloseIcon from '@mui/icons-material/Close'
-import PillTab from '../PillTab'
-import '../style.css'
-import ModeToggle from '../ModeToggle'
-import AppLogo from '../AppLogo'
 import { useSelector } from 'react-redux'
 import { selectDictionary } from '@/slice/language'
+import { Cancel } from '@mui/icons-material'
 
-const ListItemContent = ({ text, fontSize }: any) => (
-    <ListItem button>
+const CustomLink = ({ href, onClick, text }: any) => (
+    <ListItem button component="a" href={href} onClick={onClick}>
         <ListItemText
-            primary={text}
             primaryTypographyProps={{
-                variant: 'h6',
+                variant: 'h5',
                 textAlign: 'center',
-                fontSize,
             }}
+            primary={text}
         />
     </ListItem>
 )
 
-const HideAppBar = () => {
-    const [drawerOpen, setDrawerOpen] = React.useState(false)
-    const [hovered, setHovered] = React.useState(false)
+const MobileDrawer = () => {
+    const [drawerOpen, setDrawerOpen] = useState(false)
     const dict = useSelector(selectDictionary)
     const service = dict.Index?.service ?? ''
     const about = dict.Index?.about ?? ''
@@ -47,72 +39,59 @@ const HideAppBar = () => {
         setDrawerOpen(!drawerOpen)
     }
 
+    const handleLinkClick = (sectionId: any) => {
+        setDrawerOpen(false)
+        const sectionElement = document.getElementById(sectionId)
+        if (sectionElement) {
+            sectionElement.scrollIntoView({ behavior: 'smooth' })
+        }
+    }
+
     const drawerItems = (
-        <>
-            <PillTab />
-            <List className="listItem">
-                <ListItemText
-                    sx={{
-                        fontSize: isMobile ? '1.5rem' : '1rem',
-                    }}
-                >
-                    <Link underline="none" href="#service">
-                        {service}
-                    </Link>
-                </ListItemText>
-                <ListItemText sx={{ fontSize: isMobile ? '1.5rem' : '1rem' }}>
-                    <Link underline="none" href="#about">
-                        {about}
-                    </Link>
-                </ListItemText>
-            </List>
-        </>
+        <List>
+            <CustomLink
+                // href="#service"
+                onClick={() => handleLinkClick('service')}
+                text={service}
+            />
+            <CustomLink
+                // href="#about"
+                onClick={() => handleLinkClick('about')}
+                text={about}
+            />
+        </List>
     )
 
     return (
         <>
-            {isMobile ? <ModeToggle /> : <AppLogo />}
-            <List
-                style={{
-                    color: 'black',
-                    display: 'flex',
-                    flexDirection: isMobile ? 'column' : 'row',
-                    gap: '20px',
-                    alignItems: isMobile ? 'flex-start' : 'center',
-                    justifyContent: 'space-between',
-                }}
-            >
-                {isMobile && (
-                    <>
-                        <ListItem>
-                            <IconButton onClick={handleDrawerToggle}>
-                                <MenuIcon />
-                            </IconButton>
-                        </ListItem>
-                        <Drawer
-                            variant="temporary"
-                            open={drawerOpen}
-                            anchor="right"
-                            style={{ width: '100%', flexShrink: 0 }}
-                            classes={{ paper: 'drawerPaper' }}
+            {isMobile && (
+                <>
+                    <IconButton onClick={handleDrawerToggle}>
+                        <MenuIcon />
+                    </IconButton>
+                    <Drawer
+                        variant="temporary"
+                        open={drawerOpen}
+                        anchor="right"
+                        style={{ width: '100%', flexShrink: 0 }}
+                        classes={{ paper: 'drawerPaper' }}
+                    >
+                        {drawerItems}
+                        <IconButton
+                            onClick={() => setDrawerOpen(false)}
+                            edge="end"
+                            color="inherit"
+                            aria-label="close drawer"
+                            className="closeIconButton"
                         >
-                            {drawerItems}
-                            <IconButton
-                                onClick={() => setDrawerOpen(false)}
-                                edge="end"
-                                color="inherit"
-                                aria-label="close drawer"
-                                className="closeIconButton"
-                            >
-                                <CloseIcon fontSize="large" />
-                            </IconButton>
-                        </Drawer>
-                    </>
-                )}
-                {!isMobile && drawerItems}
-            </List>
+                            <Cancel fontSize="large" />
+                        </IconButton>
+                    </Drawer>
+                </>
+            )}
+            {/* Other non-mobile layout */}
         </>
     )
 }
 
-export default HideAppBar
+export default MobileDrawer

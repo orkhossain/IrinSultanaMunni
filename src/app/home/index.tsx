@@ -18,7 +18,7 @@ function Home() {
             <Navbar />
             <Banner />
 
-            <div id="about">
+            <div style={{ position: 'relative' }} id="about">
                 <About />
             </div>
 
