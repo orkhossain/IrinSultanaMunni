@@ -22,7 +22,7 @@ const QuoteComponent = () => {
                 cursor-class="arrow"
             >
                 <Typography
-                    variant={isMobile ? (isSmall ? 'h5' : 'h4') : 'h2'}
+                    variant={isMobile ? (isSmall ? 'h6' : 'h4') : 'h2'}
                     className="image-container"
                     sx={{
                         fontFamily:
@@ -37,8 +37,8 @@ const QuoteComponent = () => {
                     &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; is to possess a second
                     soul.&quot; &nbsp;
                     <br></br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;
-                    - &nbsp; Charlemagne
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; -
+                    &nbsp;Charlemagne
                 </Typography>
             </Box>
         </>
