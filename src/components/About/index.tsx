@@ -13,22 +13,16 @@ function Home() {
             >
                 <TextSection />
             </ScrollAnimation>
-            <ScrollAnimation
-                // animateIn="fadeInLeftBig"
-                // animateOut="fadeOutRightBig"
-                animateIn="rollIn"
-                animateOut="rollOut"
+
+            <div
+                style={{
+                    position: 'relative',
+                    top: '-5vh',
+                    width: '100vw',
+                }}
             >
-                <div
-                    style={{
-                        position: 'relative',
-                        top: '-5vh',
-                        width: '100vw',
-                    }}
-                >
-                    <Profile />
-                </div>
-            </ScrollAnimation>
+                <Profile />
+            </div>
         </>
     )
 }

@@ -54,11 +54,7 @@ const imageUrls2 = [
 const CompanyMarquee = ({ children }: any) => {
     return (
         <div>
-            <ScrollAnimation
-                animateIn="slideInRight"
-                animateOut="slideOutLeft"
-                // animateOnce={true}
-            >
+            <ScrollAnimation animateIn="slideInRight" animateOut="slideOutLeft">
                 <Marquee speed={200}>
                     {imageUrls.map((imageUrl, index) => (
                         <div key={index} style={{ padding: '5vh 0vh 5vh 0vh' }}>
@@ -72,11 +68,7 @@ const CompanyMarquee = ({ children }: any) => {
                     ))}
                 </Marquee>
             </ScrollAnimation>
-            <ScrollAnimation
-                animateIn="slideInLeft"
-                animateOut="slideOutRight"
-                // animateOnce={true}
-            >
+            <ScrollAnimation animateIn="slideInLeft" animateOut="slideOutRight">
                 <Marquee direction="right" speed={200}>
                     {imageUrls2.map((imageUrl, index) => (
                         <div key={index} style={{ padding: '5vh 0vh 5vh 0vh' }}>

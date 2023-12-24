@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-  "prettier": "npx prettier src test --check",
+    "prettier": "npx prettier src test --check",
     "prettier:fix": "npm run prettier -- --write"
   },
   "dependencies": {
@@ -30,6 +30,7 @@
     "react-dom": "^18",
     "react-fast-marquee": "^1.6.2",
     "react-redux": "^9.0.4",
+    "react-scroll-parallax": "^3.4.5",
     "react-swipeable-views": "^0.14.0",
     "react-swipeable-views-utils": "^0.14.0",
     "redux": "^5.0.0",

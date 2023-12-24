@@ -9,6 +9,7 @@ import Slider from './Slider'
 import { useMediaQuery } from '@mui/material'
 import { useSelector } from 'react-redux'
 import { selectDictionary } from '@/slice/language'
+import ScrollAnimation from 'react-animate-on-scroll'
 
 export default function Profile() {
     const theme = useTheme()
@@ -48,43 +49,46 @@ export default function Profile() {
 
     return (
         <>
-            <Card style={cardStyle}>
-                {/* <CardMedia
-                    component="img"
-                    style={cardMediaStyle}
-                    image="/flags/uk.webp"
-                    alt="Live from space album cover"
-                /> */}
-                <Slider
-                    slidesData={[
-                        <>
-                            <CardContent style={cardContentStyle}>
-                                {/* <Typography component="div" variant="h4">
+            <ScrollAnimation animateIn="fadeInRight" animateOut="fadeOutLeft">
+                <Card style={cardStyle}>
+                    <CardMedia
+                        component="img"
+                        style={cardMediaStyle}
+                        image="/flags/uk.webp"
+                        alt="Live from space album cover"
+                    />
+
+                    <Slider
+                        slidesData={[
+                            <>
+                                <CardContent style={cardContentStyle}>
+                                    {/* <Typography component="div" variant="h4">
                                     Benvenuto sul mio sito! Mi chiamo Munni!
                                 </Typography> */}
-                                <Typography
-                                    variant={isMobile ? 'body1' : 'h5'}
-                                    color="text.secondary"
-                                    component="span"
-                                >
-                                    {description}
-                                </Typography>
-                            </CardContent>
-                        </>,
-                        <>
-                            <CardContent style={cardContentStyle}>
-                                <Typography
-                                    variant={isMobile ? 'body1' : 'h5'}
-                                    color="text.secondary"
-                                    component="span"
-                                >
-                                    {description2}
-                                </Typography>
-                            </CardContent>
-                        </>,
-                    ]}
-                />
-            </Card>
+                                    <Typography
+                                        variant={isMobile ? 'body1' : 'h5'}
+                                        color="text.secondary"
+                                        component="span"
+                                    >
+                                        {description}
+                                    </Typography>
+                                </CardContent>
+                            </>,
+                            <>
+                                <CardContent style={cardContentStyle}>
+                                    <Typography
+                                        variant={isMobile ? 'body1' : 'h5'}
+                                        color="text.secondary"
+                                        component="span"
+                                    >
+                                        {description2}
+                                    </Typography>
+                                </CardContent>
+                            </>,
+                        ]}
+                    />
+                </Card>
+            </ScrollAnimation>
         </>
     )
 }

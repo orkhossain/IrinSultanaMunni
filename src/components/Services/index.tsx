@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import {
+    Box,
     Card,
     CardContent,
     Typography,
@@ -38,9 +39,10 @@ const ServicesComponent: React.FC = () => {
     }
 
     const cardStyle: React.CSSProperties = {
-        padding: '5vh 5vh 5vh 5vh',
+        padding: '2vh 2vw',
         flex: '1',
-        width: '100vw', // Each card takes half or full width based on screen size
+        width: '100vw',
+        height: '50vh',
     }
 
     const titleStyle: React.CSSProperties = {
@@ -58,18 +60,28 @@ const ServicesComponent: React.FC = () => {
                 onMouseEnter={handleHover}
                 onMouseLeave={handleHoverExit}
             >
-                <CardContent>
+                <CardContent sx={{ display: 'flex' }}>
                     <ScrollAnimation
-                        animateIn="fadeInUpBig"
-                        animateOut="fadeOutUpBig"
-                        animateOnce={true}
+                        animateIn="fadeInDown"
+                        animateOut="fadeOutUp"
                     >
-                        <Typography variant="h4" style={titleStyle}>
-                            {service1}
-                        </Typography>
-                        <Typography variant="body1" style={descriptionStyle}>
-                            {mediation}
-                        </Typography>
+                        <Box sx={{ width: '45vw' }}>f</Box>
+                    </ScrollAnimation>
+                    <ScrollAnimation
+                        animateIn="fadeInUp"
+                        animateOut="fadeOutDown"
+                    >
+                        <Box sx={{ width: '45vw' }}>
+                            <Typography variant="h4" style={titleStyle}>
+                                {service1}
+                            </Typography>
+                            <Typography
+                                variant="body1"
+                                style={descriptionStyle}
+                            >
+                                {mediation}
+                            </Typography>
+                        </Box>
                     </ScrollAnimation>
                 </CardContent>
             </Card>
@@ -78,18 +90,28 @@ const ServicesComponent: React.FC = () => {
                 onMouseEnter={handleHover}
                 onMouseLeave={handleHoverExit}
             >
-                <CardContent>
+                <CardContent sx={{ display: 'flex' }}>
                     <ScrollAnimation
-                        animateIn="fadeInUpBig"
-                        animateOut="fadeOutUpBig"
-                        animateOnce={true}
+                        animateIn="fadeInDown"
+                        animateOut="fadeOutUp"
                     >
-                        <Typography variant="h4" style={titleStyle}>
-                            {service2}
-                        </Typography>
-                        <Typography variant="body1" style={descriptionStyle}>
-                            {translation}
-                        </Typography>
+                        <Box sx={{ width: '50vw' }}>
+                            <Typography variant="h4" style={titleStyle}>
+                                {service2}
+                            </Typography>
+                            <Typography
+                                variant="body1"
+                                style={descriptionStyle}
+                            >
+                                {translation}
+                            </Typography>
+                        </Box>
+                    </ScrollAnimation>
+                    <ScrollAnimation
+                        animateIn="fadeInUp"
+                        animateOut="fadeOutDown"
+                    >
+                        <Box sx={{ width: '50vw' }}>f</Box>
                     </ScrollAnimation>
                 </CardContent>
             </Card>
