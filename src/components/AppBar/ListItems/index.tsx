@@ -32,60 +32,60 @@ const HideAppBar = () => {
         setDrawerOpen(!drawerOpen)
     }
 
-    // const drawerItems = (
-    //     <>
-    //         <Box
-    //             sx={{
-    //                 maxWidth: '20vw',
-    //                 minWidth: '15vw',
-    //                 display: 'flex',
-    //                 alignContent: 'center',
-    //                 alignItems: 'center',
-    //             }}
-    //         >
-    //             <List
-    //                 className="listItem"
-    //                 sx={{
-    //                     color: isMobile ? 'black' : 'white',
-    //                     display: 'flex',
-    //                     flexDirection: isMobile ? 'column' : 'row',
-    //                     justifyContent: !isMobile
-    //                         ? 'space-between'
-    //                         : 'flex-end',
-    //                 }}
-    //             >
-    //                 <ListItemText
-    //                     sx={{
-    //                         fontSize: isMobile ? '1.5rem' : '1rem',
-    //                     }}
-    //                 >
-    //                     <Link
-    //                         sx={{
-    //                             color: isMobile ? 'black' : 'white',
-    //                             fontSize: isMobile ? '1.5rem' : '1rem',
-    //                         }}
-    //                         underline="none"
-    //                         href="#service"
-    //                     >
-    //                         {service}
-    //                     </Link>
-    //                 </ListItemText>
-    //                 <ListItemText>
-    //                     <Link
-    //                         sx={{
-    //                             color: isMobile ? 'black' : 'white',
-    //                             fontSize: isMobile ? '1.5rem' : '1rem',
-    //                         }}
-    //                         underline="none"
-    //                         href="#about"
-    //                     >
-    //                         {about}
-    //                     </Link>
-    //                 </ListItemText>
-    //             </List>
-    //         </Box>
-    //     </>
-    // )
+    const drawerItems = (
+        <>
+            <Box
+                sx={{
+                    maxWidth: '20vw',
+                    minWidth: '15vw',
+                    display: 'flex',
+                    alignContent: 'center',
+                    alignItems: 'center',
+                }}
+            >
+                <List
+                    className="listItem"
+                    sx={{
+                        color: isMobile ? 'black' : 'white',
+                        display: 'flex',
+                        flexDirection: isMobile ? 'column' : 'row',
+                        justifyContent: !isMobile
+                            ? 'space-between'
+                            : 'flex-end',
+                    }}
+                >
+                    <ListItemText
+                        sx={{
+                            fontSize: isMobile ? '1.5rem' : '1rem',
+                        }}
+                    >
+                        <Link
+                            sx={{
+                                color: isMobile ? 'black' : 'white',
+                                fontSize: isMobile ? '1.5rem' : '1rem',
+                            }}
+                            underline="none"
+                            href="#service"
+                        >
+                            {service}
+                        </Link>
+                    </ListItemText>
+                    <ListItemText>
+                        <Link
+                            sx={{
+                                color: isMobile ? 'black' : 'white',
+                                fontSize: isMobile ? '1.5rem' : '1rem',
+                            }}
+                            underline="none"
+                            href="#about"
+                        >
+                            {about}
+                        </Link>
+                    </ListItemText>
+                </List>
+            </Box>
+        </>
+    )
 
     return (
         <>
@@ -119,6 +119,7 @@ const HideAppBar = () => {
                     </ListItem>
                 </Box>
                 {isMobile && <MobileDrawer />}
+                {!isMobile && drawerItems}
             </List>
         </>
     )
