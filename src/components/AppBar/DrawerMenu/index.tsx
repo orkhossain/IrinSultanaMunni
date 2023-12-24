@@ -10,6 +10,7 @@ import {
     Box,
     Slide,
     Typography,
+    Link,
 } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
 import CloseIcon from '@mui/icons-material/Close'
@@ -17,6 +18,8 @@ import PillTab from '../PillTab'
 import '../style.css'
 import ModeToggle from '../ModeToggle'
 import AppLogo from '../AppLogo'
+import { useSelector } from 'react-redux'
+import { selectDictionary } from '@/slice/language'
 
 const ListItemContent = ({ text, fontSize }: any) => (
     <ListItem button>
@@ -34,7 +37,9 @@ const ListItemContent = ({ text, fontSize }: any) => (
 const HideAppBar = () => {
     const [drawerOpen, setDrawerOpen] = React.useState(false)
     const [hovered, setHovered] = React.useState(false)
-
+    const dict = useSelector(selectDictionary)
+    const service = dict.Index?.service ?? ''
+    const about = dict.Index?.about ?? ''
     const theme = useTheme()
     const isMobile = useMediaQuery(theme.breakpoints.down('md'))
 
@@ -46,14 +51,20 @@ const HideAppBar = () => {
         <>
             <PillTab />
             <List className="listItem">
-                <ListItemContent
-                    text="Item 1"
-                    fontSize={isMobile ? '1.5rem' : '1rem'}
-                />
-                <ListItemContent
-                    text="Item 2"
-                    fontSize={isMobile ? '1.5rem' : '1rem'}
-                />
+                <ListItemText
+                    sx={{
+                        fontSize: isMobile ? '1.5rem' : '1rem',
+                    }}
+                >
+                    <Link underline="none" href="#service">
+                        {service}
+                    </Link>
+                </ListItemText>
+                <ListItemText sx={{ fontSize: isMobile ? '1.5rem' : '1rem' }}>
+                    <Link underline="none" href="#about">
+                        {about}
+                    </Link>
+                </ListItemText>
             </List>
         </>
     )

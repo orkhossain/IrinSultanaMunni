@@ -56,7 +56,7 @@ function CenteredTabs() {
                 enableMouseEvents={true}
                 onChangeIndex={handleChange}
                 style={{
-                    height: '100svh',
+                    height: isMobile ? '100svh' : '100vh',
                     backgroundImage: `url(/countries/${count}.webp)`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',

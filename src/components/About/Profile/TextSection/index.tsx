@@ -11,14 +11,14 @@ const QuoteComponent = () => {
 
     return (
         <ScrollAnimation animateIn="fadeIn" animateOut="fadeOut">
-            <section>
+            <div>
                 <Box
                     position="relative"
                     top="-20vh"
                     display="flex"
                     justifyContent="center"
                     alignItems="center"
-                    height="50svh"
+                    height={!isMobile ? '50svh' : '32svh'}
                     padding={'30px'}
                     className={'container'}
                     cursor-class="arrow"
@@ -40,7 +40,7 @@ const QuoteComponent = () => {
                         Charlemagne
                     </Typography>
                 </Box>
-            </section>
+            </div>
         </ScrollAnimation>
     )
 }

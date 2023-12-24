@@ -7,7 +7,7 @@ interface LanguageState {
 }
 
 const initialState: LanguageState = {
-    value: 'en',
+    value: 'it',
     dict: {},
 }
 

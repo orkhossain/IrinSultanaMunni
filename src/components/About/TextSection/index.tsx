@@ -9,35 +9,39 @@ const QuoteComponent = () => {
     const isSmall = useMediaQuery(theme.breakpoints.down('sm'))
 
     return (
-        <section>
+        <>
             <Box
                 position="relative"
                 top="-20vh"
                 display="flex"
                 justifyContent="center"
                 alignItems="center"
-                height="50svh"
+                height={!isMobile ? '50svh' : '32svh'}
                 padding={'30px'}
                 className={'container'}
                 cursor-class="arrow"
             >
                 <Typography
-                    variant={isMobile ? (isSmall ? 'h5' : 'h3') : 'h2'}
+                    variant={isMobile ? (isSmall ? 'h5' : 'h4') : 'h2'}
                     className="image-container"
                     sx={{
                         fontFamily:
                             "'Parisienne', cursive, 'Pinyon Script', cursive",
                         position: 'relative',
                         top: '15vh',
+                        textAlign: 'center',
+                        left: '-5vw',
                     }}
                 >
-                    &quot;To have another language <br></br> &nbsp; &nbsp;
-                    &nbsp; &nbsp; is to possess a second soul.&quot; &nbsp;
+                    &quot;To have another language <br></br> &nbsp;
+                    &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; is to possess a second
+                    soul.&quot; &nbsp;
                     <br></br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp; Charlemagne
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp; &nbsp; &nbsp; - &nbsp; Charlemagne
                 </Typography>
             </Box>
-        </section>
+        </>
     )
 }
 

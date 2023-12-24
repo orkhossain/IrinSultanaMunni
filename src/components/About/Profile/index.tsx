@@ -1,6 +1,5 @@
 import React from 'react'
 import { useTheme } from '@mui/material/styles'
-import Box from '@mui/material/Box'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import CardMedia from '@mui/material/CardMedia'
@@ -16,34 +15,36 @@ export default function Profile() {
     const isMobile = useMediaQuery(theme.breakpoints.down('md'))
     const dict = useSelector(selectDictionary)
     const description = dict.Index?.description ?? ''
-    const description2 = dict.Index?.description ?? ''
+    const description2 = dict.Index?.description2 ?? ''
 
     const cardStyle: React.CSSProperties = {
         display: 'flex',
-        height: '50vh',
+        height: !isMobile ? '50vh' : '60vh',
         borderRadius: '25px',
         padding: '1vh',
         margin: '0 3vh',
         backgroundImage: `url(/bg.jpg)`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        // border: '1px solid rgba(255, 255, 255, 0.2)',
         flexDirection: isMobile ? 'column' : 'row',
         justifyContent: isMobile ? 'center' : 'space-evenly',
     }
 
     const cardMediaStyle: React.CSSProperties = {
-        width: isMobile ? '100%' : '30vw',
+        width: isMobile ? 'auto' : '30vw',
+        height: isMobile ? '20vh' : 'auto',
         margin: '20px',
     }
 
     const cardContentStyle: React.CSSProperties = {
         padding: isMobile ? '4vw 2vw' : '3vw 2vw',
-        margin: '3vh 0',
+        margin: '1vh 0',
         textAlign: 'left',
         backgroundColor: 'rgba(255, 255, 255, 0.25)',
         backdropFilter: 'blur(10px)',
-        width: isMobile ? '90vw' : '60vw',
+        width: isMobile ? '82vw' : '60vw',
+        height: '100%',
+        alignContent: 'center',
         borderRadius: '25px',
     }
 

@@ -8,6 +8,7 @@ import {
     useMediaQuery,
     useTheme,
     Box,
+    Link,
 } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
 import PillTab from '../PillTab'
@@ -57,13 +58,29 @@ const HideAppBar = () => {
                             fontSize: isMobile ? '1.5rem' : '1rem',
                         }}
                     >
-                        {service}
+                        <Link
+                            sx={{
+                                color: isMobile ? 'black' : 'white',
+                                fontSize: isMobile ? '1.5rem' : '1rem',
+                            }}
+                            underline="none"
+                            href="#service"
+                        >
+                            {service}
+                        </Link>
                     </ListItemText>
-                    <ListItemText
-                        sx={{ fontSize: isMobile ? '1.5rem' : '1rem' }}
-                    >
-                        {about}
-                    </ListItemText>{' '}
+                    <ListItemText>
+                        <Link
+                            sx={{
+                                color: isMobile ? 'black' : 'white',
+                                fontSize: isMobile ? '1.5rem' : '1rem',
+                            }}
+                            underline="none"
+                            href="#about"
+                        >
+                            {about}
+                        </Link>
+                    </ListItemText>
                 </List>
             </Box>
         </>
