@@ -25,6 +25,7 @@ export default function Content() {
                 }}
             >
                 <Typography
+                    color={'white'}
                     variant={isMobile ? 'h4' : 'h3'}
                     style={{ fontFamily: 'Cambria' }}
                 >

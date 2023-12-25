@@ -60,10 +60,6 @@ const MobileDrawer = () => {
                 onClick={() => handleLinkClick('about')}
                 text={about}
             />
-
-            <ListItem>
-                <Contact />
-            </ListItem>
         </List>
     )
 
