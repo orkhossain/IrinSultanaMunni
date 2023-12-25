@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import { getDictionary } from '@/get-dictionary'
+import { getDictionary } from '@/i18n/get-dictionary'
 import { setDictionary } from '.'
 
 export const fetchDictionary: any = createAsyncThunk(

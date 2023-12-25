@@ -9,7 +9,7 @@ import CustomTabPanel from './TabContent'
 import Content from './TabContent/Content'
 import exportData from '@/global/objects/languages'
 import { selectLanguage, setDictionary, setLanguage } from '@/slice/language'
-import { getDictionary } from '@/get-dictionary'
+import { getDictionary } from '@/i18n/get-dictionary'
 
 const AutoPlaySwipeableViewsComponent = SwipeableViews
 

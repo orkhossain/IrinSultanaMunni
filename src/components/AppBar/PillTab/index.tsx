@@ -8,7 +8,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { setValue, selectCount } from '../../../slice/count'
 import { selectLanguage, setLanguage, setDictionary } from '@/slice/language'
 import exportData from '@/global/objects/languages'
-import { getDictionary } from '@/get-dictionary'
+import { getDictionary } from '@/i18n/get-dictionary'
 import { fetchDictionary } from '@/slice/language/fetch'
 
 export default function PillTab() {

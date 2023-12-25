@@ -1,4 +1,4 @@
-import { getDictionary } from '@/get-dictionary'
+import { getDictionary } from '@/i18n/get-dictionary'
 import { createSlice } from '@reduxjs/toolkit'
 
 interface LanguageState {
