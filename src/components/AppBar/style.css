@@ -1,0 +1,43 @@
+.logo-text {
+  display: inline-block; /* Ensures the transition takes effect */
+  transform-origin: center; /* Sets the transformation origin to the center */
+  -webkit-transition: width 0.5s;
+  transition: width 0.5s;
+  text-align: left;
+  overflow: hidden;
+}
+
+.grow {
+  width: 220px;
+}
+
+.frosted-glass {
+  /* backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.2); */
+}
+
+.full-width {
+  width: 100%;
+}
+
+/* styles.css */
+.listItem {
+  text-align: center;
+  width: 100%;
+}
+
+.closeIconButton {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.drawerPaper {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px;
+}
