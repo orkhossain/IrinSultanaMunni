@@ -1,98 +1,81 @@
-import React, { useState } from 'react'
-import { Box, Typography, TextField, IconButton } from '@mui/material'
-import SendIcon from '@mui/icons-material/Send'
-import ChatIcon from '@mui/icons-material/Chat'
-import CloseIcon from '@mui/icons-material/Close'
+import React, { useEffect, useState } from 'react'
+import {
+    Button,
+    IconButton,
+    Slide,
+    useMediaQuery,
+    useTheme,
+} from '@mui/material'
+import MailOutlineIcon from '@mui/icons-material/MailOutline'
 
-const ContactMeChat: React.FC = () => {
-  const [message, setMessage] = useState('')
-  const [chatHistory, setChatHistory] = useState<string[]>([])
-  const [showChat, setShowChat] = useState(false)
-
-  const sendMessage = () => {
-    if (message.trim() !== '') {
-      setChatHistory([...chatHistory, message])
-      setMessage('')
+const ContactMeChat = () => {
+    const handleMailClick = () => {
+        window.location.href = 'mailto:irin.munni78@gmail.com'
     }
-  }
 
-  const toggleChat = () => {
-    setShowChat(!showChat)
-  }
+    const theme = useTheme()
+    const isMobile = useMediaQuery(theme.breakpoints.down('md'))
+    const [showButton, setShowButton] = useState(false)
+    const [prevScrollPos, setPrevScrollPos] = useState(0)
+    const [scrollDirection, setScrollDirection] = useState<any>('left') // Track scroll direction
 
-  const closeChat = () => {
-    setShowChat(false)
-  }
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollPos = window.pageYOffset
+            const shouldShow = currentScrollPos > 0 // Show button if scroll position is not at the top
+            setShowButton(shouldShow)
 
-  return (
-    <>
-      {showChat && (
-        <Box
-          position="fixed"
-          bottom="20px"
-          right="20px"
-          width="300px"
-          borderRadius="8px"
-          boxShadow={3}
-          bgcolor="#fff"
-          zIndex={1000}
-        >
-          <Box
-            padding="16px"
-            borderBottom="1px solid #ddd"
-            display="flex"
-            alignItems="center"
-            justifyContent="space-between"
-          >
-            <Typography variant="h6">Contact Me</Typography>
-            <IconButton onClick={closeChat} color="primary">
-              <CloseIcon />
-            </IconButton>
-          </Box>
-          <Box padding="16px" maxHeight="300px" overflow="auto">
-            {chatHistory.map((msg, index) => (
-              <Typography key={index} variant="body1" gutterBottom>
-                {msg}
-              </Typography>
-            ))}
-          </Box>
-          <Box padding="16px" borderTop="1px solid #ddd">
-            <TextField
-              placeholder="Type a message..."
-              value={message}
-              onChange={e => setMessage(e.target.value)}
-              fullWidth
-              variant="outlined"
-              size="small"
-              onKeyPress={e => {
-                if (e.key === 'Enter') {
-                  sendMessage()
-                }
-              }}
-            />
-          </Box>
-        </Box>
-      )}
+            // Determine scroll direction
+            setScrollDirection(
+                currentScrollPos < prevScrollPos ? 'left' : 'left'
+            )
 
-      <IconButton
-        style={{
-          position: 'fixed',
-          bottom: '20px',
-          right: '20px',
-          zIndex: 1000,
-          backgroundColor: showChat ? 'transparent' : '#3f51b5',
-          borderRadius: '50%',
-          width: showChat ? 'auto' : '50px',
-          height: showChat ? 'auto' : '50px',
-          transition: 'all 0.3s ease',
-        }}
-        onClick={showChat ? undefined : toggleChat}
-        color={showChat ? 'primary' : 'inherit'}
-      >
-        {!showChat && <ChatIcon fontSize="large" />}
-      </IconButton>
-    </>
-  )
+            setPrevScrollPos(currentScrollPos)
+        }
+
+        window.addEventListener('scroll', handleScroll)
+        return () => {
+            window.removeEventListener('scroll', handleScroll)
+        }
+    }, [prevScrollPos])
+
+    return (
+        <>
+            {isMobile && (
+                <Button
+                    variant="contained"
+                    style={{ backgroundColor: 'orage', color: 'white' }}
+                    endIcon={<MailOutlineIcon />}
+                    onClick={handleMailClick}
+                >
+                    Contact Me
+                </Button>
+            )}
+
+            {!isMobile && (
+                <Slide
+                    direction={scrollDirection}
+                    in={showButton && Boolean(prevScrollPos)}
+                >
+                    <IconButton
+                        style={{
+                            position: 'fixed',
+                            bottom: '20px',
+                            right: '20px',
+                            zIndex: 1000,
+                            backgroundColor: 'orange',
+                            borderRadius: '50%',
+                            width: '60px',
+                            height: '60px',
+                        }}
+                        onClick={handleMailClick}
+                    >
+                        <MailOutlineIcon fontSize="large" />
+                    </IconButton>
+                </Slide>
+            )}
+        </>
+    )
 }
 
 export default ContactMeChat

@@ -14,6 +14,7 @@ import MenuIcon from '@mui/icons-material/Menu'
 import { useSelector } from 'react-redux'
 import { selectDictionary } from '@/slice/language'
 import { Cancel } from '@mui/icons-material'
+import Contact from '@/components/Contact'
 
 const CustomLink = ({ href, onClick, text }: any) => (
     <ListItem button component="a" href={href} onClick={onClick}>
@@ -59,6 +60,10 @@ const MobileDrawer = () => {
                 onClick={() => handleLinkClick('about')}
                 text={about}
             />
+
+            <ListItem>
+                <Contact />
+            </ListItem>
         </List>
     )
 
