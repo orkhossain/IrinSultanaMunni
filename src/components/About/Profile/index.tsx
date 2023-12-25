@@ -45,7 +45,7 @@ export default function Profile() {
         textAlign: 'left',
         backgroundColor: 'rgba(255, 255, 255, 0.25)',
         backdropFilter: 'blur(10px)',
-        width: isMobile ? (isSmall ? '85vw' : '90w') : '60vw',
+        width: isMobile ? (isSmall ? '82vw' : '88vw') : '60vw',
         height: '100%',
         alignContent: 'center',
         borderRadius: '25px',
