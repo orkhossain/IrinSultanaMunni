@@ -17,7 +17,7 @@ export default function Content() {
             <Box
                 sx={{
                     position: 'fixed',
-                    top: '-10%',
+                    top: '-10vh',
                     width: '60vw',
                     display: 'flex',
                     justifyContent: 'flex-start',
