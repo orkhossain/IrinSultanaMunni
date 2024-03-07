@@ -10,6 +10,7 @@ function Home() {
             <ScrollAnimation
                 animateOut="fadeOutRightBig"
                 animateIn="fadeInLeftBig"
+                animateOnce={true}
             >
                 <TextSection />
             </ScrollAnimation>

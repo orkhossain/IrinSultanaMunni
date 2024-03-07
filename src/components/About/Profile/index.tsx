@@ -25,7 +25,7 @@ export default function Profile() {
         borderRadius: '25px',
         padding: '1vh',
         margin: '0 3vh',
-        backgroundImage: `url(/bg.jpg)`,
+        backgroundImage: `linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.4)), url(/bg.jpg)`, // Added overlay
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         flexDirection: isMobile ? 'column' : 'row',
@@ -36,14 +36,17 @@ export default function Profile() {
         width: isMobile ? 'auto' : '30vw',
         height: isMobile ? '20vh' : 'auto',
         margin: '20px',
+        borderRadius: '5%',
+        fill: 'true',
+        objectPosition: isMobile ? 'top' : 'center', // Updated objectPosition
     }
 
     const cardContentStyle: React.CSSProperties = {
         display: 'flex',
         padding: isMobile ? '4vw 2vw' : '3vw 2vw',
-        margin: '1vw',
+        // margin: '1vw',
         textAlign: 'left',
-        backgroundColor: 'rgba(255, 255, 255, 0.25)',
+        backgroundColor: 'rgba(255, 255, 255, 0.5)',
         backdropFilter: 'blur(10px)',
         width: isMobile ? (isSmall ? '82vw' : '88vw') : '60vw',
         height: '100%',
@@ -54,13 +57,16 @@ export default function Profile() {
 
     return (
         <>
-            <ScrollAnimation animateIn="fadeInRight" animateOut="fadeOutLeft">
+            <ScrollAnimation
+                animateIn="fadeInRight"
+                animateOut="fadeOutLeft"
+                animateOnce={true}
+            >
                 <Card style={cardStyle}>
                     <CardMedia
                         component="img"
                         style={cardMediaStyle}
-                        image="/flags/uk.webp"
-                        alt="Live from space album cover"
+                        image="/profile.jpg"
                     />
 
                     <Slider

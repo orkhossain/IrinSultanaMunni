@@ -10,7 +10,11 @@ const QuoteComponent = () => {
     const isSmall = useMediaQuery(theme.breakpoints.down('sm'))
 
     return (
-        <ScrollAnimation animateIn="fadeIn" animateOut="fadeOut">
+        <ScrollAnimation
+            animateIn="fadeIn"
+            animateOut="fadeOut"
+            animateOnce={true}
+        >
             <div>
                 <Box
                     position="relative"

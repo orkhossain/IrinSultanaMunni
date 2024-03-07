@@ -68,6 +68,7 @@ const ServiceCard = ({
                                 <ScrollAnimation
                                     animateIn="fadeInUp"
                                     animateOut="fadeOutDown"
+                                    animateOnce={true}
                                 >
                                     <Typography variant="h4" style={titleStyle}>
                                         {title}
@@ -83,6 +84,7 @@ const ServiceCard = ({
 
                             <Box>
                                 <ScrollAnimation
+                                    animateOnce={true}
                                     animateIn="fadeInDown"
                                     animateOut="fadeOutUp"
                                 >
@@ -122,6 +124,7 @@ const ServiceCard = ({
                         <>
                             <Box>
                                 <ScrollAnimation
+                                    animateOnce={true}
                                     animateIn="fadeInDown"
                                     animateOut="fadeOutUp"
                                 >
@@ -161,6 +164,7 @@ const ServiceCard = ({
                                 <ScrollAnimation
                                     animateIn="fadeInUp"
                                     animateOut="fadeOutDown"
+                                    animateOnce={true}
                                 >
                                     <Typography variant="h4" style={titleStyle}>
                                         {title}
