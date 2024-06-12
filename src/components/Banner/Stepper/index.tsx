@@ -4,7 +4,8 @@ import { useTheme } from '@mui/material/styles'
 import { Button, MobileStepper, useMediaQuery } from '@mui/material'
 import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material'
 import { useSelector, useDispatch } from 'react-redux'
-import { decrement, increment, selectCount } from '../../../slice/count'
+import { decrement, increment, selectCount } from '@//slice/count'
+import { setLanguage } from '@/slice/language'
 import exportData from '@/global/objects/languages'
 
 function TabStepper() {
@@ -15,20 +16,27 @@ function TabStepper() {
     const theme = useTheme()
     const isMobile = useMediaQuery(theme.breakpoints.down('md'))
     const flagArray = Object.keys(flags)
-    const languagArray = Object.keys(languages)
+    const languageArray = Object.keys(languages)
+    const array = isMobile ? flagArray : languageArray
+    const maxSteps = array.length
 
-    const array = isMobile ? flagArray : languagArray
     const handleNext = () => {
+        const nextIndex = (count + 1) % maxSteps
         dispatch(increment())
+        dispatch(
+            setLanguage(flags[array[nextIndex]] || languages[array[nextIndex]])
+        )
     }
 
     const handleBack = () => {
+        const prevIndex = (count - 1 + maxSteps) % maxSteps
         dispatch(decrement())
+        dispatch(
+            setLanguage(flags[array[prevIndex]] || languages[array[prevIndex]])
+        )
     }
-
     const icons: React.CSSProperties = {
         width: !isMobile ? '80px' : '30px',
-        // marginTop: !isMobile ? '2px' : '1px',
         fontSize: !isMobile ? '14px' : '1.7rem',
     }
 

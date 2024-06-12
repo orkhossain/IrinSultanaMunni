@@ -8,11 +8,10 @@ import {
     useMediaQuery,
     useTheme,
 } from '@mui/material'
-import MailOutlineIcon from '@mui/icons-material/MailOutline'
 import { useSelector } from 'react-redux'
 import { selectDictionary } from '@/slice/language'
 import ScrollAnimation from 'react-animate-on-scroll'
-
+import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined'
 const boxStyles = {
     height: '20vh',
     bgcolor: '#FAF9F6',
@@ -42,7 +41,6 @@ const buttonStyles = {
     borderRadius: '15px',
     height: '6vh',
     color: 'black',
-
     boxShadow: 'rgb(38, 57, 77) 0px 20px 30px -10px;',
 }
 const ContactMeChat = () => {
@@ -87,7 +85,7 @@ const ContactMeChat = () => {
 
                     <IconButton sx={buttonStyles} onClick={handleMailClick}>
                         {/* {contact} */}
-                        <MailOutlineIcon sx={{ fontSize: '50px' }} />
+                        <EmailOutlinedIcon sx={{ fontSize: '50px' }} />
                     </IconButton>
                 </Box>
             )}
@@ -109,11 +107,10 @@ const ContactMeChat = () => {
                             width: '60px',
                             height: '60px',
                             boxShadow: 'rgb(38, 57, 77) 0px 20px 30px -10px;',
-                            border: '3px solid black',
                         }}
                         onClick={handleMailClick}
                     >
-                        <MailOutlineIcon
+                        <EmailOutlinedIcon
                             fontSize="large"
                             sx={{ color: 'black' }}
                         />
