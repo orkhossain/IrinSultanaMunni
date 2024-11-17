@@ -33,12 +33,12 @@ export default function Profile() {
     }
 
     const cardMediaStyle: React.CSSProperties = {
-        width: isMobile ? 'auto' : '30vw',
-        height: isMobile ? '20vh' : 'auto',
+        width:  '30vw',
+        height: 'auto',
         margin: '20px',
         borderRadius: '5%',
         fill: 'true',
-        objectPosition: isMobile ? 'top' : 'center', // Updated objectPosition
+        objectPosition: isMobile ? 'center' : 'center', 
     }
 
     const cardContentStyle: React.CSSProperties = {
@@ -66,7 +66,7 @@ export default function Profile() {
                     <CardMedia
                         component="img"
                         style={cardMediaStyle}
-                        image="/profile.jpg"
+                        image="/profile.jpeg"
                     />
 
                     <Slider
