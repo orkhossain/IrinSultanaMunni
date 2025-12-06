@@ -4,15 +4,16 @@ import { useTheme } from '@mui/material/styles'
 import { useMediaQuery } from '@mui/material'
 import { selectCount, setValue } from '@/slice/count'
 import { useSelector, useDispatch } from 'react-redux'
-import SwipeableViews from 'react-swipeable-views'
 import CustomTabPanel from './TabContent'
 import Content from './TabContent/Content'
 import exportData from '@/global/objects/languages'
 import { selectLanguage, setDictionary, setLanguage } from '@/slice/language'
 import { getDictionary } from '@/i18n/get-dictionary'
 import { motion, useAnimationControls } from 'framer-motion'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import type { Swiper as SwiperType } from 'swiper'
+import 'swiper/css'
 
-const AutoPlaySwipeableViewsComponent = SwipeableViews
 
 function CenteredTabs() {
     const count = useSelector(selectCount)
@@ -28,6 +29,7 @@ function CenteredTabs() {
 
     const array = isMobile ? flagArray : languagArray
     const bounceControls = useAnimationControls()
+    const swiperRef = useRef<SwiperType | null>(null)
 
     const handleChange = (newValue: number) => {
         dispatch(setValue(newValue))
@@ -50,16 +52,23 @@ function CenteredTabs() {
     }, [dispatch, lan])
 
     useEffect(() => {
+        bounceControls.set({ scale: 0.97 })
         bounceControls.start({
-            scale: [0.97, 1.02, 1],
+            scale: 1,
             transition: {
-                duration: 0.55,
                 type: 'spring',
                 stiffness: 260,
                 damping: 18,
             },
         })
     }, [bounceControls, count])
+
+    useEffect(() => {
+        if (swiperRef.current && swiperRef.current.activeIndex !== count) {
+            // Swiper will choose direction based on the new index; set a smooth duration.
+            swiperRef.current.slideTo(count, 600)
+        }
+    }, [count])
 
     return (
         <>
@@ -68,19 +77,16 @@ function CenteredTabs() {
                 animate={bounceControls}
                 style={{ borderRadius: '18px' }}
             >
-                <AutoPlaySwipeableViewsComponent
-                    axis={'x'}
-                    resistance={true}
-                    index={count}
-                    enableMouseEvents={true}
-                    onChangeIndex={handleChange}
+                <Swiper
+                    slidesPerView={1}
+                    onSwiper={(swiper) => (swiperRef.current = swiper)}
+                    onSlideChange={(swiper) => handleChange(swiper.activeIndex)}
                     style={{
                         height: isMobile ? '100svh' : '100vh',
                         backgroundImage: `url(/countries/${count}.webp)`,
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
                         padding: isMobile ? '10% 1rem' : '9% 1.5rem',
-                        transition: 'background 260ms ease-in-out',
                         alignItems: 'center',
                         transformOrigin: '0 0',
                         borderRadius: '18px',
@@ -90,21 +96,23 @@ function CenteredTabs() {
                     }}
                 >
                     {array.map((language, index) => (
-                        <CustomTabPanel value={count} index={index} key={index}>
-                            <motion.div
-                                initial={{ scale: 0.96, opacity: 0.9 }}
-                                animate={{ scale: 1, opacity: 1 }}
-                                transition={{
-                                    type: 'spring',
-                                    stiffness: 240,
-                                    damping: 18,
-                                }}
-                            >
-                                <Content />
-                            </motion.div>
-                        </CustomTabPanel>
+                        <SwiperSlide key={index}>
+                            <CustomTabPanel value={count} index={index}>
+                                <motion.div
+                                    initial={{ scale: 0.96, opacity: 0.9 }}
+                                    animate={{ scale: 1, opacity: 1 }}
+                                    transition={{
+                                        type: 'spring',
+                                        stiffness: 240,
+                                        damping: 18,
+                                    }}
+                                >
+                                    <Content />
+                                </motion.div>
+                            </CustomTabPanel>
+                        </SwiperSlide>
                     ))}
-                </AutoPlaySwipeableViewsComponent>
+                </Swiper>
             </motion.div>
         </>
     )
