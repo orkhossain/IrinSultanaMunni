@@ -41,6 +41,7 @@ const MobileDrawer = () => {
     const dict = useSelector(selectDictionary)
     const service = dict.Index?.service ?? ''
     const about = dict.Index?.about ?? ''
+    const aboutMe = dict.Index?.aboutMe ?? 'About Me'
     const theme = useTheme()
     const isMobile = useMediaQuery(theme.breakpoints.down('md'))
 
@@ -48,25 +49,28 @@ const MobileDrawer = () => {
         setDrawerOpen(!drawerOpen)
     }
 
-    const handleLinkClick = (sectionId: any) => {
-        setDrawerOpen(false)
-        const sectionElement = document.getElementById(sectionId)
-        if (sectionElement) {
-            sectionElement.scrollIntoView({ behavior: 'smooth' })
-        }
-    }
-
     const drawerItems = (
         <List>
             <CustomLink
-                // href="#service"
-                onClick={() => handleLinkClick('service')}
+                onClick={() => {
+                    setDrawerOpen(false)
+                    window.location.href = '/services'
+                }}
                 text={service}
             />
             <CustomLink
-                // href="#about"
-                onClick={() => handleLinkClick('about')}
+                onClick={() => {
+                    setDrawerOpen(false)
+                    window.location.href = '/details'
+                }}
                 text={about}
+            />
+            <CustomLink
+                onClick={() => {
+                    setDrawerOpen(false)
+                    window.location.href = '/about'
+                }}
+                text={aboutMe}
             />
         </List>
     )

@@ -19,13 +19,14 @@ const AppLogo = () => {
                 fontFamily="'Times New Roman', Times, serif"
                 variant="h5"
                 component="div"
-                sx={{ flexGrow: 1 }}
+                sx={{ flexGrow: 1, cursor: 'pointer' }}
             >
                 <span
                     onMouseEnter={() => setHovered(true)}
                     onMouseLeave={() => setHovered(false)}
+                    onClick={() => (window.location.href = '/')}
                 >
-                    @Irin
+                    Irin
                 </span>
             </Typography>
 

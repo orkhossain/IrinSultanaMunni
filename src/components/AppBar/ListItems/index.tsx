@@ -24,6 +24,7 @@ const HideAppBar = () => {
     const dict = useSelector(selectDictionary)
     const service = dict.Index?.service ?? ''
     const about = dict.Index?.about ?? ''
+    const aboutMe = dict.Index?.aboutMe ?? 'About Me'
 
     const theme = useTheme()
     const isMobile = useMediaQuery(theme.breakpoints.down('md'))
@@ -53,6 +54,7 @@ const HideAppBar = () => {
                         justifyContent: !isMobile
                             ? 'space-between'
                             : 'flex-end',
+                        columnGap: { xs: 1.5, md: 3 },
                     }}
                 >
                     <ListItemText
@@ -84,7 +86,7 @@ const HideAppBar = () => {
                                 },
                             }}
                             underline="none"
-                            href="#service"
+                            href="/services"
                         >
                             {service}
                         </Link>
@@ -114,9 +116,39 @@ const HideAppBar = () => {
                                 },
                             }}
                             underline="none"
-                            href="#about"
+                            href="/details"
                         >
                             {about}
+                        </Link>
+                    </ListItemText>
+                    <ListItemText>
+                        <Link
+                            sx={{
+                                color: 'black',
+                                fontFamily: "'Times New Roman', Times, serif",
+                                fontSize: isMobile ? '1.5rem' : '1rem',
+                                position: 'relative',
+                                pb: '2px',
+                                '&:after': {
+                                    content: '""',
+                                    position: 'absolute',
+                                    left: 0,
+                                    bottom: 0,
+                                    width: '100%',
+                                    height: '1px',
+                                    backgroundColor: 'black',
+                                    transform: 'scaleX(0)',
+                                    transformOrigin: 'left center',
+                                    transition: 'transform 180ms ease',
+                                },
+                                '&:hover:after': {
+                                    transform: 'scaleX(1)',
+                                },
+                            }}
+                            underline="none"
+                            href="/about-me"
+                        >
+                            {aboutMe}
                         </Link>
                     </ListItemText>
                 </List>
@@ -125,14 +157,16 @@ const HideAppBar = () => {
     )
 
     return (
-        <>
+        <Box sx={{ width: '100%', px: { xs: 1.5, md: 2 } }}>
             <List
-                style={{
+                sx={{
                     width: '100%',
                     color: 'black',
                     display: 'flex',
                     flexDirection: 'row',
                     alignItems: 'center',
+                    gap: { xs: 1, md: 2 },
+                    py: { xs: 0.5, md: 1 },
                 }}
             >
                 {!isMobile && (
@@ -144,7 +178,7 @@ const HideAppBar = () => {
                             minWidth: 0,
                         }}
                     >
-                        <ListItem>
+                        <ListItem sx={{ px: 0 }}>
                             <AppLogo />
                         </ListItem>
                     </Box>
@@ -156,7 +190,7 @@ const HideAppBar = () => {
                         flex: 1.6,
                     }}
                 >
-                    <ListItem>
+                    <ListItem sx={{ px: { xs: 0.5, md: 1 } }}>
                         <PillTab />
                     </ListItem>
                 </Box>
@@ -171,7 +205,7 @@ const HideAppBar = () => {
                     {isMobile ? <MobileDrawer /> : drawerItems}
                 </Box>
             </List>
-        </>
+        </Box>
     )
 }
 

@@ -11,6 +11,7 @@
         "service1": "Translation",
         "service2": "Mediation",
         "contact": "Contact me",
-        "question": "For an enquiry feel free to contact me"
+        "question": "For an enquiry feel free to contact me",
+        "aboutMe": "About Me"
     }
 }
