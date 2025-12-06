@@ -14,8 +14,9 @@ const AppLogo = () => {
             ref={containerRef}
         >
             <Typography
-                fontWeight={'bold'}
-                color="white"
+                fontWeight={500}
+                color="black"
+                fontFamily="'Times New Roman', Times, serif"
                 variant="h5"
                 component="div"
                 sx={{ flexGrow: 1 }}
@@ -35,8 +36,9 @@ const AppLogo = () => {
                 style={{ zIndex: -1 }}
             >
                 <Typography
-                    fontWeight={'bold'}
-                    color="white"
+                    fontWeight={500}
+                    color="black"
+                    fontFamily="'Times New Roman', Times, serif"
                     variant="h5"
                     component="div"
                     sx={{ flexGrow: 1, marginLeft: 1 }}

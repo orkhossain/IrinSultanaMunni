@@ -25,8 +25,9 @@ const QuoteComponent = () => {
                     variant={isMobile ? (isSmall ? 'h6' : 'h4') : 'h2'}
                     className="image-container"
                     sx={{
-                        fontFamily:
-                            "'Parisienne', cursive, 'Pinyon Script', cursive",
+                        fontFamily: "'Times New Roman', Times, serif",
+                        fontStyle: 'italic',
+                        fontWeight: 400,
                         position: 'relative',
                         top: '15vh',
                         textAlign: 'center',

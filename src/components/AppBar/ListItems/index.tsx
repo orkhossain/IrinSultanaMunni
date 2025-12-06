@@ -46,7 +46,8 @@ const HideAppBar = () => {
                 <List
                     className="listItem"
                     sx={{
-                        color: isMobile ? 'black' : 'white',
+                        color: 'black',
+                        fontFamily: "'Times New Roman', Times, serif",
                         display: 'flex',
                         flexDirection: isMobile ? 'column' : 'row',
                         justifyContent: !isMobile
@@ -61,8 +62,26 @@ const HideAppBar = () => {
                     >
                         <Link
                             sx={{
-                                color: isMobile ? 'black' : 'white',
+                                color: 'black',
+                                fontFamily: "'Times New Roman', Times, serif",
                                 fontSize: isMobile ? '1.5rem' : '1rem',
+                                position: 'relative',
+                                pb: '2px',
+                                '&:after': {
+                                    content: '""',
+                                    position: 'absolute',
+                                    left: 0,
+                                    bottom: 0,
+                                    width: '100%',
+                                    height: '1px',
+                                    backgroundColor: 'black',
+                                    transform: 'scaleX(0)',
+                                    transformOrigin: 'left center',
+                                    transition: 'transform 180ms ease',
+                                },
+                                '&:hover:after': {
+                                    transform: 'scaleX(1)',
+                                },
                             }}
                             underline="none"
                             href="#service"
@@ -73,8 +92,26 @@ const HideAppBar = () => {
                     <ListItemText>
                         <Link
                             sx={{
-                                color: isMobile ? 'black' : 'white',
+                                color: 'black',
+                                fontFamily: "'Times New Roman', Times, serif",
                                 fontSize: isMobile ? '1.5rem' : '1rem',
+                                position: 'relative',
+                                pb: '2px',
+                                '&:after': {
+                                    content: '""',
+                                    position: 'absolute',
+                                    left: 0,
+                                    bottom: 0,
+                                    width: '100%',
+                                    height: '1px',
+                                    backgroundColor: 'black',
+                                    transform: 'scaleX(0)',
+                                    transformOrigin: 'left center',
+                                    transition: 'transform 180ms ease',
+                                },
+                                '&:hover:after': {
+                                    transform: 'scaleX(1)',
+                                },
                             }}
                             underline="none"
                             href="#about"
@@ -92,17 +129,21 @@ const HideAppBar = () => {
             <List
                 style={{
                     width: '100%',
-                    color: 'white',
+                    color: 'black',
                     display: 'flex',
                     flexDirection: 'row',
-                    justifyContent: isMobile
-                        ? 'space-between'
-                        : 'space-between',
-                    // alignContent: 'flex-end',
+                    alignItems: 'center',
                 }}
             >
                 {!isMobile && (
-                    <Box sx={{ display: 'flex', justifyContent: 'flex-start' }}>
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            justifyContent: 'flex-start',
+                            flex: 1,
+                            minWidth: 0,
+                        }}
+                    >
                         <ListItem>
                             <AppLogo />
                         </ListItem>
@@ -111,15 +152,24 @@ const HideAppBar = () => {
                 <Box
                     sx={{
                         display: 'flex',
-                        justifyContent: isMobile ? 'center' : 'center',
+                        justifyContent: 'center',
+                        flex: 1.6,
                     }}
                 >
                     <ListItem>
                         <PillTab />
                     </ListItem>
                 </Box>
-                {isMobile && <MobileDrawer />}
-                {!isMobile && drawerItems}
+                <Box
+                    sx={{
+                        display: 'flex',
+                        justifyContent: 'flex-end',
+                        flex: 1,
+                        minWidth: 0,
+                    }}
+                >
+                    {isMobile ? <MobileDrawer /> : drawerItems}
+                </Box>
             </List>
         </>
     )

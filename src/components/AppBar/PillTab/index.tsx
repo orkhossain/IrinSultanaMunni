@@ -38,11 +38,12 @@ export default function PillTab() {
     return (
         <div
             style={{
+                width: '100%',
                 display: 'flex',
                 justifyContent: 'center',
             }}
         >
-            <Box zIndex={1}>
+            <Box zIndex={1} sx={{ display: 'flex', justifyContent: 'center' }}>
                 <StyledTabs
                     value={count}
                     onChange={(
@@ -53,11 +54,12 @@ export default function PillTab() {
                     }}
                     aria-label="styled tabs example"
                     sx={{
-                        backgroundColor: `rgba(211, 211, 211, 0.4)`, // Set the background color with opacity
-                        backdropFilter: 'blur(10px)',
-                        border: '1px solid lightggray',
-                        padding: '5px',
-                        borderRadius: '50px',
+                        backgroundColor: 'rgba(255,255,255,0.06)',
+                        backdropFilter: 'blur(20px)',
+                        border: '1px solid rgba(255,255,255,0.16)',
+                        padding: '6px 8px',
+                        borderRadius: '9999px',
+                        boxShadow: '0 16px 48px rgba(0,0,0,0.25)',
                     }}
                 >
                     {array.map((language, index) => (

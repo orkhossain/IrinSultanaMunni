@@ -7,14 +7,42 @@ const StyledTabs = styled(({ ...props }: any) => (
         {...props}
         TabIndicatorProps={{
             style: {
-                height: '100%',
-                borderRadius: '25px',
-                zIndex: '+1',
-                backgroundColor: 'white',
+                height: 'calc(100% - 8px)',
+                top: '4px',
+                borderRadius: '9999px',
+                zIndex: 1,
+                background:
+                    'linear-gradient(120deg, rgba(255,255,255,0.5), rgba(255,255,255,0.18))',
+                boxShadow:
+                    '0 10px 30px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.35)',
+                backdropFilter: 'blur(12px)',
             },
         }}
     />
-))({}) /* Pass an empty object as a default argument if necessary */
+))(({ theme }) => ({
+    position: 'relative',
+    minHeight: 52,
+    borderRadius: '9999px',
+    padding: '6px',
+    background: 'rgba(255,255,255,0.07)',
+    border: '1px solid rgba(255,255,255,0.16)',
+    boxShadow: '0 18px 50px rgba(0,0,0,0.28)',
+    backdropFilter: 'blur(16px)',
+    '& .MuiTabs-indicator': {
+        transition: 'opacity 200ms ease, background-color 200ms ease',
+    },
+    '&:hover .MuiTabs-indicator': {
+        opacity: 0.35,
+        background:
+            'linear-gradient(120deg, rgba(255,255,255,0.28), rgba(255,255,255,0.08))',
+    },
+    '& .MuiTabs-flexContainer': {
+        gap: '8px',
+    },
+    [theme.breakpoints.down('sm')]: {
+        minHeight: 46,
+    },
+}))
 
 const StyledTab = styled(({ ...props }: any) => (
     <Tab disableRipple {...props} />
@@ -22,19 +50,25 @@ const StyledTab = styled(({ ...props }: any) => (
     height: '1rem',
     textTransform: 'none',
     minWidth: '0px',
-    fontWeight: theme.typography.fontWeightRegular,
-    padding: 15,
-    fontSize: theme.typography.pxToRem(14),
-    boxShadow: '2px black',
+    fontWeight: 400,
+    letterSpacing: '0.02em',
+    padding: '12px 18px',
+    fontSize: theme.typography.pxToRem(13.5),
+    color: 'rgba(0,0,0,0.82)',
+    fontFamily: "'Times New Roman', Times, serif",
+    borderRadius: '9999px',
+    transition: 'background-color 180ms ease, color 180ms ease',
     '&.Mui-selected': {
-        color: 'black',
-        zIndex: '+2',
+        color: '#0f172a',
+        zIndex: 2,
     },
     '&.Mui-focusVisible': {
-        backgroundColor: 'grey',
+        backgroundColor: 'rgba(255,255,255,0.08)',
     },
     '&:hover': {
-        color: 'black',
+        color: '#0f172a',
+        backgroundColor: 'rgba(255,255,255,0.16)',
+        borderRadius: '9999px',
     },
 }))
 
