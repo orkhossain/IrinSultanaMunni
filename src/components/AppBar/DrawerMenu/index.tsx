@@ -16,15 +16,23 @@ import { selectDictionary } from '@/slice/language'
 import { Cancel } from '@mui/icons-material'
 import Contact from '@/components/Contact'
 
-const CustomLink = ({ href, onClick, text }: any) => (
-    <ListItem button component="a" href={href} onClick={onClick}>
-        <ListItemText
-            primaryTypographyProps={{
-                variant: 'h5',
-                textAlign: 'center',
-            }}
-            primary={text}
-        />
+const CustomLink = ({
+    onClick,
+    text,
+}: {
+    onClick: () => void
+    text: string
+}) => (
+    <ListItem disablePadding>
+        <ListItemButton onClick={onClick} component="button">
+            <ListItemText
+                primaryTypographyProps={{
+                    variant: 'h5',
+                    textAlign: 'center',
+                }}
+                primary={text}
+            />
+        </ListItemButton>
     </ListItem>
 )
 

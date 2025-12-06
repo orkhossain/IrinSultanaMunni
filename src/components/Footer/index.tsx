@@ -1,5 +1,5 @@
 import { selectDictionary } from '@/slice/language'
-import { Container, Typography, Link, Grid } from '@mui/material'
+import { Container, Typography, Link,Grid } from '@mui/material'
 import { useSelector } from 'react-redux'
 
 const Footer = () => {
@@ -18,12 +18,12 @@ const Footer = () => {
         >
             <Container maxWidth="lg">
                 <Grid container spacing={2} justifyContent="center">
-                    <Grid item xs={12} sm={6}>
+                    <Grid >
                         <Typography variant="body2" color="textSecondary">
                             &copy; {new Date().getFullYear()} Irin Sultana Munni
                         </Typography>
                     </Grid>
-                    <Grid item xs={12} sm={6}>
+                    <Grid>
                         <Typography variant="body2" color="textSecondary">
                             <Link
                                 href="#about"
