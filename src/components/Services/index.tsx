@@ -11,8 +11,8 @@ import { selectDictionary } from '@/slice/language'
 import { useSelector } from 'react-redux'
 import ScrollAnimation from 'react-animate-on-scroll'
 import Image from 'next/image'
-import Image1 from 'public/img1.webp'
-import Image2 from 'public/img2.webp'
+import Image1 from '@/assets/img1.webp'
+import Image2 from '@/assets/img2.webp'
 
 const ServiceCard = ({
     title,
