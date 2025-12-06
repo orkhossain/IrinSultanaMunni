@@ -41,7 +41,7 @@ const buttonStyles = {
     borderRadius: '15px',
     height: '6vh',
     color: 'black',
-    boxShadow: 'rgb(38, 57, 77) 0px 20px 30px -10px;',
+    boxShadow: 'rgb(38, 57, 77) 0px 20px 30px -10px',
 }
 const ContactMeChat = () => {
     const handleMailClick = () => {
@@ -106,7 +106,7 @@ const ContactMeChat = () => {
                             borderRadius: '50%',
                             width: '60px',
                             height: '60px',
-                            boxShadow: 'rgb(38, 57, 77) 0px 20px 30px -10px;',
+                            boxShadow: 'rgb(38, 57, 77) 0px 20px 30px -10px',
                         }}
                         onClick={handleMailClick}
                     >

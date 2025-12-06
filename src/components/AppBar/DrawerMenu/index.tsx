@@ -7,14 +7,13 @@ import {
     Drawer,
     useMediaQuery,
     useTheme,
-    Link,
     ListItemButton,
 } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
 import { useSelector } from 'react-redux'
 import { selectDictionary } from '@/slice/language'
 import { Cancel } from '@mui/icons-material'
-import Contact from '@/components/Contact'
+import { useRouter } from 'next/navigation'
 
 const CustomLink = ({
     onClick,
@@ -40,8 +39,9 @@ const MobileDrawer = () => {
     const [drawerOpen, setDrawerOpen] = useState(false)
     const dict = useSelector(selectDictionary)
     const service = dict.Index?.service ?? ''
-    const about = dict.Index?.about ?? ''
     const aboutMe = dict.Index?.aboutMe ?? 'About Me'
+    const contact = dict.Index?.contact ?? 'Contact'
+    const router = useRouter()
     const theme = useTheme()
     const isMobile = useMediaQuery(theme.breakpoints.down('md'))
 
@@ -49,28 +49,24 @@ const MobileDrawer = () => {
         setDrawerOpen(!drawerOpen)
     }
 
+    const handleNavigate = (path: string) => {
+        setDrawerOpen(false)
+        router.push(path)
+    }
+
     const drawerItems = (
         <List>
             <CustomLink
-                onClick={() => {
-                    setDrawerOpen(false)
-                    window.location.href = '/services'
-                }}
+                onClick={() => handleNavigate('/services')}
                 text={service}
             />
             <CustomLink
-                onClick={() => {
-                    setDrawerOpen(false)
-                    window.location.href = '/details'
-                }}
-                text={about}
+                onClick={() => handleNavigate('/about')}
+                text={aboutMe}
             />
             <CustomLink
-                onClick={() => {
-                    setDrawerOpen(false)
-                    window.location.href = '/about'
-                }}
-                text={aboutMe}
+                onClick={() => handleNavigate('/contact')}
+                text={contact}
             />
         </List>
     )

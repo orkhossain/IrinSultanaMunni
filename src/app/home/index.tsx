@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react'
-import Navbar from '@/components/AppBar'
+import React from 'react'
 import Footer from '@/components/Footer'
 import Marquee from '@/components/Marquee'
 import Banner from '@/components/Banner'
@@ -15,7 +14,6 @@ function Home() {
     return (
         <>
             <CustomCursor />
-            <Navbar />
             <Banner />
 
             <div style={{ position: 'relative' }} id="about">

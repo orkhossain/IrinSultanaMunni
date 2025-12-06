@@ -2,7 +2,6 @@
 
 import React from 'react'
 import { Box, Container } from '@mui/material'
-import Navbar from '@/components/AppBar'
 import CustomCursor from '@/components/CustomCursor'
 import Services from '@/components/Services'
 
@@ -19,7 +18,6 @@ export default function ServicesPage() {
             }}
         >
             <CustomCursor />
-            <Navbar />
             <Container maxWidth="lg">
                 <Box
                     sx={{

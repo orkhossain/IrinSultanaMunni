@@ -9,7 +9,7 @@ import Content from './TabContent/Content'
 import exportData from '@/global/objects/languages'
 import { selectLanguage, setDictionary, setLanguage } from '@/slice/language'
 import { getDictionary } from '@/i18n/get-dictionary'
-import { motion, useAnimationControls } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import type { Swiper as SwiperType } from 'swiper'
 import 'swiper/css'
@@ -28,7 +28,6 @@ function CenteredTabs() {
     const lan = useSelector(selectLanguage)
 
     const array = isMobile ? flagArray : languagArray
-    const bounceControls = useAnimationControls()
     const swiperRef = useRef<SwiperType | null>(null)
 
     const handleChange = (newValue: number) => {
@@ -52,18 +51,6 @@ function CenteredTabs() {
     }, [dispatch, lan])
 
     useEffect(() => {
-        bounceControls.set({ scale: 0.97 })
-        bounceControls.start({
-            scale: 1,
-            transition: {
-                type: 'spring',
-                stiffness: 260,
-                damping: 18,
-            },
-        })
-    }, [bounceControls, count])
-
-    useEffect(() => {
         if (swiperRef.current && swiperRef.current.activeIndex !== count) {
             // Swiper will choose direction based on the new index; set a smooth duration.
             swiperRef.current.slideTo(count, 600)
@@ -72,47 +59,66 @@ function CenteredTabs() {
 
     return (
         <>
-            <motion.div
-                initial={{ scale: 1 }}
-                animate={bounceControls}
-                style={{ borderRadius: '18px' }}
-            >
-                <Swiper
-                    slidesPerView={1}
-                    onSwiper={(swiper) => (swiperRef.current = swiper)}
-                    onSlideChange={(swiper) => handleChange(swiper.activeIndex)}
+            <motion.div style={{ borderRadius: '18px' }}>
+                <div
                     style={{
+                        position: 'relative',
                         height: isMobile ? '100svh' : '100vh',
-                        backgroundImage: `url(/countries/${count}.webp)`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                        padding: isMobile ? '10% 1rem' : '9% 1.5rem',
-                        alignItems: 'center',
-                        transformOrigin: '0 0',
                         borderRadius: '18px',
+                        overflow: 'hidden',
                         border: '1px solid rgba(255,255,255,0.12)',
                         boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.06)',
-                        overflow: 'hidden',
+                        backgroundColor: '#f7f8fb',
                     }}
                 >
-                    {array.map((language, index) => (
-                        <SwiperSlide key={index}>
-                            <CustomTabPanel value={count} index={index}>
-                                <motion.div
-                                    initial={{ scale: 0.96, opacity: 0.9 }}
-                                    animate={{ scale: 1, opacity: 1 }}
-                                    transition={{
-                                        type: 'spring',
-                                        stiffness: 240,
-                                        damping: 18,
-                                    }}
-                                >
-                                    <Content />
-                                </motion.div>
-                            </CustomTabPanel>
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
+                    <AnimatePresence mode="sync" initial={false}>
+                        <motion.div
+                            key={count}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.18, ease: 'easeInOut' }}
+                            style={{
+                                position: 'absolute',
+                                inset: 0,
+                                backgroundImage: `url(/countries/${count}.webp)`,
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center',
+                                backgroundColor: '#f7f8fb',
+                            }}
+                        />
+                    </AnimatePresence>
+                    <Swiper
+                        slidesPerView={1}
+                        onSwiper={(swiper) => (swiperRef.current = swiper)}
+                        onSlideChange={(swiper) => handleChange(swiper.activeIndex)}
+                        style={{
+                            height: '100%',
+                            padding: isMobile ? '10% 1rem' : '9% 1.5rem',
+                            alignItems: 'center',
+                            transformOrigin: '0 0',
+                            position: 'relative',
+                        }}
+                    >
+                        {array.map((language, index) => (
+                            <SwiperSlide key={index}>
+                                <CustomTabPanel value={count} index={index}>
+                                    <motion.div
+                                        initial={{ scale: 0.96, opacity: 0.9 }}
+                                        animate={{ scale: 1, opacity: 1 }}
+                                        transition={{
+                                            type: 'spring',
+                                            stiffness: 240,
+                                            damping: 18,
+                                        }}
+                                    >
+                                        <Content />
+                                    </motion.div>
+                                </CustomTabPanel>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
+                </div>
             </motion.div>
         </>
     )

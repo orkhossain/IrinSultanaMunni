@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import Providers from './providers'
+import PageTransition from './PageTransition'
+import Navbar from '@/components/AppBar'
 
 export const metadata: Metadata = {
     title: 'Irin Sultana Munni',
@@ -15,7 +17,10 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body>
-                <Providers>{children}</Providers>
+                <Providers>
+                    <Navbar />
+                    <PageTransition>{children}</PageTransition>
+                </Providers>
             </body>
         </html>
     )

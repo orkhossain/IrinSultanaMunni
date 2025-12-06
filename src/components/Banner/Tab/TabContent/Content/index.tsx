@@ -16,20 +16,27 @@ export default function Content() {
         <>
             <Box
                 sx={{
-                    position: 'fixed',
-                    top: '-10vh',
-                    width: '60vw',
+                    position: 'absolute',
+                    top: { xs: '15%', md: '15%' },
+                    left: { xs: '1.5%', md: '2%' },
+                    maxWidth: { xs: '90%', md: '64%' },
                     display: 'flex',
-                    justifyContent: 'flex-start',
-                    alignItems: 'flex-end',
-                    justifySelf: 'flex-start',
-                    height: '70vh',
+                    alignItems: 'flex-start',
                 }}
             >
                 <Typography
-                    color={'white'}
-                    variant={isMobile ? 'h4' : 'h3'}
-                    style={{ fontFamily: 'Cambria' }}
+                    color="#e2e8f0"
+                    variant={isMobile ? 'h3' : 'h2'}
+                    sx={{
+                        fontFamily: 'Cambria',
+                        fontWeight: 400,
+                        lineHeight: 1.2,
+                        display: '-webkit-box',
+                        WebkitLineClamp: 3,
+                        WebkitBoxOrient: 'vertical',
+                        overflow: 'hidden',
+                        textShadow: '0 8px 32px rgba(0,0,0,0.35)',
+                    }}
                 >
                     {title}
                 </Typography>

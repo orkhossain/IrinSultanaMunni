@@ -10,7 +10,6 @@ import {
     Typography,
 } from '@mui/material'
 import Grid from '@mui/material/Grid'
-import Navbar from '@/components/AppBar'
 import CustomCursor from '@/components/CustomCursor'
 
 const pill = (label: string) => (
@@ -39,7 +38,6 @@ export default function AboutMePage() {
             }}
         >
             <CustomCursor />
-            <Navbar />
             <Container maxWidth="lg">
                 <Box
                     sx={{

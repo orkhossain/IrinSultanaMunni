@@ -1,37 +1,29 @@
 import * as React from 'react'
+import NextLink from 'next/link'
 import {
     List,
     ListItem,
     ListItemText,
-    IconButton,
-    Drawer,
     useMediaQuery,
     useTheme,
     Box,
-    Link,
+    Link as MuiLink,
 } from '@mui/material'
-import MenuIcon from '@mui/icons-material/Menu'
 import PillTab from '../PillTab'
 import '../style.css'
 import AppLogo from '../AppLogo'
-import { Cancel } from '@mui/icons-material'
 import { selectDictionary } from '@/slice/language'
 import { useSelector } from 'react-redux'
 import MobileDrawer from '../DrawerMenu'
 
 const HideAppBar = () => {
-    const [drawerOpen, setDrawerOpen] = React.useState(false)
     const dict = useSelector(selectDictionary)
     const service = dict.Index?.service ?? ''
-    const about = dict.Index?.about ?? ''
     const aboutMe = dict.Index?.aboutMe ?? 'About Me'
+    const contact = dict.Index?.contact ?? 'Contact'
 
     const theme = useTheme()
     const isMobile = useMediaQuery(theme.breakpoints.down('md'))
-
-    const handleDrawerToggle = () => {
-        setDrawerOpen(!drawerOpen)
-    }
 
     const drawerItems = (
         <>
@@ -62,7 +54,7 @@ const HideAppBar = () => {
                             fontSize: isMobile ? '1.5rem' : '1rem',
                         }}
                     >
-                        <Link
+                        <MuiLink
                             sx={{
                                 color: 'black',
                                 fontFamily: "'Times New Roman', Times, serif",
@@ -86,13 +78,14 @@ const HideAppBar = () => {
                                 },
                             }}
                             underline="none"
+                            component={NextLink}
                             href="/services"
                         >
                             {service}
-                        </Link>
+                        </MuiLink>
                     </ListItemText>
                     <ListItemText>
-                        <Link
+                        <MuiLink
                             sx={{
                                 color: 'black',
                                 fontFamily: "'Times New Roman', Times, serif",
@@ -116,40 +109,42 @@ const HideAppBar = () => {
                                 },
                             }}
                             underline="none"
-                            href="/details"
-                        >
-                            {about}
-                        </Link>
-                    </ListItemText>
-                    <ListItemText>
-                        <Link
-                            sx={{
-                                color: 'black',
-                                fontFamily: "'Times New Roman', Times, serif",
-                                fontSize: isMobile ? '1.5rem' : '1rem',
-                                position: 'relative',
-                                pb: '2px',
-                                '&:after': {
-                                    content: '""',
-                                    position: 'absolute',
-                                    left: 0,
-                                    bottom: 0,
-                                    width: '100%',
-                                    height: '1px',
-                                    backgroundColor: 'black',
-                                    transform: 'scaleX(0)',
-                                    transformOrigin: 'left center',
-                                    transition: 'transform 180ms ease',
-                                },
-                                '&:hover:after': {
-                                    transform: 'scaleX(1)',
-                                },
-                            }}
-                            underline="none"
-                            href="/about-me"
+                            component={NextLink}
+                            href="/about"
                         >
                             {aboutMe}
-                        </Link>
+                        </MuiLink>
+                    </ListItemText>
+                    <ListItemText>
+                        <MuiLink
+                            sx={{
+                                color: 'black',
+                                fontFamily: "'Times New Roman', Times, serif",
+                                fontSize: isMobile ? '1.5rem' : '1rem',
+                                position: 'relative',
+                                pb: '2px',
+                                '&:after': {
+                                    content: '""',
+                                    position: 'absolute',
+                                    left: 0,
+                                    bottom: 0,
+                                    width: '100%',
+                                    height: '1px',
+                                    backgroundColor: 'black',
+                                    transform: 'scaleX(0)',
+                                    transformOrigin: 'left center',
+                                    transition: 'transform 180ms ease',
+                                },
+                                '&:hover:after': {
+                                    transform: 'scaleX(1)',
+                                },
+                            }}
+                            underline="none"
+                            component={NextLink}
+                            href="/contact"
+                        >
+                            {contact}
+                        </MuiLink>
                     </ListItemText>
                 </List>
             </Box>
