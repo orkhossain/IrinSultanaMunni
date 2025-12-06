@@ -57,7 +57,7 @@ export default function PillTab() {
                         backgroundColor: 'rgba(255,255,255,0.06)',
                         backdropFilter: 'blur(20px)',
                         border: '1px solid rgba(255,255,255,0.16)',
-                        padding: '6px 8px',
+                        padding: { xs: '4px 6px', sm: '6px 8px' },
                         borderRadius: '9999px',
                         boxShadow: '0 16px 48px rgba(0,0,0,0.25)',
                     }}
