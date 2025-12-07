@@ -16,7 +16,7 @@ function Home() {
             <CustomCursor />
             <Banner />
 
-            <div style={{ position: 'relative' }} id="about">
+            <div  id="about">
                 <About />
             </div>
 

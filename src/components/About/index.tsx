@@ -15,15 +15,8 @@ function Home() {
                 <TextSection />
             </ScrollAnimation>
 
-            <div
-                style={{
-                    position: 'relative',
-                    top: '-5vh',
-                    width: '100vw',
-                }}
-            >
+
                 <Profile />
-            </div>
         </>
     )
 }
