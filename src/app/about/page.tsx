@@ -31,9 +31,9 @@ export default function AboutMePage() {
             style={{
                 minHeight: '100vh',
                 background:
-                    'radial-gradient(circle at 20% 20%, rgba(124,58,237,0.12), transparent 32%), radial-gradient(circle at 80% 10%, rgba(6,182,212,0.12), transparent 30%), #f7f8fb',
+                    'radial-gradient(circle at 18% 18%, rgba(216,184,157,0.18), transparent 34%), radial-gradient(circle at 76% 12%, rgba(183,126,97,0.16), transparent 30%), linear-gradient(135deg, rgba(245,237,223,1), rgba(234,215,190,1))',
                 padding: '6rem 0 4rem',
-                color: '#0f172a',
+                color: '#24190f',
                 fontFamily: "'Times New Roman', Times, serif",
             }}
         >

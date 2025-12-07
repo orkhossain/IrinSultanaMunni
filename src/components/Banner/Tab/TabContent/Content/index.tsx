@@ -20,7 +20,7 @@ export default function Content() {
                     inset: 0,
                     display: 'flex',
                     alignItems: 'center',
-                    justifyContent: { xs: 'center', md: 'flex-start' },
+                    justifyContent: { xs: 'flex-start', md: 'flex-start' },
                     px: { xs: '6%', md: '8%' },
                 }}
             >
@@ -31,7 +31,7 @@ export default function Content() {
                         fontFamily: 'Cambria',
                         fontWeight: 400,
                         lineHeight: 1.15,
-                        textAlign: { xs: 'center', md: 'left' },
+                        textAlign: { xs: 'left', md: 'left' },
                         maxWidth: { xs: '88%', md: '60%' },
                         textShadow: '0 8px 32px rgba(0,0,0,0.35)',
                     }}

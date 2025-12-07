@@ -57,6 +57,11 @@ const CompanyMarquee = ({ children }: any) => {
             style={{
                 position: 'relative',
                 overflow: 'hidden',
+                background: 'linear-gradient(135deg, #f6f1e7, #f9f4ea)',
+                maxWidth: '1200px',
+                margin: '0 auto',
+                padding: '20px 0',
+                borderRadius: '20px',
             }}
         >
             <div
@@ -65,7 +70,7 @@ const CompanyMarquee = ({ children }: any) => {
                     position: 'absolute',
                     inset: 0,
                     background:
-                        'linear-gradient(90deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.65) 4%, rgba(255,255,255,0.25) 10%, rgba(255,255,255,0) 18%), linear-gradient(270deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.65) 4%, rgba(255,255,255,0.25) 10%, rgba(255,255,255,0) 18%)',
+                        'linear-gradient(90deg, rgba(246,241,231,0.9) 0%, rgba(246,241,231,0.6) 4%, rgba(246,241,231,0.2) 10%, rgba(246,241,231,0) 18%), linear-gradient(270deg, rgba(246,241,231,0.9) 0%, rgba(246,241,231,0.6) 4%, rgba(246,241,231,0.2) 10%, rgba(246,241,231,0) 18%)',
                     zIndex: 2,
                 }}
             />
@@ -76,12 +81,12 @@ const CompanyMarquee = ({ children }: any) => {
             >
                 <Marquee speed={200}>
                     {imageUrls.map((imageUrl, index) => (
-                        <div key={index} style={{ padding: '5vh 0vh 5vh 0vh' }}>
+                        <div key={index} style={{ padding: '18px 0' }}>
                             <Image
                                 src={imageUrl}
                                 alt={`Image${index + 1}`}
                                 style={{ padding: '20px' }}
-                                height={'150'}
+                                height={'110'}
                             />
                         </div>
                     ))}
@@ -93,12 +98,12 @@ const CompanyMarquee = ({ children }: any) => {
             >
                 <Marquee direction="right" speed={200}>
                     {imageUrls2.map((imageUrl, index) => (
-                        <div key={index} style={{ padding: '5vh 0vh 5vh 0vh' }}>
+                        <div key={index} style={{ padding: '18px 0' }}>
                             <Image
                                 src={imageUrl}
                                 alt={`Image${index + 1}`}
                                 style={{ padding: '20px' }}
-                                height={'150'}
+                                height={'110'}
                             />
                         </div>
                     ))}

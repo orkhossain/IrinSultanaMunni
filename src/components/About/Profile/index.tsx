@@ -21,37 +21,36 @@ export default function Profile() {
 
     const cardStyle: React.CSSProperties = {
         display: 'flex',
-        height: !isMobile ? '50vh' : '60vh',
-        borderRadius: '25px',
-        padding: '1vh',
-        margin: '0 3vh',
-        backgroundImage: `linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.4)), url(/bg.jpg)`, // Added overlay
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
         flexDirection: isMobile ? 'column' : 'row',
-        justifyContent: isMobile ? 'center' : 'space-evenly',
+        justifyContent: isMobile ? 'center' : 'space-between',
+        alignItems: 'center',
+        gap: isMobile ? 16 : 24,
+        borderRadius: '28px',
+        padding: isMobile ? '18px' : '24px',
+        margin: '0 auto',
+        maxWidth: '1200px',
+        background: 'linear-gradient(135deg, #f6f1e7, #f9f4ea)',
+        boxShadow: '0 18px 40px rgba(0,0,0,0.12)',
     }
 
     const cardMediaStyle: React.CSSProperties = {
-        width:  '30vw',
+        width: isMobile ? '82vw' : '32vw',
+        maxWidth: 360,
         height: 'auto',
-        margin: '20px',
-        borderRadius: '5%',
-        fill: 'true',
-        objectPosition: isMobile ? 'center' : 'center', 
+        margin: isMobile ? '8px auto' : '0',
+        borderRadius: '16px',
+        objectPosition: 'center',
     }
 
     const cardContentStyle: React.CSSProperties = {
         display: 'flex',
-        padding: isMobile ? '4vw 2vw' : '3vw 2vw',
-        // margin: '1vw',
+        padding: isMobile ? '16px 12px' : '20px 18px',
         textAlign: 'left',
-        backgroundColor: 'rgba(255, 255, 255, 0.5)',
+        backgroundColor: 'rgba(255, 255, 255, 0.66)',
         backdropFilter: 'blur(10px)',
-        width: isMobile ? (isSmall ? '82vw' : '88vw') : '60vw',
-        height: '100%',
+        width: isMobile ? '100%' : '55%',
         alignContent: 'center',
-        borderRadius: '25px',
+        borderRadius: '18px',
         justifyContent: 'center',
     }
 
