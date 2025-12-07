@@ -8,8 +8,13 @@ import {
     useMediaQuery,
     useTheme,
     ListItemButton,
+    Box,
+    Typography,
 } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
+import InstagramIcon from '@mui/icons-material/Instagram'
+import LinkedInIcon from '@mui/icons-material/LinkedIn'
+import FacebookIcon from '@mui/icons-material/Facebook'
 import { useSelector } from 'react-redux'
 import { selectDictionary } from '@/slice/language'
 import { Cancel } from '@mui/icons-material'
@@ -23,11 +28,20 @@ const CustomLink = ({
     text: string
 }) => (
     <ListItem disablePadding>
-        <ListItemButton onClick={onClick} component="button">
+        <ListItemButton
+            onClick={onClick}
+            component="button"
+            sx={{
+                borderRadius: '10px',
+                px: 2,
+                py: 1.25,
+            }}
+        >
             <ListItemText
                 primaryTypographyProps={{
                     variant: 'h5',
-                    textAlign: 'center',
+                    textAlign: 'left',
+                    fontFamily: "'Times New Roman', Times, serif",
                 }}
                 primary={text}
             />
@@ -81,20 +95,104 @@ const MobileDrawer = () => {
                     <Drawer
                         variant="temporary"
                         open={drawerOpen}
-                        anchor="right"
+                        anchor="bottom"
                         style={{ width: '100%', flexShrink: 0 }}
-                        classes={{ paper: 'drawerPaper' }}
-                    >
-                        {drawerItems}
-                        <IconButton
-                            onClick={() => setDrawerOpen(false)}
-                            edge="end"
-                            color="inherit"
-                            aria-label="close drawer"
-                            className="closeIconButton"
+                        PaperProps={{
+                            sx: {
+                                backgroundColor: 'rgba(255,255,255,0.56)',
+                                backdropFilter: 'blur(20px)',
+                                borderRadius: 0,
+                                border: '1px solid rgba(255,255,255,0.45)',
+                                boxShadow: '0 -10px 40px rgba(0,0,0,0.18)',
+                                p: 1.5,
+                                width: '100vw',
+                                maxWidth: '100%',
+                                height: '100vh',
+                            },
+                        }}
+                    ModalProps={{
+                        BackdropProps: {
+                            style: {
+                                background: 'rgba(0,0,0,0.2)',
+                                backdropFilter: 'blur(4px)',
+                            },
+                        },
+                    }}
+                >
+                        <Box
+                            sx={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                height: '100%',
+                            }}
                         >
-                            <Cancel fontSize="large" />
-                        </IconButton>
+                            <Box
+                                sx={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'flex-end',
+                                    mb: 1,
+                                    pb: 0.5,
+                                }}
+                            >
+                                <IconButton
+                                    onClick={() => setDrawerOpen(false)}
+                                    edge="end"
+                                    color="inherit"
+                                    aria-label="close drawer"
+                                    sx={{ p: 0, color: '#111' }}
+                                >
+                                    <Cancel sx={{ fontSize: 36 }} />
+                                </IconButton>
+                                </Box>
+                            <Box sx={{ pb: 1.5, flex: 1 }}>{drawerItems}</Box>
+                            <Box
+                                sx={{
+                                    display: 'flex',
+                                    justifyContent: 'flex-start',
+                                    gap: 1,
+                                    pb: 2,
+                                    pl: 0.5,
+                                }}
+                            >
+                                <IconButton
+                                    component="a"
+                                    href="https://www.instagram.com"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    sx={{
+                                        backgroundColor: 'rgba(0,0,0,0.06)',
+                                        '&:hover': { backgroundColor: 'rgba(0,0,0,0.12)' },
+                                    }}
+                                >
+                                    <InstagramIcon />
+                                </IconButton>
+                                <IconButton
+                                    component="a"
+                                    href="https://www.linkedin.com"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    sx={{
+                                        backgroundColor: 'rgba(0,0,0,0.06)',
+                                        '&:hover': { backgroundColor: 'rgba(0,0,0,0.12)' },
+                                    }}
+                                >
+                                    <LinkedInIcon />
+                                </IconButton>
+                                <IconButton
+                                    component="a"
+                                    href="https://www.facebook.com"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    sx={{
+                                        backgroundColor: 'rgba(0,0,0,0.06)',
+                                        '&:hover': { backgroundColor: 'rgba(0,0,0,0.12)' },
+                                    }}
+                                >
+                                    <FacebookIcon />
+                                </IconButton>
+                            </Box>
+                        </Box>
                     </Drawer>
                 </>
             )}

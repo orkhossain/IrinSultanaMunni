@@ -17,24 +17,22 @@ export default function Content() {
             <Box
                 sx={{
                     position: 'absolute',
-                    top: { xs: '15%', md: '15%' },
-                    left: { xs: '1.5%', md: '2%' },
-                    maxWidth: { xs: '90%', md: '64%' },
+                    inset: 0,
                     display: 'flex',
-                    alignItems: 'flex-start',
+                    alignItems: 'center',
+                    justifyContent: { xs: 'center', md: 'flex-start' },
+                    px: { xs: '6%', md: '8%' },
                 }}
             >
                 <Typography
                     color="#e2e8f0"
-                    variant={isMobile ? 'h3' : 'h2'}
+                    variant={isMobile ? 'h2' : 'h1'}
                     sx={{
                         fontFamily: 'Cambria',
                         fontWeight: 400,
-                        lineHeight: 1.2,
-                        display: '-webkit-box',
-                        WebkitLineClamp: 3,
-                        WebkitBoxOrient: 'vertical',
-                        overflow: 'hidden',
+                        lineHeight: 1.15,
+                        textAlign: { xs: 'center', md: 'left' },
+                        maxWidth: { xs: '88%', md: '60%' },
                         textShadow: '0 8px 32px rgba(0,0,0,0.35)',
                     }}
                 >

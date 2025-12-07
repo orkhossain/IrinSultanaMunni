@@ -53,7 +53,22 @@ const imageUrls2 = [
 ]
 const CompanyMarquee = ({ children }: any) => {
     return (
-        <div>
+        <div
+            style={{
+                position: 'relative',
+                overflow: 'hidden',
+            }}
+        >
+            <div
+                style={{
+                    pointerEvents: 'none',
+                    position: 'absolute',
+                    inset: 0,
+                    background:
+                        'linear-gradient(90deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.65) 4%, rgba(255,255,255,0.25) 10%, rgba(255,255,255,0) 18%), linear-gradient(270deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.65) 4%, rgba(255,255,255,0.25) 10%, rgba(255,255,255,0) 18%)',
+                    zIndex: 2,
+                }}
+            />
             <ScrollAnimation
                 animateIn="slideInRight"
                 animateOut="slideOutLeft"

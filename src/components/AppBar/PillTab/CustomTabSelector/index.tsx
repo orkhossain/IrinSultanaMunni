@@ -40,10 +40,10 @@ const StyledTabs = styled(({ ...props }: any) => (
         gap: '8px',
     },
     [theme.breakpoints.down('sm')]: {
-        minHeight: 38,
-        padding: '4px',
+        minHeight: 44,
+        padding: '6px',
         '& .MuiTabs-flexContainer': {
-            gap: '4px',
+            gap: '6px',
         },
     },
 }))
@@ -75,8 +75,8 @@ const StyledTab = styled(({ ...props }: any) => (
         borderRadius: '9999px',
     },
     [theme.breakpoints.down('sm')]: {
-        padding: '8px 12px',
-        fontSize: theme.typography.pxToRem(11),
+        padding: '9px 14px',
+        fontSize: theme.typography.pxToRem(12.5),
     },
 }))
 
