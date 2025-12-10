@@ -58,10 +58,9 @@ const CompanyMarquee = ({ children }: any) => {
                 position: 'relative',
                 overflow: 'hidden',
                 background: 'linear-gradient(135deg, #f6f1e7, #f9f4ea)',
-                maxWidth: '1200px',
-                margin: '0 auto',
-                padding: '20px 0',
-                borderRadius: '20px',
+                width: '100%',
+                margin: 0,
+                padding: '28px 0',
             }}
         >
             <div
@@ -79,7 +78,7 @@ const CompanyMarquee = ({ children }: any) => {
                 animateOut="slideOutLeft"
                 animateOnce={true}
             >
-                <Marquee speed={200}>
+                <Marquee speed={140}>
                     {imageUrls.map((imageUrl, index) => (
                         <div key={index} style={{ padding: '18px 0' }}>
                             <Image
@@ -94,9 +93,10 @@ const CompanyMarquee = ({ children }: any) => {
             </ScrollAnimation>
             <ScrollAnimation
                 animateIn="slideInLeft"
-                animateOut="slideOutRight animateOnce={true}"
+                animateOut="slideOutRight"
+                animateOnce={true}
             >
-                <Marquee direction="right" speed={200}>
+                <Marquee direction="right" speed={140}>
                     {imageUrls2.map((imageUrl, index) => (
                         <div key={index} style={{ padding: '18px 0' }}>
                             <Image

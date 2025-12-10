@@ -1,14 +1,10 @@
 import React from 'react'
 import { useTheme } from '@mui/material/styles'
-import Card from '@mui/material/Card'
-import CardContent from '@mui/material/CardContent'
-import CardMedia from '@mui/material/CardMedia'
-import Typography from '@mui/material/Typography'
-import Slider from './Slider'
-import { useMediaQuery } from '@mui/material'
+import { Box, Typography, useMediaQuery } from '@mui/material'
 import { useSelector } from 'react-redux'
 import { selectDictionary } from '@/slice/language'
 import ScrollAnimation from 'react-animate-on-scroll'
+import Slider from './Slider'
 
 export default function Profile() {
     const theme = useTheme()
@@ -19,41 +15,6 @@ export default function Profile() {
     const description = dict.Index?.description ?? ''
     const description2 = dict.Index?.description2 ?? ''
 
-    const cardStyle: React.CSSProperties = {
-        display: 'flex',
-        flexDirection: isMobile ? 'column' : 'row',
-        justifyContent: isMobile ? 'center' : 'space-between',
-        alignItems: 'center',
-        gap: isMobile ? 16 : 24,
-        borderRadius: '28px',
-        padding: isMobile ? '18px' : '24px',
-        margin: '0 auto',
-        maxWidth: '1200px',
-        background: 'linear-gradient(135deg, #f6f1e7, #f9f4ea)',
-        boxShadow: '0 18px 40px rgba(0,0,0,0.12)',
-    }
-
-    const cardMediaStyle: React.CSSProperties = {
-        width: isMobile ? '82vw' : '32vw',
-        maxWidth: 360,
-        height: 'auto',
-        margin: isMobile ? '8px auto' : '0',
-        borderRadius: '16px',
-        objectPosition: 'center',
-    }
-
-    const cardContentStyle: React.CSSProperties = {
-        display: 'flex',
-        padding: isMobile ? '16px 12px' : '20px 18px',
-        textAlign: 'left',
-        backgroundColor: 'rgba(255, 255, 255, 0.66)',
-        backdropFilter: 'blur(10px)',
-        width: isMobile ? '100%' : '55%',
-        alignContent: 'center',
-        borderRadius: '18px',
-        justifyContent: 'center',
-    }
-
     return (
         <>
             <ScrollAnimation
@@ -61,45 +22,90 @@ export default function Profile() {
                 animateOut="fadeOutLeft"
                 animateOnce={true}
             >
-                <Card style={cardStyle}>
-                    <CardMedia
-                        component="img"
-                        style={cardMediaStyle}
-                        image="/profile.jpeg"
-                    />
+                <Box
+                    sx={{
+                        width: '100%',
+                        display: 'grid',
+                        gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' },
+                        minHeight: { md: '70vh' },
+                        background: 'linear-gradient(135deg, #f6f1e7, #f9f4ea)',
+                        borderRadius: 0,
+                        overflow: 'hidden',
+                    }}
+                >
+                    <Box
+                        sx={{
+                            order: { xs: 1, md: 1 },
+                            position: 'relative',
+                            width: '100%',
+                            height: '100%',
+                            minHeight: { xs: 260, md: '100%' },
+                        }}
+                    >
+                        <Box
+                            component="img"
+                            src="/profile.jpeg"
+                            alt="Profile"
+                            sx={{
+                                width: '100%',
+                                height: '100%',
+                                objectFit: 'cover',
+                                display: 'block',
+                            }}
+                        />
+                    </Box>
 
                     <Slider
                         slidesData={[
                             <>
-                                <CardContent style={cardContentStyle}>
-                                    {/* <Typography component="div" variant="h4">
-                                    Benvenuto sul mio sito! Mi chiamo Munni!
-                                </Typography> */}
+                                <Box
+                                    sx={{
+                                        order: { xs: 2, md: 2 },
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        p: { xs: 3, md: 6 },
+                                        bgcolor: 'rgba(255,255,255,0.72)',
+                                        height: '100%',
+                                        textAlign: 'left',
+                                    }}
+                                >
                                     <Typography
                                         variant={isMobile ? 'body1' : 'h5'}
                                         color="text.secondary"
                                         component="span"
                                         fontSize={isSmall ? '13px' : 'auto'}
+                                        sx={{ lineHeight: 1.7 }}
                                     >
                                         {description}
                                     </Typography>
-                                </CardContent>
+                                </Box>
                             </>,
                             <>
-                                <CardContent style={cardContentStyle}>
+                                <Box
+                                    sx={{
+                                        order: { xs: 2, md: 2 },
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        p: { xs: 3, md: 6 },
+                                        bgcolor: 'rgba(255,255,255,0.72)',
+                                        height: '100%',
+                                        textAlign: 'left',
+                                    }}
+                                >
                                     <Typography
                                         variant={isMobile ? 'body1' : 'h5'}
                                         color="text.secondary"
                                         component="span"
                                         fontSize={isSmall ? '13px' : 'auto'}
+                                        sx={{ lineHeight: 1.7 }}
                                     >
                                         {description2}
                                     </Typography>
-                                </CardContent>
+                                </Box>
                             </>,
                         ]}
                     />
-                </Card>
+                </Box>
             </ScrollAnimation>
         </>
     )

@@ -2,8 +2,6 @@
 
 import React from 'react'
 import { Box, Button, Container, Stack, TextField, Typography } from '@mui/material'
-import CustomCursor from '@/components/CustomCursor'
-import ContactMeChat from '@/components/Contact'
 
 export default function ContactPage() {
     return (
@@ -17,7 +15,6 @@ export default function ContactPage() {
                 fontFamily: "'Times New Roman', Times, serif",
             }}
         >
-            <CustomCursor />
             <Container maxWidth="lg">
                 <Box
                     sx={{
@@ -125,7 +122,6 @@ export default function ContactPage() {
                     </Stack>
                 </Box>
             </Container>
-            <ContactMeChat />
         </main>
     )
 }

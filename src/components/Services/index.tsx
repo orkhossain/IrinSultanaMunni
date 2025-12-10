@@ -40,153 +40,86 @@ const ServiceCard = ({
         lineHeight: 1.6,
     }
 
-    const attributionStyle: React.CSSProperties = {
-        fontSize: '11px',
-        textAlign: isInverted ? 'right' : 'left',
-        marginTop: '8px',
-        fontFamily: 'Cambria',
-        color: '#6b5643',
-    }
-
     return (
         <Card
-            style={{
-                flex: '1',
+            sx={{
                 width: '100%',
-                maxWidth: '1100px',
-                margin: '0 auto',
-                background: 'linear-gradient(135deg, rgba(245,237,223,0.96), rgba(234,215,190,0.9))',
-                borderRadius: '32px',
-                boxShadow: '0 24px 54px rgba(38,29,20,0.12)',
-                border: '1px solid rgba(145,80,50,0.12)',
+                borderRadius: 0,
+                m: 0,
+                background:
+                    'linear-gradient(135deg, rgba(245,237,223,0.96), rgba(234,215,190,0.9))',
+                boxShadow: 'none',
+                border: '1px solid rgba(145,80,50,0.1)',
             }}
         >
             <CardContent
                 sx={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    gap: { xs: 2.5, md: 5 },
-                    flexDirection: !isMobile ? 'row' : 'column',
-                    textAlign: 'start',
-                    alignItems: 'center',
-                    p: { xs: 3, md: 4.5 },
+                    display: 'grid',
+                    gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' },
+                    p: 0,
+                    gap: 0,
+                    alignItems: 'stretch',
                 }}
             >
-                <>
-                    {isInverted ? (
-                        <>
-                            <Box>
-                                <ScrollAnimation
-                                    animateIn="fadeInUp"
-                                    animateOut="fadeOutDown"
-                                    animateOnce={true}
-                                >
-                                    <Typography variant="h4" style={titleStyle}>
-                                        {title}
-                                    </Typography>
-                                    <Typography
-                                        variant="body1"
-                                        style={descriptionStyle}
-                                    >
-                                        {description}
-                                    </Typography>
-                                </ScrollAnimation>
+                <Box
+                    sx={{
+                        order: { xs: 1, md: isInverted ? 2 : 1 },
+                        position: 'relative',
+                        minHeight: { xs: 260, md: 420 },
+                    }}
+                >
+                    <ScrollAnimation
+                        animateOnce={true}
+                        animateIn={isInverted ? 'fadeInDown' : 'fadeInDown'}
+                        animateOut={isInverted ? 'fadeOutUp' : 'fadeOutUp'}
+                    >
+                        {imageSrc && (
+                            <Box
+                                sx={{
+                                    position: 'relative',
+                                    width: '100%',
+                                    height: '100%',
+                                    overflow: 'hidden',
+                                }}
+                            >
+                                <Image
+                                    src={imageSrc}
+                                    alt={altText}
+                                    fill
+                                    sizes="(max-width: 900px) 100vw, 50vw"
+                                    style={{
+                                        objectFit: 'cover',
+                                        borderRadius: 0,
+                                    }}
+                                />
                             </Box>
+                        )}
+                    </ScrollAnimation>
+                </Box>
 
-                            <Box>
-                                <ScrollAnimation
-                                    animateOnce={true}
-                                    animateIn="fadeInDown"
-                                    animateOut="fadeOutUp"
-                                >
-                                    {imageSrc && (
-                                        <Box
-                                            sx={{
-                                                display: 'flex',
-                                                justifyContent: 'center',
-                                                alignItems: 'center',
-                                                width: '100%',
-                                            }}
-                                        >
-                                            <div style={{ position: 'relative' }}>
-                                                <Image
-                                                    src={imageSrc}
-                                                    alt={altText}
-                                                    style={{
-                                                        maxHeight: !isMobile ? '36vh' : '30vh',
-                                                        width: 'auto',
-                                                        borderRadius: '22px',
-                                                        boxShadow: '0 18px 36px rgba(38,29,20,0.18)',
-                                                    }}
-                                                />
-                                                <div style={attributionStyle}>
-                                                    <a href="https://www.freepik.com/free-vector/ethnicity-abstract-concept-vector-illustration-ethnic-group-common-language-ancestry-history-cultural-heritage-national-cuisine-social-difference-human-rights-abstract-metaphor_11668221.htm#query=vectorjuice&position=9&from_view=search&track=sph&uuid=cf2f10ff-8809-4534-b9d1-dfff372479e2">
-                                                        Image by vectorjuice on Freepik
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </Box>
-                                    )}
-                                </ScrollAnimation>
-                            </Box>
-                        </>
-                    ) : (
-                        <>
-                            <Box>
-                                <ScrollAnimation
-                                    animateOnce={true}
-                                    animateIn="fadeInDown"
-                                    animateOut="fadeOutUp"
-                                >
-                                    {imageSrc && (
-                                        <Box
-                                            sx={{
-                                                display: 'flex',
-                                                justifyContent: 'center',
-                                                alignItems: 'center',
-                                            }}
-                                        >
-                                            <div
-                                                style={{ position: 'relative' }}
-                                            >
-                                                <Image
-                                                    src={imageSrc}
-                                                    alt={altText}
-                                                    style={{
-                                                        maxHeight: '45vh',
-                                                        width: 'auto',
-                                                        borderRadius: '25px',
-                                                    }}
-                                                />
-                                                <div style={attributionStyle}>
-                                                    <a href="https://www.freepik.com/free-vector/mediation-flat-isometric-business-conflict_12259040.htm#query=mediation&position=3&from_view=search&track=sph&uuid=5ecce42a-e8ca-4593-8204-02d995bd6a68">
-                                                        Image by sentavio on
-                                                        Freepik
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </Box>
-                                    )}
-                                </ScrollAnimation>
-                            </Box>
-
-                            <Box>
-                                <ScrollAnimation
-                                    animateIn="fadeInUp"
-                                    animateOut="fadeOutDown"
-                                    animateOnce={true}
-                                >
-                                        <Typography variant="h4" style={titleStyle}>
-                                            {title}
-                                        </Typography>
-                                        <Typography variant="body1" style={descriptionStyle}>
-                                            {description}
-                                        </Typography>
-                                </ScrollAnimation>
-                            </Box>
-                        </>
-                    )}
-                </>
+                <Box
+                    sx={{
+                        order: { xs: 2, md: isInverted ? 1 : 2 },
+                        display: 'flex',
+                        alignItems: 'center',
+                        p: { xs: 3.5, md: 5 },
+                        bgcolor: 'rgba(255,255,255,0.78)',
+                        height: '100%',
+                    }}
+                >
+                    <ScrollAnimation
+                        animateIn="fadeInUp"
+                        animateOut="fadeOutDown"
+                        animateOnce={true}
+                    >
+                        <Typography variant="h4" style={titleStyle}>
+                            {title}
+                        </Typography>
+                        <Typography variant="body1" style={descriptionStyle}>
+                            {description}
+                        </Typography>
+                    </ScrollAnimation>
+                </Box>
             </CardContent>
         </Card>
     )
@@ -205,10 +138,10 @@ const ServicesComponent: React.FC = () => {
             style={{
                 display: 'flex',
                 flexDirection: 'column',
-                gap: '32px',
-                maxWidth: '1280px',
-                margin: '0 auto',
-                padding: '32px 16px 56px',
+                width: '100%',
+                gap: '0px',
+                margin: 0,
+                padding: 0,
             }}
         >
             <ServiceCard

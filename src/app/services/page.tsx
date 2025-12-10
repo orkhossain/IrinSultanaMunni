@@ -2,7 +2,6 @@
 
 import React from 'react'
 import { Box, Container } from '@mui/material'
-import CustomCursor from '@/components/CustomCursor'
 import Services from '@/components/Services'
 
 export default function ServicesPage() {
@@ -17,7 +16,6 @@ export default function ServicesPage() {
                 fontFamily: "'Times New Roman', Times, serif",
             }}
         >
-            <CustomCursor />
             <Container maxWidth="lg">
                 <Box
                     sx={{

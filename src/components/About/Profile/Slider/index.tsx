@@ -1,21 +1,17 @@
-import React, { useRef, useState } from 'react'
+import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
-import { Scrollbar, Navigation } from 'swiper/modules'
-import { useMediaQuery, useTheme } from '@mui/material'
+import { Navigation } from 'swiper/modules'
 
 export default function Slider(props: any) {
     const { slidesData } = props
-    const theme = useTheme()
-    const isMobile = useMediaQuery(theme.breakpoints.down('md'))
-    const isSmall = useMediaQuery(theme.breakpoints.down('sm'))
 
     return (
         <Swiper
-            width={isMobile ? (isSmall ? 500 : 800) : 1000}
-            height={200}
+            style={{ width: '100%', height: '100%' }}
+            autoHeight
             modules={[Navigation]}
             className="mySwiper"
         >

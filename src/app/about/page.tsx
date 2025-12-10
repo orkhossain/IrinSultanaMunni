@@ -10,7 +10,6 @@ import {
     Typography,
 } from '@mui/material'
 import Grid from '@mui/material/Grid'
-import CustomCursor from '@/components/CustomCursor'
 
 const pill = (label: string) => (
     <Chip
@@ -37,7 +36,6 @@ export default function AboutMePage() {
                 fontFamily: "'Times New Roman', Times, serif",
             }}
         >
-            <CustomCursor />
             <Container maxWidth="lg">
                 <Box
                     sx={{

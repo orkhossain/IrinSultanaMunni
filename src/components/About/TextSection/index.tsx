@@ -16,11 +16,12 @@ const QuoteComponent = () => {
             <Box
                 sx={{
                     position: 'relative',
-                    height: { xs: '100svh', md: '100vh' },
+                    minHeight: { xs: '70vh', md: '80vh' },
                     display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
+                    alignItems: 'flex-start',
+                    justifyContent: 'flex-start',
                     px: { xs: 3, md: 8 },
+                    py: { xs: 6, md: 8 },
                     background:
                         'radial-gradient(circle at 20% 20%, rgba(209,175,134,0.16), transparent 32%), radial-gradient(circle at 80% 10%, rgba(161,135,99,0.12), transparent 28%), linear-gradient(135deg, #f6f1e7, #f9f4ea)',
                 }}
