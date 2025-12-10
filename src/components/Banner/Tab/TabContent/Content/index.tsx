@@ -28,7 +28,8 @@ export default function Content() {
                     color="#e2e8f0"
                     variant={isMobile ? 'h2' : 'h1'}
                     sx={{
-                        fontFamily: 'Cambria',
+                        fontFamily:
+                            "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
                         fontWeight: 400,
                         lineHeight: 1.15,
                         textAlign: { xs: 'left', md: 'left' },

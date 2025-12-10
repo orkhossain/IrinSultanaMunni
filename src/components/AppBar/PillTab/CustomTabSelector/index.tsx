@@ -59,7 +59,7 @@ const StyledTab = styled(({ ...props }: any) => (
     padding: '12px 18px',
     fontSize: theme.typography.pxToRem(13.5),
     color: 'rgba(0,0,0,0.82)',
-    fontFamily: "'Times New Roman', Times, serif",
+    fontFamily: "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
     borderRadius: '9999px',
     transition: 'background-color 180ms ease, color 180ms ease',
     '&.Mui-selected': {

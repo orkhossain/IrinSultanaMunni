@@ -40,7 +40,7 @@ const HideAppBar = () => {
                     className="listItem"
                     sx={{
                         color: 'black',
-                        fontFamily: "'Times New Roman', Times, serif",
+                        fontFamily: "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
                         display: 'flex',
                         flexDirection: isMobile ? 'column' : 'row',
                         justifyContent: !isMobile
@@ -57,7 +57,8 @@ const HideAppBar = () => {
                         <MuiLink
                             sx={{
                                 color: 'black',
-                                fontFamily: "'Times New Roman', Times, serif",
+                                fontFamily:
+                                    "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
                                 fontSize: isMobile ? '1.5rem' : '1rem',
                                 position: 'relative',
                                 pb: '2px',
@@ -88,7 +89,8 @@ const HideAppBar = () => {
                         <MuiLink
                             sx={{
                                 color: 'black',
-                                fontFamily: "'Times New Roman', Times, serif",
+                                fontFamily:
+                                    "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
                                 fontSize: isMobile ? '1.5rem' : '1rem',
                                 position: 'relative',
                                 pb: '2px',
@@ -119,7 +121,8 @@ const HideAppBar = () => {
                         <MuiLink
                             sx={{
                                 color: 'black',
-                                fontFamily: "'Times New Roman', Times, serif",
+                                fontFamily:
+                                    "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
                                 fontSize: isMobile ? '1.5rem' : '1rem',
                                 position: 'relative',
                                 pb: '2px',

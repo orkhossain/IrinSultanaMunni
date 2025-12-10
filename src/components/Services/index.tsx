@@ -25,7 +25,7 @@ const ServiceCard = ({
 
     const titleStyle: React.CSSProperties = {
         margin: 0,
-        fontFamily: 'Cambria',
+        fontFamily: "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
         fontWeight: 600,
         fontSize: isMobile ? '28px' : '32px',
         letterSpacing: '-0.01em',
@@ -35,7 +35,7 @@ const ServiceCard = ({
     const descriptionStyle: React.CSSProperties = {
         fontSize: !isMobile ? '19px' : '17px',
         margin: 0,
-        fontFamily: 'Cambria',
+        fontFamily: "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
         color: '#44352a',
         lineHeight: 1.6,
     }

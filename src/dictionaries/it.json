@@ -1,7 +1,8 @@
 {
     "Index": {
         "title": "Potenziare connessioni globali attraverso competenze linguistiche.",
-        "quote": "Empowering global connections through linguistic expertise",
+        "quote": "Avere un'altra lingua significa possedere una seconda anima.",
+        "quoteBy": "— Carlo Magno",
         "service": "Servizi",
         "about": "Dettagli",
         "description": "Con oltre tredici anni di esperienza consolidata nella mediazione interculturale, ho svolto un ruolo fondamentale nei più diversi ambiti. La mia attività si concentra principalmente nella mediazione linguistica, specializzandomi nella lingua Bengali e nell'Urdu, oltre all'Hindi. Offro anche servizi di traduzione scritta, agevolando il passaggio fluido tra il Bengali e l'Italiano, garantendo la massima precisione e comprensione reciproca",
@@ -13,5 +14,29 @@
         "contact": "Contatti",
         "question": "Per qualsiasi quesito non esitare a contattare",
         "aboutMe": "Profilo"
+    },
+    "AboutPage": {
+        "introTitle": "Su Irin Sultana Munni",
+        "introBody": "Sono una mediatrice linguistica e interprete con oltre tredici anni di esperienza nell'accompagnare le persone in momenti delicati—che si tratti di ospedali, tribunali o percorsi di integrazione. Unisco chiarezza comunicativa e sensibilità culturale per creare fiducia tra professionisti e comunità.",
+        "languages": ["Bengalese", "Urdu", "Hindi", "Italiano", "Inglese"],
+        "medicalTitle": "Sanità e benessere",
+        "medicalBody": "Supporto medici, infermieri, psicologi e assistenti sociali in ospedali e ambulatori. Il mio compito è far sentire ogni paziente—soprattutto chi è lontano da casa—compreso e rispettato.",
+        "medicalTags": ["Ospedali e reparti", "Sedute di psicologia", "Servizi sociali", "Percorsi di cura"],
+        "legalTitle": "Immigrazione e legale",
+        "legalBody": "Dalle audizioni per asilo ai colloqui con avvocati e giudici, aiuto i clienti a raccontare la propria storia in modo chiaro e sicuro, preservando sfumature e rispetto.",
+        "legalTags": ["Percorsi di asilo", "Udienze e tribunali", "Consulenze legali", "Preparazione casi"],
+        "culturalTitle": "Integrazione culturale",
+        "culturalBody": "Creo ponti tra istituzioni e comunità, traducendo non solo la lingua ma anche abitudini, aspettative ed esperienze vissute.",
+        "culturalTags": ["Scuola ed educazione", "Laboratori comunitari", "Servizi pubblici", "Mediazione culturale"],
+        "howTitle": "Il mio metodo",
+        "howSteps": [
+            "Preparazione: allinearsi su contesto, persone coinvolte e sensibilità.",
+            "Mediazione: mantenere i dialoghi chiari, rispettosi e puntuali.",
+            "Documentazione: note e traduzioni accurate con i passi successivi.",
+            "Follow-up: assicurarsi che entrambe le parti si sentano ascoltate e supportate."
+        ],
+        "ctaTitle": "Parliamone",
+        "ctaBody": "Che tu abbia bisogno di supporto in ospedale, mediazione legale o integrazione culturale per i team, sono qui per aiutarti a creare chiarezza e fiducia.",
+        "ctaEmail": "irin.munni78@gmail.com"
     }
 }

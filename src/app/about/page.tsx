@@ -10,6 +10,9 @@ import {
     Typography,
 } from '@mui/material'
 import Grid from '@mui/material/Grid'
+import { useSelector } from 'react-redux'
+import { selectDictionary } from '@/slice/language'
+import styles from '../page.module.css'
 
 const pill = (label: string) => (
     <Chip
@@ -19,23 +22,70 @@ const pill = (label: string) => (
             backgroundColor: 'rgba(0,0,0,0.05)',
             border: '1px solid rgba(0,0,0,0.12)',
             color: '#0f172a',
-            fontFamily: "'Times New Roman', Times, serif",
+            fontFamily: "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
         }}
     />
 )
 
 export default function AboutMePage() {
+    const dict = useSelector(selectDictionary)
+    const about = dict.AboutPage ?? {}
+    const introTitle =
+        about.introTitle ?? 'About Irin Sultana Munni'
+    const introBody =
+        about.introBody ??
+        'I am a language mediator and interpreter with over thirteen years of experience guiding people through critical moments—whether in hospitals, courts, or cultural integration settings. My work blends clear communication with cultural intelligence to create trust between professionals and the communities they serve.'
+    const languages: string[] =
+        about.languages ?? ['Bengali', 'Urdu', 'Hindi', 'Italian', 'English']
+
+    const sections = [
+        {
+            title: about.medicalTitle ?? 'Medical & wellbeing',
+            body:
+                about.medicalBody ??
+                'I support doctors, nurses, psychologists, and social workers in hospitals and clinics. My role is to ensure every patient—especially those navigating treatment far from home—feels understood and respected.',
+            tags:
+                about.medicalTags ??
+                ['Hospitals & wards', 'Psychology sessions', 'Social services', 'Care pathways'],
+        },
+        {
+            title: about.legalTitle ?? 'Immigration & legal',
+            body:
+                about.legalBody ??
+                'From asylum hearings to consultations with lawyers and judges, I help clients articulate their stories clearly and confidently while preserving nuance and respect.',
+            tags:
+                about.legalTags ??
+                ['Asylum pathways', 'Hearings & courts', 'Legal consultations', 'Case preparation'],
+        },
+        {
+            title: about.culturalTitle ?? 'Cultural integration',
+            body:
+                about.culturalBody ??
+                'I build bridges between institutions and communities—translating not only language, but customs, expectations, and lived experiences.',
+            tags:
+                about.culturalTags ??
+                ['Education & schools', 'Community workshops', 'Public services', 'Cultural mediation'],
+        },
+    ]
+
+    const howTitle = about.howTitle ?? 'How I work'
+    const howSteps: string[] =
+        about.howSteps ??
+        [
+            'Prepare: align on context, stakeholders, and sensitivities.',
+            'Facilitate: keep conversations clear, respectful, and on time.',
+            'Document: deliver accurate notes and translations with next steps.',
+            'Follow up: ensure both sides feel heard and supported.',
+        ]
+
+    const ctaTitle = about.ctaTitle ?? "Let's talk"
+    const ctaBody =
+        about.ctaBody ??
+        "Whether you need in-hospital support, legal mediation, or cultural onboarding for teams, I'm here to help you create clarity and trust."
+    const ctaEmail = about.ctaEmail ?? 'irin.munni78@gmail.com'
+
     return (
-        <main
-            style={{
-                minHeight: '100vh',
-                background:
-                    'radial-gradient(circle at 18% 18%, rgba(216,184,157,0.18), transparent 34%), radial-gradient(circle at 76% 12%, rgba(183,126,97,0.16), transparent 30%), linear-gradient(135deg, rgba(245,237,223,1), rgba(234,215,190,1))',
-                padding: '6rem 0 4rem',
-                color: '#24190f',
-                fontFamily: "'Times New Roman', Times, serif",
-            }}
-        >
+        <main className={styles.main}>
             <Container maxWidth="lg">
                 <Box
                     sx={{
@@ -51,124 +101,56 @@ export default function AboutMePage() {
                             variant="h3"
                             sx={{
                                 fontWeight: 600,
-                                fontFamily: "'Times New Roman', Times, serif",
+                                fontFamily:
+                                    "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
                                 color: '#0f172a',
                             }}
                         >
-                            About Irin Sultana Munni
+                            {introTitle}
                         </Typography>
                         <Typography
                             variant="h6"
                             sx={{
                                 color: '#334155',
                                 lineHeight: 1.6,
-                                fontFamily: "'Times New Roman', Times, serif",
+                                fontFamily:
+                                    "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
                             }}
                         >
-                            I am a language mediator and interpreter with over
-                            thirteen years of experience guiding people through
-                            critical moments—whether in hospitals, courts, or
-                            cultural integration settings. My work blends clear
-                            communication with cultural intelligence to create
-                            trust between professionals and the communities they
-                            serve.
+                            {introBody}
                         </Typography>
                         <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
-                            {['Bengali', 'Urdu', 'Hindi', 'Italian', 'English'].map(pill)}
+                            {languages.map(pill)}
                         </Stack>
                     </Stack>
 
                     <Divider sx={{ my: 3, borderColor: 'rgba(0,0,0,0.08)' }} />
 
                     <Grid container spacing={3}>
-                        <Grid xs={12} md={4}>
-                            <Box
-                                sx={{
-                                    background: 'rgba(255,255,255,0.92)',
-                                    borderRadius: '16px',
-                                    padding: '1.25rem',
-                                    height: '100%',
-                                    border: '1px solid rgba(0,0,0,0.06)',
-                                    boxShadow: '0 12px 36px rgba(0,0,0,0.12)',
-                                }}
-                            >
-                                <Typography variant="h5" sx={{ fontWeight: 600, color: '#0f172a' }}>
-                                    Medical & wellbeing
-                                </Typography>
-                                <Typography sx={{ color: '#334155', lineHeight: 1.6 }}>
-                                    I support doctors, nurses, psychologists, and social workers in
-                                    hospitals and clinics. My role is to ensure every patient—especially
-                                    those navigating treatment far from home—feels understood and respected.
-                                </Typography>
-                                <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap mt={1}>
-                                    {[
-                                        'Hospitals & wards',
-                                        'Psychology sessions',
-                                        'Social services',
-                                        'Care pathways',
-                                    ].map(pill)}
-                                </Stack>
-                            </Box>
-                        </Grid>
-
-                        <Grid xs={12} md={4}>
-                            <Box
-                                sx={{
-                                    background: 'rgba(255,255,255,0.92)',
-                                    borderRadius: '16px',
-                                    padding: '1.25rem',
-                                    height: '100%',
-                                    border: '1px solid rgba(0,0,0,0.06)',
-                                    boxShadow: '0 12px 36px rgba(0,0,0,0.12)',
-                                }}
-                            >
-                                <Typography variant="h5" sx={{ fontWeight: 600, color: '#0f172a' }}>
-                                    Immigration & legal
-                                </Typography>
-                                <Typography sx={{ color: '#334155', lineHeight: 1.6 }}>
-                                    From asylum hearings to consultations with lawyers and judges, I help
-                                    clients articulate their stories clearly and confidently while preserving
-                                    nuance and respect.
-                                </Typography>
-                                <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap mt={1}>
-                                    {[
-                                        'Asylum pathways',
-                                        'Hearings & courts',
-                                        'Legal consultations',
-                                        'Case preparation',
-                                    ].map(pill)}
-                                </Stack>
-                            </Box>
-                        </Grid>
-
-                        <Grid xs={12} md={4}>
-                            <Box
-                                sx={{
-                                    background: 'rgba(255,255,255,0.92)',
-                                    borderRadius: '16px',
-                                    padding: '1.25rem',
-                                    height: '100%',
-                                    border: '1px solid rgba(0,0,0,0.06)',
-                                    boxShadow: '0 12px 36px rgba(0,0,0,0.12)',
-                                }}
-                            >
-                                <Typography variant="h5" sx={{ fontWeight: 600, color: '#0f172a' }}>
-                                    Cultural integration
-                                </Typography>
-                                <Typography sx={{ color: '#334155', lineHeight: 1.6 }}>
-                                    I build bridges between institutions and communities—translating not
-                                    only language, but customs, expectations, and lived experiences.
-                                </Typography>
-                                <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap mt={1}>
-                                    {[
-                                        'Education & schools',
-                                        'Community workshops',
-                                        'Public services',
-                                        'Cultural mediation',
-                                    ].map(pill)}
-                                </Stack>
-                            </Box>
-                        </Grid>
+                        {sections.map((section) => (
+                            <Grid key={section.title} xs={12} md={4}>
+                                <Box
+                                    sx={{
+                                        background: 'rgba(255,255,255,0.92)',
+                                        borderRadius: '16px',
+                                        padding: '1.25rem',
+                                        height: '100%',
+                                        border: '1px solid rgba(0,0,0,0.06)',
+                                        boxShadow: '0 12px 36px rgba(0,0,0,0.12)',
+                                    }}
+                                >
+                                    <Typography variant="h5" sx={{ fontWeight: 600, color: '#0f172a' }}>
+                                        {section.title}
+                                    </Typography>
+                                    <Typography sx={{ color: '#334155', lineHeight: 1.6 }}>
+                                        {section.body}
+                                    </Typography>
+                                    <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap mt={1}>
+                                        {section.tags.map(pill)}
+                                    </Stack>
+                                </Box>
+                            </Grid>
+                        ))}
                     </Grid>
 
                     <Divider sx={{ my: 3, borderColor: 'rgba(0,0,0,0.08)' }} />
@@ -176,15 +158,10 @@ export default function AboutMePage() {
                     <Grid container spacing={3}>
                         <Grid xs={12} md={6}>
                             <Typography variant="h5" sx={{ fontWeight: 600, mb: 1, color: '#0f172a' }}>
-                                How I work
+                                {howTitle}
                             </Typography>
                             <Stack spacing={1.25}>
-                                {[
-                                    'Prepare: align on context, stakeholders, and sensitivities.',
-                                    'Facilitate: keep conversations clear, respectful, and on time.',
-                                    'Document: deliver accurate notes and translations with next steps.',
-                                    'Follow up: ensure both sides feel heard and supported.',
-                                ].map((step) => (
+                                {howSteps.map((step) => (
                                     <Typography key={step} sx={{ color: '#334155', lineHeight: 1.6 }}>
                                         {step}
                                     </Typography>
@@ -193,14 +170,13 @@ export default function AboutMePage() {
                         </Grid>
                         <Grid xs={12} md={6}>
                             <Typography variant="h5" sx={{ fontWeight: 600, mb: 1, color: '#0f172a' }}>
-                                Let&apos;s talk
+                                {ctaTitle}
                             </Typography>
                             <Typography sx={{ color: '#334155', lineHeight: 1.6, mb: 1 }}>
-                                Whether you need in-hospital support, legal mediation, or cultural
-                                onboarding for teams, I&apos;m here to help you create clarity and trust.
+                                {ctaBody}
                             </Typography>
                             <Typography sx={{ color: '#0f172a', fontWeight: 600 }}>
-                                irin.munni78@gmail.com
+                                {ctaEmail}
                             </Typography>
                         </Grid>
                     </Grid>

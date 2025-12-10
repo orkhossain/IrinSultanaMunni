@@ -41,7 +41,7 @@ const CustomLink = ({
                 primaryTypographyProps={{
                     variant: 'h5',
                     textAlign: 'left',
-                    fontFamily: "'Times New Roman', Times, serif",
+                    fontFamily: "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
                 }}
                 primary={text}
             />

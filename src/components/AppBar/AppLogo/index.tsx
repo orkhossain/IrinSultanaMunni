@@ -16,7 +16,7 @@ const AppLogo = () => {
             <Typography
                 fontWeight={500}
                 color="black"
-                fontFamily="'Times New Roman', Times, serif"
+                fontFamily="'Fancy Cut Pro', 'Cambria', 'Georgia', serif"
                 variant="h5"
                 component="div"
                 sx={{ flexGrow: 1, cursor: 'pointer' }}
@@ -39,7 +39,7 @@ const AppLogo = () => {
                 <Typography
                     fontWeight={500}
                     color="black"
-                    fontFamily="'Times New Roman', Times, serif"
+                    fontFamily="'Fancy Cut Pro', 'Cambria', 'Georgia', serif"
                     variant="h5"
                     component="div"
                     sx={{ flexGrow: 1, marginLeft: 1 }}

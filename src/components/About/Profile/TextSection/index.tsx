@@ -4,6 +4,8 @@ import Box from '@mui/material/Box'
 import ScrollAnimation from 'react-animate-on-scroll'
 import { useMediaQuery, useTheme } from '@mui/material'
 import { motion, useViewportScroll, useTransform } from 'framer-motion'
+import { useSelector } from 'react-redux'
+import { selectDictionary } from '@/slice/language'
 
 const QuoteComponent = () => {
     const theme = useTheme()
@@ -11,6 +13,11 @@ const QuoteComponent = () => {
     const isSmall = useMediaQuery(theme.breakpoints.down('sm'))
     const { scrollYProgress } = useViewportScroll()
     const y = useTransform(scrollYProgress, [0, 1], [40, -40])
+    const dict = useSelector(selectDictionary)
+    const quote =
+        dict.Index?.quote ??
+        'To have another language is to possess a second soul.'
+    const quoteBy = dict.Index?.quoteBy ?? '— Charlemagne'
 
     return (
         <ScrollAnimation
@@ -34,7 +41,8 @@ const QuoteComponent = () => {
                     <Typography
                         variant={isMobile ? (isSmall ? 'h4' : 'h2') : 'h1'}
                         sx={{
-                            fontFamily: "'Times New Roman', Times, serif",
+                            fontFamily:
+                                "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
                             fontWeight: 400,
                             textAlign: 'center',
                             lineHeight: 1.15,
@@ -43,10 +51,10 @@ const QuoteComponent = () => {
                             textShadow: '0 14px 42px rgba(0,0,0,0.18)',
                         }}
                     >
-                        &quot;To have another language is to possess a second soul.&quot;
+                        {quote}
                         <br />
                         <Box component="span" sx={{ display: 'inline-block', mt: 2, fontSize: '0.8em', letterSpacing: '0.12em' }}>
-                            — Charlemagne
+                            {quoteBy}
                         </Box>
                     </Typography>
                 </Box>

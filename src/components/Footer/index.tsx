@@ -22,6 +22,7 @@ const Footer = () => {
                 mt: 0,
                 py: { xs: 4.5, sm: 6 },
                 color: '#2d241b',
+                fontFamily: "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
             }}
         >
             <Container maxWidth="lg">
@@ -30,7 +31,9 @@ const Footer = () => {
                     spacing={{ xs: 3, sm: 3.75 }}
                     justifyContent="space-between"
                     alignItems={{ xs: 'flex-start', sm: 'center' }}
-                    sx={{ fontFamily: '"Times New Roman", Times, serif' }}
+                    sx={{
+                        fontFamily: "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
+                    }}
                 >
                     <Box sx={{ maxWidth: 460 }}>
                         <Typography

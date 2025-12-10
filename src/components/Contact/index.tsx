@@ -34,7 +34,7 @@ const ContactMeChat = () => {
                 <Typography
                     variant="h6"
                     sx={{
-                        fontFamily: '"Times New Roman", Times, serif',
+                        fontFamily: "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
                         fontWeight: 500,
                         color: '#241a14',
                         letterSpacing: '-0.01em',

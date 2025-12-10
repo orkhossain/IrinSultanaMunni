@@ -1,7 +1,8 @@
 {
     "Index": {
         "title": "Empowering global connections through linguistic expertise",
-        "quote": "Empowering global connections through linguistic expertise",
+        "quote": "To have another language is to possess a second soul.",
+        "quoteBy": "— Charlemagne",
         "service": "Service",
         "about": "Details",
         "description": "With over thirteen years of extensive experience in cross-cultural mediation, I've played a pivotal role across diverse sectors. My primary focus lies in language mediation, specializing in Bengali, Urdu, and Hindi. Additionally, I provide written translation services, facilitating seamless transitions between Bengali and Italian, ensuring utmost accuracy and mutual understanding",
@@ -13,5 +14,29 @@
         "contact": "Contact",
         "question": "For an enquiry feel free to get in touch",
         "aboutMe": "About"
+    },
+    "AboutPage": {
+        "introTitle": "About Irin Sultana Munni",
+        "introBody": "I am a language mediator and interpreter with over thirteen years of experience guiding people through critical moments—whether in hospitals, courts, or cultural integration settings. My work blends clear communication with cultural intelligence to create trust between professionals and the communities they serve.",
+        "languages": ["Bengali", "Urdu", "Hindi", "Italian", "English"],
+        "medicalTitle": "Medical & wellbeing",
+        "medicalBody": "I support doctors, nurses, psychologists, and social workers in hospitals and clinics. My role is to ensure every patient—especially those navigating treatment far from home—feels understood and respected.",
+        "medicalTags": ["Hospitals & wards", "Psychology sessions", "Social services", "Care pathways"],
+        "legalTitle": "Immigration & legal",
+        "legalBody": "From asylum hearings to consultations with lawyers and judges, I help clients articulate their stories clearly and confidently while preserving nuance and respect.",
+        "legalTags": ["Asylum pathways", "Hearings & courts", "Legal consultations", "Case preparation"],
+        "culturalTitle": "Cultural integration",
+        "culturalBody": "I build bridges between institutions and communities—translating not only language, but customs, expectations, and lived experiences.",
+        "culturalTags": ["Education & schools", "Community workshops", "Public services", "Cultural mediation"],
+        "howTitle": "How I work",
+        "howSteps": [
+            "Prepare: align on context, stakeholders, and sensitivities.",
+            "Facilitate: keep conversations clear, respectful, and on time.",
+            "Document: deliver accurate notes and translations with next steps.",
+            "Follow up: ensure both sides feel heard and supported."
+        ],
+        "ctaTitle": "Let's talk",
+        "ctaBody": "Whether you need in-hospital support, legal mediation, or cultural onboarding for teams, I'm here to help you create clarity and trust.",
+        "ctaEmail": "irin.munni78@gmail.com"
     }
 }
