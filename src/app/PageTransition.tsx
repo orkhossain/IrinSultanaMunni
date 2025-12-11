@@ -4,12 +4,12 @@ import React from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { usePathname } from 'next/navigation'
 
-const transition = { duration: 0.28, ease: [0.25, 0.1, 0.25, 1] }
+const transition = { duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }
 
 const variants = {
-    initial: { opacity: 0, y: 12, filter: 'blur(2px)' },
-    animate: { opacity: 1, y: 0, filter: 'blur(0px)' },
-    exit: { opacity: 0, y: -10, filter: 'blur(4px)' },
+    initial: { opacity: 0, y: 60 },
+    animate: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: -60 },
 }
 
 export default function PageTransition({

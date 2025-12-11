@@ -5,73 +5,60 @@
     'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
     'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
 
-  /* Warm neutral palette */
-  --sand-50: 245, 237, 223;
-  --sand-100: 234, 215, 190;
-  --sand-200: 216, 184, 157;
-  --sand-300: 201, 155, 124;
-  --sand-400: 183, 126, 97;
-  --sand-500: 169, 104, 73;
-  --sand-600: 145, 80, 50;
+  /* Custom palette */
+  --black-100: #020202;
+  --black-200: #050404;
+  --black-300: #070605;
+  --black-400: #090807;
+  --black-500: #0a0908;
+  --black-600: #423b35;
+  --black-700: #786c60;
+  --black-800: #a89d92;
+  --black-900: #d3cec9;
 
-  --foreground-rgb: 38, 29, 20;
-  --background-start-rgb: var(--sand-50);
-  --background-end-rgb: var(--sand-100);
+  --jet-100: #070a0c;
+  --jet-200: #0d1417;
+  --jet-300: #141e23;
+  --jet-400: #1b282f;
+  --jet-500: #22333b;
+  --jet-600: #40606f;
+  --jet-700: #608ea3;
+  --jet-800: #95b4c2;
+  --jet-900: #cad9e0;
 
-  --primary-glow: radial-gradient(circle at 20% 20%, rgba(201,155,124,0.22), transparent 36%),
-    radial-gradient(circle at 70% 30%, rgba(183,126,97,0.18), transparent 32%);
-  --secondary-glow: radial-gradient(
-    rgba(255, 255, 255, 0.72),
-    rgba(255, 255, 255, 0.12)
-  );
+  --almond-100: #3c2d1e;
+  --almond-200: #775b3c;
+  --almond-300: #ae885f;
+  --almond-400: #ccb49b;
+  --almond-500: #eae0d5;
+  --almond-600: #efe7de;
+  --almond-700: #f3ede7;
+  --almond-800: #f7f3ef;
+  --almond-900: #fbf9f7;
 
-  --tile-start-rgb: var(--sand-100);
-  --tile-end-rgb: var(--sand-200);
-  --tile-border: conic-gradient(
-    rgba(38,29,20,0.25),
-    rgba(38,29,20,0.14),
-    rgba(38,29,20,0.1),
-    rgba(38,29,20,0.08),
-    rgba(38,29,20,0.14)
-  );
+  --khaki-100: #2d2317;
+  --khaki-200: #5b462e;
+  --khaki-300: #886945;
+  --khaki-400: #b08b62;
+  --khaki-500: #c6ac8f;
+  --khaki-600: #d2bda5;
+  --khaki-700: #ddcebc;
+  --khaki-800: #e8ded2;
+  --khaki-900: #f4efe9;
 
-  --callout-rgb: 236, 224, 206;
-  --callout-border-rgb: 197, 168, 132;
-  --card-rgb: 230, 214, 194;
-  --card-border-rgb: 182, 146, 112;
-}
+  --stone-100: #13100d;
+  --stone-200: #262019;
+  --stone-300: #393026;
+  --stone-400: #4c4133;
+  --stone-500: #5e503f;
+  --stone-600: #89755b;
+  --stone-700: #ab9880;
+  --stone-800: #c7baab;
+  --stone-900: #e3ddd5;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-
-    --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
-    --secondary-glow: linear-gradient(
-      to bottom right,
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0.3)
-    );
-
-    --tile-start-rgb: 2, 13, 46;
-    --tile-end-rgb: 2, 5, 19;
-    --tile-border: conic-gradient(
-      #ffffff80,
-      #ffffff40,
-      #ffffff30,
-      #ffffff20,
-      #ffffff10,
-      #ffffff10,
-      #ffffff80
-    );
-
-    --callout-rgb: 20, 20, 20;
-    --callout-border-rgb: 108, 108, 108;
-    --card-rgb: 100, 100, 100;
-    --card-border-rgb: 200, 200, 200;
-  }
+  --foreground: var(--stone-400);
+  --background-start: var(--almond-800);
+  --background-end: var(--khaki-900);
 }
 
 * {
@@ -87,12 +74,8 @@ body {
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      rgba(var(--background-start-rgb), 1),
-      rgba(var(--background-end-rgb), 1)
-    );
+  color: var(--foreground);
+  background: linear-gradient(180deg, var(--background-start) 0%, var(--background-end) 100%);
   font-family: 'Fancy Cut Pro', 'Cambria', 'Georgia', serif;
 }
 

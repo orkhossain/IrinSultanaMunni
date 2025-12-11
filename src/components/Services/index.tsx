@@ -1,127 +1,90 @@
+'use client'
+
 import * as React from 'react'
-import {
-    Box,
-    Card,
-    CardContent,
-    Typography,
-    useMediaQuery,
-    useTheme,
-} from '@mui/material'
+import { Box, Stack, Typography } from '@mui/material'
 import { selectDictionary } from '@/slice/language'
 import { useSelector } from 'react-redux'
-import ScrollAnimation from 'react-animate-on-scroll'
-import Image from 'next/image'
+import { motion } from 'framer-motion'
 import Image1 from '@/assets/img1.webp'
 import Image2 from '@/assets/img2.webp'
+
+const fontFamily = "'Fancy Cut Pro', 'Cambria', 'Georgia', serif"
+const tileMinHeight = { xs: 340, md: 520 }
+const gradientOverlay =
+    'linear-gradient(180deg, rgba(198,172,143,0.6) 0%, rgba(234,224,213,0.9) 100%)'
+const tileVariants = {
+    hidden: { opacity: 0, y: 80 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+}
 
 const ServiceCard = ({
     title,
     description,
     imageSrc,
-    altText,
     isInverted,
 }: any) => {
-    const isMobile = useMediaQuery(useTheme().breakpoints.down('md'))
-
-    const titleStyle: React.CSSProperties = {
-        margin: 0,
-        fontFamily: "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
-        fontWeight: 600,
-        fontSize: isMobile ? '28px' : '32px',
-        letterSpacing: '-0.01em',
-        color: '#3a2a1c',
-    }
-
-    const descriptionStyle: React.CSSProperties = {
-        fontSize: !isMobile ? '19px' : '17px',
-        margin: 0,
-        fontFamily: "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
-        color: '#44352a',
-        lineHeight: 1.6,
-    }
-
     return (
-        <Card
-            sx={{
-                width: '100%',
-                borderRadius: 0,
-                m: 0,
-                background:
-                    'linear-gradient(135deg, rgba(245,237,223,0.96), rgba(234,215,190,0.9))',
-                boxShadow: 'none',
-                border: '1px solid rgba(145,80,50,0.1)',
-            }}
+        <motion.div
+            variants={tileVariants}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.35 }}
+            style={{ height: '100%' }}
         >
-            <CardContent
-                sx={{
-                    display: 'grid',
-                    gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' },
-                    p: 0,
-                    gap: 0,
-                    alignItems: 'stretch',
-                }}
-            >
+            <Box sx={{ height: '100%', overflow: 'hidden' }}>
                 <Box
                     sx={{
-                        order: { xs: 1, md: isInverted ? 2 : 1 },
-                        position: 'relative',
-                        minHeight: { xs: 260, md: 420 },
+                        display: 'flex',
+                        flexDirection: isInverted ? 'row-reverse' : 'row',
+                        minHeight: tileMinHeight,
+                        background: '#e8ded2',
                     }}
                 >
-                    <ScrollAnimation
-                        animateOnce={true}
-                        animateIn={isInverted ? 'fadeInDown' : 'fadeInDown'}
-                        animateOut={isInverted ? 'fadeOutUp' : 'fadeOutUp'}
+                    <Box
+                        sx={{
+                            flex: '1 1 50%',
+                            position: 'relative',
+                            minHeight: tileMinHeight,
+                            backgroundImage: `${gradientOverlay}, url(${imageSrc.src})`,
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center',
+                        }}
+                    />
+                    <Box
+                        sx={{
+                            flex: '1 1 50%',
+                            backgroundColor: '#fbf9f7',
+                            p: { xs: 3, md: 3.5 },
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                        }}
                     >
-                        {imageSrc && (
-                            <Box
+                        <Stack spacing={1.25}>
+                            <Typography
+                                variant="h5"
                                 sx={{
-                                    position: 'relative',
-                                    width: '100%',
-                                    height: '100%',
-                                    overflow: 'hidden',
+                                    fontWeight: 700,
+                                    color: '#4c4133',
+                                    fontFamily,
                                 }}
                             >
-                                <Image
-                                    src={imageSrc}
-                                    alt={altText}
-                                    fill
-                                    sizes="(max-width: 900px) 100vw, 50vw"
-                                    style={{
-                                        objectFit: 'cover',
-                                        borderRadius: 0,
-                                    }}
-                                />
-                            </Box>
-                        )}
-                    </ScrollAnimation>
+                                {title}
+                            </Typography>
+                            <Typography
+                                sx={{
+                                    color: '#393026',
+                                    lineHeight: 1.7,
+                                    fontFamily,
+                                }}
+                            >
+                                {description}
+                            </Typography>
+                        </Stack>
+                    </Box>
                 </Box>
-
-                <Box
-                    sx={{
-                        order: { xs: 2, md: isInverted ? 1 : 2 },
-                        display: 'flex',
-                        alignItems: 'center',
-                        p: { xs: 3.5, md: 5 },
-                        bgcolor: 'rgba(255,255,255,0.78)',
-                        height: '100%',
-                    }}
-                >
-                    <ScrollAnimation
-                        animateIn="fadeInUp"
-                        animateOut="fadeOutDown"
-                        animateOnce={true}
-                    >
-                        <Typography variant="h4" style={titleStyle}>
-                            {title}
-                        </Typography>
-                        <Typography variant="body1" style={descriptionStyle}>
-                            {description}
-                        </Typography>
-                    </ScrollAnimation>
-                </Box>
-            </CardContent>
-        </Card>
+            </Box>
+        </motion.div>
     )
 }
 
@@ -131,31 +94,19 @@ const ServicesComponent: React.FC = () => {
     const service2 = dict.Index?.service2 ?? ''
     const mediation = dict.Index?.mediation ?? ''
     const translation = dict.Index?.translation ?? ''
-    const isMobile = useMediaQuery(useTheme().breakpoints.down('md'))
 
     return (
-        <div
-            style={{
-                display: 'flex',
-                flexDirection: 'column',
-                width: '100%',
-                gap: '0px',
-                margin: 0,
-                padding: 0,
-            }}
-        >
+        <div style={{ display: 'flex', flexDirection: 'column', width: '100%', gap: 0 }}>
             <ServiceCard
                 title={service1}
                 description={mediation}
                 imageSrc={Image1}
-                altText="Image1"
             />
             <ServiceCard
-                isInverted={!isMobile ? true : false}
+                isInverted
                 title={service2}
                 description={translation}
                 imageSrc={Image2}
-                altText="Image2"
             />
         </div>
     )

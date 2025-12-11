@@ -2,7 +2,6 @@
 
 import React from 'react'
 import { AppBar, Toolbar, Slide } from '@mui/material'
-import useScrollTrigger from '@mui/material/useScrollTrigger'
 import ListItems from './ListItems'
 
 interface Props {
@@ -11,16 +10,25 @@ interface Props {
 }
 
 function HideOnScroll(props: Props) {
-  const { children, window } = props
+  const { children } = props
+  const [show, setShow] = React.useState(true)
+  const lastY = React.useRef(0)
 
-  const trigger = useScrollTrigger({
-    target: window ? window() : undefined,
-    disableHysteresis: true, // Ensures immediate hiding/showing on scroll
-    threshold: 0, // Adjust as needed; 0 means trigger on any scroll movement
-  })
+  React.useEffect(() => {
+    const handleScroll = () => {
+      const current = window.scrollY
+      const nearTop = current < 12
+      const scrollingUp = current < lastY.current
+      setShow(scrollingUp || nearTop)
+      lastY.current = current
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
-    <Slide appear={false} direction="down" in={!trigger}>
+    <Slide appear={false} direction="down" in={show}>
       {children!}
     </Slide>
   )
