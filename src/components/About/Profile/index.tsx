@@ -49,7 +49,7 @@ export default function Profile() {
                     >
                         <Box
                             component="img"
-                            src="/profile.jpeg"
+                            src="/profile.png"
                             alt="Profile"
                             sx={{
                                 width: '100%',
