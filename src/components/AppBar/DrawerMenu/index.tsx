@@ -69,21 +69,54 @@ const MobileDrawer = () => {
         router.push(path)
     }
 
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        show: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.12,
+                delayChildren: 0.2,
+            },
+        },
+    }
+
+    const itemVariants = {
+        hidden: { opacity: 0, y: 20, x: -20 },
+        show: {
+            opacity: 1,
+            y: 0,
+            x: 0,
+            transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
+        },
+    }
+
     const drawerItems = (
-        <List>
-            <CustomLink
-                onClick={() => handleNavigate('/services')}
-                text={service}
-            />
-            <CustomLink
-                onClick={() => handleNavigate('/about')}
-                text={aboutMe}
-            />
-            <CustomLink
-                onClick={() => handleNavigate('/contact')}
-                text={contact}
-            />
-        </List>
+        <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate={drawerOpen ? 'show' : 'hidden'}
+        >
+            <List>
+                <motion.div variants={itemVariants}>
+                    <CustomLink
+                        onClick={() => handleNavigate('/services')}
+                        text={service}
+                    />
+                </motion.div>
+                <motion.div variants={itemVariants}>
+                    <CustomLink
+                        onClick={() => handleNavigate('/about')}
+                        text={aboutMe}
+                    />
+                </motion.div>
+                <motion.div variants={itemVariants}>
+                    <CustomLink
+                        onClick={() => handleNavigate('/contact')}
+                        text={contact}
+                    />
+                </motion.div>
+            </List>
+        </motion.div>
     )
 
     return (
