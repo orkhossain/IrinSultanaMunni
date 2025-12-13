@@ -27,7 +27,7 @@ export default function PageTransition({
                 initial="initial"
                 animate="animate"
                 exit="exit"
-                transition={transition}
+                // transition={transition}
                 style={{ minHeight: '100%' }}
             >
                 {children}
