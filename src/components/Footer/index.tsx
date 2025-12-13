@@ -1,14 +1,18 @@
 'use client'
 
+import React from 'react'
 import { selectDictionary } from '@/slice/language'
-import { Container, Typography, Link, Box, Stack, Divider } from '@mui/material'
+import { Box, Button, Container, Divider, Link, Stack, Typography } from '@mui/material'
+import Image from 'next/image'
 import { useSelector } from 'react-redux'
+import logo from '@/assets/logo.png'
 
 const Footer = () => {
     const dict = useSelector(selectDictionary)
     const service = dict.Index?.service ?? ''
     const about = dict.Index?.about ?? ''
     const contact = dict.Index?.contact ?? 'Contact'
+
     const navItems = [
         { href: '/about', label: about },
         { href: '/services', label: service },
@@ -19,114 +23,262 @@ const Footer = () => {
         <Box
             component="footer"
             sx={{
-                backgroundColor: '#f8f4ee',
-                borderTop: '1px solid #e4d8c8',
-                py: { xs: 5, md: 6 },
-                color: '#2d241b',
+                backgroundColor: '#f7f3ec',
+                borderTop: '1px solid #e5ddcf',
+                color: '#1b1410',
                 fontFamily: "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
+                width: '100vw',
+                minHeight: '100vh',
             }}
         >
-            <Container maxWidth="lg">
+            <Container maxWidth="lg" sx={{ height: '100%', display: 'flex', flexDirection: 'column', px: 0 }}>
                 <Stack
-                    direction={{ xs: 'column', md: 'row' }}
-                    spacing={{ xs: 4, md: 5 }}
-                    justifyContent="space-between"
-                    alignItems={{ xs: 'flex-start', md: 'center' }}
-                    sx={{ mb: { xs: 3, md: 4 } }}
+                    spacing={{ xs: 4, md: 6 }}
+                    sx={{
+                        flex: 1,
+                        alignItems: 'stretch',
+                        justifyContent: 'space-between',
+                        pt: { xs: 4, md: 5 },
+                        pb: { xs: 2, md: 3 },
+                        px: { xs: 3, md: 6 },
+                    }}
                 >
-                    <Box sx={{ maxWidth: 440 }}>
-                        <Typography
-                            variant="h5"
-                            sx={{
-                                fontWeight: 600,
-                                letterSpacing: '-0.01em',
-                                color: '#1b1410',
-                            }}
-                        >
-                            Irin Sultana Munni
-                        </Typography>
-                        <Typography
-                            variant="body1"
-                            sx={{
-                                color: 'rgba(27,20,16,0.76)',
-                                mt: 0.75,
-                                lineHeight: 1.65,
-                                fontSize: '1.05rem',
-                            }}
-                        >
-                            Language mediation, interpreting, and cultural integration across medical, legal, and social contexts.
-                        </Typography>
-                    </Box>
+                    <Stack
+                        direction={{ xs: 'column', md: 'row' }}
+                        spacing={{ xs: 4, md: 8 }}
+                        justifyContent="space-between"
+                        alignItems={{ xs: 'flex-start', md: 'center' }}
+                    >
+                        <Stack spacing={1.5} sx={{ minWidth: 180 }}>
+                            {navItems.map((item) => (
+                                <Link
+                                    key={item.href}
+                                    href={item.href}
+                                    underline="none"
+                                    sx={{
+                                        color: '#24315a',
+                                        fontWeight: 500,
+                                        letterSpacing: '0.01em',
+                                        fontSize: '1.05rem',
+                                        display: 'block',
+                                        '&:hover': { color: '#0f1b3a' },
+                                    }}
+                                >
+                                    {item.label}
+                                </Link>
+                            ))}
+                        </Stack>
 
-                    <Stack direction="row" spacing={{ xs: 2, md: 3 }} flexWrap="wrap" rowGap={1.5}>
-                        {navItems.map((item) => (
+                        <Stack
+                            spacing={{ xs: 2, md: 2.5 }}
+                            alignItems="flex-end"
+                            sx={{ flex: 1, textAlign: 'right' }}
+                        >
+                            <Typography
+                                variant="h2"
+                                sx={{
+                                    fontWeight: 500,
+                                    letterSpacing: '-0.02em',
+                                    color: '#24315a',
+                                    fontFamily: "'Playfair Display', 'Cambria', 'Georgia', serif",
+                                }}
+                            >
+                                Irin <Box component="span" sx={{ fontStyle: 'italic' }}>Sultana</Box> Munni
+                            </Typography>
+                            <Typography
+                                variant="body1"
+                                sx={{
+                                    color: '#374469',
+                                    lineHeight: 1.65,
+                                    fontSize: '1.05rem',
+                                    fontWeight: 400,
+                                    textAlign: 'center',
+                                    maxWidth: 640,
+                                    fontFamily: "'Libre Baskerville', 'Times New Roman', serif",
+                                }}
+                            >
+                                Language mediation, interpreting, and cultural integration across medical, legal, and social contexts.
+                            </Typography>
+                        </Stack>
+                    </Stack>
+
+                    <Stack
+                        direction={{ xs: 'column', md: 'row' }}
+                        spacing={{ xs: 5, md: 8 }}
+                        justifyContent="space-between"
+                        alignItems={{ xs: 'flex-start', md: 'center' }}
+                        sx={{ width: '100%' }}
+                    >
+                        <Stack
+                            direction="row"
+                            spacing={{ xs: 4, md: 6 }}
+                            flexWrap="wrap"
+                            rowGap={2}
+                            sx={{ minWidth: { md: 260 } }}
+                        >
+                            <Stack spacing={1}>
+                                <Typography
+                                    variant="body2"
+                                    sx={{ fontWeight: 500, letterSpacing: '0.05em', textTransform: 'uppercase', color: '#3a3128' }}
+                                >
+                                    Connect
+                                </Typography>
+                                <Link
+                                    href="https://www.linkedin.com"
+                                    underline="none"
+                                    sx={{
+                                        color: '#1b1410',
+                                        fontWeight: 500,
+                                        letterSpacing: '0.01em',
+                                        fontSize: '1rem',
+                                        '&:hover': { color: '#0f1b3a' },
+                                    }}
+                                >
+                                    LinkedIn
+                                </Link>
+                                <Link
+                                    href="https://www.instagram.com"
+                                    underline="none"
+                                    sx={{
+                                        color: '#1b1410',
+                                        fontWeight: 500,
+                                        letterSpacing: '0.01em',
+                                        fontSize: '1rem',
+                                        '&:hover': { color: '#0f1b3a' },
+                                    }}
+                                >
+                                    Instagram
+                                </Link>
+                            </Stack>
+                        </Stack>
+
+                        <Box sx={{ flexGrow: 1 }} />
+
+                        <Stack
+                            spacing={{ xs: 1.25, md: 1.75 }}
+                            sx={{ minWidth: { xs: 'auto', md: 260 }, alignItems: 'flex-end', textAlign: 'right' }}
+                        >
+                            <Typography
+                                variant="body2"
+                                sx={{ fontWeight: 500, letterSpacing: '0.05em', textTransform: 'uppercase', color: '#3a3128' }}
+                            >
+                                Get in touch
+                            </Typography>
                             <Link
-                                key={item.href}
-                                href={item.href}
+                                href="mailto:irin.munni78@gmail.com"
                                 underline="none"
                                 sx={{
-                                    color: '#2d241b',
+                                    color: '#1b1410',
+                                    fontWeight: 500,
+                                    letterSpacing: '0.01em',
+                                    fontSize: '1rem',
+                                    '&:hover': { color: '#0f1b3a' },
+                                }}
+                            >
+                                irin.munni78@gmail.com
+                            </Link>
+                            <Button
+                                variant="outlined"
+                                href="/contact"
+                                sx={{
+                                    mt: 0.5,
+                                    borderRadius: '999px',
+                                    textTransform: 'none',
                                     fontWeight: 600,
-                                    letterSpacing: '0.02em',
-                                    fontSize: '0.95rem',
-                                    px: 1.2,
-                                    py: 0.55,
-                                    borderRadius: '12px',
-                                    border: '1px solid rgba(19,16,13,0.08)',
-                                    backgroundColor: 'rgba(255,255,255,0.9)',
-                                    transition: 'all 160ms ease',
-                                    '&:hover': {
-                                        borderColor: '#b08b62',
-                                        backgroundColor: '#fff',
-                                        transform: 'translateY(-1px)',
+                                    borderColor: '#24315a',
+                                    color: '#24315a',
+                                    px: 2.4,
+                                    py: 0.75,
+                                    alignSelf: 'flex-end',
+                                    '&:hover': { borderColor: '#0f1b3a', color: '#0f1b3a' },
+                                }}
+                            >
+                                Get in touch
+                            </Button>
+                        </Stack>
+                    </Stack>
+
+                    <Box sx={{ width: '100%', height: { xs: 140, md: 240 } }} />
+
+                    <Stack spacing={{ xs: 2, md: 3 }} sx={{ width: '100%' }}>
+                        <Box
+                            sx={{
+                                width: '100%',
+                                overflow: 'hidden',
+                            }}
+                        >
+                            <Box
+                                sx={{
+                                    display: 'flex',
+                                    margin: 0,
+                                    padding: 0,
+                                    gap: { xs: 4, md: 6 },
+                                    animation: 'nameMarquee 22s linear infinite',
+                                    whiteSpace: 'nowrap',
+                                    color: 'rgba(27,20,16,0.22)',
+                                    fontFamily: "'Playfair Display', 'Cambria', 'Georgia', serif",
+                                    fontWeight: 500,
+                                    letterSpacing: '0.1em',
+                                    textTransform: 'uppercase',
+                                    fontSize: { xs: '14vw', md: '9vw' },
+                                    '@keyframes nameMarquee': {
+                                        '0%': { transform: 'translateX(0%)' },
+                                        '100%': { transform: 'translateX(-50%)' },
                                     },
                                 }}
                             >
-                                {item.label}
-                            </Link>
-                        ))}
-                    </Stack>
+                                <span>IRIN SULTANA MUNNI</span>
+                            </Box>
+                        </Box>
 
-                    <Stack spacing={1} sx={{ minWidth: { md: 220 } }}>
-                        <Typography
-                            variant="body1"
-                            sx={{ fontWeight: 600, letterSpacing: '0.01em', color: '#1b1410' }}
+                        <Divider sx={{ borderColor: 'rgba(0,0,0,0.06)', m: 0 }} />
+                        <Stack
+                            direction="row"
+                            spacing={1.25}
+                            justifyContent="center"
+                            alignItems="center"
+                            sx={{ color: 'rgba(27,20,16,0.65)' }}
                         >
-                            Contact
-                        </Typography>
-                        <Link
-                            href="mailto:irin.munni78@gmail.com"
-                            underline="none"
-                            sx={{
-                                color: '#2d241b',
-                                fontWeight: 600,
-                                fontSize: '0.95rem',
-                                letterSpacing: '0.01em',
-                            }}
-                        >
-                            irin.munni78@gmail.com
-                        </Link>
-                        <Typography sx={{ color: 'rgba(27,20,16,0.68)', fontSize: '0.95rem' }}>
-                            Based in Italy · Available onsite or remote
-                        </Typography>
+                            <Box
+                                sx={{
+                                    width: 32,
+                                    height: 32,
+                                    borderRadius: '10px',
+                                    overflow: 'hidden',
+                                    border: '1px solid rgba(0,0,0,0.08)',
+                                    backgroundColor: '#fff',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                }}
+                            >
+                                <Image
+                                    src={logo}
+                                    alt="Irin Sultana Munni logo"
+                                    width={32}
+                                    height={32}
+                                    style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+                                />
+                            </Box>
+                            <Typography
+                                variant="body2"
+                                sx={{
+                                    color: 'rgba(27,20,16,0.65)',
+                                    letterSpacing: '0.04em',
+                                    textTransform: 'uppercase',
+                                    fontWeight: 500,
+                                    textAlign: 'center',
+                                    fontFamily: "'Inter', 'Helvetica Neue', 'Arial', sans-serif",
+                                }}
+                            >
+                                Made with ♥ in Europe · © {new Date().getFullYear()} Irin Sultana Munni
+                            </Typography>
+                        </Stack>
                     </Stack>
                 </Stack>
-                <Divider sx={{ borderColor: 'rgba(27,20,16,0.08)', mb: { xs: 2, md: 3 } }} />
-                <Typography
-                    variant="caption"
-                    sx={{
-                        display: 'block',
-                        color: 'rgba(27,20,16,0.6)',
-                        letterSpacing: '0.08em',
-                        textTransform: 'uppercase',
-                        fontWeight: 600,
-                        textAlign: 'center',
-                    }}
-                >
-                    © {new Date().getFullYear()} Irin Sultana Munni
-                </Typography>
             </Container>
         </Box>
     )
 }
+
 export default Footer
