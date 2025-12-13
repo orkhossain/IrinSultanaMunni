@@ -69,19 +69,20 @@ export default function ServicesPage() {
                             }}
                         >
                             <motion.div
-                                initial={{ opacity: 0, y: 24 }}
+                                initial={{ opacity: 0, y: 32 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
+                                transition={{ duration: 0.8, ease: [0.23, 1, 0.320, 1] as const }}
                             >
                                 <Typography
                                     variant="h1"
                                     sx={{
-                                        fontSize: { xs: '2.5rem', md: '3.5rem' },
-                                        fontWeight: 300,
+                                        fontSize: { xs: '3rem', md: '4.5rem' },
+                                        fontWeight: 200,
                                         color: '#13100d',
-                                        marginBottom: 2.5,
+                                        marginBottom: 3,
                                         fontFamily: "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
                                         letterSpacing: '-0.02em',
+                                        lineHeight: 1.1,
                                     }}
                                 >
                                     My Services
@@ -89,18 +90,19 @@ export default function ServicesPage() {
                             </motion.div>
 
                             <motion.div
-                                initial={{ opacity: 0, y: 24 }}
+                                initial={{ opacity: 0, y: 32 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] as const }}
+                                transition={{ duration: 0.8, delay: 0.12, ease: [0.23, 1, 0.320, 1] as const }}
                             >
                                 <Typography
                                     sx={{
-                                        fontSize: { xs: '1rem', md: '1.1rem' },
+                                        fontSize: { xs: '1.1rem', md: '1.3rem' },
                                         color: '#393026',
-                                        lineHeight: 1.75,
-                                        maxWidth: '700px',
+                                        lineHeight: 1.8,
+                                        maxWidth: '800px',
                                         fontFamily: "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
-                                        marginBottom: 3,
+                                        marginBottom: 4,
+                                        fontWeight: 400,
                                     }}
                                 >
                                     I offer professional translation and mediation services across Italian, English, and Bengali. With over 13 years of experience, I specialize in creating meaningful connections through accurate communication in sensitive sectors.
@@ -108,16 +110,11 @@ export default function ServicesPage() {
                             </motion.div>
 
                             <motion.div
-                                initial={{ opacity: 0, y: 24 }}
+                                initial={{ opacity: 0, y: 32 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] as const }}
+                                transition={{ duration: 0.8, delay: 0.24, ease: [0.23, 1, 0.320, 1] as const }}
                                 style={{
-                                    marginTop: '3rem',
-                                    fontSize: '2.8rem',
-                                    fontWeight: 600,
-                                    color: '#13100d',
-                                    letterSpacing: '-0.03em',
-                                    fontFamily: "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
+                                    marginTop: '4rem',
                                     position: 'relative',
                                 }}
                             >
@@ -125,28 +122,65 @@ export default function ServicesPage() {
                                     sx={{
                                         display: 'flex',
                                         alignItems: 'center',
-                                        gap: 2,
+                                        gap: 3,
+                                        flexWrap: 'wrap',
                                     }}
                                 >
-                                    <span>COMMUNICATION</span>
-                                    <Box
+                                    <Typography
                                         sx={{
-                                            width: 32,
-                                            height: 32,
-                                            borderRadius: '50%',
-                                            background: '#c4e922',
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            justifyContent: 'center',
-                                            fontSize: '1.5rem',
-                                            fontWeight: 'bold',
+                                            fontSize: { xs: '2.8rem', md: '3.8rem' },
+                                            fontWeight: 700,
                                             color: '#13100d',
+                                            letterSpacing: '-0.02em',
+                                            fontFamily: "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
+                                            lineHeight: 1.1,
                                         }}
                                     >
-                                        &
-                                    </Box>
+                                        COMMUNICATION
+                                    </Typography>
+                                    <motion.div
+                                        initial={{ scale: 0, rotate: -180 }}
+                                        animate={{ scale: 1, rotate: 0 }}
+                                        transition={{ duration: 0.6, delay: 0.5, ease: [0.23, 1, 0.320, 1] }}
+                                    >
+                                        <Box
+                                            sx={{
+                                                width: 48,
+                                                height: 48,
+                                                borderRadius: '50%',
+                                                background: 'linear-gradient(135deg, #c4e922 0%, #a8d916 100%)',
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                justifyContent: 'center',
+                                                fontSize: '1.8rem',
+                                                fontWeight: 'bold',
+                                                color: '#13100d',
+                                                boxShadow: '0 12px 32px rgba(196, 233, 34, 0.25)',
+                                            }}
+                                        >
+                                            &
+                                        </Box>
+                                    </motion.div>
                                 </Box>
-                                <div style={{ marginTop: '0.5rem' }}>UNDERSTANDING</div>
+                                <motion.div
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.6, delay: 0.36 }}
+                                    style={{ marginTop: '0.8rem' }}
+                                >
+                                    <Typography
+                                        sx={{
+                                            fontSize: { xs: '2.8rem', md: '3.8rem' },
+                                            fontWeight: 700,
+                                            color: '#13100d',
+                                            letterSpacing: '-0.02em',
+                                            fontFamily: "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
+                                            lineHeight: 1.1,
+                                        }}
+                                    >
+                                        UNDERSTANDING
+                                    </Typography>
+                                </motion.div>
                             </motion.div>
                         </Box>
 
