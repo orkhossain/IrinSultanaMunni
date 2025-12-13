@@ -53,7 +53,8 @@ export default function ServicesPage() {
                     <Box
                         sx={{
                             background: 'linear-gradient(135deg, #f5ede3 0%, #ede5db 100%)',
-                            py: { xs: 6, md: 8 },
+                            pt: { xs: 16, md: 18 },
+                            pb: { xs: 6, md: 8 },
                             px: { xs: 3, md: 6 },
                             position: 'relative',
                             overflow: 'hidden',
