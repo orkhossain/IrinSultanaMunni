@@ -198,24 +198,62 @@ const MobileDrawer = () => {
                                         display: 'flex',
                                         alignItems: 'center',
                                         justifyContent: 'flex-end',
-                                        mb: 2,
-                                        pb: 1,
+                                        mb: 2.5,
+                                        pb: 1.5,
                                     }}
                                 >
-                                    <IconButton
-                                        onClick={() => setDrawerOpen(false)}
-                                        edge="end"
-                                        color="inherit"
-                                        aria-label="close drawer"
-                                        sx={{
-                                            p: 0.5,
-                                            color: '#111',
-                                            transition: 'all 0.3s ease',
-                                            '&:hover': { transform: 'scale(1.1)' },
-                                        }}
+                                    <motion.div
+                                        whileHover={{ scale: 1.08 }}
+                                        whileTap={{ scale: 0.95 }}
                                     >
-                                        <Cancel sx={{ fontSize: 32 }} />
-                                    </IconButton>
+                                        <IconButton
+                                            onClick={() => setDrawerOpen(false)}
+                                            edge="end"
+                                            color="inherit"
+                                            aria-label="close drawer"
+                                            sx={{
+                                                width: 44,
+                                                height: 44,
+                                                backgroundColor: 'rgba(0, 0, 0, 0.04)',
+                                                borderRadius: '12px',
+                                                transition: 'all 0.3s cubic-bezier(0.23, 1, 0.320, 1)',
+                                                '&:hover': {
+                                                    backgroundColor: 'rgba(0, 0, 0, 0.08)',
+                                                    boxShadow: '0 8px 20px rgba(0, 0, 0, 0.1)',
+                                                },
+                                                '&:active': {
+                                                    backgroundColor: 'rgba(0, 0, 0, 0.12)',
+                                                },
+                                                color: '#13100d',
+                                            }}
+                                        >
+                                            <Box
+                                                sx={{
+                                                    position: 'relative',
+                                                    width: 24,
+                                                    height: 24,
+                                                    display: 'flex',
+                                                    alignItems: 'center',
+                                                    justifyContent: 'center',
+                                                    '&::before, &::after': {
+                                                        content: '""',
+                                                        position: 'absolute',
+                                                        width: 20,
+                                                        height: 2,
+                                                        backgroundColor: 'currentColor',
+                                                        borderRadius: 1,
+                                                        transition: 'all 0.3s ease',
+                                                    },
+                                                    '&::before': {
+                                                        transform: 'rotate(45deg)',
+                                                    },
+                                                    '&::after': {
+                                                        transform: 'rotate(-45deg)',
+                                                    },
+                                                }}
+                                            />
+                                        </IconButton>
+                                    </motion.div>
                                 </Box>
                             </motion.div>
                             <Box sx={{ pb: 1.5, flex: 1 }}>{drawerItems}</Box>
