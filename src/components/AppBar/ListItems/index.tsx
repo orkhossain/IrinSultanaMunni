@@ -210,17 +210,18 @@ const HideAppBar = () => {
                 <Box
                     sx={{
                         display: 'flex',
-                        justifyContent: 'flex-start',
-                        flex: 1,
+                        justifyContent: { xs: 'flex-start', md: 'flex-start' },
+                        flex: { xs: 1, md: 1 },
                         minWidth: 0,
                         width: '100%',
+                        pl: { xs: 0, md: 6 },
                     }}
                 >
                     <ListItem
                         sx={{
                             px: 0,
                             justifyContent: 'flex-start',
-                            ml: { xs: -4, md: -5 },
+                            ml: { xs: -4, md: '10%' },
                         }}
                     >
                         <AppLogo />
@@ -230,9 +231,10 @@ const HideAppBar = () => {
                     sx={{
                         display: 'flex',
                         justifyContent: 'center',
-                        flex: 2,
+                        flex: { xs: 2, md: 1.4 },
                         minWidth: 0,
                         width: '100%',
+                        mx: { md: 'auto' },
                     }}
                 >
                     <ListItem sx={{ px: { xs: 0.25, md: 0.5 } }}>
@@ -243,7 +245,7 @@ const HideAppBar = () => {
                     sx={{
                         display: 'flex',
                         justifyContent: 'flex-end',
-                        flex: 1,
+                        flex: { xs: 1, md: 1 },
                         minWidth: 0,
                         width: '100%',
                         pr: { xs: -2.5, md: 4 },

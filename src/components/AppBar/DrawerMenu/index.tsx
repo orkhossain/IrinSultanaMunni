@@ -106,6 +106,7 @@ const MobileDrawer = () => {
     const [drawerOpen, setDrawerOpen] = useState(false)
     const easeCurve: [number, number, number, number] = [0.23, 1, 0.32, 1]
     const dict = useSelector(selectDictionary)
+    const home = dict.Index?.home ?? 'Home'
     const service = dict.Index?.service ?? ''
     const aboutMe = dict.Index?.aboutMe ?? 'About Me'
     const contact = dict.Index?.contact ?? 'Contact'
@@ -170,6 +171,12 @@ const MobileDrawer = () => {
             animate={drawerOpen ? 'show' : 'hidden'}
         >
             <List>
+                <motion.div variants={itemVariants}>
+                    <CustomLink
+                        onClick={() => handleNavigate('/')}
+                        text={home}
+                    />
+                </motion.div>
                 <motion.div variants={itemVariants}>
                     <CustomLink
                         onClick={() => handleNavigate('/services')}

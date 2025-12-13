@@ -8,7 +8,6 @@ import { motion } from 'framer-motion'
 import Image1 from '@/assets/img1.webp'
 import Image2 from '@/assets/img2.webp'
 import FadeText from '@/components/FadeText'
-import { useParallax } from '@/hooks/useParallax'
 
 const fontFamily = "'Fancy Cut Pro', 'Cambria', 'Georgia', serif"
 const tileMinHeight = { xs: 260, md: 600 }
@@ -24,15 +23,6 @@ const tileVariants = {
 }
 
 const ServiceCard = ({ title, description, imageSrc, isInverted }: any) => {
-    const { elementRef: imageRef, offset: imageOffset } = useParallax({
-        intensity: 0.3,
-        direction: 'up',
-    })
-    const { elementRef: textRef, offset: textOffset } = useParallax({
-        intensity: 0.15,
-        direction: 'down',
-    })
-
     return (
         <motion.div
             variants={tileVariants}
@@ -54,7 +44,6 @@ const ServiceCard = ({ title, description, imageSrc, isInverted }: any) => {
                     }}
                 >
                     <Box
-                        ref={imageRef}
                         sx={{
                             flex: '1 1 50%',
                             position: 'relative',
@@ -62,12 +51,9 @@ const ServiceCard = ({ title, description, imageSrc, isInverted }: any) => {
                             backgroundImage: `${gradientOverlay}, url(${imageSrc.src})`,
                             backgroundSize: 'cover',
                             backgroundPosition: { xs: 'center 30%', md: 'center' },
-                            transform: `translateY(${imageOffset}px)`,
-                            transition: 'transform 0.1s ease-out',
                         }}
                     />
                     <Box
-                        ref={textRef}
                         sx={{
                             flex: '1 1 50%',
                             backgroundColor: '#fbf9f7',
@@ -75,8 +61,6 @@ const ServiceCard = ({ title, description, imageSrc, isInverted }: any) => {
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
-                            transform: `translateY(${textOffset}px)`,
-                            transition: 'transform 0.1s ease-out',
                         }}
                     >
                         <Stack spacing={2}>
