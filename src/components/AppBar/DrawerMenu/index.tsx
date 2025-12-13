@@ -9,7 +9,6 @@ import {
     useTheme,
     ListItemButton,
     Box,
-    Typography,
 } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
 import InstagramIcon from '@mui/icons-material/Instagram'
@@ -17,32 +16,34 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import FacebookIcon from '@mui/icons-material/Facebook'
 import { useSelector } from 'react-redux'
 import { selectDictionary } from '@/slice/language'
-import { Cancel } from '@mui/icons-material'
+import ClearIcon from '@mui/icons-material/Clear'
 import { useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
 
-const CustomLink = ({
-    onClick,
-    text,
-}: {
-    onClick: () => void
-    text: string
-}) => (
+const CustomLink = ({ onClick, text }: { onClick: () => void; text: string }) => (
     <ListItem disablePadding>
         <ListItemButton
             onClick={onClick}
             component="button"
             sx={{
-                borderRadius: '10px',
-                px: 2,
-                py: 1.25,
+                borderRadius: '16px',
+                px: 3,
+                py: 1.75,
+                transition: 'transform 220ms ease, background-color 220ms ease, box-shadow 220ms ease, color 220ms ease',
+                '&:hover': {
+                    backgroundColor: 'rgba(0,0,0,0.06)',
+                    boxShadow: '0 10px 30px rgba(0,0,0,0.08)',
+                    transform: 'translateX(6px)',
+                },
+                '&:active': { transform: 'translateX(3px) scale(0.99)' },
             }}
         >
             <ListItemText
                 primaryTypographyProps={{
-                    variant: 'h5',
                     textAlign: 'left',
                     fontFamily: "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
+                    fontSize: '1.6rem',
+                    letterSpacing: '0.01em',
                 }}
                 primary={text}
             />
@@ -151,7 +152,13 @@ const MobileDrawer = () => {
         <>
             {isMobile && (
                 <>
-                    <IconButton onClick={handleDrawerToggle}>
+                    <IconButton
+                        onClick={handleDrawerToggle}
+                        sx={{
+                            p: 1.25,
+                            '& .MuiSvgIcon-root': { fontSize: 34 },
+                        }}
+                    >
                         <MenuIcon />
                     </IconButton>
                     <Drawer
