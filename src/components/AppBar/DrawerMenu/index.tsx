@@ -160,72 +160,84 @@ const MobileDrawer = () => {
                                 height: '100%',
                             }}
                         >
-                            <Box
-                                sx={{
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'flex-end',
-                                    mb: 1,
-                                    pb: 0.5,
-                                }}
+                            <motion.div
+                                initial={{ opacity: 0, rotate: -45 }}
+                                animate={drawerOpen ? { opacity: 1, rotate: 0 } : { opacity: 0, rotate: -45 }}
+                                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                             >
-                                <IconButton
-                                    onClick={() => setDrawerOpen(false)}
-                                    edge="end"
-                                    color="inherit"
-                                    aria-label="close drawer"
-                                    sx={{ p: 0, color: '#111' }}
+                                <Box
+                                    sx={{
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'flex-end',
+                                        mb: 1,
+                                        pb: 0.5,
+                                    }}
                                 >
-                                    <Cancel sx={{ fontSize: 36 }} />
-                                </IconButton>
+                                    <IconButton
+                                        onClick={() => setDrawerOpen(false)}
+                                        edge="end"
+                                        color="inherit"
+                                        aria-label="close drawer"
+                                        sx={{ p: 0, color: '#111' }}
+                                    >
+                                        <Cancel sx={{ fontSize: 36 }} />
+                                    </IconButton>
                                 </Box>
+                            </motion.div>
                             <Box sx={{ pb: 1.5, flex: 1 }}>{drawerItems}</Box>
-                            <Box
-                                sx={{
-                                    display: 'flex',
-                                    justifyContent: 'flex-start',
-                                    gap: 1,
-                                    pb: 2,
-                                    pl: 0.5,
-                                }}
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={drawerOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                                transition={{ duration: 0.5, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
                             >
-                                <IconButton
-                                    component="a"
-                                    href="https://www.instagram.com"
-                                    target="_blank"
-                                    rel="noreferrer"
+                                <Box
                                     sx={{
-                                        backgroundColor: 'rgba(0,0,0,0.06)',
-                                        '&:hover': { backgroundColor: 'rgba(0,0,0,0.12)' },
+                                        display: 'flex',
+                                        justifyContent: 'flex-start',
+                                        gap: 1,
+                                        pb: 2,
+                                        pl: 0.5,
                                     }}
                                 >
-                                    <InstagramIcon />
-                                </IconButton>
-                                <IconButton
-                                    component="a"
-                                    href="https://www.linkedin.com"
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    sx={{
-                                        backgroundColor: 'rgba(0,0,0,0.06)',
-                                        '&:hover': { backgroundColor: 'rgba(0,0,0,0.12)' },
-                                    }}
-                                >
-                                    <LinkedInIcon />
-                                </IconButton>
-                                <IconButton
-                                    component="a"
-                                    href="https://www.facebook.com"
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    sx={{
-                                        backgroundColor: 'rgba(0,0,0,0.06)',
-                                        '&:hover': { backgroundColor: 'rgba(0,0,0,0.12)' },
-                                    }}
-                                >
-                                    <FacebookIcon />
-                                </IconButton>
-                            </Box>
+                                    <IconButton
+                                        component="a"
+                                        href="https://www.instagram.com"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        sx={{
+                                            backgroundColor: 'rgba(0,0,0,0.06)',
+                                            '&:hover': { backgroundColor: 'rgba(0,0,0,0.12)' },
+                                        }}
+                                    >
+                                        <InstagramIcon />
+                                    </IconButton>
+                                    <IconButton
+                                        component="a"
+                                        href="https://www.linkedin.com"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        sx={{
+                                            backgroundColor: 'rgba(0,0,0,0.06)',
+                                            '&:hover': { backgroundColor: 'rgba(0,0,0,0.12)' },
+                                        }}
+                                    >
+                                        <LinkedInIcon />
+                                    </IconButton>
+                                    <IconButton
+                                        component="a"
+                                        href="https://www.facebook.com"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        sx={{
+                                            backgroundColor: 'rgba(0,0,0,0.06)',
+                                            '&:hover': { backgroundColor: 'rgba(0,0,0,0.12)' },
+                                        }}
+                                    >
+                                        <FacebookIcon />
+                                    </IconButton>
+                                </Box>
+                            </motion.div>
                         </Box>
                     </Drawer>
                 </>
