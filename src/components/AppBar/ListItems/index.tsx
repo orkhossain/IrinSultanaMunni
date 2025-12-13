@@ -15,6 +15,7 @@ import AppLogo from '../AppLogo'
 import { selectDictionary } from '@/slice/language'
 import { useSelector } from 'react-redux'
 import MobileDrawer from '../DrawerMenu'
+import FadeText from '@/components/FadeText'
 
 const HideAppBar = () => {
     const dict = useSelector(selectDictionary)
@@ -82,7 +83,18 @@ const HideAppBar = () => {
                             component={NextLink}
                             href="/services"
                         >
-                            {service}
+                            <FadeText
+                                component="span"
+                                sx={{
+                                    display: 'inline-block',
+                                    fontFamily: "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
+                                    fontSize: isMobile ? '1.5rem' : '1rem',
+                                    color: 'black',
+                                }}
+                                fadeKey="nav-service"
+                            >
+                                {service}
+                            </FadeText>
                         </MuiLink>
                     </ListItemText>
                     <ListItemText>
@@ -114,7 +126,18 @@ const HideAppBar = () => {
                             component={NextLink}
                             href="/about"
                         >
-                            {aboutMe}
+                            <FadeText
+                                component="span"
+                                sx={{
+                                    display: 'inline-block',
+                                    fontFamily: "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
+                                    fontSize: isMobile ? '1.5rem' : '1rem',
+                                    color: 'black',
+                                }}
+                                fadeKey="nav-about"
+                            >
+                                {aboutMe}
+                            </FadeText>
                         </MuiLink>
                     </ListItemText>
                     <ListItemText>
@@ -146,7 +169,18 @@ const HideAppBar = () => {
                             component={NextLink}
                             href="/contact"
                         >
-                            {contact}
+                            <FadeText
+                                component="span"
+                                sx={{
+                                    display: 'inline-block',
+                                    fontFamily: "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
+                                    fontSize: isMobile ? '1.5rem' : '1rem',
+                                    color: 'black',
+                                }}
+                                fadeKey="nav-contact"
+                            >
+                                {contact}
+                            </FadeText>
                         </MuiLink>
                     </ListItemText>
                 </List>

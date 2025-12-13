@@ -1,30 +1,97 @@
-import React from 'react'
-import Footer from '@/components/Footer'
+import React, { useEffect } from 'react'
 import Marquee from '@/components/Marquee'
 import Banner from '@/components/Banner'
 import Services from '@/components/Services'
 import About from '@/components/About'
 import 'animate.css/animate.compat.css'
-import { Provider, useSelector } from 'react-redux'
-import { selectDictionary } from '@/slice/language'
+import { motion, useMotionValue, useSpring, Variants } from 'framer-motion'
+import { useSelector } from 'react-redux'
+import { selectLanguage } from '@/slice/language'
 
 function Home() {
+    const mouseX = useMotionValue(0)
+    const mouseY = useMotionValue(0)
+    const springX = useSpring(mouseX, { stiffness: 220, damping: 22, mass: 0.25 })
+    const springY = useSpring(mouseY, { stiffness: 220, damping: 22, mass: 0.25 })
+
+    useEffect(() => {
+        const handleMove = (e: PointerEvent) => {
+            mouseX.set(e.clientX - 12)
+            mouseY.set(e.clientY - 12)
+        }
+        window.addEventListener('pointermove', handleMove, { passive: true })
+        return () => window.removeEventListener('pointermove', handleMove)
+    }, [mouseX, mouseY])
+
+    const easeCurve = [0.22, 1, 0.36, 1] as const
+    const language = useSelector(selectLanguage)
+
+    const sectionVariants: Variants = {
+        hidden: { opacity: 0, scale: 0.98, y: 24 },
+        show: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.6, ease: easeCurve } },
+    }
+
+    const contentReveal: Variants = {
+        hidden: { opacity: 0, y: 28, filter: 'blur(10px)' },
+        show: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 1.1, ease: easeCurve } },
+    }
+
+    const pageReveal: Variants = {
+        hidden: { opacity: 0, y: 18 },
+        show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: easeCurve } },
+    }
+
     return (
-        <>
-            <Banner />
+        <div style={{ position: 'relative' }}>
+            <motion.div
+                style={{
+                    x: springX,
+                    y: springY,
+                    position: 'fixed',
+                    width: 24,
+                    height: 24,
+                    borderRadius: '50%',
+                    background: 'rgba(34,51,59,0.25)',
+                    border: '1px solid rgba(19,16,13,0.3)',
+                    mixBlendMode: 'multiply',
+                    zIndex: 999,
+                    pointerEvents: 'none',
+                }}
+            />
 
-            <div  id="about">
-                <About />
-            </div>
+            <motion.div variants={pageReveal} initial="hidden" animate="show">
+                <motion.section variants={sectionVariants} initial="hidden" animate="show">
+                    <Banner />
+                </motion.section>
 
-            <div id="service">
-                <Services />
-            </div>
+                <motion.section
+                    key={`about-${language}`}
+                    variants={contentReveal}
+                    initial="hidden"
+                    animate="show"
+                >
+                    <About />
+                </motion.section>
 
-            <Marquee></Marquee>
-            <Footer />
-        </>
-        
+                <motion.section
+                    key={`service-${language}`}
+                    variants={contentReveal}
+                    initial="hidden"
+                    animate="show"
+                >
+                    <Services />
+                </motion.section>
+
+                <motion.section
+                    key={`marquee-${language}`}
+                    variants={contentReveal}
+                    initial="hidden"
+                    animate="show"
+                >
+                    <Marquee />
+                </motion.section>
+            </motion.div>
+        </div>
     )
 }
 

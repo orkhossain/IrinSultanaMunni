@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux'
 import { selectDictionary } from '@/slice/language'
 import Slider from './Slider'
 import { motion, useViewportScroll, useTransform } from 'framer-motion'
+import FadeText from '@/components/FadeText'
 
 export default function Profile() {
     const theme = useTheme()
@@ -31,7 +32,12 @@ export default function Profile() {
                     overflow: 'hidden',
                 }}
             >
-                <motion.div style={{ y: imageY }}>
+                <motion.div
+                    style={{ y: imageY }}
+                    initial={{ opacity: 0, scale: 1.04 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                >
                     <Box
                         sx={{
                             order: { xs: 1, md: 1 },
@@ -50,6 +56,7 @@ export default function Profile() {
                                 height: '100%',
                                 objectFit: 'cover',
                                 display: 'block',
+                                borderRadius: 0,
                             }}
                         />
                     </Box>
@@ -58,7 +65,7 @@ export default function Profile() {
                 <Slider
                     slidesData={[
                         <>
-                            <motion.div style={{ y: textY }}>
+                            <motion.div style={{ y: textY }} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
                                 <Box
                                     sx={{
                                         order: { xs: 2, md: 2 },
@@ -70,21 +77,21 @@ export default function Profile() {
                                         textAlign: 'left',
                                     }}
                                 >
-                                    <Typography
+                                    <FadeText
+                                        fadeKey="about-desc-1"
                                         variant={isMobile ? 'body1' : 'h5'}
                                         color="text.secondary"
                                         component="span"
-                                        fontSize={isSmall ? '13px' : 'auto'}
-                                        sx={{ lineHeight: 1.7 }}
-                                        sx={{ fontFamily: "'Fancy Cut Pro', 'Cambria', 'Georgia', serif" }}
+                                        fontSize={isSmall ? '14px' : '1.1rem'}
+                                        sx={{ lineHeight: 1.75, fontFamily: "'Fancy Cut Pro', 'Cambria', 'Georgia', serif" }}
                                     >
                                         {description}
-                                    </Typography>
+                                    </FadeText>
                                 </Box>
                             </motion.div>
                         </>,
                         <>
-                            <motion.div style={{ y: textY }}>
+                            <motion.div style={{ y: textY }} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
                                 <Box
                                     sx={{
                                         order: { xs: 2, md: 2 },
@@ -96,16 +103,16 @@ export default function Profile() {
                                         textAlign: 'left',
                                     }}
                                 >
-                                    <Typography
+                                    <FadeText
+                                        fadeKey="about-desc-2"
                                         variant={isMobile ? 'body1' : 'h5'}
                                         color="text.secondary"
                                         component="span"
-                                        fontSize={isSmall ? '13px' : 'auto'}
-                                        sx={{ lineHeight: 1.7 }}
-                                        sx={{ fontFamily: "'Fancy Cut Pro', 'Cambria', 'Georgia', serif" }}
+                                        fontSize={isSmall ? '14px' : '1.1rem'}
+                                        sx={{ lineHeight: 1.75, fontFamily: "'Fancy Cut Pro', 'Cambria', 'Georgia', serif" }}
                                     >
                                         {description2}
-                                    </Typography>
+                                    </FadeText>
                                 </Box>
                             </motion.div>
                         </>,

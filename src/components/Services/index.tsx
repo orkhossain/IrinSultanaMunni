@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux'
 import { motion } from 'framer-motion'
 import Image1 from '@/assets/img1.webp'
 import Image2 from '@/assets/img2.webp'
+import FadeText from '@/components/FadeText'
 
 const fontFamily = "'Fancy Cut Pro', 'Cambria', 'Georgia', serif"
 const tileMinHeight = { xs: 340, md: 520 }
@@ -61,25 +62,30 @@ const ServiceCard = ({
                         }}
                     >
                         <Stack spacing={1.25}>
-                            <Typography
+                            <FadeText
+                                fadeKey={`service-title-${title}`}
                                 variant="h5"
                                 sx={{
                                     fontWeight: 700,
                                     color: '#4c4133',
                                     fontFamily,
+                                    fontSize: { xs: '1.35rem', md: '1.55rem' },
+                                    letterSpacing: '-0.01em',
                                 }}
                             >
                                 {title}
-                            </Typography>
-                            <Typography
+                            </FadeText>
+                            <FadeText
+                                fadeKey={`service-desc-${title}`}
                                 sx={{
                                     color: '#393026',
-                                    lineHeight: 1.7,
+                                    lineHeight: 1.75,
                                     fontFamily,
+                                    fontSize: { xs: '1.05rem', md: '1.15rem' },
                                 }}
                             >
                                 {description}
-                            </Typography>
+                            </FadeText>
                         </Stack>
                     </Box>
                 </Box>

@@ -59,15 +59,15 @@ function CenteredTabs() {
 
     return (
         <>
-            <motion.div style={{ borderRadius: '18px' }}>
+            <motion.div>
                 <div
                     style={{
                         position: 'relative',
                         height: isMobile ? '100svh' : '100vh',
-                        borderRadius: '18px',
+                        borderRadius: 0,
                         overflow: 'hidden',
-                        border: '1px solid rgba(145,80,50,0.12)',
-                        boxShadow: 'inset 0 0 0 1px rgba(145,80,50,0.08)',
+                        border: 'none',
+                        boxShadow: 'none',
                     }}
                 >
                     <AnimatePresence mode="sync" initial={false}>

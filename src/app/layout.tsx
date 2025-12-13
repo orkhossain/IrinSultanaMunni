@@ -3,6 +3,7 @@ import './globals.css'
 import Providers from './providers'
 import PageTransition from './PageTransition'
 import Navbar from '@/components/AppBar'
+import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
     title: 'Irin Sultana Munni',
@@ -20,6 +21,7 @@ export default function RootLayout({
                 <Providers>
                     <Navbar />
                     <PageTransition>{children}</PageTransition>
+                    <Footer />
                 </Providers>
             </body>
         </html>
