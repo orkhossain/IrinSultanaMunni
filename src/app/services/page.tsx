@@ -308,6 +308,11 @@ export default function ServicesPage() {
                                 sx={{
                                     display: 'grid',
                                     gap: { xs: 1.5, md: 2 },
+                                    backgroundColor: '#eee0cf',
+                                    borderRadius: 3,
+                                    p: { xs: 2.5, md: 3 },
+                                    boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.5), 0 18px 48px rgba(0,0,0,0.08)',
+                                    border: '1px solid rgba(57,48,38,0.08)',
                                 }}
                             >
                                 <Box

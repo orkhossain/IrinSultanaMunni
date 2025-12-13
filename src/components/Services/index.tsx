@@ -11,7 +11,7 @@ import FadeText from '@/components/FadeText'
 import { useParallax } from '@/hooks/useParallax'
 
 const fontFamily = "'Fancy Cut Pro', 'Cambria', 'Georgia', serif"
-const tileMinHeight = { xs: 420, md: 600 }
+const tileMinHeight = { xs: 260, md: 600 }
 const gradientOverlay =
     'linear-gradient(180deg, rgba(198,172,143,0.5) 0%, rgba(234,224,213,0.85) 100%)'
 const tileVariants = {
@@ -41,11 +41,14 @@ const ServiceCard = ({ title, description, imageSrc, isInverted }: any) => {
             viewport={{ once: true, amount: 0.35 }}
             style={{ height: '100%' }}
         >
-            <Box sx={{ height: '100%', overflow: 'hidden' }}>
+            <Box sx={{ height: '100%', overflow: 'hidden', mb: { xs: 4, md: 0 } }}>
                 <Box
                     sx={{
                         display: 'flex',
-                        flexDirection: isInverted ? 'row-reverse' : 'row',
+                        flexDirection: {
+                            xs: 'column-reverse',
+                            md: isInverted ? 'row-reverse' : 'row',
+                        },
                         minHeight: tileMinHeight,
                         background: '#e8ded2',
                     }}
@@ -58,7 +61,7 @@ const ServiceCard = ({ title, description, imageSrc, isInverted }: any) => {
                             minHeight: tileMinHeight,
                             backgroundImage: `${gradientOverlay}, url(${imageSrc.src})`,
                             backgroundSize: 'cover',
-                            backgroundPosition: 'center',
+                            backgroundPosition: { xs: 'center 30%', md: 'center' },
                             transform: `translateY(${imageOffset}px)`,
                             transition: 'transform 0.1s ease-out',
                         }}
@@ -68,7 +71,7 @@ const ServiceCard = ({ title, description, imageSrc, isInverted }: any) => {
                         sx={{
                             flex: '1 1 50%',
                             backgroundColor: '#fbf9f7',
-                            p: { xs: 3, md: 3.5 },
+                            p: { xs: 3.25, md: 3.5 },
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',

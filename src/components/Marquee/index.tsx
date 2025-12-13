@@ -57,7 +57,7 @@ const CompanyMarquee = ({ children }: any) => {
             style={{
                 position: 'relative',
                 overflow: 'hidden',
-                background: 'linear-gradient(135deg, #f6f1e7, #f9f4ea)',
+                background: 'linear-gradient(135deg, #e7d3b9, #edddc8)',
                 width: '100%',
                 margin: 0,
                 padding: '28px 0',
@@ -69,7 +69,7 @@ const CompanyMarquee = ({ children }: any) => {
                     position: 'absolute',
                     inset: 0,
                     background:
-                        'linear-gradient(90deg, rgba(246,241,231,0.9) 0%, rgba(246,241,231,0.6) 4%, rgba(246,241,231,0.2) 10%, rgba(246,241,231,0) 18%), linear-gradient(270deg, rgba(246,241,231,0.9) 0%, rgba(246,241,231,0.6) 4%, rgba(246,241,231,0.2) 10%, rgba(246,241,231,0) 18%)',
+                        'linear-gradient(90deg, rgba(231,211,185,0.92) 0%, rgba(231,211,185,0.65) 4%, rgba(231,211,185,0.22) 10%, rgba(231,211,185,0) 18%), linear-gradient(270deg, rgba(231,211,185,0.92) 0%, rgba(231,211,185,0.65) 4%, rgba(231,211,185,0.22) 10%, rgba(231,211,185,0) 18%)',
                     zIndex: 2,
                 }}
             />

@@ -257,15 +257,14 @@ const Footer = () => {
                             }}
                         />
                         <Stack
-                            direction="row"
-                            spacing={1.25}
+                            direction={{ xs: 'row', md: 'row' }}
+                            spacing={{ xs: 1.5, md: 1.75 }}
                             justifyContent="center"
                             alignItems="center"
                             sx={{ color: 'rgba(27,20,16,0.65)' }}
                         >
                             <Box
                                 sx={{
-
                                     borderRadius: '10px',
                                     overflow: 'hidden',
                                     display: 'flex',
@@ -281,19 +280,40 @@ const Footer = () => {
                                     style={{ width: '100%', height: '100%', objectFit: 'contain' }}
                                 />
                             </Box>
-                            <Typography
-                                variant="body2"
-                                sx={{
-                                    color: 'rgba(27,20,16,0.65)',
-                                    letterSpacing: '0.04em',
-                                    textTransform: 'uppercase',
-                                    fontWeight: 500,
-                                    textAlign: 'center',
-                                    fontFamily: "'Inter', 'Helvetica Neue', 'Arial', sans-serif",
-                                }}
-                            >
-                                Made with ♥ in Europe · © {new Date().getFullYear()} Irin Sultana Munni
-                            </Typography>
+                            <Stack spacing={0.25} alignItems="center">
+                                <Typography
+                                    variant="body2"
+                                    sx={{
+                                        color: 'rgba(27,20,16,0.75)',
+                                        letterSpacing: '0.04em',
+                                        textTransform: 'uppercase',
+                                        fontWeight: 600,
+                                        textAlign: 'center',
+                                        fontFamily: "'Inter', 'Helvetica Neue', 'Arial', sans-serif",
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        gap: 1,
+                                    }}
+                                >
+                                    <Box component="span" sx={{ display: 'inline-flex', gap: 0.25, alignItems: 'center' }}>
+                                        <Box component="span">© {new Date().getFullYear()} Irin Sultana Munni</Box>
+                                    </Box>
+                                </Typography>
+                                <Typography
+                                    variant="body2"
+                                    sx={{
+                                        color: 'rgba(27,20,16,0.6)',
+                                        letterSpacing: '0.05em',
+                                        textTransform: 'uppercase',
+                                        fontWeight: 500,
+                                        textAlign: 'center',
+                                        fontFamily: "'Inter', 'Helvetica Neue', 'Arial', sans-serif",
+                                    }}
+                                >
+                                    Made with ♥ in Europe
+                                </Typography>
+                            </Stack>
                         </Stack>
                     </Stack>
                 </Stack>

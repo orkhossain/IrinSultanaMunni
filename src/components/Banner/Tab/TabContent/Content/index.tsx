@@ -53,7 +53,13 @@ export default function Content() {
                             lineHeight: 1.08,
                             textAlign: { xs: 'left', md: 'left' },
                             maxWidth: { xs: '86%', md: '62%' },
-                            textShadow: '0 8px 32px rgba(0,0,0,0.35)',
+                            fontSize: {
+                                xs: '2.35rem',
+                                sm: '2.75rem',
+                                md: '4rem',
+                            },
+                            textShadow:
+                                '0 22px 60px rgba(0,0,0,0.85), 0 10px 22px rgba(0,0,0,0.65), 0 2px 6px rgba(0,0,0,0.9)',
                             letterSpacing: '-0.01em',
                         }}
                     >
