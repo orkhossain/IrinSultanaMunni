@@ -28,7 +28,8 @@ type FadeTextProps = TypographyProps & {
 }
 
 const FadeText: React.FC<FadeTextProps> = ({ children, as, fadeKey, ...rest }) => {
-    const MotionTypography = motion(Typography)
+    // Cast needed because MUI drag event types conflict with framer-motion's drag handlers
+    const MotionTypography = motion(Typography as React.ComponentType<any>)
     const language = useSelector(selectLanguage)
     const instanceKey = `${fadeKey ?? 'text'}-${language}`
 
@@ -36,6 +37,7 @@ const FadeText: React.FC<FadeTextProps> = ({ children, as, fadeKey, ...rest }) =
         <AnimatePresence mode="wait">
             <MotionTypography
                 key={instanceKey}
+                component={as}
                 variants={textVariants}
                 initial="hidden"
                 animate="show"
