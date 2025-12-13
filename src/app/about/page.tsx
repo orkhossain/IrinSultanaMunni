@@ -27,29 +27,53 @@ export default function AboutMePage() {
     const medicalBody =
         about.medicalBody ??
         'Supporto a medici, infermieri e operatori sociali in corsia e ambulatorio, per garantire che ogni paziente si senta compreso e accompagnato.'
-    const medicalTags = (about.medicalTags ??
-        ['Reparti', 'Psicologia', 'Servizi sociali', 'Percorsi di cura']).join(' • ')
+    const medicalTags = (
+        about.medicalTags ?? [
+            'Reparti',
+            'Psicologia',
+            'Servizi sociali',
+            'Percorsi di cura',
+        ]
+    ).join(' • ')
 
     const immigrationTitle = about.immigrationTitle ?? 'Immigrazione'
     const immigrationBody =
         about.immigrationBody ??
         'Affianco persone e famiglie in percorsi di asilo, permessi e integrazione, facilitando comunicazioni chiare con istituzioni e servizi.'
-    const immigrationTags = (about.immigrationTags ??
-        ['Asilo', 'Permessi', 'Residenza', 'Orientamento']).join(' • ')
+    const immigrationTags = (
+        about.immigrationTags ?? [
+            'Asilo',
+            'Permessi',
+            'Residenza',
+            'Orientamento',
+        ]
+    ).join(' • ')
 
     const legalTitle = about.legalTitle ?? 'Assistenza legale'
     const legalBody =
         about.legalBody ??
         'Dalle audizioni alle consulenze con avvocati e giudici, aiuto a raccontare le proprie storie con precisione, rispetto e sicurezza.'
-    const legalTags = (about.legalTags ??
-        ['Asilo', 'Tribunali', 'Consulenze legali', 'Preparazione casi']).join(' • ')
+    const legalTags = (
+        about.legalTags ?? [
+            'Asilo',
+            'Tribunali',
+            'Consulenze legali',
+            'Preparazione casi',
+        ]
+    ).join(' • ')
 
     const culturalTitle = about.culturalTitle ?? 'Mediazione culturale'
     const culturalBody =
         about.culturalBody ??
         'Creo ponti tra istituzioni e comunità, traducendo lingue, usi e aspettative per favorire fiducia e collaborazione.'
-    const culturalTags = (about.culturalTags ??
-        ['Scuole', 'Laboratori', 'Servizi pubblici', 'Mediazione']).join(' • ')
+    const culturalTags = (
+        about.culturalTags ?? [
+            'Scuole',
+            'Laboratori',
+            'Servizi pubblici',
+            'Mediazione',
+        ]
+    ).join(' • ')
 
     const tiles = [
         {
@@ -80,6 +104,136 @@ export default function AboutMePage() {
 
     return (
         <main className={styles.main}>
+            <Box
+                sx={{
+                    background:
+                        'linear-gradient(135deg, #f5ede3 0%, #ede5db 100%)',
+                    pt: { xs: 24, md: 32 },
+                    pb: { xs: 8, md: 12 },
+                    px: { xs: 3, md: 6 },
+                    position: 'relative',
+                    overflow: 'hidden',
+                }}
+            >
+                <Box
+                    sx={{
+                        maxWidth: '1200px',
+                        mx: 'auto',
+                        position: 'relative',
+                        zIndex: 2,
+                    }}
+                >
+                    <motion.div
+                        initial={{ opacity: 0, y: 24 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{
+                            duration: 0.6,
+                            ease: [0.22, 1, 0.36, 1] as const,
+                        }}
+                    >
+                        <Typography
+                            variant="h1"
+                            sx={{
+                                fontSize: { xs: '2.5rem', md: '3.5rem' },
+                                fontWeight: 300,
+                                color: '#13100d',
+                                marginBottom: 2.5,
+                                fontFamily,
+                                letterSpacing: '-0.02em',
+                            }}
+                        >
+                            About Me
+                        </Typography>
+                    </motion.div>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 24 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{
+                            duration: 0.6,
+                            delay: 0.1,
+                            ease: [0.22, 1, 0.36, 1] as const,
+                        }}
+                    >
+                        <Typography
+                            sx={{
+                                fontSize: { xs: '1rem', md: '1.1rem' },
+                                color: '#393026',
+                                lineHeight: 1.75,
+                                maxWidth: '700px',
+                                fontFamily,
+                                marginBottom: 3,
+                            }}
+                        >
+                            With over 13 years of professional experience, I
+                            specialize in bridging language and cultural gaps
+                            across healthcare, immigration, legal, and
+                            educational sectors. My mission is to ensure every
+                            voice is heard and understood.
+                        </Typography>
+                    </motion.div>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 24 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{
+                            duration: 0.6,
+                            delay: 0.2,
+                            ease: [0.22, 1, 0.36, 1] as const,
+                        }}
+                        style={{
+                            marginTop: '3rem',
+                            fontSize: '2.8rem',
+                            fontWeight: 600,
+                            color: '#13100d',
+                            letterSpacing: '-0.03em',
+                            fontFamily,
+                            position: 'relative',
+                        }}
+                    >
+                        <Box
+                            sx={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: 2,
+                            }}
+                        >
+                            <span>EXPERTISE</span>
+                            <Box
+                                sx={{
+                                    width: 32,
+                                    height: 32,
+                                    borderRadius: '50%',
+                                    background: '#c4e922',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    fontSize: '1.5rem',
+                                    fontWeight: 'bold',
+                                    color: '#13100d',
+                                }}
+                            >
+                                &
+                            </Box>
+                        </Box>
+                        <div style={{ marginTop: '0.5rem' }}>TRUST</div>
+                    </motion.div>
+                </Box>
+
+                <Box
+                    sx={{
+                        position: 'absolute',
+                        right: { xs: '-50px', md: '0' },
+                        bottom: { xs: '-30px', md: '-60px' },
+                        width: { xs: '300px', md: '400px' },
+                        height: { xs: '300px', md: '400px' },
+                        background: 'rgba(196, 233, 34, 0.08)',
+                        borderRadius: '50%',
+                        zIndex: 1,
+                    }}
+                />
+            </Box>
+
             <Box sx={{ backgroundColor: '#f4efe9', py: { xs: 4, md: 6 } }}>
                 <Container maxWidth={false} disableGutters>
                     <Box
@@ -90,83 +244,96 @@ export default function AboutMePage() {
                             px: { xs: 0, md: 2 },
                         }}
                     >
-                        {[tiles[0], tiles[1], tiles[2], tiles[3]].map((tile, index) => {
-                            const reverse = index % 2 === 1
-                            return (
-                                <motion.div
-                                    key={tile.title}
-                                    variants={tileVariants}
-                                    initial="hidden"
-                                    whileInView="show"
-                                    viewport={{ once: true, amount: 0.35 }}
-                                    style={{ height: '100%' }}
-                                >
-                                    <Box sx={{ height: '100%', overflow: 'hidden' }}>
+                        {[tiles[0], tiles[1], tiles[2], tiles[3]].map(
+                            (tile, index) => {
+                                const reverse = index % 2 === 1
+                                return (
+                                    <motion.div
+                                        key={tile.title}
+                                        variants={tileVariants}
+                                        initial="hidden"
+                                        whileInView="show"
+                                        viewport={{ once: true, amount: 0.35 }}
+                                        style={{ height: '100%' }}
+                                    >
                                         <Box
                                             sx={{
-                                                display: 'flex',
-                                                flexDirection: reverse ? 'row-reverse' : 'row',
-                                                minHeight: tileMinHeight,
-                                                background: '#e8ded2',
+                                                height: '100%',
+                                                overflow: 'hidden',
                                             }}
                                         >
                                             <Box
                                                 sx={{
-                                                    flex: '1 1 50%',
-                                                    backgroundImage: `${gradientOverlay}, url(${tile.image})`,
-                                                    backgroundSize: 'cover',
-                                                    backgroundPosition: 'center',
-                                                    minHeight: tileMinHeight,
-                                                }}
-                                            />
-                                            <Box
-                                                sx={{
-                                                    flex: '1 1 50%',
-                                                    backgroundColor: '#fbf9f7',
-                                                    p: { xs: 3, md: 3.5 },
                                                     display: 'flex',
-                                                    alignItems: 'center',
-                                                    justifyContent: 'center',
+                                                    flexDirection: reverse
+                                                        ? 'row-reverse'
+                                                        : 'row',
+                                                    minHeight: tileMinHeight,
+                                                    background: '#e8ded2',
                                                 }}
                                             >
-                                            <Stack spacing={1.25}>
-                                                <Typography
-                                                    variant="h5"
+                                                <Box
                                                     sx={{
-                                                        fontWeight: 700,
-                                                        color: '#4c4133',
-                                                        fontFamily,
+                                                        flex: '1 1 50%',
+                                                        backgroundImage: `${gradientOverlay}, url(${tile.image})`,
+                                                        backgroundSize: 'cover',
+                                                        backgroundPosition:
+                                                            'center',
+                                                        minHeight:
+                                                            tileMinHeight,
+                                                    }}
+                                                />
+                                                <Box
+                                                    sx={{
+                                                        flex: '1 1 50%',
+                                                        backgroundColor:
+                                                            '#fbf9f7',
+                                                        p: { xs: 3, md: 3.5 },
+                                                        display: 'flex',
+                                                        alignItems: 'center',
+                                                        justifyContent:
+                                                            'center',
                                                     }}
                                                 >
-                                                    {tile.title}
-                                                </Typography>
-                                                <Typography
-                                                    sx={{
-                                                        color: '#393026',
-                                                        lineHeight: 1.7,
-                                                        fontFamily,
-                                                    }}
-                                                >
-                                                    {tile.body}
-                                                </Typography>
-                                                {tile.extra ? (
-                                                    <Typography
-                                                        sx={{
-                                                            color: '#89755b',
-                                                            lineHeight: 1.6,
-                                                            fontFamily,
-                                                        }}
-                                                    >
-                                                        {tile.extra}
+                                                    <Stack spacing={1.25}>
+                                                        <Typography
+                                                            variant="h5"
+                                                            sx={{
+                                                                fontWeight: 700,
+                                                                color: '#4c4133',
+                                                                fontFamily,
+                                                            }}
+                                                        >
+                                                            {tile.title}
                                                         </Typography>
-                                                    ) : null}
-                                                </Stack>
+                                                        <Typography
+                                                            sx={{
+                                                                color: '#393026',
+                                                                lineHeight: 1.7,
+                                                                fontFamily,
+                                                            }}
+                                                        >
+                                                            {tile.body}
+                                                        </Typography>
+                                                        {tile.extra ? (
+                                                            <Typography
+                                                                sx={{
+                                                                    color: '#89755b',
+                                                                    lineHeight: 1.6,
+                                                                    fontFamily,
+                                                                }}
+                                                            >
+                                                                {tile.extra}
+                                                            </Typography>
+                                                        ) : null}
+                                                    </Stack>
+                                                </Box>
                                             </Box>
                                         </Box>
-                                    </Box>
-                                </motion.div>
-                            )
-                        })}
+                                    </motion.div>
+                                )
+                            }
+                        )}
                     </Box>
                 </Container>
             </Box>

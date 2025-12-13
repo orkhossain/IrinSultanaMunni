@@ -27,8 +27,31 @@ import Image20 from '@/assets/logos/Image20.webp'
 import Image21 from '@/assets/logos/Image21.webp'
 
 export default function ServicesPage() {
-    const logosRow1 = [Image1, Image2, Image3, Image4, Image5, Image6, Image7, Image8, Image9, Image10]
-    const logosRow2 = [Image11, Image12, Image13, Image14, Image15, Image16, Image17, Image18, Image19, Image20, Image21]
+    const logosRow1 = [
+        Image1,
+        Image2,
+        Image3,
+        Image4,
+        Image5,
+        Image6,
+        Image7,
+        Image8,
+        Image9,
+        Image10,
+    ]
+    const logosRow2 = [
+        Image11,
+        Image12,
+        Image13,
+        Image14,
+        Image15,
+        Image16,
+        Image17,
+        Image18,
+        Image19,
+        Image20,
+        Image21,
+    ]
     const tileVariants = {
         hidden: { opacity: 0, y: 60 },
         show: {
@@ -50,6 +73,192 @@ export default function ServicesPage() {
         >
             <Container maxWidth={false} disableGutters>
                 <Box sx={{ px: 0 }}>
+                    <Box
+                        sx={{
+                            background:
+                                'linear-gradient(135deg, #f5ede3 0%, #ede5db 100%)',
+                            pt: { xs: 24, md: 32 },
+                            pb: { xs: 8, md: 12 },
+                            px: { xs: 3, md: 6 },
+                            position: 'relative',
+                            overflow: 'hidden',
+                        }}
+                    >
+                        <Box
+                            sx={{
+                                maxWidth: '1200px',
+                                mx: 'auto',
+                                position: 'relative',
+                                zIndex: 2,
+                            }}
+                        >
+                            <motion.div
+                                initial={{ opacity: 0, y: 32 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{
+                                    duration: 0.8,
+                                    ease: [0.23, 1, 0.32, 1] as const,
+                                }}
+                            >
+                                <Typography
+                                    variant="h1"
+                                    sx={{
+                                        fontSize: { xs: '3rem', md: '4.5rem' },
+                                        fontWeight: 200,
+                                        color: '#13100d',
+                                        marginBottom: 3,
+                                        fontFamily:
+                                            "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
+                                        letterSpacing: '-0.02em',
+                                        lineHeight: 1.1,
+                                    }}
+                                >
+                                    My Services
+                                </Typography>
+                            </motion.div>
+
+                            <motion.div
+                                initial={{ opacity: 0, y: 32 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{
+                                    duration: 0.8,
+                                    delay: 0.12,
+                                    ease: [0.23, 1, 0.32, 1] as const,
+                                }}
+                            >
+                                <Typography
+                                    sx={{
+                                        fontSize: {
+                                            xs: '1.1rem',
+                                            md: '1.3rem',
+                                        },
+                                        color: '#393026',
+                                        lineHeight: 1.8,
+                                        maxWidth: '800px',
+                                        fontFamily:
+                                            "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
+                                        marginBottom: 4,
+                                        fontWeight: 400,
+                                    }}
+                                >
+                                    I offer professional translation and
+                                    mediation services across Italian, English,
+                                    and Bengali. With over 13 years of
+                                    experience, I specialize in creating
+                                    meaningful connections through accurate
+                                    communication in sensitive sectors.
+                                </Typography>
+                            </motion.div>
+
+                            <motion.div
+                                initial={{ opacity: 0, y: 32 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{
+                                    duration: 0.8,
+                                    delay: 0.24,
+                                    ease: [0.23, 1, 0.32, 1] as const,
+                                }}
+                                style={{
+                                    marginTop: '4rem',
+                                    position: 'relative',
+                                }}
+                            >
+                                <Box
+                                    sx={{
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        gap: 3,
+                                        flexWrap: 'wrap',
+                                    }}
+                                >
+                                    <Typography
+                                        sx={{
+                                            fontSize: {
+                                                xs: '2.8rem',
+                                                md: '3.8rem',
+                                            },
+                                            fontWeight: 700,
+                                            color: '#13100d',
+                                            letterSpacing: '-0.02em',
+                                            fontFamily:
+                                                "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
+                                            lineHeight: 1.1,
+                                        }}
+                                    >
+                                        COMMUNICATION
+                                    </Typography>
+                                    <motion.div
+                                        initial={{ scale: 0, rotate: -180 }}
+                                        animate={{ scale: 1, rotate: 0 }}
+                                        transition={{
+                                            duration: 0.6,
+                                            delay: 0.5,
+                                            ease: [0.23, 1, 0.32, 1],
+                                        }}
+                                    >
+                                        <Box
+                                            sx={{
+                                                width: 48,
+                                                height: 48,
+                                                borderRadius: '50%',
+                                                background:
+                                                    'linear-gradient(135deg, #c4e922 0%, #a8d916 100%)',
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                justifyContent: 'center',
+                                                fontSize: '1.8rem',
+                                                fontWeight: 'bold',
+                                                color: '#13100d',
+                                                boxShadow:
+                                                    '0 12px 32px rgba(196, 233, 34, 0.25)',
+                                            }}
+                                        >
+                                            &
+                                        </Box>
+                                    </motion.div>
+                                </Box>
+                                <motion.div
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.6, delay: 0.36 }}
+                                    style={{ marginTop: '0.8rem' }}
+                                >
+                                    <Typography
+                                        sx={{
+                                            fontSize: {
+                                                xs: '2.8rem',
+                                                md: '3.8rem',
+                                            },
+                                            fontWeight: 700,
+                                            color: '#13100d',
+                                            letterSpacing: '-0.02em',
+                                            fontFamily:
+                                                "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
+                                            lineHeight: 1.1,
+                                        }}
+                                    >
+                                        UNDERSTANDING
+                                    </Typography>
+                                </motion.div>
+                            </motion.div>
+                        </Box>
+
+                        <Box
+                            sx={{
+                                position: 'absolute',
+                                right: { xs: '-60px', md: '20px' },
+                                bottom: { xs: '-60px', md: '-80px' },
+                                width: { xs: '380px', md: '500px' },
+                                height: { xs: '380px', md: '500px' },
+                                background:
+                                    'radial-gradient(circle, rgba(196, 233, 34, 0.15) 0%, rgba(196, 233, 34, 0.03) 70%)',
+                                borderRadius: '50%',
+                                zIndex: 1,
+                                filter: 'blur(1px)',
+                            }}
+                        />
+                    </Box>
+
                     <Services />
                     <motion.div
                         variants={tileVariants}
@@ -76,7 +285,8 @@ export default function ServicesPage() {
                                         fontWeight: 600,
                                         letterSpacing: '0.02em',
                                         color: '#13100d',
-                                        fontFamily: "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
+                                        fontFamily:
+                                            "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
                                     }}
                                 >
                                     Collaborated With
@@ -86,10 +296,12 @@ export default function ServicesPage() {
                                         mt: 0.5,
                                         color: '#393026',
                                         letterSpacing: '0.01em',
-                                        fontFamily: "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
+                                        fontFamily:
+                                            "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
                                     }}
                                 >
-                                    Partners, NGOs, and social cooperatives I have supported
+                                    Partners, NGOs, and social cooperatives I
+                                    have supported
                                 </Typography>
                             </Box>
                             <Box
@@ -101,7 +313,10 @@ export default function ServicesPage() {
                                 <Box
                                     sx={{
                                         display: 'grid',
-                                        gridTemplateColumns: { xs: 'repeat(2, minmax(0, 1fr))', md: 'repeat(5, minmax(0, 1fr))' },
+                                        gridTemplateColumns: {
+                                            xs: 'repeat(2, minmax(0, 1fr))',
+                                            md: 'repeat(5, minmax(0, 1fr))',
+                                        },
                                         gap: { xs: 1.5, md: 2 },
                                         alignItems: 'stretch',
                                         justifyItems: 'center',
@@ -113,9 +328,21 @@ export default function ServicesPage() {
                                             whileHover={{ scale: 1.02, y: -1 }}
                                             initial={{ opacity: 0, y: 12 }}
                                             whileInView={{ opacity: 1, y: 0 }}
-                                            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] as const }}
-                                            viewport={{ once: true, amount: 0.5 }}
-                                            style={{ width: '100%', display: 'flex', justifyContent: 'center' }}
+                                            transition={{
+                                                duration: 0.35,
+                                                ease: [
+                                                    0.22, 1, 0.36, 1,
+                                                ] as const,
+                                            }}
+                                            viewport={{
+                                                once: true,
+                                                amount: 0.5,
+                                            }}
+                                            style={{
+                                                width: '100%',
+                                                display: 'flex',
+                                                justifyContent: 'center',
+                                            }}
                                         >
                                             <Box
                                                 sx={{
@@ -125,7 +352,8 @@ export default function ServicesPage() {
                                                     border: '1px solid rgba(19,16,13,0.08)',
                                                     backgroundColor: '#ffffff',
                                                     borderRadius: '10px',
-                                                    boxShadow: '0 10px 26px rgba(0,0,0,0.08)',
+                                                    boxShadow:
+                                                        '0 10px 26px rgba(0,0,0,0.08)',
                                                     display: 'flex',
                                                     alignItems: 'center',
                                                     justifyContent: 'center',
@@ -150,7 +378,10 @@ export default function ServicesPage() {
                                 <Box
                                     sx={{
                                         display: 'grid',
-                                        gridTemplateColumns: { xs: 'repeat(2, minmax(0, 1fr))', md: 'repeat(5, minmax(0, 1fr))' },
+                                        gridTemplateColumns: {
+                                            xs: 'repeat(2, minmax(0, 1fr))',
+                                            md: 'repeat(5, minmax(0, 1fr))',
+                                        },
                                         gap: { xs: 1.5, md: 2 },
                                         alignItems: 'stretch',
                                         justifyItems: 'center',
@@ -162,9 +393,21 @@ export default function ServicesPage() {
                                             whileHover={{ scale: 1.02, y: -1 }}
                                             initial={{ opacity: 0, y: 12 }}
                                             whileInView={{ opacity: 1, y: 0 }}
-                                            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] as const }}
-                                            viewport={{ once: true, amount: 0.5 }}
-                                            style={{ width: '100%', display: 'flex', justifyContent: 'center' }}
+                                            transition={{
+                                                duration: 0.35,
+                                                ease: [
+                                                    0.22, 1, 0.36, 1,
+                                                ] as const,
+                                            }}
+                                            viewport={{
+                                                once: true,
+                                                amount: 0.5,
+                                            }}
+                                            style={{
+                                                width: '100%',
+                                                display: 'flex',
+                                                justifyContent: 'center',
+                                            }}
                                         >
                                             <Box
                                                 sx={{
@@ -174,7 +417,8 @@ export default function ServicesPage() {
                                                     border: '1px solid rgba(19,16,13,0.08)',
                                                     backgroundColor: '#ffffff',
                                                     borderRadius: '10px',
-                                                    boxShadow: '0 10px 26px rgba(0,0,0,0.08)',
+                                                    boxShadow:
+                                                        '0 10px 26px rgba(0,0,0,0.08)',
                                                     display: 'flex',
                                                     alignItems: 'center',
                                                     justifyContent: 'center',

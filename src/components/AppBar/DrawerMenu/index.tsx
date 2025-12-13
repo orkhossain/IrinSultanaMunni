@@ -18,6 +18,7 @@ import { useSelector } from 'react-redux'
 import { selectDictionary } from '@/slice/language'
 import ClearIcon from '@mui/icons-material/Clear'
 import { useRouter } from 'next/navigation'
+import { motion } from 'framer-motion'
 
 const CustomLink = ({ onClick, text }: { onClick: () => void; text: string }) => (
     <ListItem disablePadding>
@@ -69,21 +70,82 @@ const MobileDrawer = () => {
         router.push(path)
     }
 
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        show: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.08,
+                delayChildren: 0.15,
+                duration: 0.4,
+            },
+        },
+    }
+
+    const itemVariants = {
+        hidden: { opacity: 0, y: 24, x: -40 },
+        show: {
+            opacity: 1,
+            y: 0,
+            x: 0,
+            transition: { duration: 0.6, ease: [0.23, 1, 0.32, 1] },
+        },
+    }
+
+    const drawerBackdropVariants = {
+        hidden: { opacity: 0 },
+        show: {
+            opacity: 1,
+            transition: { duration: 0.3, ease: 'easeOut' },
+        },
+    }
+
+    const closeButtonVariants = {
+        hidden: { opacity: 0, scale: 0.8, rotate: -45 },
+        show: {
+            opacity: 1,
+            scale: 1,
+            rotate: 0,
+            transition: { duration: 0.4, ease: [0.23, 1, 0.32, 1] },
+        },
+    }
+
+    const socialIconsVariants = {
+        hidden: { opacity: 0, y: 30 },
+        show: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.5, delay: 0.4, ease: [0.23, 1, 0.32, 1] },
+        },
+    }
+
     const drawerItems = (
-        <List>
-            <CustomLink
-                onClick={() => handleNavigate('/services')}
-                text={service}
-            />
-            <CustomLink
-                onClick={() => handleNavigate('/about')}
-                text={aboutMe}
-            />
-            <CustomLink
-                onClick={() => handleNavigate('/contact')}
-                text={contact}
-            />
-        </List>
+        <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate={drawerOpen ? 'show' : 'hidden'}
+        >
+            <List>
+                <motion.div variants={itemVariants}>
+                    <CustomLink
+                        onClick={() => handleNavigate('/services')}
+                        text={service}
+                    />
+                </motion.div>
+                <motion.div variants={itemVariants}>
+                    <CustomLink
+                        onClick={() => handleNavigate('/about')}
+                        text={aboutMe}
+                    />
+                </motion.div>
+                <motion.div variants={itemVariants}>
+                    <CustomLink
+                        onClick={() => handleNavigate('/contact')}
+                        text={contact}
+                    />
+                </motion.div>
+            </List>
+        </motion.div>
     )
 
     return (
@@ -117,15 +179,15 @@ const MobileDrawer = () => {
                                 height: '100vh',
                             },
                         }}
-                    ModalProps={{
-                        BackdropProps: {
-                            style: {
-                                background: 'rgba(0,0,0,0.2)',
-                                backdropFilter: 'blur(4px)',
+                        ModalProps={{
+                            BackdropProps: {
+                                style: {
+                                    background: 'rgba(0,0,0,0.2)',
+                                    backdropFilter: 'blur(4px)',
+                                },
                             },
-                        },
-                    }}
-                >
+                        }}
+                    >
                         <Box
                             sx={{
                                 display: 'flex',
@@ -133,105 +195,160 @@ const MobileDrawer = () => {
                                 height: '100%',
                             }}
                         >
-                            <Box
-                                sx={{
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'flex-end',
-                                    mb: 1,
-                                    pb: 0.5,
-                                }}
+                            <motion.div
+                                variants={closeButtonVariants}
+                                initial="hidden"
+                                animate={drawerOpen ? 'show' : 'hidden'}
                             >
-                                <IconButton
-                                    onClick={() => setDrawerOpen(false)}
-                                    edge="end"
-                                    color="inherit"
-                                    aria-label="close drawer"
-                                    disableRipple
-                                    disableFocusRipple
+                                <Box
                                     sx={{
-                                        p: 0,
-                                        color: '#111',
-                                        backgroundColor: 'transparent',
-                                        '&:hover': {
-                                            backgroundColor: 'transparent',
-                                            transform: 'scale(1.12)',
-                                        },
-                                        '& .MuiSvgIcon-root': { fontSize: 60 },
-                                        transition: 'transform 180ms ease',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'flex-end',
+                                        mb: 2.5,
+                                        pb: 1.5,
                                     }}
                                 >
-                                    <ClearIcon />
-                                </IconButton>
-                            </Box>
+                                    <motion.div
+                                        whileHover={{ scale: 1.08 }}
+                                        whileTap={{ scale: 0.95 }}
+                                    >
+                                        <IconButton
+                                            onClick={() => setDrawerOpen(false)}
+                                            edge="end"
+                                            color="inherit"
+                                            aria-label="close drawer"
+                                            sx={{
+                                                width: 44,
+                                                height: 44,
+                                                backgroundColor:
+                                                    'rgba(0, 0, 0, 0.04)',
+                                                borderRadius: '12px',
+                                                transition:
+                                                    'all 0.3s cubic-bezier(0.23, 1, 0.320, 1)',
+                                                '&:hover': {
+                                                    backgroundColor:
+                                                        'rgba(0, 0, 0, 0.08)',
+                                                    boxShadow:
+                                                        '0 8px 20px rgba(0, 0, 0, 0.1)',
+                                                },
+                                                '&:active': {
+                                                    backgroundColor:
+                                                        'rgba(0, 0, 0, 0.12)',
+                                                },
+                                                color: '#13100d',
+                                            }}
+                                        >
+                                            <Box
+                                                sx={{
+                                                    position: 'relative',
+                                                    width: 24,
+                                                    height: 24,
+                                                    display: 'flex',
+                                                    alignItems: 'center',
+                                                    justifyContent: 'center',
+                                                    '&::before, &::after': {
+                                                        content: '""',
+                                                        position: 'absolute',
+                                                        width: 20,
+                                                        height: 2,
+                                                        backgroundColor:
+                                                            'currentColor',
+                                                        borderRadius: 1,
+                                                        transition:
+                                                            'all 0.3s ease',
+                                                    },
+                                                    '&::before': {
+                                                        transform:
+                                                            'rotate(45deg)',
+                                                    },
+                                                    '&::after': {
+                                                        transform:
+                                                            'rotate(-45deg)',
+                                                    },
+                                                }}
+                                            />
+                                        </IconButton>
+                                    </motion.div>
+                                </Box>
+                            </motion.div>
                             <Box sx={{ pb: 1.5, flex: 1 }}>{drawerItems}</Box>
-                            <Box
-                                sx={{
-                                    display: 'flex',
-                                    justifyContent: 'flex-start',
-                                    gap: 1.5,
-                                    pb: 2,
-                                    pl: 0.5,
-                                }}
+                            <motion.div
+                                variants={socialIconsVariants}
+                                initial="hidden"
+                                animate={drawerOpen ? 'show' : 'hidden'}
                             >
-                                <IconButton
-                                    component="a"
-                                    href="https://www.instagram.com"
-                                    target="_blank"
-                                    rel="noreferrer"
+                                <Box
                                     sx={{
-                                        width: 54,
-                                        height: 54,
-                                        backgroundColor: 'rgba(0,0,0,0.06)',
-                                        '&:hover': {
-                                            backgroundColor: 'rgba(0,0,0,0.12)',
-                                            transform: 'translateY(-2px)',
-                                        },
-                                        '& .MuiSvgIcon-root': { fontSize: 28 },
-                                        transition: 'transform 200ms ease, background-color 200ms ease',
+                                        display: 'flex',
+                                        justifyContent: 'flex-start',
+                                        gap: 1.5,
+                                        pb: 2,
+                                        pl: 0,
                                     }}
                                 >
-                                    <InstagramIcon />
-                                </IconButton>
-                                <IconButton
-                                    component="a"
-                                    href="https://www.linkedin.com"
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    sx={{
-                                        width: 54,
-                                        height: 54,
-                                        backgroundColor: 'rgba(0,0,0,0.06)',
-                                        '&:hover': {
-                                            backgroundColor: 'rgba(0,0,0,0.12)',
-                                            transform: 'translateY(-2px)',
-                                        },
-                                        '& .MuiSvgIcon-root': { fontSize: 28 },
-                                        transition: 'transform 200ms ease, background-color 200ms ease',
-                                    }}
-                                >
-                                    <LinkedInIcon />
-                                </IconButton>
-                                <IconButton
-                                    component="a"
-                                    href="https://www.facebook.com"
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    sx={{
-                                        width: 54,
-                                        height: 54,
-                                        backgroundColor: 'rgba(0,0,0,0.06)',
-                                        '&:hover': {
-                                            backgroundColor: 'rgba(0,0,0,0.12)',
-                                            transform: 'translateY(-2px)',
-                                        },
-                                        '& .MuiSvgIcon-root': { fontSize: 28 },
-                                        transition: 'transform 200ms ease, background-color 200ms ease',
-                                    }}
-                                >
-                                    <FacebookIcon />
-                                </IconButton>
-                            </Box>
+                                    <IconButton
+                                        component="a"
+                                        href="https://www.instagram.com"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        sx={{
+                                            backgroundColor: 'rgba(0,0,0,0.05)',
+                                            transition:
+                                                'all 0.3s cubic-bezier(0.23, 1, 0.320, 1)',
+                                            '&:hover': {
+                                                backgroundColor:
+                                                    'rgba(0,0,0,0.1)',
+                                                transform: 'translateY(-4px)',
+                                                boxShadow:
+                                                    '0 8px 16px rgba(0,0,0,0.12)',
+                                            },
+                                        }}
+                                    >
+                                        <InstagramIcon />
+                                    </IconButton>
+                                    <IconButton
+                                        component="a"
+                                        href="https://www.linkedin.com"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        sx={{
+                                            backgroundColor: 'rgba(0,0,0,0.05)',
+                                            transition:
+                                                'all 0.3s cubic-bezier(0.23, 1, 0.320, 1)',
+                                            '&:hover': {
+                                                backgroundColor:
+                                                    'rgba(0,0,0,0.1)',
+                                                transform: 'translateY(-4px)',
+                                                boxShadow:
+                                                    '0 8px 16px rgba(0,0,0,0.12)',
+                                            },
+                                        }}
+                                    >
+                                        <LinkedInIcon />
+                                    </IconButton>
+                                    <IconButton
+                                        component="a"
+                                        href="https://www.facebook.com"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        sx={{
+                                            backgroundColor: 'rgba(0,0,0,0.05)',
+                                            transition:
+                                                'all 0.3s cubic-bezier(0.23, 1, 0.320, 1)',
+                                            '&:hover': {
+                                                backgroundColor:
+                                                    'rgba(0,0,0,0.1)',
+                                                transform: 'translateY(-4px)',
+                                                boxShadow:
+                                                    '0 8px 16px rgba(0,0,0,0.12)',
+                                            },
+                                        }}
+                                    >
+                                        <FacebookIcon />
+                                    </IconButton>
+                                </Box>
+                            </motion.div>
                         </Box>
                     </Drawer>
                 </>
