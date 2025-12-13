@@ -220,17 +220,17 @@ const MobileDrawer = () => {
                             </motion.div>
                             <Box sx={{ pb: 1.5, flex: 1 }}>{drawerItems}</Box>
                             <motion.div
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={drawerOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                                transition={{ duration: 0.5, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                                variants={socialIconsVariants}
+                                initial="hidden"
+                                animate={drawerOpen ? 'show' : 'hidden'}
                             >
                                 <Box
                                     sx={{
                                         display: 'flex',
                                         justifyContent: 'flex-start',
-                                        gap: 1,
+                                        gap: 1.5,
                                         pb: 2,
-                                        pl: 0.5,
+                                        pl: 0,
                                     }}
                                 >
                                     <IconButton
@@ -239,8 +239,13 @@ const MobileDrawer = () => {
                                         target="_blank"
                                         rel="noreferrer"
                                         sx={{
-                                            backgroundColor: 'rgba(0,0,0,0.06)',
-                                            '&:hover': { backgroundColor: 'rgba(0,0,0,0.12)' },
+                                            backgroundColor: 'rgba(0,0,0,0.05)',
+                                            transition: 'all 0.3s cubic-bezier(0.23, 1, 0.320, 1)',
+                                            '&:hover': {
+                                                backgroundColor: 'rgba(0,0,0,0.1)',
+                                                transform: 'translateY(-4px)',
+                                                boxShadow: '0 8px 16px rgba(0,0,0,0.12)',
+                                            },
                                         }}
                                     >
                                         <InstagramIcon />
@@ -251,8 +256,13 @@ const MobileDrawer = () => {
                                         target="_blank"
                                         rel="noreferrer"
                                         sx={{
-                                            backgroundColor: 'rgba(0,0,0,0.06)',
-                                            '&:hover': { backgroundColor: 'rgba(0,0,0,0.12)' },
+                                            backgroundColor: 'rgba(0,0,0,0.05)',
+                                            transition: 'all 0.3s cubic-bezier(0.23, 1, 0.320, 1)',
+                                            '&:hover': {
+                                                backgroundColor: 'rgba(0,0,0,0.1)',
+                                                transform: 'translateY(-4px)',
+                                                boxShadow: '0 8px 16px rgba(0,0,0,0.12)',
+                                            },
                                         }}
                                     >
                                         <LinkedInIcon />
@@ -263,8 +273,13 @@ const MobileDrawer = () => {
                                         target="_blank"
                                         rel="noreferrer"
                                         sx={{
-                                            backgroundColor: 'rgba(0,0,0,0.06)',
-                                            '&:hover': { backgroundColor: 'rgba(0,0,0,0.12)' },
+                                            backgroundColor: 'rgba(0,0,0,0.05)',
+                                            transition: 'all 0.3s cubic-bezier(0.23, 1, 0.320, 1)',
+                                            '&:hover': {
+                                                backgroundColor: 'rgba(0,0,0,0.1)',
+                                                transform: 'translateY(-4px)',
+                                                boxShadow: '0 8px 16px rgba(0,0,0,0.12)',
+                                            },
                                         }}
                                     >
                                         <FacebookIcon />
