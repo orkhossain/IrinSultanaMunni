@@ -185,17 +185,18 @@ export default function ServicesPage() {
                         </Box>
 
                         <Box
-                            sx={{
-                                position: 'absolute',
-                                right: { xs: '-50px', md: '0' },
-                                bottom: { xs: '-30px', md: '-60px' },
-                                width: { xs: '300px', md: '400px' },
-                                height: { xs: '300px', md: '400px' },
-                                background: 'rgba(196, 233, 34, 0.08)',
-                                borderRadius: '50%',
-                                zIndex: 1,
-                            }}
-                        />
+                    sx={{
+                        position: 'absolute',
+                        right: { xs: '-60px', md: '20px' },
+                        bottom: { xs: '-60px', md: '-80px' },
+                        width: { xs: '380px', md: '500px' },
+                        height: { xs: '380px', md: '500px' },
+                        background: 'radial-gradient(circle, rgba(196, 233, 34, 0.15) 0%, rgba(196, 233, 34, 0.03) 70%)',
+                        borderRadius: '50%',
+                        zIndex: 1,
+                        filter: 'blur(1px)',
+                    }}
+                />
                     </Box>
 
                     <Services />
