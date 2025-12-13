@@ -49,63 +49,59 @@ const ServiceCard = ({
                         background: '#e8ded2',
                     }}
                 >
-                    <motion.div
+                    <Box
                         ref={imageRef}
-                        style={{ transform: `translateY(${imageOffset}px)` }}
-                    >
-                        <Box
-                            sx={{
-                                flex: '1 1 50%',
-                                position: 'relative',
-                                minHeight: tileMinHeight,
-                                backgroundImage: `${gradientOverlay}, url(${imageSrc.src})`,
-                                backgroundSize: 'cover',
-                                backgroundPosition: 'center',
-                            }}
-                        />
-                    </motion.div>
-                    <motion.div
+                        sx={{
+                            flex: '1 1 50%',
+                            position: 'relative',
+                            minHeight: tileMinHeight,
+                            backgroundImage: `${gradientOverlay}, url(${imageSrc.src})`,
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center',
+                            transform: `translateY(${imageOffset}px)`,
+                            transition: 'transform 0.1s ease-out',
+                        }}
+                    />
+                    <Box
                         ref={textRef}
-                        style={{ transform: `translateY(${textOffset}px)`, flex: '1 1 50%' }}
+                        sx={{
+                            flex: '1 1 50%',
+                            backgroundColor: '#fbf9f7',
+                            p: { xs: 3, md: 3.5 },
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            transform: `translateY(${textOffset}px)`,
+                            transition: 'transform 0.1s ease-out',
+                        }}
                     >
-                        <Box
-                            sx={{
-                                backgroundColor: '#fbf9f7',
-                                p: { xs: 3, md: 3.5 },
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                height: '100%',
-                            }}
-                        >
-                            <Stack spacing={1.25}>
-                                <FadeText
-                                    fadeKey={`service-title-${title}`}
-                                    variant="h5"
-                                    sx={{
-                                        fontWeight: 700,
-                                        color: '#4c4133',
-                                        fontFamily,
-                                        fontSize: { xs: '1.35rem', md: '1.55rem' },
-                                        letterSpacing: '-0.01em',
-                                    }}
-                                >
-                                    {title}
-                                </FadeText>
-                                <FadeText
-                                    fadeKey={`service-desc-${title}`}
-                                    sx={{
-                                        color: '#393026',
-                                        lineHeight: 1.75,
-                                        fontFamily,
-                                        fontSize: { xs: '1.05rem', md: '1.15rem' },
-                                    }}
-                                >
-                                    {description}
-                                </FadeText>
-                            </Stack>
-                        </Box>
-                    </motion.div>
+                        <Stack spacing={1.25}>
+                            <FadeText
+                                fadeKey={`service-title-${title}`}
+                                variant="h5"
+                                sx={{
+                                    fontWeight: 700,
+                                    color: '#4c4133',
+                                    fontFamily,
+                                    fontSize: { xs: '1.35rem', md: '1.55rem' },
+                                    letterSpacing: '-0.01em',
+                                }}
+                            >
+                                {title}
+                            </FadeText>
+                            <FadeText
+                                fadeKey={`service-desc-${title}`}
+                                sx={{
+                                    color: '#393026',
+                                    lineHeight: 1.75,
+                                    fontFamily,
+                                    fontSize: { xs: '1.05rem', md: '1.15rem' },
+                                }}
+                            >
+                                {description}
+                            </FadeText>
+                        </Stack>
+                    </Box>
                 </Box>
             </Box>
         </motion.div>
