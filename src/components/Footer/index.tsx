@@ -73,6 +73,7 @@ const Footer = () => {
                                 </Link>
                             ))}
                         </Stack>
+                        <Box sx={{ display: { xs: 'none', md: 'block' }, minWidth: 180, flexShrink: 0 }} />
 
                         <Stack
                             spacing={{ xs: 2, md: 2.5 }}
@@ -116,8 +117,7 @@ const Footer = () => {
                         spacing={{ xs: 5, md: 8 }}
                         justifyContent="space-between"
                         alignItems={{ xs: 'flex-start', md: 'center' }}
-                        sx={{ width: '100%' }}
-                        p={5}
+                        sx={{ width: '100%', px: { xs: 3, md: 6 } }}
                     >
                         <Stack
                             direction="row"
@@ -171,7 +171,7 @@ const Footer = () => {
                                 alignItems: { xs: 'flex-end', md: 'flex-end' },
                                 textAlign: { xs: 'right', md: 'right' },
                                 width: '100%',
-                                alignSelf: { xs: 'flex-end', md: 'flex-start' },
+                                alignSelf: { xs: 'flex-end', md: 'flex-end' },
                             }}
                         >
                             <Typography
