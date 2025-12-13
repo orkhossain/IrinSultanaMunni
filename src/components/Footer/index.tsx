@@ -77,11 +77,11 @@ const Footer = () => {
 
                         <Stack
                             spacing={{ xs: 2, md: 2.5 }}
-                            alignItems={{ xs: 'flex-end', md: 'center' }}
+                            alignItems="flex-end"
                             sx={{
                                 flex: 1,
-                                textAlign: { xs: 'right', md: 'center' },
-                                alignSelf: { xs: 'flex-end', md: 'center' },
+                                textAlign: { xs: 'right', md: 'right' },
+                                alignSelf: { xs: 'flex-end', md: 'flex-end' },
                             }}
                         >
                             <Typography
@@ -102,7 +102,7 @@ const Footer = () => {
                                     lineHeight: 1.65,
                                     fontSize: '1.05rem',
                                     fontWeight: 400,
-                                    textAlign: { xs: 'right', md: 'center' },
+                                    textAlign: { xs: 'right', md: 'right' },
                                     maxWidth: 640,
                                     fontFamily: "'Libre Baskerville', 'Times New Roman', serif",
                                 }}
