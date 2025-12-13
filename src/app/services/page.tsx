@@ -31,7 +31,11 @@ export default function ServicesPage() {
     const logosRow2 = [Image11, Image12, Image13, Image14, Image15, Image16, Image17, Image18, Image19, Image20, Image21]
     const tileVariants = {
         hidden: { opacity: 0, y: 60 },
-        show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+        show: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const },
+        },
     }
 
     return (
@@ -109,7 +113,7 @@ export default function ServicesPage() {
                                             whileHover={{ scale: 1.02, y: -1 }}
                                             initial={{ opacity: 0, y: 12 }}
                                             whileInView={{ opacity: 1, y: 0 }}
-                                            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                                            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] as const }}
                                             viewport={{ once: true, amount: 0.5 }}
                                             style={{ width: '100%', display: 'flex', justifyContent: 'center' }}
                                         >
@@ -158,7 +162,7 @@ export default function ServicesPage() {
                                             whileHover={{ scale: 1.02, y: -1 }}
                                             initial={{ opacity: 0, y: 12 }}
                                             whileInView={{ opacity: 1, y: 0 }}
-                                            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                                            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] as const }}
                                             viewport={{ once: true, amount: 0.5 }}
                                             style={{ width: '100%', display: 'flex', justifyContent: 'center' }}
                                         >

@@ -15,7 +15,11 @@ const gradientOverlay =
     'linear-gradient(180deg, rgba(198,172,143,0.6) 0%, rgba(234,224,213,0.9) 100%)'
 const tileVariants = {
     hidden: { opacity: 0, y: 80 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+    show: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const },
+    },
 }
 
 const ServiceCard = ({

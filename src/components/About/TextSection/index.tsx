@@ -19,7 +19,12 @@ const QuoteComponent = () => {
     const quoteBy = dict.Index?.quoteBy ?? '— Charlemagne'
     const fadeVariants: Variants = {
         hidden: { opacity: 0, y: 22, filter: 'blur(8px)' },
-        show: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 1.1, ease: [0.22, 1, 0.36, 1] } },
+        show: {
+            opacity: 1,
+            y: 0,
+            filter: 'blur(0px)',
+            transition: { duration: 1.1, ease: [0.22, 1, 0.36, 1] as const },
+        },
     }
 
     return (
