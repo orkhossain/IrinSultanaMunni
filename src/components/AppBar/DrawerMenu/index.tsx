@@ -9,7 +9,6 @@ import {
     useTheme,
     ListItemButton,
     Box,
-    Typography,
 } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
 import InstagramIcon from '@mui/icons-material/Instagram'
@@ -17,31 +16,33 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import FacebookIcon from '@mui/icons-material/Facebook'
 import { useSelector } from 'react-redux'
 import { selectDictionary } from '@/slice/language'
-import { Cancel } from '@mui/icons-material'
+import ClearIcon from '@mui/icons-material/Clear'
 import { useRouter } from 'next/navigation'
 
-const CustomLink = ({
-    onClick,
-    text,
-}: {
-    onClick: () => void
-    text: string
-}) => (
+const CustomLink = ({ onClick, text }: { onClick: () => void; text: string }) => (
     <ListItem disablePadding>
         <ListItemButton
             onClick={onClick}
             component="button"
             sx={{
-                borderRadius: '10px',
-                px: 2,
-                py: 1.25,
+                borderRadius: '16px',
+                px: 3,
+                py: 1.75,
+                transition: 'transform 220ms ease, background-color 220ms ease, box-shadow 220ms ease, color 220ms ease',
+                '&:hover': {
+                    backgroundColor: 'rgba(0,0,0,0.06)',
+                    boxShadow: '0 10px 30px rgba(0,0,0,0.08)',
+                    transform: 'translateX(6px)',
+                },
+                '&:active': { transform: 'translateX(3px) scale(0.99)' },
             }}
         >
             <ListItemText
                 primaryTypographyProps={{
-                    variant: 'h5',
                     textAlign: 'left',
                     fontFamily: "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
+                    fontSize: '1.6rem',
+                    letterSpacing: '0.01em',
                 }}
                 primary={text}
             />
@@ -89,7 +90,13 @@ const MobileDrawer = () => {
         <>
             {isMobile && (
                 <>
-                    <IconButton onClick={handleDrawerToggle}>
+                    <IconButton
+                        onClick={handleDrawerToggle}
+                        sx={{
+                            p: 1.25,
+                            '& .MuiSvgIcon-root': { fontSize: 34 },
+                        }}
+                    >
                         <MenuIcon />
                     </IconButton>
                     <Drawer
@@ -140,17 +147,29 @@ const MobileDrawer = () => {
                                     edge="end"
                                     color="inherit"
                                     aria-label="close drawer"
-                                    sx={{ p: 0, color: '#111' }}
+                                    disableRipple
+                                    disableFocusRipple
+                                    sx={{
+                                        p: 0,
+                                        color: '#111',
+                                        backgroundColor: 'transparent',
+                                        '&:hover': {
+                                            backgroundColor: 'transparent',
+                                            transform: 'scale(1.12)',
+                                        },
+                                        '& .MuiSvgIcon-root': { fontSize: 60 },
+                                        transition: 'transform 180ms ease',
+                                    }}
                                 >
-                                    <Cancel sx={{ fontSize: 36 }} />
+                                    <ClearIcon />
                                 </IconButton>
-                                </Box>
+                            </Box>
                             <Box sx={{ pb: 1.5, flex: 1 }}>{drawerItems}</Box>
                             <Box
                                 sx={{
                                     display: 'flex',
                                     justifyContent: 'flex-start',
-                                    gap: 1,
+                                    gap: 1.5,
                                     pb: 2,
                                     pl: 0.5,
                                 }}
@@ -161,8 +180,15 @@ const MobileDrawer = () => {
                                     target="_blank"
                                     rel="noreferrer"
                                     sx={{
+                                        width: 54,
+                                        height: 54,
                                         backgroundColor: 'rgba(0,0,0,0.06)',
-                                        '&:hover': { backgroundColor: 'rgba(0,0,0,0.12)' },
+                                        '&:hover': {
+                                            backgroundColor: 'rgba(0,0,0,0.12)',
+                                            transform: 'translateY(-2px)',
+                                        },
+                                        '& .MuiSvgIcon-root': { fontSize: 28 },
+                                        transition: 'transform 200ms ease, background-color 200ms ease',
                                     }}
                                 >
                                     <InstagramIcon />
@@ -173,8 +199,15 @@ const MobileDrawer = () => {
                                     target="_blank"
                                     rel="noreferrer"
                                     sx={{
+                                        width: 54,
+                                        height: 54,
                                         backgroundColor: 'rgba(0,0,0,0.06)',
-                                        '&:hover': { backgroundColor: 'rgba(0,0,0,0.12)' },
+                                        '&:hover': {
+                                            backgroundColor: 'rgba(0,0,0,0.12)',
+                                            transform: 'translateY(-2px)',
+                                        },
+                                        '& .MuiSvgIcon-root': { fontSize: 28 },
+                                        transition: 'transform 200ms ease, background-color 200ms ease',
                                     }}
                                 >
                                     <LinkedInIcon />
@@ -185,8 +218,15 @@ const MobileDrawer = () => {
                                     target="_blank"
                                     rel="noreferrer"
                                     sx={{
+                                        width: 54,
+                                        height: 54,
                                         backgroundColor: 'rgba(0,0,0,0.06)',
-                                        '&:hover': { backgroundColor: 'rgba(0,0,0,0.12)' },
+                                        '&:hover': {
+                                            backgroundColor: 'rgba(0,0,0,0.12)',
+                                            transform: 'translateY(-2px)',
+                                        },
+                                        '& .MuiSvgIcon-root': { fontSize: 28 },
+                                        transition: 'transform 200ms ease, background-color 200ms ease',
                                     }}
                                 >
                                     <FacebookIcon />
