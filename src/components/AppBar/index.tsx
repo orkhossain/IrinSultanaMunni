@@ -39,11 +39,24 @@ export default function HideAppBar(props: Props) {
     <>
       <header>
         <HideOnScroll {...props}>
-          <AppBar sx={{ boxShadow: 'none', backgroundColor: 'transparent' }}>
+          <AppBar
+            sx={{
+              boxShadow: 'none',
+              backgroundColor: 'transparent',
+              padding: 0,
+            }}
+          >
             <Toolbar
               sx={{
+                padding: 0,
+                margin: 0,
                 fontFamily:
                   "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
+                minHeight: { xs: 100, md: 135 },
+                alignItems: 'flex-start',
+                px: { xs: 0.5, md: 2 },
+                pt: 0,
+                pb: { xs: 0, md: 0.25 },
               }}
             >
               <ListItems />

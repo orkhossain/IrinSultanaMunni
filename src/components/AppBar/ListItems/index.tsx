@@ -189,7 +189,13 @@ const HideAppBar = () => {
     )
 
     return (
-        <Box sx={{ width: '100%', px: { xs: 1.5, md: 2 } }}>
+        <Box
+            sx={{
+                width: '100%',
+                px: { xs: 0.25, md: 0.75 },
+                mt: { xs: -0.25, md: -0.5 },
+            }}
+        >
             <List
                 sx={{
                     width: '100%',
@@ -197,41 +203,50 @@ const HideAppBar = () => {
                     display: 'flex',
                     flexDirection: 'row',
                     alignItems: 'center',
-                    gap: { xs: 1, md: 2 },
-                    py: { xs: 0.5, md: 1 },
+                    gap: { xs: 0.5, md: 1.5 },
+                    py: { xs: 0, md: 0.25 },
                 }}
             >
-                {!isMobile && (
-                    <Box
+                <Box
+                    sx={{
+                        display: 'flex',
+                        justifyContent: { xs: 'center', md: 'flex-start' },
+                        flex: 1,
+                        minWidth: 0,
+                        width: '100%',
+                    }}
+                >
+                    <ListItem
                         sx={{
-                            display: 'flex',
-                            justifyContent: 'flex-start',
-                            flex: 1,
-                            minWidth: 0,
+                            px: 0,
+                            justifyContent: 'center',
+                            ml: { xs: -0.5, md: -3 },
                         }}
                     >
-                        <ListItem sx={{ px: 0 }}>
-                            <AppLogo />
-                        </ListItem>
-                    </Box>
-                )}
+                        <AppLogo />
+                    </ListItem>
+                </Box>
                 <Box
                     sx={{
                         display: 'flex',
                         justifyContent: 'center',
-                        flex: 1.6,
+                        flex: 2,
+                        minWidth: 0,
+                        width: '100%',
                     }}
                 >
-                    <ListItem sx={{ px: { xs: 0.5, md: 1 } }}>
+                    <ListItem sx={{ px: { xs: 0.25, md: 0.5 } }}>
                         <PillTab />
                     </ListItem>
                 </Box>
                 <Box
                     sx={{
                         display: 'flex',
-                        justifyContent: 'flex-end',
+                        justifyContent: { xs: 'center', md: 'flex-end' },
                         flex: 1,
                         minWidth: 0,
+                        width: '100%',
+                        pr: { xs: 0, md: 3.5 },
                     }}
                 >
                     {isMobile ? <MobileDrawer /> : drawerItems}

@@ -32,7 +32,7 @@ export default function Content() {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: { xs: 'flex-start', md: 'flex-start' },
-                    px: { xs: '6%', md: '8%' },
+                    px: { xs: '6%', md: '2%' },
                 }}
             >
                 <motion.div

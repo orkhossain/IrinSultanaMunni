@@ -20,20 +20,18 @@ export default function PageTransition({
     const pathname = usePathname()
 
     return (
-        <div style={{ position: 'relative', minHeight: '100vh' }}>
-            <AnimatePresence mode="sync" initial={false}>
-                <motion.div
-                    key={pathname}
-                    variants={variants}
-                    initial="initial"
-                    animate="animate"
-                    exit="exit"
-                    transition={transition}
-                    style={{ position: 'absolute', inset: 0, minHeight: '100vh' }}
-                >
-                    {children}
-                </motion.div>
-            </AnimatePresence>
-        </div>
+        <AnimatePresence mode="sync" initial={false}>
+            <motion.div
+                key={pathname}
+                variants={variants}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                transition={transition}
+                style={{ minHeight: '100%' }}
+            >
+                {children}
+            </motion.div>
+        </AnimatePresence>
     )
 }
