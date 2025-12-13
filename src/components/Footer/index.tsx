@@ -48,11 +48,11 @@ const Footer = () => {
                     }}
                 >
                     <Stack
-                    sx={{padding:5}}
                         direction={{ xs: 'column', md: 'row' }}
                         spacing={{ xs: 4, md: 8 }}
                         justifyContent="space-between"
                         alignItems={{ xs: 'flex-start', md: 'center' }}
+                        sx={{ px: { xs: 3, md: 6 } }}
                     >
                         <Stack spacing={1.5} sx={{ minWidth: 180 }}>
                             {navItems.map((item) => (
@@ -75,10 +75,13 @@ const Footer = () => {
                         </Stack>
 
                         <Stack
-                        
                             spacing={{ xs: 2, md: 2.5 }}
-                            alignItems="flex-end"
-                            sx={{ flex: 1, textAlign: 'right' }}
+                            alignItems={{ xs: 'flex-end', md: 'center' }}
+                            sx={{
+                                flex: 1,
+                                textAlign: { xs: 'right', md: 'center' },
+                                alignSelf: { xs: 'flex-end', md: 'center' },
+                            }}
                         >
                             <Typography
                                 variant="h2"
@@ -98,7 +101,7 @@ const Footer = () => {
                                     lineHeight: 1.65,
                                     fontSize: '1.05rem',
                                     fontWeight: 400,
-                                    textAlign: 'center',
+                                    textAlign: { xs: 'right', md: 'center' },
                                     maxWidth: 640,
                                     fontFamily: "'Libre Baskerville', 'Times New Roman', serif",
                                 }}
@@ -113,14 +116,15 @@ const Footer = () => {
                         spacing={{ xs: 5, md: 8 }}
                         justifyContent="space-between"
                         alignItems={{ xs: 'flex-start', md: 'center' }}
-                        sx={{ width: '100%',padding:5 }}
+                        sx={{ width: '100%' }}
+                        p={5}
                     >
                         <Stack
                             direction="row"
                             spacing={{ xs: 4, md: 6 }}
                             flexWrap="wrap"
                             rowGap={2}
-                            sx={{ minWidth: { md: 260 } }}
+                            sx={{ minWidth: { md: 260 }, alignSelf: { xs: 'flex-start', md: 'flex-start' } }}
                         >
                             <Stack spacing={1}>
                                 <Typography
