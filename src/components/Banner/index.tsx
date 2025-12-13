@@ -2,15 +2,28 @@
 import React from 'react'
 import TabStepper from './Stepper'
 import CenteredTabs from './Tab'
-import ScrollAnimation from 'react-animate-on-scroll'
+import { usePathname } from 'next/navigation'
+import { motion } from 'framer-motion'
 
 function Banner() {
+    const pathname = usePathname()
+
     return (
         <>
-            <ScrollAnimation animateIn="fadeInDown" animateOnce>
-            <CenteredTabs />
-            <TabStepper />
-            </ScrollAnimation>
+            <motion.div
+                key={pathname}
+                initial={{ opacity: 0, y: -80 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                    type: 'spring',
+                    stiffness: 140,
+                    damping: 18,
+                    mass: 0.8,
+                }}
+            >
+                <CenteredTabs />
+                <TabStepper />
+            </motion.div>
         </>
     )
 }
