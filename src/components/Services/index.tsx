@@ -23,14 +23,15 @@ const tileVariants = {
     },
 }
 
-const ServiceCard = ({
-    title,
-    description,
-    imageSrc,
-    isInverted,
-}: any) => {
-    const { elementRef: imageRef, offset: imageOffset } = useParallax({ intensity: 0.3, direction: 'up' })
-    const { elementRef: textRef, offset: textOffset } = useParallax({ intensity: 0.15, direction: 'down' })
+const ServiceCard = ({ title, description, imageSrc, isInverted }: any) => {
+    const { elementRef: imageRef, offset: imageOffset } = useParallax({
+        intensity: 0.3,
+        direction: 'up',
+    })
+    const { elementRef: textRef, offset: textOffset } = useParallax({
+        intensity: 0.15,
+        direction: 'down',
+    })
 
     return (
         <motion.div
@@ -85,7 +86,8 @@ const ServiceCard = ({
                                     fontFamily,
                                     fontSize: { xs: '1.75rem', md: '2.2rem' },
                                     letterSpacing: '-0.01em',
-                                    background: 'linear-gradient(135deg, #4c4133 0%, #13100d 100%)',
+                                    background:
+                                        'linear-gradient(135deg, #4c4133 0%, #13100d 100%)',
                                     backgroundClip: 'text',
                                     WebkitBackgroundClip: 'text',
                                     WebkitTextFillColor: 'transparent',
@@ -122,7 +124,14 @@ const ServicesComponent: React.FC = () => {
     const translation = dict.Index?.translation ?? ''
 
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', width: '100%', gap: 0 }}>
+        <div
+            style={{
+                display: 'flex',
+                flexDirection: 'column',
+                width: '100%',
+                gap: 0,
+            }}
+        >
             <ServiceCard
                 title={service1}
                 description={mediation}

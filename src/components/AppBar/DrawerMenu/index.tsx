@@ -87,7 +87,7 @@ const MobileDrawer = () => {
             opacity: 1,
             y: 0,
             x: 0,
-            transition: { duration: 0.6, ease: [0.23, 1, 0.320, 1] },
+            transition: { duration: 0.6, ease: [0.23, 1, 0.32, 1] },
         },
     }
 
@@ -105,7 +105,7 @@ const MobileDrawer = () => {
             opacity: 1,
             scale: 1,
             rotate: 0,
-            transition: { duration: 0.4, ease: [0.23, 1, 0.320, 1] },
+            transition: { duration: 0.4, ease: [0.23, 1, 0.32, 1] },
         },
     }
 
@@ -114,7 +114,7 @@ const MobileDrawer = () => {
         show: {
             opacity: 1,
             y: 0,
-            transition: { duration: 0.5, delay: 0.4, ease: [0.23, 1, 0.320, 1] },
+            transition: { duration: 0.5, delay: 0.4, ease: [0.23, 1, 0.32, 1] },
         },
     }
 
@@ -172,15 +172,15 @@ const MobileDrawer = () => {
                                 height: '100vh',
                             },
                         }}
-                    ModalProps={{
-                        BackdropProps: {
-                            style: {
-                                background: 'rgba(0,0,0,0.2)',
-                                backdropFilter: 'blur(4px)',
+                        ModalProps={{
+                            BackdropProps: {
+                                style: {
+                                    background: 'rgba(0,0,0,0.2)',
+                                    backdropFilter: 'blur(4px)',
+                                },
                             },
-                        },
-                    }}
-                >
+                        }}
+                    >
                         <Box
                             sx={{
                                 display: 'flex',
@@ -214,15 +214,20 @@ const MobileDrawer = () => {
                                             sx={{
                                                 width: 44,
                                                 height: 44,
-                                                backgroundColor: 'rgba(0, 0, 0, 0.04)',
+                                                backgroundColor:
+                                                    'rgba(0, 0, 0, 0.04)',
                                                 borderRadius: '12px',
-                                                transition: 'all 0.3s cubic-bezier(0.23, 1, 0.320, 1)',
+                                                transition:
+                                                    'all 0.3s cubic-bezier(0.23, 1, 0.320, 1)',
                                                 '&:hover': {
-                                                    backgroundColor: 'rgba(0, 0, 0, 0.08)',
-                                                    boxShadow: '0 8px 20px rgba(0, 0, 0, 0.1)',
+                                                    backgroundColor:
+                                                        'rgba(0, 0, 0, 0.08)',
+                                                    boxShadow:
+                                                        '0 8px 20px rgba(0, 0, 0, 0.1)',
                                                 },
                                                 '&:active': {
-                                                    backgroundColor: 'rgba(0, 0, 0, 0.12)',
+                                                    backgroundColor:
+                                                        'rgba(0, 0, 0, 0.12)',
                                                 },
                                                 color: '#13100d',
                                             }}
@@ -240,15 +245,19 @@ const MobileDrawer = () => {
                                                         position: 'absolute',
                                                         width: 20,
                                                         height: 2,
-                                                        backgroundColor: 'currentColor',
+                                                        backgroundColor:
+                                                            'currentColor',
                                                         borderRadius: 1,
-                                                        transition: 'all 0.3s ease',
+                                                        transition:
+                                                            'all 0.3s ease',
                                                     },
                                                     '&::before': {
-                                                        transform: 'rotate(45deg)',
+                                                        transform:
+                                                            'rotate(45deg)',
                                                     },
                                                     '&::after': {
-                                                        transform: 'rotate(-45deg)',
+                                                        transform:
+                                                            'rotate(-45deg)',
                                                     },
                                                 }}
                                             />
@@ -278,11 +287,14 @@ const MobileDrawer = () => {
                                         rel="noreferrer"
                                         sx={{
                                             backgroundColor: 'rgba(0,0,0,0.05)',
-                                            transition: 'all 0.3s cubic-bezier(0.23, 1, 0.320, 1)',
+                                            transition:
+                                                'all 0.3s cubic-bezier(0.23, 1, 0.320, 1)',
                                             '&:hover': {
-                                                backgroundColor: 'rgba(0,0,0,0.1)',
+                                                backgroundColor:
+                                                    'rgba(0,0,0,0.1)',
                                                 transform: 'translateY(-4px)',
-                                                boxShadow: '0 8px 16px rgba(0,0,0,0.12)',
+                                                boxShadow:
+                                                    '0 8px 16px rgba(0,0,0,0.12)',
                                             },
                                         }}
                                     >
@@ -295,11 +307,14 @@ const MobileDrawer = () => {
                                         rel="noreferrer"
                                         sx={{
                                             backgroundColor: 'rgba(0,0,0,0.05)',
-                                            transition: 'all 0.3s cubic-bezier(0.23, 1, 0.320, 1)',
+                                            transition:
+                                                'all 0.3s cubic-bezier(0.23, 1, 0.320, 1)',
                                             '&:hover': {
-                                                backgroundColor: 'rgba(0,0,0,0.1)',
+                                                backgroundColor:
+                                                    'rgba(0,0,0,0.1)',
                                                 transform: 'translateY(-4px)',
-                                                boxShadow: '0 8px 16px rgba(0,0,0,0.12)',
+                                                boxShadow:
+                                                    '0 8px 16px rgba(0,0,0,0.12)',
                                             },
                                         }}
                                     >
@@ -312,11 +327,14 @@ const MobileDrawer = () => {
                                         rel="noreferrer"
                                         sx={{
                                             backgroundColor: 'rgba(0,0,0,0.05)',
-                                            transition: 'all 0.3s cubic-bezier(0.23, 1, 0.320, 1)',
+                                            transition:
+                                                'all 0.3s cubic-bezier(0.23, 1, 0.320, 1)',
                                             '&:hover': {
-                                                backgroundColor: 'rgba(0,0,0,0.1)',
+                                                backgroundColor:
+                                                    'rgba(0,0,0,0.1)',
                                                 transform: 'translateY(-4px)',
-                                                boxShadow: '0 8px 16px rgba(0,0,0,0.12)',
+                                                boxShadow:
+                                                    '0 8px 16px rgba(0,0,0,0.12)',
                                             },
                                         }}
                                     >
