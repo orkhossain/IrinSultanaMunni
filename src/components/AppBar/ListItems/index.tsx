@@ -192,7 +192,7 @@ const HideAppBar = () => {
         <Box
             sx={{
                 width: '100%',
-                px: { xs: 0.25, md: 0.75 },
+                px: { xs: 0, md: 0.75 },
                 mt: { xs: -0.25, md: -0.5 },
             }}
         >
@@ -210,7 +210,7 @@ const HideAppBar = () => {
                 <Box
                     sx={{
                         display: 'flex',
-                        justifyContent: { xs: 'center', md: 'flex-start' },
+                        justifyContent: 'flex-start',
                         flex: 1,
                         minWidth: 0,
                         width: '100%',
@@ -219,8 +219,8 @@ const HideAppBar = () => {
                     <ListItem
                         sx={{
                             px: 0,
-                            justifyContent: 'center',
-                            ml: { xs: -0.5, md: -3 },
+                            justifyContent: 'flex-start',
+                            ml: { xs: -4, md: -5 },
                         }}
                     >
                         <AppLogo />
@@ -242,11 +242,11 @@ const HideAppBar = () => {
                 <Box
                     sx={{
                         display: 'flex',
-                        justifyContent: { xs: 'center', md: 'flex-end' },
+                        justifyContent: 'flex-end',
                         flex: 1,
                         minWidth: 0,
                         width: '100%',
-                        pr: { xs: 0, md: 3.5 },
+                        pr: { xs: -2.5, md: 4 },
                     }}
                 >
                     {isMobile ? <MobileDrawer /> : drawerItems}
