@@ -71,21 +71,27 @@ export default function Profile() {
                                         order: { xs: 2, md: 2 },
                                         display: 'flex',
                                         alignItems: 'center',
-                                        p: { xs: 3, md: 6 },
+                                        justifyContent: 'center',
+                                        p: { xs: 1, md: 2 },
                                         bgcolor: 'rgba(255,255,255,0.88)',
                                         height: '100%',
-                                        textAlign: 'left',
+                                        textAlign: 'center',
                                     }}
                                 >
                                     <FadeText
                                         fadeKey="about-desc-1"
-                                        variant={isMobile ? 'body1' : 'h5'}
+                                        variant={isMobile ? 'h5' : 'h4'}
                                         color="text.secondary"
                                         component="span"
-                                        fontSize={isSmall ? '14px' : '1.1rem'}
-                                        sx={{ lineHeight: 1.75, fontFamily: "'Fancy Cut Pro', 'Cambria', 'Georgia', serif" }}
+                                        fontSize={isSmall ? '22px' : '1.8rem'}
+                                        sx={{
+                                            lineHeight: 2.15,
+                                            fontFamily: "'Playfair Display', 'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
+                                            fontStyle: 'italic',
+                                            letterSpacing: '0.01em',
+                                        }}
                                     >
-                                        {description}
+                                        {`"${description}"`}
                                     </FadeText>
                                 </Box>
                             </motion.div>
@@ -97,21 +103,28 @@ export default function Profile() {
                                         order: { xs: 2, md: 2 },
                                         display: 'flex',
                                         alignItems: 'center',
-                                        p: { xs: 3, md: 6 },
+                                        justifyContent: 'center',
+                                        p: { xs: 1, md: 2 },
                                         bgcolor: 'rgba(255,255,255,0.88)',
                                         height: '100%',
-                                        textAlign: 'left',
+                                        textAlign: 'center',
                                     }}
                                 >
                                     <FadeText
                                         fadeKey="about-desc-2"
-                                        variant={isMobile ? 'body1' : 'h5'}
+                                        variant={isMobile ? 'h5' : 'h4'}
                                         color="text.secondary"
                                         component="span"
-                                        fontSize={isSmall ? '14px' : '1.1rem'}
-                                        sx={{ lineHeight: 1.75, fontFamily: "'Fancy Cut Pro', 'Cambria', 'Georgia', serif" }}
+                                        fontSize={isSmall ? '22px' : '1.8rem'}
+                                        sx={{
+                                            m: 6,
+                                            lineHeight: 2.15,
+                                            fontFamily: "'Playfair Display', 'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
+                                            fontStyle: 'italic',
+                                            letterSpacing: '0.01em',
+                                        }}
                                     >
-                                        {description2}
+                                        {`"${description2}"`}
                                     </FadeText>
                                 </Box>
                             </motion.div>

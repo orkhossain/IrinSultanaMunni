@@ -5,10 +5,10 @@ import TextSection from './TextSection'
 
 function Home() {
     return (
-        <>
+        <div style={{ margin: '0 auto', padding: '0 24px', maxWidth: '1400px' }}>
             <TextSection />
             <Profile />
-        </>
+        </div>
     )
 }
 

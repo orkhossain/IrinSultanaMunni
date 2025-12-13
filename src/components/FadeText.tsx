@@ -27,10 +27,8 @@ type FadeTextProps = TypographyProps & {
     fadeKey?: string
 }
 
-// Use a loose component type to avoid MUI drag handler type conflicts with framer-motion.
-const MotionTypography = motion(Typography as React.ComponentType<any>)
-
 const FadeText: React.FC<FadeTextProps> = ({ children, as, fadeKey, ...rest }) => {
+    const MotionTypography = motion(Typography)
     const language = useSelector(selectLanguage)
     const instanceKey = `${fadeKey ?? 'text'}-${language}`
 
