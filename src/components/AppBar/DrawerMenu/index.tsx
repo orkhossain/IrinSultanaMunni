@@ -19,6 +19,7 @@ import { useSelector } from 'react-redux'
 import { selectDictionary } from '@/slice/language'
 import { Cancel } from '@mui/icons-material'
 import { useRouter } from 'next/navigation'
+import { motion } from 'framer-motion'
 
 const CustomLink = ({
     onClick,
