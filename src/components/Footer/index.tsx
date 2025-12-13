@@ -265,12 +265,9 @@ const Footer = () => {
                         >
                             <Box
                                 sx={{
-                                    width: 32,
-                                    height: 32,
+
                                     borderRadius: '10px',
                                     overflow: 'hidden',
-                                    border: '1px solid rgba(0,0,0,0.08)',
-                                    backgroundColor: '#fff',
                                     display: 'flex',
                                     alignItems: 'center',
                                     justifyContent: 'center',
@@ -279,8 +276,8 @@ const Footer = () => {
                                 <Image
                                     src={logo}
                                     alt="Irin Sultana Munni logo"
-                                    width={32}
-                                    height={32}
+                                    width={54}
+                                    height={54}
                                     style={{ width: '100%', height: '100%', objectFit: 'contain' }}
                                 />
                             </Box>
