@@ -74,19 +74,47 @@ const MobileDrawer = () => {
         show: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.12,
-                delayChildren: 0.2,
+                staggerChildren: 0.08,
+                delayChildren: 0.15,
+                duration: 0.4,
             },
         },
     }
 
     const itemVariants = {
-        hidden: { opacity: 0, y: 20, x: -20 },
+        hidden: { opacity: 0, y: 24, x: -40 },
         show: {
             opacity: 1,
             y: 0,
             x: 0,
-            transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
+            transition: { duration: 0.6, ease: [0.23, 1, 0.320, 1] },
+        },
+    }
+
+    const drawerBackdropVariants = {
+        hidden: { opacity: 0 },
+        show: {
+            opacity: 1,
+            transition: { duration: 0.3, ease: 'easeOut' },
+        },
+    }
+
+    const closeButtonVariants = {
+        hidden: { opacity: 0, scale: 0.8, rotate: -45 },
+        show: {
+            opacity: 1,
+            scale: 1,
+            rotate: 0,
+            transition: { duration: 0.4, ease: [0.23, 1, 0.320, 1] },
+        },
+    }
+
+    const socialIconsVariants = {
+        hidden: { opacity: 0, y: 30 },
+        show: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.5, delay: 0.4, ease: [0.23, 1, 0.320, 1] },
         },
     }
 
