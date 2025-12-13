@@ -189,17 +189,17 @@ const MobileDrawer = () => {
                             }}
                         >
                             <motion.div
-                                initial={{ opacity: 0, rotate: -45 }}
-                                animate={drawerOpen ? { opacity: 1, rotate: 0 } : { opacity: 0, rotate: -45 }}
-                                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                                variants={closeButtonVariants}
+                                initial="hidden"
+                                animate={drawerOpen ? 'show' : 'hidden'}
                             >
                                 <Box
                                     sx={{
                                         display: 'flex',
                                         alignItems: 'center',
                                         justifyContent: 'flex-end',
-                                        mb: 1,
-                                        pb: 0.5,
+                                        mb: 2,
+                                        pb: 1,
                                     }}
                                 >
                                     <IconButton
@@ -207,9 +207,14 @@ const MobileDrawer = () => {
                                         edge="end"
                                         color="inherit"
                                         aria-label="close drawer"
-                                        sx={{ p: 0, color: '#111' }}
+                                        sx={{
+                                            p: 0.5,
+                                            color: '#111',
+                                            transition: 'all 0.3s ease',
+                                            '&:hover': { transform: 'scale(1.1)' },
+                                        }}
                                     >
-                                        <Cancel sx={{ fontSize: 36 }} />
+                                        <Cancel sx={{ fontSize: 32 }} />
                                     </IconButton>
                                 </Box>
                             </motion.div>
