@@ -200,6 +200,7 @@ const MobileDrawer = () => {
                         onClick={handleDrawerToggle}
                         sx={{
                             p: 1.5,
+                            color: '#111',
                             '& .MuiSvgIcon-root': { fontSize: 42 },
                         }}
                     >
@@ -324,9 +325,9 @@ const MobileDrawer = () => {
                                             disableRipple
                                             disableFocusRipple
                                             sx={{
-                                                width: 78,
-                                                height: 78,
-                                                p: 1.4,
+                                                width: 64,
+                                                height: 64,
+                                                p: 1.25,
                                                 backgroundColor: 'transparent',
                                                 borderRadius: '18px',
                                                 transition:
@@ -335,7 +336,7 @@ const MobileDrawer = () => {
                                                     backgroundColor: 'transparent',
                                                     transform: 'scale(1.08)',
                                                 },
-                                                '& .MuiSvgIcon-root': { fontSize: 72 },
+                                                '& .MuiSvgIcon-root': { fontSize: 42 },
                                                 color: '#13100d',
                                             }}
                                         >
