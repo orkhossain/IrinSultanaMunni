@@ -75,16 +75,21 @@ const ServiceCard = ({
                             transition: 'transform 0.1s ease-out',
                         }}
                     >
-                        <Stack spacing={1.25}>
+                        <Stack spacing={2}>
                             <FadeText
                                 fadeKey={`service-title-${title}`}
-                                variant="h5"
+                                variant="h3"
                                 sx={{
                                     fontWeight: 700,
-                                    color: '#4c4133',
+                                    color: '#13100d',
                                     fontFamily,
-                                    fontSize: { xs: '1.35rem', md: '1.55rem' },
+                                    fontSize: { xs: '1.75rem', md: '2.2rem' },
                                     letterSpacing: '-0.01em',
+                                    background: 'linear-gradient(135deg, #4c4133 0%, #13100d 100%)',
+                                    backgroundClip: 'text',
+                                    WebkitBackgroundClip: 'text',
+                                    WebkitTextFillColor: 'transparent',
+                                    marginBottom: 0.5,
                                 }}
                             >
                                 {title}
@@ -93,9 +98,10 @@ const ServiceCard = ({
                                 fadeKey={`service-desc-${title}`}
                                 sx={{
                                     color: '#393026',
-                                    lineHeight: 1.75,
+                                    lineHeight: 1.85,
                                     fontFamily,
-                                    fontSize: { xs: '1.05rem', md: '1.15rem' },
+                                    fontSize: { xs: '1.05rem', md: '1.25rem' },
+                                    fontWeight: 400,
                                 }}
                             >
                                 {description}
