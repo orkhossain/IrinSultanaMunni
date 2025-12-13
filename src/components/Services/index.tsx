@@ -11,15 +11,15 @@ import FadeText from '@/components/FadeText'
 import { useParallax } from '@/hooks/useParallax'
 
 const fontFamily = "'Fancy Cut Pro', 'Cambria', 'Georgia', serif"
-const tileMinHeight = { xs: 340, md: 520 }
+const tileMinHeight = { xs: 420, md: 600 }
 const gradientOverlay =
-    'linear-gradient(180deg, rgba(198,172,143,0.6) 0%, rgba(234,224,213,0.9) 100%)'
+    'linear-gradient(180deg, rgba(198,172,143,0.5) 0%, rgba(234,224,213,0.85) 100%)'
 const tileVariants = {
     hidden: { opacity: 0, y: 80 },
     show: {
         opacity: 1,
         y: 0,
-        transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const },
+        transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
     },
 }
 
