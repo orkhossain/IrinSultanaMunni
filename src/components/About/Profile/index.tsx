@@ -72,7 +72,7 @@ export default function Profile() {
                                         display: 'flex',
                                         alignItems: 'center',
                                         justifyContent: 'center',
-                                        p: { xs: 1, md: 2 },
+                                        p: { xs: 2, md: 4 },
                                         bgcolor: 'rgba(255,255,255,0.88)',
                                         height: '100%',
                                         textAlign: 'center',
@@ -104,7 +104,7 @@ export default function Profile() {
                                         display: 'flex',
                                         alignItems: 'center',
                                         justifyContent: 'center',
-                                        p: { xs: 1, md: 2 },
+                                        p: { xs: 2, md: 4 },
                                         bgcolor: 'rgba(255,255,255,0.88)',
                                         height: '100%',
                                         textAlign: 'center',
@@ -117,7 +117,6 @@ export default function Profile() {
                                         component="span"
                                         fontSize={isSmall ? '22px' : '1.8rem'}
                                         sx={{
-                                            m: 6,
                                             lineHeight: 2.15,
                                             fontFamily: "'Playfair Display', 'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
                                             fontStyle: 'italic',

@@ -214,7 +214,7 @@ const Footer = () => {
                         </Stack>
                     </Stack>
 
-                    <Box sx={{ width: '100%', height: { xs: 90, md: '13vh' } }} />
+                    <Box sx={{ width: '100%', height: { xs: 90, md: '15vh' } }} />
 
                     <Stack spacing={{ xs: 2, md: 3 }} sx={{ width: '100%' }}>
                         <Box
