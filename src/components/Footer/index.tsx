@@ -31,7 +31,11 @@ const Footer = () => {
                 minHeight: '100vh',
             }}
         >
-            <Container maxWidth="lg" sx={{ height: '100%', display: 'flex', flexDirection: 'column', px: 0 }}>
+            <Container
+                maxWidth={false}
+                disableGutters
+                sx={{ height: '100%', display: 'flex', flexDirection: 'column', px: 0 }}
+            >
                 <Stack
                     spacing={{ xs: 4, md: 6 }}
                     sx={{
@@ -40,10 +44,11 @@ const Footer = () => {
                         justifyContent: 'space-between',
                         pt: { xs: 4, md: 5 },
                         pb: { xs: 2, md: 3 },
-                        px: { xs: 3, md: 6 },
+                        px: 0,
                     }}
                 >
                     <Stack
+                    sx={{padding:5}}
                         direction={{ xs: 'column', md: 'row' }}
                         spacing={{ xs: 4, md: 8 }}
                         justifyContent="space-between"
@@ -70,6 +75,7 @@ const Footer = () => {
                         </Stack>
 
                         <Stack
+                        
                             spacing={{ xs: 2, md: 2.5 }}
                             alignItems="flex-end"
                             sx={{ flex: 1, textAlign: 'right' }}
@@ -107,7 +113,7 @@ const Footer = () => {
                         spacing={{ xs: 5, md: 8 }}
                         justifyContent="space-between"
                         alignItems={{ xs: 'flex-start', md: 'center' }}
-                        sx={{ width: '100%' }}
+                        sx={{ width: '100%',padding:5 }}
                     >
                         <Stack
                             direction="row"
@@ -156,7 +162,13 @@ const Footer = () => {
 
                         <Stack
                             spacing={{ xs: 1.25, md: 1.75 }}
-                            sx={{ minWidth: { xs: 'auto', md: 260 }, alignItems: 'flex-end', textAlign: 'right' }}
+                            sx={{
+                                minWidth: { xs: 'auto', md: 260 },
+                                alignItems: { xs: 'flex-end', md: 'flex-end' },
+                                textAlign: { xs: 'right', md: 'right' },
+                                width: '100%',
+                                alignSelf: { xs: 'flex-end', md: 'flex-start' },
+                            }}
                         >
                             <Typography
                                 variant="body2"
@@ -198,13 +210,14 @@ const Footer = () => {
                         </Stack>
                     </Stack>
 
-                    <Box sx={{ width: '100%', height: { xs: 140, md: 240 } }} />
+                    <Box sx={{ width: '100%', height: { xs: 90, md: '13vh' } }} />
 
                     <Stack spacing={{ xs: 2, md: 3 }} sx={{ width: '100%' }}>
                         <Box
                             sx={{
                                 width: '100%',
                                 overflow: 'hidden',
+                                ml: 0,
                             }}
                         >
                             <Box
@@ -231,7 +244,14 @@ const Footer = () => {
                             </Box>
                         </Box>
 
-                        <Divider sx={{ borderColor: 'rgba(0,0,0,0.06)', m: 0 }} />
+                        <Divider
+                            sx={{
+                                borderColor: 'rgba(0,0,0,0.06)',
+                                m: 0,
+                                width: '100%',
+                                ml: 0,
+                            }}
+                        />
                         <Stack
                             direction="row"
                             spacing={1.25}
