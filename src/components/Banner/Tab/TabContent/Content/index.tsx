@@ -32,6 +32,7 @@ export default function Content() {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: { xs: 'flex-start', md: 'flex-start' },
+                    pt: { xs: '20%', md: '12%' },
                     px: { xs: '6%', md: '2%' },
                 }}
             >
@@ -48,7 +49,7 @@ export default function Content() {
                         sx={{
                             fontFamily:
                                 "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
-                            fontWeight: 400,
+                            fontWeight: 200,
                             lineHeight: 1.08,
                             textAlign: { xs: 'left', md: 'left' },
                             maxWidth: { xs: '86%', md: '62%' },

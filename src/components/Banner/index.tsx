@@ -7,10 +7,10 @@ import ScrollAnimation from 'react-animate-on-scroll'
 function Banner() {
     return (
         <>
-            {/* <ScrollAnimation animateIn="fadeInUpBig" animateOut="fadeOutUpBig"> */}
+            <ScrollAnimation animateIn="fadeInDown" animateOnce>
             <CenteredTabs />
             <TabStepper />
-            {/* </ScrollAnimation> */}
+            </ScrollAnimation>
         </>
     )
 }
