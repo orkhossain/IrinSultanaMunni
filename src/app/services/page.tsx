@@ -50,6 +50,119 @@ export default function ServicesPage() {
         >
             <Container maxWidth={false} disableGutters>
                 <Box sx={{ px: 0 }}>
+                    <Box
+                        sx={{
+                            background: 'linear-gradient(135deg, #f5ede3 0%, #ede5db 100%)',
+                            py: { xs: 6, md: 8 },
+                            px: { xs: 3, md: 6 },
+                            position: 'relative',
+                            overflow: 'hidden',
+                        }}
+                    >
+                        <Box
+                            sx={{
+                                maxWidth: '1200px',
+                                mx: 'auto',
+                                position: 'relative',
+                                zIndex: 2,
+                            }}
+                        >
+                            <motion.div
+                                initial={{ opacity: 0, y: 24 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
+                            >
+                                <Typography
+                                    variant="h1"
+                                    sx={{
+                                        fontSize: { xs: '2.5rem', md: '3.5rem' },
+                                        fontWeight: 300,
+                                        color: '#13100d',
+                                        marginBottom: 2.5,
+                                        fontFamily: "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
+                                        letterSpacing: '-0.02em',
+                                    }}
+                                >
+                                    My Services
+                                </Typography>
+                            </motion.div>
+
+                            <motion.div
+                                initial={{ opacity: 0, y: 24 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] as const }}
+                            >
+                                <Typography
+                                    sx={{
+                                        fontSize: { xs: '1rem', md: '1.1rem' },
+                                        color: '#393026',
+                                        lineHeight: 1.75,
+                                        maxWidth: '700px',
+                                        fontFamily: "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
+                                        marginBottom: 3,
+                                    }}
+                                >
+                                    I offer professional translation and mediation services across Italian, English, and Bengali. With over 13 years of experience, I specialize in creating meaningful connections through accurate communication in sensitive sectors.
+                                </Typography>
+                            </motion.div>
+
+                            <motion.div
+                                initial={{ opacity: 0, y: 24 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] as const }}
+                                style={{
+                                    marginTop: '3rem',
+                                    fontSize: '2.8rem',
+                                    fontWeight: 600,
+                                    color: '#13100d',
+                                    letterSpacing: '-0.03em',
+                                    fontFamily: "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
+                                    position: 'relative',
+                                }}
+                            >
+                                <Box
+                                    sx={{
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        gap: 2,
+                                    }}
+                                >
+                                    <span>COMMUNICATION</span>
+                                    <Box
+                                        sx={{
+                                            width: 32,
+                                            height: 32,
+                                            borderRadius: '50%',
+                                            background: '#c4e922',
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            justifyContent: 'center',
+                                            fontSize: '1.5rem',
+                                            fontWeight: 'bold',
+                                            color: '#13100d',
+                                        }}
+                                    >
+                                        &
+                                    </Box>
+                                </Box>
+                                <div style={{ marginTop: '0.5rem' }}>UNDERSTANDING</div>
+                            </motion.div>
+                        </Box>
+
+                        <Box
+                            sx={{
+                                position: 'absolute',
+                                right: { xs: '-50px', md: '0' },
+                                bottom: { xs: '-30px', md: '-60px' },
+                                width: { xs: '300px', md: '400px' },
+                                height: { xs: '300px', md: '400px' },
+                                background: 'rgba(196, 233, 34, 0.08)',
+                                borderRadius: '50%',
+                                zIndex: 1,
+                            }}
+                        />
+                    </Box>
+
                     <Services />
                     <motion.div
                         variants={tileVariants}
