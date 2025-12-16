@@ -151,12 +151,7 @@ export default function ServicesPage() {
                                         fontWeight: 400,
                                     }}
                                 >
-                                    I offer professional translation and
-                                    mediation services across Italian, English,
-                                    and Bengali. With over 13 years of
-                                    experience, I specialize in creating
-                                    meaningful connections through accurate
-                                    communication in sensitive sectors.
+                                    {introDescription}
                                 </Typography>
                             </motion.div>
 
