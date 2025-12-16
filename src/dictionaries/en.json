@@ -38,5 +38,13 @@
         "ctaTitle": "Let's talk",
         "ctaBody": "Whether you need in-hospital support, legal mediation, or cultural onboarding for teams, I'm here to help you create clarity and trust.",
         "ctaEmail": "irin.munni78@gmail.com"
+    },
+    "ServicesPage": {
+        "heading": "My Services",
+        "introDescription": "I offer professional translation and mediation services across Italian, English, and Bengali. With over 13 years of experience, I specialize in creating meaningful connections through accurate communication in sensitive sectors.",
+        "mainHeading1": "COMMUNICATION",
+        "mainHeading2": "UNDERSTANDING",
+        "collaborationTitle": "Collaborated With",
+        "collaborationSubtitle": "Partners, NGOs, and social cooperatives I have supported"
     }
 }
