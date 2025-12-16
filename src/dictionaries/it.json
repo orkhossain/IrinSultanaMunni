@@ -21,13 +21,28 @@
         "languages": ["Bengalese", "Urdu", "Hindi", "Italiano", "Inglese"],
         "medicalTitle": "Sanità e benessere",
         "medicalBody": "Supporto medici, infermieri, psicologi e assistenti sociali in ospedali e ambulatori. Il mio compito è far sentire ogni paziente—soprattutto chi è lontano da casa—compreso e rispettato.",
-        "medicalTags": ["Ospedali e reparti", "Sedute di psicologia", "Servizi sociali", "Percorsi di cura"],
+        "medicalTags": [
+            "Ospedali e reparti",
+            "Sedute di psicologia",
+            "Servizi sociali",
+            "Percorsi di cura"
+        ],
         "legalTitle": "Immigrazione e legale",
         "legalBody": "Dalle audizioni per asilo ai colloqui con avvocati e giudici, aiuto i clienti a raccontare la propria storia in modo chiaro e sicuro, preservando sfumature e rispetto.",
-        "legalTags": ["Percorsi di asilo", "Udienze e tribunali", "Consulenze legali", "Preparazione casi"],
+        "legalTags": [
+            "Percorsi di asilo",
+            "Udienze e tribunali",
+            "Consulenze legali",
+            "Preparazione casi"
+        ],
         "culturalTitle": "Integrazione culturale",
         "culturalBody": "Creo ponti tra istituzioni e comunità, traducendo non solo la lingua ma anche abitudini, aspettative ed esperienze vissute.",
-        "culturalTags": ["Scuola ed educazione", "Laboratori comunitari", "Servizi pubblici", "Mediazione culturale"],
+        "culturalTags": [
+            "Scuola ed educazione",
+            "Laboratori comunitari",
+            "Servizi pubblici",
+            "Mediazione culturale"
+        ],
         "howTitle": "Il mio metodo",
         "howSteps": [
             "Preparazione: allinearsi su contesto, persone coinvolte e sensibilità.",
@@ -38,5 +53,13 @@
         "ctaTitle": "Parliamone",
         "ctaBody": "Che tu abbia bisogno di supporto in ospedale, mediazione legale o integrazione culturale per i team, sono qui per aiutarti a creare chiarezza e fiducia.",
         "ctaEmail": "irin.munni78@gmail.com"
+    },
+    "ServicesPage": {
+        "heading": "I miei servizi",
+        "introDescription": "Offro servizi professionali di traduzione e mediazione in italiano, inglese e bengalese. Con oltre 13 anni di esperienza, mi specializzo nel creare connessioni significative attraverso una comunicazione accurata nei settori sensibili.",
+        "mainHeading1": "COMUNICAZIONE",
+        "mainHeading2": "COMPRENSIONE",
+        "collaborationTitle": "Collaborazioni",
+        "collaborationSubtitle": "Partner, ONG e cooperative sociali che ho supportato"
     }
 }

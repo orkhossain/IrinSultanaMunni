@@ -21,13 +21,28 @@
         "languages": ["Bengali", "Urdu", "Hindi", "Italian", "English"],
         "medicalTitle": "Medical & wellbeing",
         "medicalBody": "I support doctors, nurses, psychologists, and social workers in hospitals and clinics. My role is to ensure every patient—especially those navigating treatment far from home—feels understood and respected.",
-        "medicalTags": ["Hospitals & wards", "Psychology sessions", "Social services", "Care pathways"],
+        "medicalTags": [
+            "Hospitals & wards",
+            "Psychology sessions",
+            "Social services",
+            "Care pathways"
+        ],
         "legalTitle": "Immigration & legal",
         "legalBody": "From asylum hearings to consultations with lawyers and judges, I help clients articulate their stories clearly and confidently while preserving nuance and respect.",
-        "legalTags": ["Asylum pathways", "Hearings & courts", "Legal consultations", "Case preparation"],
+        "legalTags": [
+            "Asylum pathways",
+            "Hearings & courts",
+            "Legal consultations",
+            "Case preparation"
+        ],
         "culturalTitle": "Cultural integration",
         "culturalBody": "I build bridges between institutions and communities—translating not only language, but customs, expectations, and lived experiences.",
-        "culturalTags": ["Education & schools", "Community workshops", "Public services", "Cultural mediation"],
+        "culturalTags": [
+            "Education & schools",
+            "Community workshops",
+            "Public services",
+            "Cultural mediation"
+        ],
         "howTitle": "How I work",
         "howSteps": [
             "Prepare: align on context, stakeholders, and sensitivities.",
@@ -38,5 +53,13 @@
         "ctaTitle": "Let's talk",
         "ctaBody": "Whether you need in-hospital support, legal mediation, or cultural onboarding for teams, I'm here to help you create clarity and trust.",
         "ctaEmail": "irin.munni78@gmail.com"
+    },
+    "ServicesPage": {
+        "heading": "My Services",
+        "introDescription": "I offer professional translation and mediation services across Italian, English, and Bengali. With over 13 years of experience, I specialize in creating meaningful connections through accurate communication in sensitive sectors.",
+        "mainHeading1": "COMMUNICATION",
+        "mainHeading2": "UNDERSTANDING",
+        "collaborationTitle": "Collaborated With",
+        "collaborationSubtitle": "Partners, NGOs, and social cooperatives I have supported"
     }
 }
