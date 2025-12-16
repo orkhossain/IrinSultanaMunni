@@ -190,7 +190,7 @@ export default function ServicesPage() {
                                             lineHeight: 1.1,
                                         }}
                                     >
-                                        COMMUNICATION
+                                        {mainHeading1}
                                     </Typography>
                                     <motion.div
                                         initial={{ scale: 0, rotate: -180 }}
@@ -242,7 +242,7 @@ export default function ServicesPage() {
                                             lineHeight: 1.1,
                                         }}
                                     >
-                                        UNDERSTANDING
+                                        {mainHeading2}
                                     </Typography>
                                 </motion.div>
                             </motion.div>
