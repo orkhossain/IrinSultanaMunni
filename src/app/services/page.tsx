@@ -32,11 +32,16 @@ export default function ServicesPage() {
     const dict = useSelector(selectDictionary)
     const servicesPage = dict.ServicesPage ?? {}
     const pageHeading = servicesPage.heading ?? 'My Services'
-    const introDescription = servicesPage.introDescription ?? 'I offer professional translation and mediation services across Italian, English, and Bengali. With over 13 years of experience, I specialize in creating meaningful connections through accurate communication in sensitive sectors.'
+    const introDescription =
+        servicesPage.introDescription ??
+        'I offer professional translation and mediation services across Italian, English, and Bengali. With over 13 years of experience, I specialize in creating meaningful connections through accurate communication in sensitive sectors.'
     const mainHeading1 = servicesPage.mainHeading1 ?? 'COMMUNICATION'
     const mainHeading2 = servicesPage.mainHeading2 ?? 'UNDERSTANDING'
-    const collaborationTitle = servicesPage.collaborationTitle ?? 'Collaborated With'
-    const collaborationSubtitle = servicesPage.collaborationSubtitle ?? 'Partners, NGOs, and social cooperatives I have supported'
+    const collaborationTitle =
+        servicesPage.collaborationTitle ?? 'Collaborated With'
+    const collaborationSubtitle =
+        servicesPage.collaborationSubtitle ??
+        'Partners, NGOs, and social cooperatives I have supported'
     const logosRow1 = [
         Image1,
         Image2,
@@ -315,7 +320,8 @@ export default function ServicesPage() {
                                     backgroundColor: '#eee0cf',
                                     borderRadius: 3,
                                     p: { xs: 2.5, md: 3 },
-                                    boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.5), 0 18px 48px rgba(0,0,0,0.08)',
+                                    boxShadow:
+                                        'inset 0 1px 0 rgba(255,255,255,0.5), 0 18px 48px rgba(0,0,0,0.08)',
                                     border: '1px solid rgba(57,48,38,0.08)',
                                 }}
                             >
