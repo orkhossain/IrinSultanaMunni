@@ -4,6 +4,8 @@ import React from 'react'
 import { Box, Container, Typography } from '@mui/material'
 import Services from '@/components/Services'
 import { motion } from 'framer-motion'
+import { useSelector } from 'react-redux'
+import { selectDictionary } from '@/slice/language'
 import Image1 from '@/assets/logos/Image1.webp'
 import Image2 from '@/assets/logos/Image2.webp'
 import Image3 from '@/assets/logos/Image3.webp'
@@ -27,6 +29,14 @@ import Image20 from '@/assets/logos/Image20.webp'
 import Image21 from '@/assets/logos/Image21.webp'
 
 export default function ServicesPage() {
+    const dict = useSelector(selectDictionary)
+    const servicesPage = dict.ServicesPage ?? {}
+    const pageHeading = servicesPage.heading ?? 'My Services'
+    const introDescription = servicesPage.introDescription ?? 'I offer professional translation and mediation services across Italian, English, and Bengali. With over 13 years of experience, I specialize in creating meaningful connections through accurate communication in sensitive sectors.'
+    const mainHeading1 = servicesPage.mainHeading1 ?? 'COMMUNICATION'
+    const mainHeading2 = servicesPage.mainHeading2 ?? 'UNDERSTANDING'
+    const collaborationTitle = servicesPage.collaborationTitle ?? 'Collaborated With'
+    const collaborationSubtitle = servicesPage.collaborationSubtitle ?? 'Partners, NGOs, and social cooperatives I have supported'
     const logosRow1 = [
         Image1,
         Image2,
