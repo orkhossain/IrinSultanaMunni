@@ -38,5 +38,13 @@
         "ctaTitle": "Parliamone",
         "ctaBody": "Che tu abbia bisogno di supporto in ospedale, mediazione legale o integrazione culturale per i team, sono qui per aiutarti a creare chiarezza e fiducia.",
         "ctaEmail": "irin.munni78@gmail.com"
+    },
+    "ServicesPage": {
+        "heading": "I miei servizi",
+        "introDescription": "Offro servizi professionali di traduzione e mediazione in italiano, inglese e bengalese. Con oltre 13 anni di esperienza, mi specializzo nel creare connessioni significative attraverso una comunicazione accurata nei settori sensibili.",
+        "mainHeading1": "COMUNICAZIONE",
+        "mainHeading2": "COMPRENSIONE",
+        "collaborationTitle": "Collaborazioni",
+        "collaborationSubtitle": "Partner, ONG e cooperative sociali che ho supportato"
     }
 }
