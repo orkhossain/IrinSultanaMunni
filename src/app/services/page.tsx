@@ -294,7 +294,7 @@ export default function ServicesPage() {
                                             "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
                                     }}
                                 >
-                                    Collaborated With
+                                    {collaborationTitle}
                                 </Typography>
                                 <Typography
                                     sx={{
@@ -305,8 +305,7 @@ export default function ServicesPage() {
                                             "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
                                     }}
                                 >
-                                    Partners, NGOs, and social cooperatives I
-                                    have supported
+                                    {collaborationSubtitle}
                                 </Typography>
                             </Box>
                             <Box
