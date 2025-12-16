@@ -123,7 +123,7 @@ export default function ServicesPage() {
                                         lineHeight: 1.1,
                                     }}
                                 >
-                                    My Services
+                                    {pageHeading}
                                 </Typography>
                             </motion.div>
 
