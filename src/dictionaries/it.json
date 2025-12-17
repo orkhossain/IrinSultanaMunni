@@ -13,7 +13,9 @@
         "service2": "Mediazione",
         "contact": "Contatti",
         "question": "Per qualsiasi quesito non esitare a contattare",
-        "aboutMe": "Profilo"
+        "aboutMe": "Profilo",
+        "marqueeTitle": "Le mie collaborazioni",
+        "marqueeSubtitle": "Partner, ONG e realtà con cui ho collaborato"
     },
     "AboutPage": {
         "introTitle": "Su Irin Sultana Munni",

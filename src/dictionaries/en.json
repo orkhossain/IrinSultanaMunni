@@ -13,7 +13,9 @@
         "service2": "Mediation",
         "contact": "Contact",
         "question": "For an enquiry feel free to get in touch",
-        "aboutMe": "About"
+        "aboutMe": "About",
+        "marqueeTitle": "My collaborations",
+        "marqueeSubtitle": "Partners, NGOs, and organizations I've worked with"
     },
     "AboutPage": {
         "introTitle": "About Irin Sultana Munni",
