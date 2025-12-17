@@ -42,6 +42,26 @@ export default function ServicesPage() {
     const collaborationSubtitle =
         servicesPage.collaborationSubtitle ??
         'Partners, NGOs, and social cooperatives I have supported'
+    const testimonials = [
+        {
+            quote:
+                'Precise, empathetic, and always ahead of deadlines. Working together made complex situations feel simple.',
+            name: 'Elena Rossi',
+            role: 'Coordinator, Cultural Mediation Program',
+        },
+        {
+            quote:
+                'Her translations were spotless and her presence reassuring for our teams and clients alike.',
+            name: 'Marco Bianchi',
+            role: 'Director, Legal Aid Cooperative',
+        },
+        {
+            quote:
+                'Bridging languages and contexts with calm clarity—exactly what we needed in sensitive environments.',
+            name: 'Ayesha Khan',
+            role: 'Program Lead, Community Health Initiative',
+        },
+    ]
     const logosRow1 = [
         Image1,
         Image2,
@@ -67,6 +87,7 @@ export default function ServicesPage() {
         Image20,
         Image21,
     ]
+    const collaborationLogos = [...logosRow1, ...logosRow2]
     const tileVariants = {
         hidden: { opacity: 0, y: 60 },
         show: {
@@ -197,36 +218,39 @@ export default function ServicesPage() {
                                     >
                                         {mainHeading1}
                                     </Typography>
-                                    <motion.div
-                                        initial={{ scale: 0, rotate: -180 }}
-                                        animate={{ scale: 1, rotate: 0 }}
-                                        transition={{
-                                            duration: 0.6,
-                                            delay: 0.5,
-                                            ease: [0.23, 1, 0.32, 1],
-                                        }}
-                                    >
-                                        <Box
-                                            sx={{
-                                                width: 48,
-                                                height: 48,
-                                                borderRadius: '50%',
-                                                background:
-                                                    'linear-gradient(135deg, #c4e922 0%, #a8d916 100%)',
-                                                display: 'flex',
-                                                alignItems: 'center',
-                                                justifyContent: 'center',
-                                                fontSize: '1.8rem',
-                                                fontWeight: 'bold',
-                                                color: '#13100d',
-                                                boxShadow:
-                                                    '0 12px 32px rgba(196, 233, 34, 0.25)',
-                                            }}
-                                        >
-                                            &
-                                        </Box>
-                                    </motion.div>
-                                </Box>
+	                            <motion.div
+	                                initial={{ scale: 0, rotate: -180 }}
+	                                animate={{ scale: 1, rotate: 0 }}
+	                                transition={{
+	                                    duration: 0.6,
+	                                    delay: 0.5,
+	                                    ease: [0.23, 1, 0.32, 1],
+	                                }}
+	                            >
+	                                <Typography
+	                                    component="span"
+	                                    sx={{
+	                                        fontSize: {
+	                                            xs: '2.2rem',
+	                                            md: '2.8rem',
+	                                        },
+	                                        fontWeight: 300,
+	                                        color: 'rgba(19,16,13,0.65)',
+	                                        letterSpacing: '-0.02em',
+	                                        lineHeight: 1,
+	                                        fontFamily:
+	                                            "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
+	                                        display: 'inline-block',
+	                                        transform: {
+	                                            xs: 'translateY(2px)',
+	                                            md: 'translateY(3px)',
+	                                        },
+	                                    }}
+	                                >
+	                                    &
+	                                </Typography>
+	                            </motion.div>
+	                        </Box>
                                 <motion.div
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
@@ -253,42 +277,62 @@ export default function ServicesPage() {
                             </motion.div>
                         </Box>
 
-                        <Box
-                            sx={{
-                                position: 'absolute',
-                                right: { xs: '-60px', md: '20px' },
-                                bottom: { xs: '-60px', md: '-80px' },
-                                width: { xs: '380px', md: '500px' },
-                                height: { xs: '380px', md: '500px' },
-                                background:
-                                    'radial-gradient(circle, rgba(196, 233, 34, 0.15) 0%, rgba(196, 233, 34, 0.03) 70%)',
-                                borderRadius: '50%',
-                                zIndex: 1,
-                                filter: 'blur(1px)',
-                            }}
-                        />
-                    </Box>
+	                    <Box
+	                        sx={{
+	                            position: 'absolute',
+	                            right: { xs: '-60px', md: '20px' },
+	                            bottom: { xs: '-60px', md: '-80px' },
+	                            width: { xs: '380px', md: '500px' },
+	                            height: { xs: '380px', md: '500px' },
+	                            background:
+	                                'radial-gradient(circle, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0) 68%)',
+	                            borderRadius: '50%',
+	                            zIndex: 1,
+	                            filter: 'blur(2px)',
+	                        }}
+	                    />
+	                </Box>
 
                     <Services />
-                    <motion.div
-                        variants={tileVariants}
-                        initial="hidden"
-                        whileInView="show"
-                        viewport={{ once: true, amount: 0.35 }}
-                        style={{ width: '100%' }}
+                    <Box
+                        sx={{
+                            mt: { xs: 8, md: 10 },
+                            mb: { xs: 6, md: 8 },
+                            px: { xs: 3, md: 6 },
+                        }}
                     >
                         <Box
                             sx={{
-                                backgroundColor: '#fbf9f7',
-                                borderRadius: '18px',
-                                p: { xs: 3, md: 4 },
-                                boxShadow: '0 18px 36px rgba(0,0,0,0.1)',
-                                border: '1px solid rgba(19,16,13,0.06)',
+                                maxWidth: '1100px',
+                                mx: 'auto',
+                                backgroundColor: 'rgba(255, 255, 255, 0.55)',
+                                borderRadius: { xs: '18px', md: '24px' },
+                                p: { xs: 3, md: 5 },
+                                boxShadow: '0 10px 28px rgba(19,16,13,0.05)',
+                                border: '1px solid rgba(19,16,13,0.08)',
+                                backdropFilter: 'blur(10px)',
                                 display: 'grid',
-                                gap: { xs: 2, md: 3 },
+                                gap: { xs: 3, md: 4 },
                             }}
                         >
-                            <Box sx={{ textAlign: 'center' }}>
+                            <Box
+                                sx={{
+                                    textAlign: 'center',
+                                    maxWidth: '720px',
+                                    mx: 'auto',
+                                    display: 'grid',
+                                    gap: 1,
+                                }}
+                            >
+                                <Box
+                                    sx={{
+                                        width: 56,
+                                        height: 2,
+                                        borderRadius: 999,
+                                        backgroundColor: 'rgba(19,16,13,0.18)',
+                                        mx: 'auto',
+                                    }}
+                                />
                                 <Typography
                                     variant="h5"
                                     sx={{
@@ -299,157 +343,266 @@ export default function ServicesPage() {
                                             "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
                                     }}
                                 >
-                                    {collaborationTitle}
+                                    Voices of Trust
                                 </Typography>
                                 <Typography
                                     sx={{
-                                        mt: 0.5,
+                                        mt: 0.25,
                                         color: '#393026',
                                         letterSpacing: '0.01em',
                                         fontFamily:
                                             "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
                                     }}
                                 >
-                                    {collaborationSubtitle}
+                                    Brief reflections from partners and teams
                                 </Typography>
                             </Box>
+
                             <Box
                                 sx={{
                                     display: 'grid',
-                                    gap: { xs: 1.5, md: 2 },
-                                    backgroundColor: '#eee0cf',
-                                    borderRadius: 3,
-                                    p: { xs: 2.5, md: 3 },
-                                    boxShadow:
-                                        'inset 0 1px 0 rgba(255,255,255,0.5), 0 18px 48px rgba(0,0,0,0.08)',
-                                    border: '1px solid rgba(57,48,38,0.08)',
+                                    gridTemplateColumns: {
+                                        xs: '1fr',
+                                        md: 'repeat(2, minmax(0, 1fr))',
+                                        lg: 'repeat(3, minmax(0, 1fr))',
+                                    },
+                                    gap: { xs: 2, md: 2.5 },
+                                }}
+                            >
+                                {testimonials.map((item, idx) => (
+                                    <motion.div
+                                        key={`testimonial-${idx}`}
+                                        initial={{ opacity: 0, y: 12 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true, amount: 0.5 }}
+                                        transition={{
+                                            duration: 0.5,
+                                            delay: idx * 0.05,
+                                            ease: [0.22, 1, 0.36, 1] as const,
+                                        }}
+                                        whileHover={{ y: -2 }}
+                                    >
+                                        <Box
+                                            sx={{
+                                                height: '100%',
+                                                backgroundColor:
+                                                    'rgba(255, 255, 255, 0.9)',
+                                                borderRadius: '16px',
+                                                p: { xs: 2.75, md: 3.25 },
+                                                boxShadow: 'none',
+                                                border: '1px solid rgba(19,16,13,0.08)',
+                                                display: 'grid',
+                                                gap: 2,
+                                                position: 'relative',
+                                                overflow: 'hidden',
+                                                transition:
+                                                    'border-color 180ms ease, box-shadow 180ms ease',
+                                                '&:before': {
+                                                    content: '"“"',
+                                                    position: 'absolute',
+                                                    top: 8,
+                                                    left: 14,
+                                                    fontSize: '4rem',
+                                                    lineHeight: 1,
+                                                    color: 'rgba(19,16,13,0.07)',
+                                                    zIndex: 0,
+                                                },
+                                                '&:hover': {
+                                                    borderColor:
+                                                        'rgba(19,16,13,0.14)',
+                                                    boxShadow:
+                                                        '0 14px 34px rgba(19,16,13,0.08)',
+                                                },
+                                            }}
+                                        >
+                                            <Typography
+                                                sx={{
+                                                    position: 'relative',
+                                                    zIndex: 1,
+                                                    color: '#13100d',
+                                                    lineHeight: 1.6,
+                                                    fontSize: {
+                                                        xs: '1rem',
+                                                        md: '1.05rem',
+                                                    },
+                                                    fontFamily:
+                                                        "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
+                                                }}
+                                            >
+                                                “{item.quote}”
+                                            </Typography>
+                                            <Box sx={{ position: 'relative', zIndex: 1 }}>
+                                                <Typography
+                                                    sx={{
+                                                        fontWeight: 600,
+                                                        color: '#13100d',
+                                                        letterSpacing: '0.01em',
+                                                        fontFamily:
+                                                            "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
+                                                    }}
+                                                >
+                                                    {item.name}
+                                                </Typography>
+                                                <Typography
+                                                    sx={{
+                                                        color: '#5a5146',
+                                                        fontSize: '0.95rem',
+                                                        fontFamily:
+                                                            "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
+                                                    }}
+                                                >
+                                                    {item.role}
+                                                </Typography>
+                                            </Box>
+                                        </Box>
+                                    </motion.div>
+                                ))}
+                            </Box>
+                        </Box>
+                    </Box>
+
+                    <motion.div
+                        variants={tileVariants}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, amount: 0.35 }}
+                    >
+                        <Box sx={{ px: { xs: 3, md: 6 }, pb: { xs: 10, md: 12 } }}>
+                            <Box
+                                sx={{
+                                    maxWidth: '1200px',
+                                    mx: 'auto',
+                                    backgroundColor: 'rgba(255, 255, 255, 0.55)',
+                                    borderRadius: { xs: '18px', md: '24px' },
+                                    p: { xs: 3, md: 5 },
+                                    boxShadow: '0 10px 28px rgba(19,16,13,0.05)',
+                                    border: '1px solid rgba(19,16,13,0.08)',
+                                    backdropFilter: 'blur(10px)',
+                                    display: 'grid',
+                                    gap: { xs: 2.5, md: 3.5 },
                                 }}
                             >
                                 <Box
                                     sx={{
+                                        textAlign: 'center',
+                                        maxWidth: '760px',
+                                        mx: 'auto',
                                         display: 'grid',
-                                        gridTemplateColumns: {
-                                            xs: 'repeat(2, minmax(0, 1fr))',
-                                            md: 'repeat(5, minmax(0, 1fr))',
-                                        },
-                                        gap: { xs: 1.5, md: 2 },
-                                        alignItems: 'stretch',
-                                        justifyItems: 'center',
+                                        gap: 1,
                                     }}
                                 >
-                                    {logosRow1.map((logo, idx) => (
-                                        <motion.div
-                                            key={`row1-${idx}`}
-                                            whileHover={{ scale: 1.02, y: -1 }}
-                                            initial={{ opacity: 0, y: 12 }}
-                                            whileInView={{ opacity: 1, y: 0 }}
-                                            transition={{
-                                                duration: 0.35,
-                                                ease: [
-                                                    0.22, 1, 0.36, 1,
-                                                ] as const,
-                                            }}
-                                            viewport={{
-                                                once: true,
-                                                amount: 0.5,
-                                            }}
-                                            style={{
-                                                width: '100%',
-                                                display: 'flex',
-                                                justifyContent: 'center',
-                                            }}
-                                        >
-                                            <Box
-                                                sx={{
-                                                    width: '100%',
-                                                    maxWidth: 170,
-                                                    minHeight: 120,
-                                                    border: '1px solid rgba(19,16,13,0.08)',
-                                                    backgroundColor: '#ffffff',
-                                                    borderRadius: '10px',
-                                                    boxShadow:
-                                                        '0 10px 26px rgba(0,0,0,0.08)',
-                                                    display: 'flex',
-                                                    alignItems: 'center',
-                                                    justifyContent: 'center',
-                                                    p: { xs: 1.25, md: 1.75 },
-                                                }}
-                                            >
-                                                <Box
-                                                    component="img"
-                                                    src={logo.src}
-                                                    alt={`Company ${idx + 1}`}
-                                                    sx={{
-                                                        maxWidth: '100%',
-                                                        height: 'auto',
-                                                        filter: 'grayscale(8%)',
-                                                        opacity: 0.95,
-                                                    }}
-                                                />
-                                            </Box>
-                                        </motion.div>
-                                    ))}
+                                    <Box
+                                        sx={{
+                                            width: 56,
+                                            height: 2,
+                                            borderRadius: 999,
+                                            backgroundColor:
+                                                'rgba(19,16,13,0.18)',
+                                            mx: 'auto',
+                                        }}
+                                    />
+                                    <Typography
+                                        variant="h5"
+                                        sx={{
+                                            fontWeight: 600,
+                                            letterSpacing: '0.02em',
+                                            color: '#13100d',
+                                            fontFamily:
+                                                "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
+                                        }}
+                                    >
+                                        {collaborationTitle}
+                                    </Typography>
+                                    <Typography
+                                        sx={{
+                                            mt: 0.25,
+                                            color: '#393026',
+                                            letterSpacing: '0.01em',
+                                            fontFamily:
+                                                "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
+                                        }}
+                                    >
+                                        {collaborationSubtitle}
+                                    </Typography>
                                 </Box>
                                 <Box
                                     sx={{
                                         display: 'grid',
                                         gridTemplateColumns: {
                                             xs: 'repeat(2, minmax(0, 1fr))',
-                                            md: 'repeat(5, minmax(0, 1fr))',
+                                            sm: 'repeat(3, minmax(0, 1fr))',
+                                            md: 'repeat(4, minmax(0, 1fr))',
+                                            lg: 'repeat(6, minmax(0, 1fr))',
                                         },
-                                        gap: { xs: 1.5, md: 2 },
+                                        gap: { xs: 1.25, md: 1.5 },
                                         alignItems: 'stretch',
-                                        justifyItems: 'center',
                                     }}
                                 >
-                                    {logosRow2.map((logo, idx) => (
+                                    {collaborationLogos.map((logo, idx) => (
                                         <motion.div
-                                            key={`row2-${idx}`}
-                                            whileHover={{ scale: 1.02, y: -1 }}
-                                            initial={{ opacity: 0, y: 12 }}
+                                            key={`logo-${idx}`}
+                                            initial={{ opacity: 0, y: 14 }}
                                             whileInView={{ opacity: 1, y: 0 }}
+                                            whileHover={{ scale: 1.01, y: -2 }}
                                             transition={{
-                                                duration: 0.35,
-                                                ease: [
-                                                    0.22, 1, 0.36, 1,
-                                                ] as const,
+                                                duration: 0.45,
+                                                ease: [0.22, 1, 0.36, 1] as const,
                                             }}
-                                            viewport={{
-                                                once: true,
-                                                amount: 0.5,
-                                            }}
-                                            style={{
-                                                width: '100%',
-                                                display: 'flex',
-                                                justifyContent: 'center',
-                                            }}
+                                            viewport={{ once: true, amount: 0.5 }}
+                                            style={{ width: '100%' }}
                                         >
-                                            <Box
-                                                sx={{
-                                                    width: '100%',
-                                                    maxWidth: 170,
-                                                    minHeight: 120,
-                                                    border: '1px solid rgba(19,16,13,0.08)',
-                                                    backgroundColor: '#ffffff',
-                                                    borderRadius: '10px',
-                                                    boxShadow:
-                                                        '0 10px 26px rgba(0,0,0,0.08)',
-                                                    display: 'flex',
-                                                    alignItems: 'center',
-                                                    justifyContent: 'center',
-                                                    p: { xs: 1.25, md: 1.75 },
-                                                }}
-                                            >
+	                                            <Box
+	                                                sx={{
+	                                                    width: '100%',
+	                                                    height: '100%',
+	                                                    minHeight: 96,
+	                                                    borderRadius: '16px',
+	                                                    border: '1px solid rgba(19,16,13,0.08)',
+	                                                    backgroundColor:
+	                                                        'rgba(244, 237, 227, 0.95)',
+	                                                    boxShadow:
+	                                                        'inset 0 1px 0 rgba(255,255,255,0.7)',
+	                                                    display: 'flex',
+	                                                    alignItems: 'center',
+	                                                    justifyContent: 'center',
+	                                                    p: { xs: 2, md: 2.25 },
+	                                                    transition:
+	                                                        'border-color 180ms ease, background-color 180ms ease, box-shadow 180ms ease',
+	                                                    '& img': {
+	                                                        width: '100%',
+	                                                        maxWidth: 160,
+	                                                        maxHeight: 46,
+	                                                        objectFit: 'contain',
+	                                                        filter:
+	                                                            'grayscale(100%) contrast(1.05) drop-shadow(0 1px 1px rgba(19,16,13,0.25))',
+	                                                        opacity: 0.85,
+	                                                        mixBlendMode: 'normal',
+	                                                        transition:
+	                                                            'filter 220ms ease, opacity 220ms ease, transform 220ms ease',
+	                                                    },
+	                                                    '&:hover': {
+	                                                        borderColor:
+	                                                            'rgba(19,16,13,0.14)',
+	                                                        backgroundColor:
+	                                                            'rgba(255, 255, 255, 0.9)',
+	                                                        boxShadow:
+	                                                            '0 14px 34px rgba(19,16,13,0.08)',
+	                                                    },
+	                                                    '&:hover img': {
+	                                                        filter:
+	                                                            'grayscale(0%) contrast(1.04) drop-shadow(0 1px 1px rgba(19,16,13,0.15))',
+	                                                        opacity: 0.95,
+	                                                        transform:
+	                                                            'translateY(-1px)',
+	                                                    },
+	                                                }}
+	                                            >
                                                 <Box
                                                     component="img"
                                                     src={logo.src}
-                                                    alt={`Company ${idx + 1 + logosRow1.length}`}
-                                                    sx={{
-                                                        maxWidth: '100%',
-                                                        height: 'auto',
-                                                        filter: 'grayscale(8%)',
-                                                        opacity: 0.95,
-                                                    }}
+                                                    alt={`Collaborator logo ${idx + 1}`}
+                                                    loading="lazy"
+                                                    decoding="async"
                                                 />
                                             </Box>
                                         </motion.div>

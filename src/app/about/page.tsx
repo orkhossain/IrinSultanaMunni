@@ -190,49 +190,49 @@ export default function AboutMePage() {
                             fontFamily,
                             position: 'relative',
                         }}
-                    >
-                        <Box
-                            sx={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                gap: 2,
-                            }}
-                        >
-                            <span>EXPERTISE</span>
-                            <Box
-                                sx={{
-                                    width: 32,
-                                    height: 32,
-                                    borderRadius: '50%',
-                                    background: '#c4e922',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    fontSize: '1.5rem',
-                                    fontWeight: 'bold',
-                                    color: '#13100d',
-                                }}
-                            >
-                                &
-                            </Box>
-                        </Box>
-                        <div style={{ marginTop: '0.5rem' }}>TRUST</div>
-                    </motion.div>
+	                    >
+	                        <Box
+	                            sx={{
+	                                display: 'flex',
+	                                alignItems: 'center',
+	                                gap: 2,
+	                            }}
+	                        >
+	                            <span>EXPERTISE</span>
+	                            <Typography
+	                                component="span"
+	                                sx={{
+	                                    fontSize: { xs: '2rem', md: '2.2rem' },
+	                                    fontWeight: 300,
+	                                    color: 'rgba(19,16,13,0.65)',
+	                                    lineHeight: 1,
+	                                    fontFamily,
+	                                    display: 'inline-block',
+	                                    transform: 'translateY(2px)',
+	                                }}
+	                            >
+	                                &
+	                            </Typography>
+	                        </Box>
+	                        <div style={{ marginTop: '0.5rem' }}>TRUST</div>
+	                    </motion.div>
                 </Box>
 
-                <Box
-                    sx={{
-                        position: 'absolute',
-                        right: { xs: '-50px', md: '0' },
-                        bottom: { xs: '-30px', md: '-60px' },
-                        width: { xs: '300px', md: '400px' },
-                        height: { xs: '300px', md: '400px' },
-                        background: 'rgba(196, 233, 34, 0.08)',
-                        borderRadius: '50%',
-                        zIndex: 1,
-                    }}
-                />
-            </Box>
+	                <Box
+	                    sx={{
+	                        position: 'absolute',
+	                        right: { xs: '-50px', md: '0' },
+	                        bottom: { xs: '-30px', md: '-60px' },
+	                        width: { xs: '300px', md: '400px' },
+	                        height: { xs: '300px', md: '400px' },
+	                        background:
+	                            'radial-gradient(circle, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0) 70%)',
+	                        borderRadius: '50%',
+	                        zIndex: 1,
+	                        filter: 'blur(2px)',
+	                    }}
+	                />
+	            </Box>
 
             <Box sx={{ backgroundColor: '#f4efe9', py: { xs: 4, md: 6 } }}>
                 <Container maxWidth={false} disableGutters>
