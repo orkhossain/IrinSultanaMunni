@@ -64,14 +64,16 @@ function TabStepper() {
                         }}
                         onClick={handleNext}
                         disabled={count === 4}
-                    >
-                        {<div style={icons}>{array[count + 1]}</div> ?? (
-                            <div style={icons}></div>
-                        )}
-                        {theme.direction === 'rtl' ? (
-                            <KeyboardArrowLeft />
-                        ) : (
-                            <KeyboardArrowRight />
+	                    >
+	                        {array[count + 1] ? (
+	                            <div style={icons}>{array[count + 1]}</div>
+	                        ) : (
+	                            <div style={icons} />
+	                        )}
+	                        {theme.direction === 'rtl' ? (
+	                            <KeyboardArrowLeft />
+	                        ) : (
+	                            <KeyboardArrowRight />
                         )}
                     </Button>
                 }
@@ -83,18 +85,20 @@ function TabStepper() {
                         }}
                         onClick={handleBack}
                         disabled={count === 0}
-                    >
-                        {theme.direction === 'rtl' ? (
-                            <KeyboardArrowRight />
-                        ) : (
-                            <KeyboardArrowLeft />
-                        )}
-                        {<div style={icons}>{array[count - 1]}</div> ?? (
-                            <div style={icons}></div>
-                        )}
-                    </Button>
-                }
-            />
+	                    >
+	                        {theme.direction === 'rtl' ? (
+	                            <KeyboardArrowRight />
+	                        ) : (
+	                            <KeyboardArrowLeft />
+	                        )}
+	                        {array[count - 1] ? (
+	                            <div style={icons}>{array[count - 1]}</div>
+	                        ) : (
+	                            <div style={icons} />
+	                        )}
+	                    </Button>
+	                }
+	            />
         </>
     )
 }

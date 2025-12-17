@@ -16,7 +16,7 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
         const lenis = new Lenis({
             lerp: 0.1,
             smoothWheel: true,
-            smoothTouch: false,
+            syncTouch: false,
             wheelMultiplier: 0.9,
         })
         lenisRef.current = lenis
@@ -39,4 +39,3 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
 
     return <>{children}</>
 }
-

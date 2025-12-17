@@ -79,6 +79,16 @@ body {
   font-family: 'Fancy Cut Pro', 'Cambria', 'Georgia', serif;
 }
 
+/* Lenis smooth scrolling */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+html.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
 a {
   color: inherit;
   text-decoration: none;
