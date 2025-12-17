@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import Marquee from '@/components/Marquee'
 import Banner from '@/components/Banner'
-import Services from '@/components/Services'
 import About from '@/components/About'
 import 'animate.css/animate.compat.css'
 import { motion, useMotionValue, useSpring, Variants } from 'framer-motion'
@@ -80,20 +79,11 @@ function Home() {
                     <About />
                 </motion.section>
 
-                <motion.section
-                    key={`service-${language}`}
-                    variants={contentReveal}
-                    initial="hidden"
-                    animate="show"
-                >
-                    <Services />
-                </motion.section>
-
-                <motion.section
-                    key={`marquee-${language}`}
-                    variants={contentReveal}
-                    initial="hidden"
-                    animate="show"
+	                <motion.section
+	                    key={`marquee-${language}`}
+	                    variants={contentReveal}
+	                    initial="hidden"
+	                    animate="show"
                 >
                     <Marquee />
                 </motion.section>

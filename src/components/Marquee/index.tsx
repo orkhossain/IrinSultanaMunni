@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import Image from 'next/image'
 import Image1 from '@/assets/logos/Image1.webp'
 import Image2 from '@/assets/logos/Image2.webp'
@@ -24,6 +24,9 @@ import Image21 from '@/assets/logos/Image21.webp'
 import ScrollAnimation from 'react-animate-on-scroll'
 
 import Marquee from 'react-fast-marquee'
+
+const marqueeSpeed = 32
+const logoHeight = 140
 
 const imageUrls = [
     Image1,
@@ -52,15 +55,45 @@ const imageUrls2 = [
     Image21,
 ]
 const CompanyMarquee = ({ children }: any) => {
+    const [isTopPaused, setIsTopPaused] = useState(false)
+    const [isBottomPaused, setIsBottomPaused] = useState(false)
+    const topUnpauseTimeout = useRef<ReturnType<typeof setTimeout> | null>(null)
+    const bottomUnpauseTimeout = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+    const pauseTop = () => {
+        if (topUnpauseTimeout.current) clearTimeout(topUnpauseTimeout.current)
+        topUnpauseTimeout.current = null
+        setIsTopPaused(true)
+    }
+
+    const pauseBottom = () => {
+        if (bottomUnpauseTimeout.current)
+            clearTimeout(bottomUnpauseTimeout.current)
+        bottomUnpauseTimeout.current = null
+        setIsBottomPaused(true)
+    }
+
+    const unpauseTop = () => {
+        if (topUnpauseTimeout.current) clearTimeout(topUnpauseTimeout.current)
+        topUnpauseTimeout.current = setTimeout(() => setIsTopPaused(false), 90)
+    }
+
+    const unpauseBottom = () => {
+        if (bottomUnpauseTimeout.current)
+            clearTimeout(bottomUnpauseTimeout.current)
+        bottomUnpauseTimeout.current = setTimeout(() => setIsBottomPaused(false), 90)
+    }
+
     return (
         <div
+            className="marqueeWrap"
             style={{
                 position: 'relative',
                 overflow: 'hidden',
-                background: 'linear-gradient(135deg, #e7d3b9, #edddc8)',
+                background:
+                    'linear-gradient(180deg, #f3eadf 0%, #eadbc5 55%, #e7d3b9 100%)',
                 width: '100%',
                 margin: 0,
-                padding: '28px 0',
             }}
         >
             <div
@@ -69,7 +102,7 @@ const CompanyMarquee = ({ children }: any) => {
                     position: 'absolute',
                     inset: 0,
                     background:
-                        'linear-gradient(90deg, rgba(231,211,185,0.92) 0%, rgba(231,211,185,0.65) 4%, rgba(231,211,185,0.22) 10%, rgba(231,211,185,0) 18%), linear-gradient(270deg, rgba(231,211,185,0.92) 0%, rgba(231,211,185,0.65) 4%, rgba(231,211,185,0.22) 10%, rgba(231,211,185,0) 18%)',
+                        'linear-gradient(90deg, rgba(231,211,185,0.92) 0%, rgba(231,211,185,0.65) 4%, rgba(231,211,185,0.22) 10%, rgba(231,211,185,0) 18%), linear-gradient(270deg, rgba(231,211,185,0.92) 0%, rgba(231,211,185,0.65) 4%, rgba(231,211,185,0.22) 10%, rgba(231,211,185,0) 18%), linear-gradient(180deg, rgba(231,211,185,0.92) 0%, rgba(231,211,185,0.35) 10%, rgba(231,211,185,0) 26%), linear-gradient(0deg, rgba(231,211,185,0.92) 0%, rgba(231,211,185,0.35) 10%, rgba(231,211,185,0) 26%)',
                     zIndex: 2,
                 }}
             />
@@ -77,38 +110,111 @@ const CompanyMarquee = ({ children }: any) => {
                 animateIn="slideInRight"
                 animateOut="slideOutLeft"
                 animateOnce={true}
-            >
-                <Marquee speed={140}>
+	            >
+                <Marquee speed={marqueeSpeed} play={!isTopPaused} gradient={false}>
                     {imageUrls.map((imageUrl, index) => (
-                        <div key={index} style={{ padding: '18px 0' }}>
-                            <Image
-                                src={imageUrl}
-                                alt={`Image${index + 1}`}
-                                style={{ padding: '20px' }}
-                                height={'110'}
-                            />
-                        </div>
-                    ))}
-                </Marquee>
-            </ScrollAnimation>
+	                        <div
+	                            key={index}
+	                            className="companyItem"
+	                            onMouseEnter={pauseTop}
+	                            onMouseLeave={unpauseTop}
+	                            onFocus={pauseTop}
+	                            onBlur={unpauseTop}
+	                            tabIndex={0}
+	                        >
+	                            <Image
+	                                src={imageUrl}
+	                                alt={`Image${index + 1}`}
+	                                className="companyLogo"
+	                                height={logoHeight}
+	                            />
+	                        </div>
+	                    ))}
+	                </Marquee>
+	            </ScrollAnimation>
             <ScrollAnimation
                 animateIn="slideInLeft"
                 animateOut="slideOutRight"
                 animateOnce={true}
-            >
-                <Marquee direction="right" speed={140}>
-                    {imageUrls2.map((imageUrl, index) => (
-                        <div key={index} style={{ padding: '18px 0' }}>
-                            <Image
-                                src={imageUrl}
-                                alt={`Image${index + 1}`}
-                                style={{ padding: '20px' }}
-                                height={'110'}
-                            />
-                        </div>
-                    ))}
-                </Marquee>
-            </ScrollAnimation>
+	            >
+	                <Marquee
+	                    direction="right"
+	                    speed={marqueeSpeed}
+	                    play={!isBottomPaused}
+	                    gradient={false}
+	                >
+	                    {imageUrls2.map((imageUrl, index) => (
+	                        <div
+	                            key={index}
+	                            className="companyItem"
+	                            onMouseEnter={pauseBottom}
+	                            onMouseLeave={unpauseBottom}
+	                            onFocus={pauseBottom}
+	                            onBlur={unpauseBottom}
+	                            tabIndex={0}
+	                        >
+	                            <Image
+	                                src={imageUrl}
+	                                alt={`Image${index + 1}`}
+	                                className="companyLogo"
+	                                height={logoHeight}
+	                            />
+	                        </div>
+	                    ))}
+	                </Marquee>
+	            </ScrollAnimation>
+            <style jsx>{`
+                .marqueeWrap {
+                    padding: 64px 0;
+                }
+                @media (max-width: 600px) {
+                    .marqueeWrap {
+                        padding: 56px 0;
+                    }
+                }
+	                .companyItem {
+	                    padding: 40px;
+	                    display: inline-flex;
+	                    align-items: center;
+	                    justify-content: center;
+	                    cursor: pointer;
+	                    border-radius: 16px;
+	                    outline: none;
+	                    transform: translateZ(0);
+	                    will-change: transform;
+	                }
+	                .companyItem:focus-visible {
+	                    box-shadow: 0 0 0 3px rgba(19, 16, 13, 0.18);
+	                }
+	                @media (max-width: 600px) {
+	                    .companyItem {
+	                        padding: 16px 36px;
+	                    }
+	                }
+	                .companyLogo {
+	                    transition: transform 240ms ease, filter 240ms ease;
+	                    transform-origin: center;
+	                    will-change: transform;
+	                }
+	                .companyItem:hover .companyLogo {
+	                    transform: scale(1.18);
+	                    filter: drop-shadow(0 10px 18px rgba(19, 16, 13, 0.18));
+	                }
+	            `}</style>
+            <style jsx global>{`
+                .rfm-marquee-container {
+                    transform: translate3d(0, 0, 0);
+                    will-change: transform;
+                }
+                .rfm-marquee {
+                    transform: translate3d(0, 0, 0);
+                    will-change: transform;
+                    backface-visibility: hidden;
+                }
+                .rfm-initial-child-container {
+                    transform: translate3d(0, 0, 0);
+                }
+            `}</style>
         </div>
     )
 }
