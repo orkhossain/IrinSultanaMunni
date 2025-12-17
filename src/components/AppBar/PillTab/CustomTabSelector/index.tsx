@@ -29,7 +29,9 @@ const StyledTabs = styled(({ ...props }: any) => (
     boxShadow: '0 18px 50px rgba(0,0,0,0.28)',
     backdropFilter: 'blur(16px)',
     '& .MuiTabs-indicator': {
-        transition: 'opacity 200ms ease, background-color 200ms ease',
+        transition:
+            'left 360ms cubic-bezier(0.22, 1, 0.36, 1), width 360ms cubic-bezier(0.22, 1, 0.36, 1), transform 360ms cubic-bezier(0.22, 1, 0.36, 1), opacity 200ms ease, background 200ms ease',
+        willChange: 'left, width, transform, opacity',
     },
     '&:hover .MuiTabs-indicator': {
         opacity: 0.35,
