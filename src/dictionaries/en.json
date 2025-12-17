@@ -18,6 +18,8 @@
     "AboutPage": {
         "introTitle": "About Irin Sultana Munni",
         "introBody": "I am a language mediator and interpreter with over thirteen years of experience guiding people through critical moments—whether in hospitals, courts, or cultural integration settings. My work blends clear communication with cultural intelligence to create trust between professionals and the communities they serve.",
+        "heroHeading1": "EXPERTISE",
+        "heroHeading2": "TRUST",
         "languages": ["Bengali", "Urdu", "Hindi", "Italian", "English"],
         "medicalTitle": "Medical & wellbeing",
         "medicalBody": "I support doctors, nurses, psychologists, and social workers in hospitals and clinics. My role is to ensure every patient—especially those navigating treatment far from home—feels understood and respected.",
@@ -27,7 +29,15 @@
             "Social services",
             "Care pathways"
         ],
-        "legalTitle": "Immigration & legal",
+        "immigrationTitle": "Immigration",
+        "immigrationBody": "I support individuals and families through asylum, permits, and integration pathways—facilitating clear communication with institutions and services.",
+        "immigrationTags": [
+            "Asylum pathways",
+            "Permits",
+            "Residency",
+            "Guidance"
+        ],
+        "legalTitle": "Justice",
         "legalBody": "From asylum hearings to consultations with lawyers and judges, I help clients articulate their stories clearly and confidently while preserving nuance and respect.",
         "legalTags": [
             "Asylum pathways",
@@ -61,5 +71,13 @@
         "mainHeading2": "UNDERSTANDING",
         "collaborationTitle": "Collaborated With",
         "collaborationSubtitle": "Partners, NGOs, and social cooperatives I have supported"
+    },
+    "ContactPage": {
+        "heading": "Contact Irin Sultana Munni",
+        "description": "Reach out for interpreting, mediation, or cultural integration support. I respond quickly and tailor each engagement to the context and people involved.",
+        "nameLabel": "Name",
+        "emailLabel": "Email",
+        "messageLabel": "How can I help?",
+        "sendLabel": "Send message"
     }
 }

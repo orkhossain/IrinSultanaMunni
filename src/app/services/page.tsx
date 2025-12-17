@@ -3,7 +3,7 @@
 import React from 'react'
 import { Box, Container, Typography } from '@mui/material'
 import Services from '@/components/Services'
-import { motion } from 'framer-motion'
+import { motion, useScroll, useSpring, useTransform } from 'framer-motion'
 import { useSelector } from 'react-redux'
 import { selectDictionary } from '@/slice/language'
 import Image1 from '@/assets/logos/Image1.webp'
@@ -30,6 +30,14 @@ import Image21 from '@/assets/logos/Image21.webp'
 
 export default function ServicesPage() {
     const dict = useSelector(selectDictionary)
+    const { scrollYProgress } = useScroll()
+    const scrollProgress = useSpring(scrollYProgress, {
+        stiffness: 140,
+        damping: 30,
+        mass: 0.2,
+    })
+    const heroGlowY = useTransform(scrollYProgress, [0, 0.35], [0, -28])
+    const heroGlowScale = useTransform(scrollYProgress, [0, 0.35], [1, 1.06])
     const servicesPage = dict.ServicesPage ?? {}
     const pageHeading = servicesPage.heading ?? 'My Services'
     const introDescription =
@@ -107,6 +115,19 @@ export default function ServicesPage() {
                 fontFamily: "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
             }}
         >
+            <motion.div
+                style={{
+                    position: 'fixed',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    height: 2,
+                    transformOrigin: '0% 50%',
+                    scaleX: scrollProgress,
+                    backgroundColor: 'rgba(19,16,13,0.22)',
+                    zIndex: 1400,
+                }}
+            />
             <Container maxWidth={false} disableGutters>
                 <Box sx={{ px: 0 }}>
                     <Box
@@ -194,15 +215,15 @@ export default function ServicesPage() {
                                     position: 'relative',
                                 }}
                             >
-                                <Box
-                                    sx={{
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        gap: 3,
-                                        flexWrap: 'wrap',
-                                    }}
-                                >
-                                    <Typography
+	                                <Box
+	                                    sx={{
+	                                        display: 'flex',
+	                                        alignItems: 'baseline',
+	                                        gap: { xs: 2, md: 3 },
+	                                        flexWrap: 'wrap',
+	                                    }}
+	                                >
+	                                    <Typography
                                         sx={{
                                             fontSize: {
                                                 xs: '2.8rem',
@@ -227,28 +248,25 @@ export default function ServicesPage() {
 	                                    ease: [0.23, 1, 0.32, 1],
 	                                }}
 	                            >
-	                                <Typography
-	                                    component="span"
-	                                    sx={{
-	                                        fontSize: {
-	                                            xs: '2.2rem',
-	                                            md: '2.8rem',
-	                                        },
-	                                        fontWeight: 300,
-	                                        color: 'rgba(19,16,13,0.65)',
-	                                        letterSpacing: '-0.02em',
-	                                        lineHeight: 1,
-	                                        fontFamily:
-	                                            "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
-	                                        display: 'inline-block',
-	                                        transform: {
-	                                            xs: 'translateY(2px)',
-	                                            md: 'translateY(3px)',
-	                                        },
-	                                    }}
-	                                >
-	                                    &
-	                                </Typography>
+		                                <Typography
+		                                    component="span"
+		                                    sx={{
+		                                        fontSize: {
+		                                            xs: '2.8rem',
+		                                            md: '3.8rem',
+		                                        },
+		                                        fontWeight: 400,
+		                                        color: 'rgba(19,16,13,0.55)',
+		                                        letterSpacing: '-0.02em',
+		                                        lineHeight: 1.1,
+		                                        fontFamily:
+		                                            "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
+		                                        display: 'inline-block',
+		                                        transform: 'translateY(2px)',
+		                                    }}
+		                                >
+		                                    &
+		                                </Typography>
 	                            </motion.div>
 	                        </Box>
                                 <motion.div
@@ -277,21 +295,23 @@ export default function ServicesPage() {
                             </motion.div>
                         </Box>
 
-	                    <Box
-	                        sx={{
-	                            position: 'absolute',
-	                            right: { xs: '-60px', md: '20px' },
-	                            bottom: { xs: '-60px', md: '-80px' },
-	                            width: { xs: '380px', md: '500px' },
-	                            height: { xs: '380px', md: '500px' },
-	                            background:
-	                                'radial-gradient(circle, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0) 68%)',
-	                            borderRadius: '50%',
-	                            zIndex: 1,
-	                            filter: 'blur(2px)',
-	                        }}
-	                    />
-	                </Box>
+                        <Box
+                            component={motion.div}
+                            style={{ y: heroGlowY, scale: heroGlowScale }}
+                            sx={{
+                                position: 'absolute',
+                                right: { xs: '-60px', md: '20px' },
+                                bottom: { xs: '-60px', md: '-80px' },
+                                width: { xs: '380px', md: '500px' },
+                                height: { xs: '380px', md: '500px' },
+                                background:
+                                    'radial-gradient(circle, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0) 68%)',
+                                borderRadius: '50%',
+                                zIndex: 1,
+                                filter: 'blur(2px)',
+                            }}
+                        />
+                    </Box>
 
                     <Services />
                     <Box

@@ -28,10 +28,44 @@ const ServiceCard = ({ title, description, imageSrc, isInverted }: any) => {
             variants={tileVariants}
             initial="hidden"
             whileInView="show"
+            whileHover={{ y: -6 }}
+            whileTap={{ scale: 0.99 }}
             viewport={{ once: true, amount: 0.35 }}
+            transition={{ type: 'spring', stiffness: 260, damping: 22 }}
             style={{ height: '100%' }}
         >
-            <Box sx={{ height: '100%', overflow: 'hidden', mb: { xs: 4, md: 0 } }}>
+            <Box
+                sx={{
+                    height: '100%',
+                    overflow: 'hidden',
+                    mb: { xs: 4, md: 0 },
+                    borderTop: '1px solid rgba(19,16,13,0.06)',
+                    borderRadius: { xs: 0, md: '22px' },
+                    backgroundColor: 'rgba(255,255,255,0.35)',
+                    transition:
+                        'box-shadow 220ms ease, border-color 220ms ease, background-color 220ms ease',
+                    willChange: 'transform',
+                    '&:hover': {
+                        borderTopColor: 'rgba(19,16,13,0.12)',
+                        boxShadow: '0 18px 40px rgba(19,16,13,0.10)',
+                        backgroundColor: 'rgba(255,255,255,0.55)',
+                    },
+                    '&:focus-within': {
+                        borderTopColor: 'rgba(19,16,13,0.12)',
+                        boxShadow: '0 18px 40px rgba(19,16,13,0.10)',
+                        backgroundColor: 'rgba(255,255,255,0.55)',
+                    },
+                    '&:hover .serviceCardImage::before': {
+                        transform: 'scale(1.06)',
+                    },
+                    '&:hover .serviceCardImage::after': {
+                        opacity: 1,
+                    },
+                    '&:hover .serviceCardDivider': {
+                        width: 72,
+                    },
+                }}
+            >
                 <Box
                     sx={{
                         display: 'flex',
@@ -41,17 +75,47 @@ const ServiceCard = ({ title, description, imageSrc, isInverted }: any) => {
                         },
                         minHeight: tileMinHeight,
                         background: '#e8ded2',
+                        borderRadius: { xs: 0, md: '22px' },
+                        overflow: 'hidden',
+                        outline: 'none',
+                        '&:focus-visible': {
+                            boxShadow: '0 0 0 3px rgba(19,16,13,0.18)',
+                        },
                     }}
+                    tabIndex={0}
                 >
                     <Box
                         sx={{
                             flex: '1 1 50%',
                             position: 'relative',
                             minHeight: tileMinHeight,
-                            backgroundImage: `${gradientOverlay}, url(${imageSrc.src})`,
-                            backgroundSize: 'cover',
-                            backgroundPosition: { xs: 'center 30%', md: 'center' },
+                            overflow: 'hidden',
+                            '&::before': {
+                                content: "''",
+                                position: 'absolute',
+                                inset: 0,
+                                backgroundImage: `${gradientOverlay}, url(${imageSrc.src})`,
+                                backgroundSize: 'cover',
+                                backgroundPosition: {
+                                    xs: 'center 30%',
+                                    md: 'center',
+                                },
+                                transform: 'scale(1.01)',
+                                transition:
+                                    'transform 700ms cubic-bezier(0.22,1,0.36,1)',
+                                willChange: 'transform',
+                            },
+                            '&::after': {
+                                content: "''",
+                                position: 'absolute',
+                                inset: 0,
+                                background:
+                                    'linear-gradient(180deg, rgba(19,16,13,0) 0%, rgba(19,16,13,0.10) 100%)',
+                                opacity: 0,
+                                transition: 'opacity 450ms ease',
+                            },
                         }}
+                        className="serviceCardImage"
                     />
                     <Box
                         sx={{
@@ -61,23 +125,36 @@ const ServiceCard = ({ title, description, imageSrc, isInverted }: any) => {
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
+                            transition: 'background-color 220ms ease',
+                            '&:hover': {
+                                backgroundColor: '#ffffff',
+                            },
                         }}
                     >
                         <Stack spacing={2}>
+                            <Box
+                                sx={{
+                                    width: 44,
+                                    height: 2,
+                                    borderRadius: 999,
+                                    backgroundColor:
+                                        'rgba(19,16,13,0.18)',
+                                    transition: 'width 260ms ease',
+                                }}
+                                className="serviceCardDivider"
+                            />
                             <FadeText
                                 fadeKey={`service-title-${title}`}
-                                variant="h3"
+                                variant="h4"
                                 sx={{
-                                    fontWeight: 700,
+                                    fontWeight: 600,
                                     color: '#13100d',
                                     fontFamily,
-                                    fontSize: { xs: '1.75rem', md: '2.2rem' },
+                                    fontSize: {
+                                        xs: '1.7rem',
+                                        md: '2.05rem',
+                                    },
                                     letterSpacing: '-0.01em',
-                                    background:
-                                        'linear-gradient(135deg, #4c4133 0%, #13100d 100%)',
-                                    backgroundClip: 'text',
-                                    WebkitBackgroundClip: 'text',
-                                    WebkitTextFillColor: 'transparent',
                                     marginBottom: 0.5,
                                 }}
                             >

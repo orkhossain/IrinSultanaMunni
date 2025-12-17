@@ -18,6 +18,8 @@
     "AboutPage": {
         "introTitle": "Su Irin Sultana Munni",
         "introBody": "Sono una mediatrice linguistica e interprete con oltre tredici anni di esperienza nell'accompagnare le persone in momenti delicati—che si tratti di ospedali, tribunali o percorsi di integrazione. Unisco chiarezza comunicativa e sensibilità culturale per creare fiducia tra professionisti e comunità.",
+        "heroHeading1": "COMPETENZA",
+        "heroHeading2": "FIDUCIA",
         "languages": ["Bengalese", "Urdu", "Hindi", "Italiano", "Inglese"],
         "medicalTitle": "Sanità e benessere",
         "medicalBody": "Supporto medici, infermieri, psicologi e assistenti sociali in ospedali e ambulatori. Il mio compito è far sentire ogni paziente—soprattutto chi è lontano da casa—compreso e rispettato.",
@@ -27,7 +29,15 @@
             "Servizi sociali",
             "Percorsi di cura"
         ],
-        "legalTitle": "Immigrazione e legale",
+        "immigrationTitle": "Immigrazione",
+        "immigrationBody": "Affianco persone e famiglie in percorsi di asilo, permessi e integrazione, facilitando comunicazioni chiare con istituzioni e servizi.",
+        "immigrationTags": [
+            "Asilo",
+            "Permessi",
+            "Residenza",
+            "Orientamento"
+        ],
+        "legalTitle": "Giustizia",
         "legalBody": "Dalle audizioni per asilo ai colloqui con avvocati e giudici, aiuto i clienti a raccontare la propria storia in modo chiaro e sicuro, preservando sfumature e rispetto.",
         "legalTags": [
             "Percorsi di asilo",
@@ -61,5 +71,13 @@
         "mainHeading2": "COMPRENSIONE",
         "collaborationTitle": "Collaborazioni",
         "collaborationSubtitle": "Partner, ONG e cooperative sociali che ho supportato"
+    },
+    "ContactPage": {
+        "heading": "Contatta Irin Sultana Munni",
+        "description": "Scrivimi per servizi di interpretariato, mediazione o integrazione culturale. Rispondo rapidamente e adatto ogni intervento al contesto e alle persone coinvolte.",
+        "nameLabel": "Nome",
+        "emailLabel": "Email",
+        "messageLabel": "Come posso aiutarti?",
+        "sendLabel": "Invia messaggio"
     }
 }
