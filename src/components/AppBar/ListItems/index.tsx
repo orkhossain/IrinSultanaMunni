@@ -17,7 +17,7 @@ import { selectDictionary } from '@/slice/language'
 import { useSelector } from 'react-redux'
 import MobileDrawer from '../DrawerMenu'
 import FadeText from '@/components/FadeText'
-import { usePathname } from 'next/navigation'
+import { useNavLight } from '@/hooks/useNavLight'
 
 const HideAppBar = () => {
     const dict = useSelector(selectDictionary)
@@ -27,11 +27,10 @@ const HideAppBar = () => {
 
     const theme = useTheme()
     const isMobile = useMediaQuery(theme.breakpoints.down('md'))
-    const pathname = usePathname()
-    const isHome = pathname === '/'
+    const isLight = useNavLight()
 
-    const linkColor = isHome ? '#ffffff' : '#0f2518'
-    const underlineColor = isHome ? 'rgba(255,255,255,0.72)' : 'rgba(15,37,24,0.5)'
+    const linkColor = isLight ? '#ffffff' : '#0f2518'
+    const underlineColor = isLight ? 'rgba(255,255,255,0.72)' : 'rgba(15,37,24,0.5)'
 
     const linkSx = {
         color: linkColor,

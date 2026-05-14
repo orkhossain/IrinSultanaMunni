@@ -8,7 +8,7 @@ import exportData from '@/global/objects/languages'
 import { fetchDictionary } from '@/slice/language/fetch'
 import { useTheme } from '@mui/material/styles'
 import { useMediaQuery } from '@mui/material'
-import { usePathname } from 'next/navigation'
+import { useNavLight } from '@/hooks/useNavLight'
 
 export default function PillTab() {
     const { languages, flags } = exportData
@@ -16,8 +16,7 @@ export default function PillTab() {
     const dispatch = useDispatch()
     const theme = useTheme()
     const isMobile = useMediaQuery(theme.breakpoints.down('md'))
-    const pathname = usePathname()
-    const isHome = pathname === '/'
+    const isLight = useNavLight()
 
     const flagArray = Object.keys(flags)
     const languageArray = Object.keys(languages)
@@ -66,8 +65,8 @@ export default function PillTab() {
                             padding: isMobile ? '8px 13px' : '10px 20px',
                             color:
                                 index === count
-                                    ? (isHome ? '#ffffff' : '#0f2518')
-                                    : (isHome ? 'rgba(255,255,255,0.48)' : 'rgba(15,37,24,0.42)'),
+                                    ? (isLight ? '#ffffff' : '#0f2518')
+                                    : (isLight ? 'rgba(255,255,255,0.48)' : 'rgba(15,37,24,0.42)'),
                             fontFamily:
                                 "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
                             fontSize: isMobile ? '13px' : '14.5px',
@@ -85,10 +84,10 @@ export default function PillTab() {
                                     position: 'absolute',
                                     inset: 0,
                                     borderRadius: '9999px',
-                                    background: isHome
+                                    background: isLight
                                         ? 'linear-gradient(145deg, rgba(255,255,255,0.32), rgba(255,255,255,0.14))'
                                         : 'rgba(15,37,24,0.09)',
-                                    boxShadow: isHome
+                                    boxShadow: isLight
                                         ? 'inset 0 1px 0 rgba(255,255,255,0.50), inset 0 -1px 0 rgba(255,255,255,0.12), 0 6px 18px rgba(0,0,0,0.16)'
                                         : 'inset 0 1px 0 rgba(255,255,255,0.6), 0 2px 8px rgba(0,0,0,0.06)',
                                     zIndex: -1,
