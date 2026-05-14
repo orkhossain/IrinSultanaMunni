@@ -23,7 +23,13 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import logo from '@/assets/logo.png'
 
-const CustomLink = ({ onClick, text }: { onClick: () => void; text: string }) => (
+const CustomLink = ({
+    onClick,
+    text,
+}: {
+    onClick: () => void
+    text: string
+}) => (
     <ListItem disablePadding>
         <ListItemButton
             onClick={onClick}
@@ -68,31 +74,34 @@ const CustomLink = ({ onClick, text }: { onClick: () => void; text: string }) =>
             }}
         >
             <ListItemText
-                primaryTypographyProps={{
-                    className: 'menu-text',
-                    align: 'left',
-                    sx: {
-                        textAlign: 'left',
-                        fontFamily: "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
-                        fontSize: '2.05rem',
-                        letterSpacing: '0.014em',
-                        position: 'relative',
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        pb: '4px',
-                        transition:
-                            'color 220ms ease, letter-spacing 220ms ease, transform 220ms ease, text-shadow 220ms ease',
-                        '&::after': {
-                            content: '""',
-                            position: 'absolute',
-                            left: 0,
-                            bottom: 0,
-                            width: '100%',
-                            height: 2,
-                            backgroundColor: '#1f140d',
-                            transform: 'scaleX(0)',
-                            transformOrigin: 'left center',
-                            transition: 'transform 220ms ease',
+                slotProps={{
+                    primary: {
+                        className: 'menu-text',
+                        align: 'left',
+                        sx: {
+                            textAlign: 'left',
+                            fontFamily:
+                                "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
+                            fontSize: '2.05rem',
+                            letterSpacing: '0.014em',
+                            position: 'relative',
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            pb: '4px',
+                            transition:
+                                'color 220ms ease, letter-spacing 220ms ease, transform 220ms ease, text-shadow 220ms ease',
+                            '&::after': {
+                                content: '""',
+                                position: 'absolute',
+                                left: 0,
+                                bottom: 0,
+                                width: '100%',
+                                height: 2,
+                                backgroundColor: '#1f140d',
+                                transform: 'scaleX(0)',
+                                transformOrigin: 'left center',
+                                transition: 'transform 220ms ease',
+                            },
                         },
                     },
                 }}
@@ -218,25 +227,26 @@ const MobileDrawer = () => {
                         open={drawerOpen}
                         anchor="bottom"
                         style={{ width: '100%', flexShrink: 0 }}
-                        PaperProps={{
-                            sx: {
-                                backgroundColor: '#f4e9db',
-                                backgroundImage:
-                                    'linear-gradient(180deg, rgba(0,0,0,0.04) 1px, transparent 1px)',
-                                backgroundSize: '100% 52px',
-                                backdropFilter: 'blur(10px)',
-                                borderRadius: 0,
-                                border: '1px solid #e1d1ba',
-                                boxShadow: '0 -20px 80px rgba(80,60,32,0.2)',
-                                p: { xs: 2, sm: 2.5 },
-                                width: '100vw',
-                                maxWidth: '100%',
-                                height: '100vh',
+                        slotProps={{
+                            paper: {
+                                sx: {
+                                    backgroundColor: '#f4e9db',
+                                    backgroundImage:
+                                        'linear-gradient(180deg, rgba(0,0,0,0.04) 1px, transparent 1px)',
+                                    backgroundSize: '100% 52px',
+                                    backdropFilter: 'blur(10px)',
+                                    borderRadius: 0,
+                                    border: '1px solid #e1d1ba',
+                                    boxShadow:
+                                        '0 -20px 80px rgba(80,60,32,0.2)',
+                                    p: { xs: 2, sm: 2.5 },
+                                    width: '100vw',
+                                    maxWidth: '100%',
+                                    height: '100vh',
+                                },
                             },
-                        }}
-                        ModalProps={{
-                            BackdropProps: {
-                                style: {
+                            backdrop: {
+                                sx: {
                                     background: 'rgba(0,0,0,0.2)',
                                     backdropFilter: 'blur(4px)',
                                 },
@@ -293,19 +303,27 @@ const MobileDrawer = () => {
                                                     // width: 'auto',
                                                     // objectFit: 'contain',
                                                     // display: 'block',
-                                                    margin: -10, }}
+                                                    margin: -10,
+                                                }}
                                             />
                                         </Box>
-                                        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.25 }}>
+                                        <Box
+                                            sx={{
+                                                display: 'flex',
+                                                flexDirection: 'column',
+                                                gap: 0.25,
+                                            }}
+                                        >
                                             <Typography
                                                 variant="h4"
                                                 sx={{
-                                                    fontFamily: "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
+                                                    fontFamily:
+                                                        "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
                                                     fontWeight: 200,
                                                     letterSpacing: '-0.01em',
                                                     color: '#22160d',
                                                     fontSize: '1.9rem',
-                                                    fontStyle:'italic'
+                                                    fontStyle: 'italic',
                                                 }}
                                             >
                                                 Irin Sultana Munni
@@ -313,8 +331,9 @@ const MobileDrawer = () => {
                                             <Typography
                                                 variant="body1"
                                                 sx={{
-                                                    fontFamily: "'Fancy Cut Pro', 'Cambria', serif",
-                                                    color: '#4a382a',
+                                                    fontFamily:
+                                                        "'Fancy Cut Pro', 'Cambria', serif",
+                                                    color: '#2f4634',
                                                     letterSpacing: '0.03em',
                                                     fontSize: '1.2rem',
                                                 }}
@@ -323,7 +342,10 @@ const MobileDrawer = () => {
                                             </Typography>
                                         </Box>
                                     </Box>
-                                    <motion.div whileHover={{ scale: 1.06 }} whileTap={{ scale: 0.95 }}>
+                                    <motion.div
+                                        whileHover={{ scale: 1.06 }}
+                                        whileTap={{ scale: 0.95 }}
+                                    >
                                         <IconButton
                                             onClick={() => setDrawerOpen(false)}
                                             edge="end"
@@ -340,11 +362,14 @@ const MobileDrawer = () => {
                                                 transition:
                                                     'transform 0.28s cubic-bezier(0.23, 1, 0.320, 1)',
                                                 '&:hover': {
-                                                    backgroundColor: 'transparent',
+                                                    backgroundColor:
+                                                        'transparent',
                                                     transform: 'scale(1.08)',
                                                 },
-                                                '& .MuiSvgIcon-root': { fontSize: 42 },
-                                                color: '#13100d',
+                                                '& .MuiSvgIcon-root': {
+                                                    fontSize: 42,
+                                                },
+                                                color: '#0f2518',
                                             }}
                                         >
                                             <ClearIcon />
@@ -385,7 +410,9 @@ const MobileDrawer = () => {
                                                 boxShadow:
                                                     '0 8px 16px rgba(0,0,0,0.12)',
                                             },
-                                            '& .MuiSvgIcon-root': { fontSize: 32 },
+                                            '& .MuiSvgIcon-root': {
+                                                fontSize: 32,
+                                            },
                                         }}
                                     >
                                         <InstagramIcon />
@@ -408,7 +435,9 @@ const MobileDrawer = () => {
                                                 boxShadow:
                                                     '0 8px 16px rgba(0,0,0,0.12)',
                                             },
-                                            '& .MuiSvgIcon-root': { fontSize: 32 },
+                                            '& .MuiSvgIcon-root': {
+                                                fontSize: 32,
+                                            },
                                         }}
                                     >
                                         <LinkedInIcon />
@@ -431,7 +460,9 @@ const MobileDrawer = () => {
                                                 boxShadow:
                                                     '0 8px 16px rgba(0,0,0,0.12)',
                                             },
-                                            '& .MuiSvgIcon-root': { fontSize: 32 },
+                                            '& .MuiSvgIcon-root': {
+                                                fontSize: 32,
+                                            },
                                         }}
                                     >
                                         <FacebookIcon />

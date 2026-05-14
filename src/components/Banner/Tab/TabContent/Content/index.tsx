@@ -5,23 +5,38 @@ import Typography from '@mui/material/Typography'
 import { useMediaQuery } from '@mui/material'
 import { useSelector } from 'react-redux'
 import { selectDictionary } from '@/slice/language'
-import { motion, Variants } from 'framer-motion'
+import { motion, useReducedMotion, Variants } from 'framer-motion'
 
 export default function Content() {
     const theme = useTheme()
     const isMobile = useMediaQuery(theme.breakpoints.down('md'))
     const dict = useSelector(selectDictionary)
+    const shouldReduceMotion = useReducedMotion()
     const title = dict.Index?.title ?? ''
     const easeCurve = [0.22, 1, 0.36, 1] as const
-    const textVariants: Variants = {
-        hidden: { opacity: 0, y: 28, filter: 'blur(8px)' },
-        show: {
-            opacity: 1,
-            y: 0,
-            filter: 'blur(0px)',
-            transition: { duration: 1, ease: easeCurve, type: 'spring', stiffness: 240, damping: 22 },
-        },
-    }
+    const textVariants: Variants = shouldReduceMotion
+        ? {
+              hidden: { opacity: 0 },
+              show: {
+                  opacity: 1,
+                  transition: { duration: 0.12, ease: 'linear' as const },
+              },
+          }
+        : {
+              hidden: { opacity: 0, y: 28, filter: 'blur(8px)' },
+              show: {
+                  opacity: 1,
+                  y: 0,
+                  filter: 'blur(0px)',
+                  transition: {
+                      duration: 1,
+                      ease: easeCurve,
+                      type: 'spring',
+                      stiffness: 240,
+                      damping: 22,
+                  },
+              },
+          }
 
     return (
         <>
@@ -44,9 +59,9 @@ export default function Content() {
                     style={{ width: '100%' }}
                 >
                     <Typography
-                        color="#e2e8f0"
                         variant={isMobile ? 'h2' : 'h1'}
                         sx={{
+                            color: '#ffffff !important',
                             fontFamily:
                                 "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
                             fontWeight: 200,

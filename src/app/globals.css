@@ -1,104 +1,251 @@
 :root {
-  --max-width: 1100px;
-  --border-radius: 12px;
-  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
-    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
-    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+    --max-width: 1100px;
+    --border-radius: 12px;
+    --font-mono:
+        ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
+        'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
+        'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
 
-  /* Custom palette */
-  --black-100: #020202;
-  --black-200: #050404;
-  --black-300: #070605;
-  --black-400: #090807;
-  --black-500: #0a0908;
-  --black-600: #423b35;
-  --black-700: #786c60;
-  --black-800: #a89d92;
-  --black-900: #d3cec9;
+    /* Custom palette */
+    --black-100: #020202;
+    --black-200: #050404;
+    --black-300: #070605;
+    --black-400: #090807;
+    --black-500: #0a0908;
+    --black-600: #423b35;
+    --black-700: #786c60;
+    --black-800: #a89d92;
+    --black-900: #d3cec9;
 
-  --jet-100: #070a0c;
-  --jet-200: #0d1417;
-  --jet-300: #141e23;
-  --jet-400: #1b282f;
-  --jet-500: #22333b;
-  --jet-600: #40606f;
-  --jet-700: #608ea3;
-  --jet-800: #95b4c2;
-  --jet-900: #cad9e0;
+    --jet-100: #070a0c;
+    --jet-200: #0d1417;
+    --jet-300: #141e23;
+    --jet-400: #1b282f;
+    --jet-500: #22333b;
+    --jet-600: #40606f;
+    --jet-700: #608ea3;
+    --jet-800: #95b4c2;
+    --jet-900: #cad9e0;
 
-  --almond-100: #3c2d1e;
-  --almond-200: #775b3c;
-  --almond-300: #ae885f;
-  --almond-400: #ccb49b;
-  --almond-500: #eae0d5;
-  --almond-600: #efe7de;
-  --almond-700: #f3ede7;
-  --almond-800: #f7f3ef;
-  --almond-900: #fbf9f7;
+    --almond-100: #18321f;
+    --almond-200: #2e5437;
+    --almond-300: #527b59;
+    --almond-400: #87a98a;
+    --almond-500: #c7d8bf;
+    --almond-600: #d9e6d2;
+    --almond-700: #e7f0e2;
+    --almond-800: #eff6ec;
+    --almond-900: #f8fbf5;
 
-  --khaki-100: #2d2317;
-  --khaki-200: #5b462e;
-  --khaki-300: #886945;
-  --khaki-400: #b08b62;
-  --khaki-500: #c6ac8f;
-  --khaki-600: #d2bda5;
-  --khaki-700: #ddcebc;
-  --khaki-800: #e8ded2;
-  --khaki-900: #f4efe9;
+    --khaki-100: #142818;
+    --khaki-200: #294531;
+    --khaki-300: #416344;
+    --khaki-400: #66886a;
+    --khaki-500: #93ac8e;
+    --khaki-600: #b7c8ad;
+    --khaki-700: #d2dfca;
+    --khaki-800: #e4eee0;
+    --khaki-900: #f2f7ef;
 
-  --stone-100: #13100d;
-  --stone-200: #262019;
-  --stone-300: #393026;
-  --stone-400: #4c4133;
-  --stone-500: #5e503f;
-  --stone-600: #89755b;
-  --stone-700: #ab9880;
-  --stone-800: #c7baab;
-  --stone-900: #e3ddd5;
+    --stone-100: #0f2518;
+    --stone-200: #17351f;
+    --stone-300: #2f4634;
+    --stone-400: #465947;
+    --stone-500: #5f705e;
+    --stone-600: #81927e;
+    --stone-700: #a6b7a0;
+    --stone-800: #cbd8c5;
+    --stone-900: #e7efe3;
 
-  --foreground: var(--stone-400);
-  --background-start: var(--almond-800);
-  --background-end: var(--khaki-900);
+    --foreground: var(--stone-400);
+    --background-start: var(--almond-800);
+    --background-end: var(--khaki-900);
+    --text-strong: #0f2518;
+    --text-soft: #2f4634;
+    --glass-bg: rgba(255, 255, 255, 0.54);
+    --glass-bg-strong: rgba(255, 255, 255, 0.72);
+    --glass-border: rgba(255, 255, 255, 0.58);
+    --glass-shadow: 0 24px 70px rgba(36, 68, 42, 0.13);
+    --glass-highlight: rgba(255, 255, 255, 0.78);
+    --accent: #6f9767;
+    --accent-strong: #1f4d2b;
 }
 
 * {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 
 html,
 body {
-  max-width: 100vw;
-  scroll-behavior: smooth;
+    max-width: 100vw;
+    scroll-behavior: smooth;
 }
 
 body {
-  color: var(--foreground);
-  background: linear-gradient(180deg, var(--background-start) 0%, var(--background-end) 100%);
-  font-family: 'Fancy Cut Pro', 'Cambria', 'Georgia', serif;
+    color: var(--foreground);
+    background:
+        radial-gradient(
+            circle at 12% 6%,
+            rgba(183, 214, 169, 0.42) 0%,
+            rgba(183, 214, 169, 0) 34%
+        ),
+        radial-gradient(
+            circle at 84% 18%,
+            rgba(244, 250, 240, 0.88) 0%,
+            rgba(244, 250, 240, 0) 32%
+        ),
+        linear-gradient(
+            180deg,
+            var(--background-start) 0%,
+            var(--background-end) 100%
+        );
+    font-family: 'Fancy Cut Pro', 'Cambria', 'Georgia', serif;
+    transition:
+        background 260ms ease,
+        color 260ms ease;
+}
+
+.MuiBox-root,
+.MuiButtonBase-root,
+.MuiPaper-root {
+    transition:
+        background-color 240ms ease,
+        border-color 240ms ease,
+        box-shadow 240ms ease,
+        color 240ms ease,
+        transform 180ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.liquid-glass,
+.MuiButtonBase-root,
+.MuiTabs-root {
+    position: relative;
+}
+
+.liquid-glass::before,
+.MuiTabs-root::before,
+.MuiButtonBase-root::before {
+    content: '';
+    position: absolute;
+    inset: 1px;
+    border-radius: inherit;
+    pointer-events: none;
+    background: linear-gradient(
+        145deg,
+        var(--glass-highlight),
+        rgba(255, 255, 255, 0) 45%
+    );
+    opacity: 0.45;
+    mix-blend-mode: screen;
 }
 
 /* Lenis smooth scrolling */
 html.lenis,
 html.lenis body {
-  height: auto;
+    height: auto;
 }
 
 html.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
+    scroll-behavior: auto !important;
+}
+
+button,
+a[role='button'],
+.MuiButtonBase-root {
+    transition:
+        transform 180ms cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 180ms ease,
+        filter 180ms ease;
+}
+
+button:not(:disabled):hover,
+a[role='button']:hover,
+.MuiButtonBase-root:not(.Mui-disabled):hover {
+    transform: translateY(-2px);
+}
+
+a:not([role='button']) {
+    transition:
+        color 180ms ease,
+        opacity 180ms ease,
+        transform 180ms ease;
+}
+
+a:not([role='button']):hover {
+    opacity: 0.86;
+}
+
+.MuiButtonBase-root:not(.Mui-disabled) {
+    will-change: transform;
+}
+
+button:not(:disabled):active,
+a[role='button']:active,
+.MuiButtonBase-root:not(.Mui-disabled):active {
+    transform: translateY(0) scale(0.98);
+}
+
+button svg,
+a[role='button'] svg,
+.MuiButtonBase-root svg,
+.MuiButton-startIcon,
+.MuiButton-endIcon {
+    transition: transform 220ms cubic-bezier(0.34, 1.56, 0.64, 1);
+    transform-origin: center;
+}
+
+button:not(:disabled):hover svg,
+a[role='button']:hover svg,
+.MuiButtonBase-root:not(.Mui-disabled):hover svg,
+.MuiButtonBase-root:not(.Mui-disabled):hover .MuiButton-startIcon,
+.MuiButtonBase-root:not(.Mui-disabled):hover .MuiButton-endIcon {
+    transform: scale(1.08);
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html,
+    body {
+        scroll-behavior: auto;
+    }
+
+    button,
+    a[role='button'],
+    .MuiButtonBase-root,
+    button svg,
+    a[role='button'] svg,
+    .MuiButtonBase-root svg,
+    .MuiButton-startIcon,
+    .MuiButton-endIcon {
+        transition: none !important;
+    }
+
+    button:not(:disabled):hover,
+    a[role='button']:hover,
+    .MuiButtonBase-root:not(.Mui-disabled):hover,
+    button:not(:disabled):active,
+    a[role='button']:active,
+    .MuiButtonBase-root:not(.Mui-disabled):active,
+    button:not(:disabled):hover svg,
+    a[role='button']:hover svg,
+    .MuiButtonBase-root:not(.Mui-disabled):hover svg,
+    .MuiButtonBase-root:not(.Mui-disabled):hover .MuiButton-startIcon,
+    .MuiButtonBase-root:not(.Mui-disabled):hover .MuiButton-endIcon {
+        transform: none;
+    }
 }
 
 @media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+    html {
+        color-scheme: dark;
+    }
 }
 ::-webkit-scrollbar {
-  display: none;
+    display: none;
 }

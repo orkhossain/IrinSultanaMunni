@@ -3,7 +3,13 @@
 import React from 'react'
 import { Box, Container, Typography } from '@mui/material'
 import Services from '@/components/Services'
-import { motion, useScroll, useSpring, useTransform } from 'framer-motion'
+import {
+    motion,
+    useReducedMotion,
+    useScroll,
+    useSpring,
+    useTransform,
+} from 'framer-motion'
 import { useSelector } from 'react-redux'
 import { selectDictionary } from '@/slice/language'
 import Image1 from '@/assets/logos/Image1.webp'
@@ -30,6 +36,7 @@ import Image21 from '@/assets/logos/Image21.webp'
 
 export default function ServicesPage() {
     const dict = useSelector(selectDictionary)
+    const shouldReduceMotion = useReducedMotion()
     const { scrollYProgress } = useScroll()
     const scrollProgress = useSpring(scrollYProgress, {
         stiffness: 140,
@@ -52,20 +59,17 @@ export default function ServicesPage() {
         'Partners, NGOs, and social cooperatives I have supported'
     const testimonials = [
         {
-            quote:
-                'Precise, empathetic, and always ahead of deadlines. Working together made complex situations feel simple.',
+            quote: 'Precise, empathetic, and always ahead of deadlines. Working together made complex situations feel simple.',
             name: 'Elena Rossi',
             role: 'Coordinator, Cultural Mediation Program',
         },
         {
-            quote:
-                'Her translations were spotless and her presence reassuring for our teams and clients alike.',
+            quote: 'Her translations were spotless and her presence reassuring for our teams and clients alike.',
             name: 'Marco Bianchi',
             role: 'Director, Legal Aid Cooperative',
         },
         {
-            quote:
-                'Bridging languages and contexts with calm clarity—exactly what we needed in sensitive environments.',
+            quote: 'Bridging languages and contexts with calm clarity—exactly what we needed in sensitive environments.',
             name: 'Ayesha Khan',
             role: 'Program Lead, Community Health Initiative',
         },
@@ -97,21 +101,28 @@ export default function ServicesPage() {
     ]
     const collaborationLogos = [...logosRow1, ...logosRow2]
     const tileVariants = {
-        hidden: { opacity: 0, y: 60 },
-        show: {
+        hidden: (custom: { shouldReduceMotion: boolean }) =>
+            custom.shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 60 },
+        show: (custom: { index?: number; shouldReduceMotion: boolean }) => ({
             opacity: 1,
             y: 0,
-            transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const },
-        },
+            transition: custom.shouldReduceMotion
+                ? { duration: 0.12, ease: 'linear' as const }
+                : {
+                      duration: 0.6,
+                      delay: (custom.index ?? 0) * 0.06,
+                      ease: [0.22, 1, 0.36, 1] as const,
+                  },
+        }),
     }
 
     return (
         <main
             style={{
                 minHeight: '100vh',
-                background: 'linear-gradient(180deg, #f4efe9 0%, #e8ded2 100%)',
+                background: 'linear-gradient(180deg, #f2f7ef 0%, #e4eee0 100%)',
                 padding: 0,
-                color: '#393026',
+                color: '#2f4634',
                 fontFamily: "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
             }}
         >
@@ -124,7 +135,7 @@ export default function ServicesPage() {
                     height: 2,
                     transformOrigin: '0% 50%',
                     scaleX: scrollProgress,
-                    backgroundColor: 'rgba(19,16,13,0.22)',
+                    backgroundColor: 'rgba(34,68,42,0.22)',
                     zIndex: 1400,
                 }}
             />
@@ -133,7 +144,7 @@ export default function ServicesPage() {
                     <Box
                         sx={{
                             background:
-                                'linear-gradient(135deg, #f5ede3 0%, #ede5db 100%)',
+                                'linear-gradient(135deg, #eef6ea 0%, #dfeadd 100%)',
                             pt: { xs: 24, md: 32 },
                             pb: { xs: 8, md: 12 },
                             px: { xs: 3, md: 6 },
@@ -162,7 +173,7 @@ export default function ServicesPage() {
                                     sx={{
                                         fontSize: { xs: '3rem', md: '4.5rem' },
                                         fontWeight: 200,
-                                        color: '#13100d',
+                                        color: '#0f2518',
                                         marginBottom: 3,
                                         fontFamily:
                                             "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
@@ -189,7 +200,7 @@ export default function ServicesPage() {
                                             xs: '1.1rem',
                                             md: '1.3rem',
                                         },
-                                        color: '#393026',
+                                        color: '#2f4634',
                                         lineHeight: 1.8,
                                         maxWidth: '800px',
                                         fontFamily:
@@ -215,22 +226,22 @@ export default function ServicesPage() {
                                     position: 'relative',
                                 }}
                             >
-	                                <Box
-	                                    sx={{
-	                                        display: 'flex',
-	                                        alignItems: 'baseline',
-	                                        gap: { xs: 2, md: 3 },
-	                                        flexWrap: 'wrap',
-	                                    }}
-	                                >
-	                                    <Typography
+                                <Box
+                                    sx={{
+                                        display: 'flex',
+                                        alignItems: 'baseline',
+                                        gap: { xs: 2, md: 3 },
+                                        flexWrap: 'wrap',
+                                    }}
+                                >
+                                    <Typography
                                         sx={{
                                             fontSize: {
                                                 xs: '2.8rem',
                                                 md: '3.8rem',
                                             },
                                             fontWeight: 700,
-                                            color: '#13100d',
+                                            color: '#0f2518',
                                             letterSpacing: '-0.02em',
                                             fontFamily:
                                                 "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
@@ -239,36 +250,36 @@ export default function ServicesPage() {
                                     >
                                         {mainHeading1}
                                     </Typography>
-	                            <motion.div
-	                                initial={{ scale: 0, rotate: -180 }}
-	                                animate={{ scale: 1, rotate: 0 }}
-	                                transition={{
-	                                    duration: 0.6,
-	                                    delay: 0.5,
-	                                    ease: [0.23, 1, 0.32, 1],
-	                                }}
-	                            >
-		                                <Typography
-		                                    component="span"
-		                                    sx={{
-		                                        fontSize: {
-		                                            xs: '2.8rem',
-		                                            md: '3.8rem',
-		                                        },
-		                                        fontWeight: 400,
-		                                        color: 'rgba(19,16,13,0.55)',
-		                                        letterSpacing: '-0.02em',
-		                                        lineHeight: 1.1,
-		                                        fontFamily:
-		                                            "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
-		                                        display: 'inline-block',
-		                                        transform: 'translateY(2px)',
-		                                    }}
-		                                >
-		                                    &
-		                                </Typography>
-	                            </motion.div>
-	                        </Box>
+                                    <motion.div
+                                        initial={{ scale: 0, rotate: -180 }}
+                                        animate={{ scale: 1, rotate: 0 }}
+                                        transition={{
+                                            duration: 0.6,
+                                            delay: 0.5,
+                                            ease: [0.23, 1, 0.32, 1],
+                                        }}
+                                    >
+                                        <Typography
+                                            component="span"
+                                            sx={{
+                                                fontSize: {
+                                                    xs: '2.8rem',
+                                                    md: '3.8rem',
+                                                },
+                                                fontWeight: 400,
+                                                color: 'rgba(34,68,42,0.55)',
+                                                letterSpacing: '-0.02em',
+                                                lineHeight: 1.1,
+                                                fontFamily:
+                                                    "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
+                                                display: 'inline-block',
+                                                transform: 'translateY(2px)',
+                                            }}
+                                        >
+                                            &
+                                        </Typography>
+                                    </motion.div>
+                                </Box>
                                 <motion.div
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
@@ -282,7 +293,7 @@ export default function ServicesPage() {
                                                 md: '3.8rem',
                                             },
                                             fontWeight: 700,
-                                            color: '#13100d',
+                                            color: '#0f2518',
                                             letterSpacing: '-0.02em',
                                             fontFamily:
                                                 "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
@@ -297,7 +308,10 @@ export default function ServicesPage() {
 
                         <Box
                             component={motion.div}
-                            style={{ y: heroGlowY, scale: heroGlowScale }}
+                            style={{
+                                y: shouldReduceMotion ? 0 : heroGlowY,
+                                scale: shouldReduceMotion ? 1 : heroGlowScale,
+                            }}
                             sx={{
                                 position: 'absolute',
                                 right: { xs: '-60px', md: '20px' },
@@ -328,8 +342,8 @@ export default function ServicesPage() {
                                 backgroundColor: 'rgba(255, 255, 255, 0.55)',
                                 borderRadius: { xs: '18px', md: '24px' },
                                 p: { xs: 3, md: 5 },
-                                boxShadow: '0 10px 28px rgba(19,16,13,0.05)',
-                                border: '1px solid rgba(19,16,13,0.08)',
+                                boxShadow: '0 10px 28px rgba(34,68,42,0.05)',
+                                border: '1px solid rgba(34,68,42,0.08)',
                                 backdropFilter: 'blur(10px)',
                                 display: 'grid',
                                 gap: { xs: 3, md: 4 },
@@ -349,7 +363,7 @@ export default function ServicesPage() {
                                         width: 56,
                                         height: 2,
                                         borderRadius: 999,
-                                        backgroundColor: 'rgba(19,16,13,0.18)',
+                                        backgroundColor: 'rgba(34,68,42,0.18)',
                                         mx: 'auto',
                                     }}
                                 />
@@ -358,7 +372,7 @@ export default function ServicesPage() {
                                     sx={{
                                         fontWeight: 600,
                                         letterSpacing: '0.02em',
-                                        color: '#13100d',
+                                        color: '#0f2518',
                                         fontFamily:
                                             "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
                                     }}
@@ -368,7 +382,7 @@ export default function ServicesPage() {
                                 <Typography
                                     sx={{
                                         mt: 0.25,
-                                        color: '#393026',
+                                        color: '#2f4634',
                                         letterSpacing: '0.01em',
                                         fontFamily:
                                             "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
@@ -392,15 +406,29 @@ export default function ServicesPage() {
                                 {testimonials.map((item, idx) => (
                                     <motion.div
                                         key={`testimonial-${idx}`}
-                                        initial={{ opacity: 0, y: 12 }}
+                                        initial={
+                                            shouldReduceMotion
+                                                ? { opacity: 0 }
+                                                : { opacity: 0, y: 12 }
+                                        }
                                         whileInView={{ opacity: 1, y: 0 }}
                                         viewport={{ once: true, amount: 0.5 }}
                                         transition={{
-                                            duration: 0.5,
-                                            delay: idx * 0.05,
-                                            ease: [0.22, 1, 0.36, 1] as const,
+                                            duration: shouldReduceMotion
+                                                ? 0.12
+                                                : 0.5,
+                                            delay: shouldReduceMotion
+                                                ? 0
+                                                : idx * 0.05,
+                                            ease: shouldReduceMotion
+                                                ? ('linear' as const)
+                                                : ([0.22, 1, 0.36, 1] as const),
                                         }}
-                                        whileHover={{ y: -2 }}
+                                        whileHover={
+                                            shouldReduceMotion
+                                                ? undefined
+                                                : { y: -2 }
+                                        }
                                     >
                                         <Box
                                             sx={{
@@ -410,7 +438,7 @@ export default function ServicesPage() {
                                                 borderRadius: '16px',
                                                 p: { xs: 2.75, md: 3.25 },
                                                 boxShadow: 'none',
-                                                border: '1px solid rgba(19,16,13,0.08)',
+                                                border: '1px solid rgba(34,68,42,0.08)',
                                                 display: 'grid',
                                                 gap: 2,
                                                 position: 'relative',
@@ -424,14 +452,14 @@ export default function ServicesPage() {
                                                     left: 14,
                                                     fontSize: '4rem',
                                                     lineHeight: 1,
-                                                    color: 'rgba(19,16,13,0.07)',
+                                                    color: 'rgba(34,68,42,0.07)',
                                                     zIndex: 0,
                                                 },
                                                 '&:hover': {
                                                     borderColor:
-                                                        'rgba(19,16,13,0.14)',
+                                                        'rgba(34,68,42,0.14)',
                                                     boxShadow:
-                                                        '0 14px 34px rgba(19,16,13,0.08)',
+                                                        '0 14px 34px rgba(34,68,42,0.08)',
                                                 },
                                             }}
                                         >
@@ -439,7 +467,7 @@ export default function ServicesPage() {
                                                 sx={{
                                                     position: 'relative',
                                                     zIndex: 1,
-                                                    color: '#13100d',
+                                                    color: '#0f2518',
                                                     lineHeight: 1.6,
                                                     fontSize: {
                                                         xs: '1rem',
@@ -451,11 +479,16 @@ export default function ServicesPage() {
                                             >
                                                 “{item.quote}”
                                             </Typography>
-                                            <Box sx={{ position: 'relative', zIndex: 1 }}>
+                                            <Box
+                                                sx={{
+                                                    position: 'relative',
+                                                    zIndex: 1,
+                                                }}
+                                            >
                                                 <Typography
                                                     sx={{
                                                         fontWeight: 600,
-                                                        color: '#13100d',
+                                                        color: '#0f2518',
                                                         letterSpacing: '0.01em',
                                                         fontFamily:
                                                             "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
@@ -483,20 +516,28 @@ export default function ServicesPage() {
 
                     <motion.div
                         variants={tileVariants}
+                        custom={{ shouldReduceMotion }}
                         initial="hidden"
                         whileInView="show"
                         viewport={{ once: true, amount: 0.35 }}
                     >
-                        <Box sx={{ px: { xs: 3, md: 6 }, pb: { xs: 10, md: 12 } }}>
+                        <Box
+                            sx={{
+                                px: { xs: 3, md: 6 },
+                                pb: { xs: 10, md: 12 },
+                            }}
+                        >
                             <Box
                                 sx={{
                                     maxWidth: '1200px',
                                     mx: 'auto',
-                                    backgroundColor: 'rgba(255, 255, 255, 0.55)',
+                                    backgroundColor:
+                                        'rgba(255, 255, 255, 0.55)',
                                     borderRadius: { xs: '18px', md: '24px' },
                                     p: { xs: 3, md: 5 },
-                                    boxShadow: '0 10px 28px rgba(19,16,13,0.05)',
-                                    border: '1px solid rgba(19,16,13,0.08)',
+                                    boxShadow:
+                                        '0 10px 28px rgba(34,68,42,0.05)',
+                                    border: '1px solid rgba(34,68,42,0.08)',
                                     backdropFilter: 'blur(10px)',
                                     display: 'grid',
                                     gap: { xs: 2.5, md: 3.5 },
@@ -517,7 +558,7 @@ export default function ServicesPage() {
                                             height: 2,
                                             borderRadius: 999,
                                             backgroundColor:
-                                                'rgba(19,16,13,0.18)',
+                                                'rgba(34,68,42,0.18)',
                                             mx: 'auto',
                                         }}
                                     />
@@ -526,7 +567,7 @@ export default function ServicesPage() {
                                         sx={{
                                             fontWeight: 600,
                                             letterSpacing: '0.02em',
-                                            color: '#13100d',
+                                            color: '#0f2518',
                                             fontFamily:
                                                 "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
                                         }}
@@ -536,7 +577,7 @@ export default function ServicesPage() {
                                     <Typography
                                         sx={{
                                             mt: 0.25,
-                                            color: '#393026',
+                                            color: '#2f4634',
                                             letterSpacing: '0.01em',
                                             fontFamily:
                                                 "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
@@ -561,62 +602,80 @@ export default function ServicesPage() {
                                     {collaborationLogos.map((logo, idx) => (
                                         <motion.div
                                             key={`logo-${idx}`}
-                                            initial={{ opacity: 0, y: 14 }}
+                                            initial={
+                                                shouldReduceMotion
+                                                    ? { opacity: 0 }
+                                                    : { opacity: 0, y: 14 }
+                                            }
                                             whileInView={{ opacity: 1, y: 0 }}
-                                            whileHover={{ scale: 1.01, y: -2 }}
+                                            whileHover={
+                                                shouldReduceMotion
+                                                    ? undefined
+                                                    : { scale: 1.01, y: -2 }
+                                            }
                                             transition={{
-                                                duration: 0.45,
-                                                ease: [0.22, 1, 0.36, 1] as const,
+                                                duration: shouldReduceMotion
+                                                    ? 0.12
+                                                    : 0.45,
+                                                delay: shouldReduceMotion
+                                                    ? 0
+                                                    : idx * 0.015,
+                                                ease: shouldReduceMotion
+                                                    ? ('linear' as const)
+                                                    : ([
+                                                          0.22, 1, 0.36, 1,
+                                                      ] as const),
                                             }}
-                                            viewport={{ once: true, amount: 0.5 }}
+                                            viewport={{
+                                                once: true,
+                                                amount: 0.5,
+                                            }}
                                             style={{ width: '100%' }}
                                         >
-	                                            <Box
-	                                                sx={{
-	                                                    width: '100%',
-	                                                    height: '100%',
-	                                                    minHeight: 96,
-	                                                    borderRadius: '16px',
-	                                                    border: '1px solid rgba(19,16,13,0.08)',
-	                                                    backgroundColor:
-	                                                        'rgba(244, 237, 227, 0.95)',
-	                                                    boxShadow:
-	                                                        'inset 0 1px 0 rgba(255,255,255,0.7)',
-	                                                    display: 'flex',
-	                                                    alignItems: 'center',
-	                                                    justifyContent: 'center',
-	                                                    p: { xs: 2, md: 2.25 },
-	                                                    transition:
-	                                                        'border-color 180ms ease, background-color 180ms ease, box-shadow 180ms ease',
-	                                                    '& img': {
-	                                                        width: '100%',
-	                                                        maxWidth: 160,
-	                                                        maxHeight: 46,
-	                                                        objectFit: 'contain',
-	                                                        filter:
-	                                                            'grayscale(100%) contrast(1.05) drop-shadow(0 1px 1px rgba(19,16,13,0.25))',
-	                                                        opacity: 0.85,
-	                                                        mixBlendMode: 'normal',
-	                                                        transition:
-	                                                            'filter 220ms ease, opacity 220ms ease, transform 220ms ease',
-	                                                    },
-	                                                    '&:hover': {
-	                                                        borderColor:
-	                                                            'rgba(19,16,13,0.14)',
-	                                                        backgroundColor:
-	                                                            'rgba(255, 255, 255, 0.9)',
-	                                                        boxShadow:
-	                                                            '0 14px 34px rgba(19,16,13,0.08)',
-	                                                    },
-	                                                    '&:hover img': {
-	                                                        filter:
-	                                                            'grayscale(0%) contrast(1.04) drop-shadow(0 1px 1px rgba(19,16,13,0.15))',
-	                                                        opacity: 0.95,
-	                                                        transform:
-	                                                            'translateY(-1px)',
-	                                                    },
-	                                                }}
-	                                            >
+                                            <Box
+                                                sx={{
+                                                    width: '100%',
+                                                    height: '100%',
+                                                    minHeight: 96,
+                                                    borderRadius: '16px',
+                                                    border: '1px solid rgba(34,68,42,0.08)',
+                                                    backgroundColor:
+                                                        'rgba(242, 247, 239, 0.95)',
+                                                    boxShadow:
+                                                        'inset 0 1px 0 rgba(255,255,255,0.7)',
+                                                    display: 'flex',
+                                                    alignItems: 'center',
+                                                    justifyContent: 'center',
+                                                    p: { xs: 2, md: 2.25 },
+                                                    transition:
+                                                        'border-color 180ms ease, background-color 180ms ease, box-shadow 180ms ease',
+                                                    '& img': {
+                                                        width: '100%',
+                                                        maxWidth: 160,
+                                                        maxHeight: 46,
+                                                        objectFit: 'contain',
+                                                        filter: 'grayscale(100%) contrast(1.05) drop-shadow(0 1px 1px rgba(34,68,42,0.25))',
+                                                        opacity: 0.85,
+                                                        mixBlendMode: 'normal',
+                                                        transition:
+                                                            'filter 220ms ease, opacity 220ms ease, transform 220ms ease',
+                                                    },
+                                                    '&:hover': {
+                                                        borderColor:
+                                                            'rgba(34,68,42,0.14)',
+                                                        backgroundColor:
+                                                            'rgba(255, 255, 255, 0.9)',
+                                                        boxShadow:
+                                                            '0 14px 34px rgba(34,68,42,0.08)',
+                                                    },
+                                                    '&:hover img': {
+                                                        filter: 'grayscale(0%) contrast(1.04) drop-shadow(0 1px 1px rgba(34,68,42,0.15))',
+                                                        opacity: 0.95,
+                                                        transform:
+                                                            'translateY(-1px)',
+                                                    },
+                                                }}
+                                            >
                                                 <Box
                                                     component="img"
                                                     src={logo.src}

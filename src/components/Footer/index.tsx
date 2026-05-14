@@ -2,7 +2,15 @@
 
 import React from 'react'
 import { selectDictionary } from '@/slice/language'
-import { Box, Button, Container, Divider, Link, Stack, Typography } from '@mui/material'
+import {
+    Box,
+    Button,
+    Container,
+    Divider,
+    Link,
+    Stack,
+    Typography,
+} from '@mui/material'
 import Image from 'next/image'
 import { useSelector } from 'react-redux'
 import logo from '@/assets/logo.png'
@@ -23,9 +31,9 @@ const Footer = () => {
         <Box
             component="footer"
             sx={{
-                backgroundColor: '#f7f3ec',
-                borderTop: '1px solid #e5ddcf',
-                color: '#1b1410',
+                backgroundColor: '#eef6ea',
+                borderTop: '1px solid rgba(65,99,68,0.14)',
+                color: '#142818',
                 fontFamily: "'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
                 width: '100vw',
                 minHeight: '100vh',
@@ -34,7 +42,12 @@ const Footer = () => {
             <Container
                 maxWidth={false}
                 disableGutters
-                sx={{ height: '100%', display: 'flex', flexDirection: 'column', px: 0 }}
+                sx={{
+                    height: '100%',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    px: 0,
+                }}
             >
                 <Stack
                     spacing={{ xs: 4, md: 6 }}
@@ -50,9 +63,11 @@ const Footer = () => {
                     <Stack
                         direction={{ xs: 'column', md: 'row' }}
                         spacing={{ xs: 4, md: 8 }}
-                        justifyContent="space-between"
-                        alignItems={{ xs: 'flex-start', md: 'center' }}
-                        sx={{ px: { xs: 3, md: 6 } }}
+                        sx={{
+                            justifyContent: 'space-between',
+                            alignItems: { xs: 'flex-start', md: 'center' },
+                            px: { xs: 3, md: 6 },
+                        }}
                     >
                         <Stack spacing={1.5} sx={{ minWidth: 180 }}>
                             {navItems.map((item) => (
@@ -61,25 +76,31 @@ const Footer = () => {
                                     href={item.href}
                                     underline="none"
                                     sx={{
-                                        color: '#24315a',
+                                        color: '#1f4d2b',
                                         fontWeight: 500,
                                         letterSpacing: '0.01em',
                                         fontSize: '1.05rem',
                                         display: 'block',
-                                        '&:hover': { color: '#0f1b3a' },
+                                        '&:hover': { color: '#0f2518' },
                                     }}
                                 >
                                     {item.label}
                                 </Link>
                             ))}
                         </Stack>
-                        <Box sx={{ display: { xs: 'none', md: 'block' }, minWidth: 180, flexShrink: 0 }} />
+                        <Box
+                            sx={{
+                                display: { xs: 'none', md: 'block' },
+                                minWidth: 180,
+                                flexShrink: 0,
+                            }}
+                        />
 
                         <Stack
                             spacing={{ xs: 2, md: 2.5 }}
-                            alignItems="flex-end"
                             sx={{
                                 flex: 1,
+                                alignItems: 'flex-end',
                                 textAlign: { xs: 'right', md: 'right' },
                                 alignSelf: { xs: 'flex-end', md: 'flex-end' },
                             }}
@@ -89,25 +110,36 @@ const Footer = () => {
                                 sx={{
                                     fontWeight: 500,
                                     letterSpacing: '-0.02em',
-                                    color: '#24315a',
-                                    fontFamily: "'Playfair Display', 'Cambria', 'Georgia', serif",
+                                    color: '#1f4d2b',
+                                    fontFamily:
+                                        "'Playfair Display', 'Cambria', 'Georgia', serif",
                                 }}
                             >
-                                Irin <Box component="span" sx={{ fontStyle: 'italic' }}>Sultana</Box> Munni
+                                Irin{' '}
+                                <Box
+                                    component="span"
+                                    sx={{ fontStyle: 'italic' }}
+                                >
+                                    Sultana
+                                </Box>{' '}
+                                Munni
                             </Typography>
                             <Typography
                                 variant="body1"
                                 sx={{
-                                    color: '#374469',
+                                    color: '#2f4634',
                                     lineHeight: 1.65,
                                     fontSize: '1.05rem',
                                     fontWeight: 400,
                                     textAlign: { xs: 'right', md: 'right' },
                                     maxWidth: 640,
-                                    fontFamily: "'Libre Baskerville', 'Times New Roman', serif",
+                                    fontFamily:
+                                        "'Libre Baskerville', 'Times New Roman', serif",
                                 }}
                             >
-                                Language mediation, interpreting, and cultural integration across medical, legal, and social contexts.
+                                Language mediation, interpreting, and cultural
+                                integration across medical, legal, and social
+                                contexts.
                             </Typography>
                         </Stack>
                     </Stack>
@@ -115,21 +147,35 @@ const Footer = () => {
                     <Stack
                         direction={{ xs: 'column', md: 'row' }}
                         spacing={{ xs: 5, md: 8 }}
-                        justifyContent="space-between"
-                        alignItems={{ xs: 'flex-start', md: 'center' }}
-                        sx={{ width: '100%', px: { xs: 3, md: 6 } }}
+                        sx={{
+                            justifyContent: 'space-between',
+                            alignItems: { xs: 'flex-start', md: 'center' },
+                            width: '100%',
+                            px: { xs: 3, md: 6 },
+                        }}
                     >
                         <Stack
                             direction="row"
                             spacing={{ xs: 4, md: 6 }}
-                            flexWrap="wrap"
-                            rowGap={2}
-                            sx={{ minWidth: { md: 260 }, alignSelf: { xs: 'flex-start', md: 'flex-start' } }}
+                            sx={{
+                                flexWrap: 'wrap',
+                                rowGap: 2,
+                                minWidth: { md: 260 },
+                                alignSelf: {
+                                    xs: 'flex-start',
+                                    md: 'flex-start',
+                                },
+                            }}
                         >
                             <Stack spacing={1}>
                                 <Typography
                                     variant="body2"
-                                    sx={{ fontWeight: 500, letterSpacing: '0.05em', textTransform: 'uppercase', color: '#3a3128' }}
+                                    sx={{
+                                        fontWeight: 500,
+                                        letterSpacing: '0.05em',
+                                        textTransform: 'uppercase',
+                                        color: '#2f4634',
+                                    }}
                                 >
                                     Connect
                                 </Typography>
@@ -137,11 +183,11 @@ const Footer = () => {
                                     href="https://www.linkedin.com"
                                     underline="none"
                                     sx={{
-                                        color: '#1b1410',
+                                        color: '#142818',
                                         fontWeight: 500,
                                         letterSpacing: '0.01em',
                                         fontSize: '1rem',
-                                        '&:hover': { color: '#0f1b3a' },
+                                        '&:hover': { color: '#0f2518' },
                                     }}
                                 >
                                     LinkedIn
@@ -150,11 +196,11 @@ const Footer = () => {
                                     href="https://www.instagram.com"
                                     underline="none"
                                     sx={{
-                                        color: '#1b1410',
+                                        color: '#142818',
                                         fontWeight: 500,
                                         letterSpacing: '0.01em',
                                         fontSize: '1rem',
-                                        '&:hover': { color: '#0f1b3a' },
+                                        '&:hover': { color: '#0f2518' },
                                     }}
                                 >
                                     Instagram
@@ -176,7 +222,12 @@ const Footer = () => {
                         >
                             <Typography
                                 variant="body2"
-                                sx={{ fontWeight: 500, letterSpacing: '0.05em', textTransform: 'uppercase', color: '#3a3128' }}
+                                sx={{
+                                    fontWeight: 500,
+                                    letterSpacing: '0.05em',
+                                    textTransform: 'uppercase',
+                                    color: '#2f4634',
+                                }}
                             >
                                 Get in touch
                             </Typography>
@@ -184,7 +235,7 @@ const Footer = () => {
                                 href="mailto:irin.munni78@gmail.com"
                                 underline="none"
                                 sx={{
-                                    color: '#1b1410',
+                                    color: '#142818',
                                     fontWeight: 500,
                                     letterSpacing: '0.01em',
                                     fontSize: '1rem',
@@ -201,12 +252,15 @@ const Footer = () => {
                                     borderRadius: '999px',
                                     textTransform: 'none',
                                     fontWeight: 600,
-                                    borderColor: '#24315a',
-                                    color: '#24315a',
+                                    borderColor: '#1f4d2b',
+                                    color: '#1f4d2b',
                                     px: 2.4,
                                     py: 0.75,
                                     alignSelf: 'flex-end',
-                                    '&:hover': { borderColor: '#0f1b3a', color: '#0f1b3a' },
+                                    '&:hover': {
+                                        borderColor: '#0f2518',
+                                        color: '#0f2518',
+                                    },
                                 }}
                             >
                                 Get in touch
@@ -214,7 +268,9 @@ const Footer = () => {
                         </Stack>
                     </Stack>
 
-                    <Box sx={{ width: '100%', height: { xs: 90, md: '15vh' } }} />
+                    <Box
+                        sx={{ width: '100%', height: { xs: 90, md: '15vh' } }}
+                    />
 
                     <Stack spacing={{ xs: 2, md: 3 }} sx={{ width: '100%' }}>
                         <Box
@@ -230,17 +286,21 @@ const Footer = () => {
                                     margin: 0,
                                     padding: 0,
                                     gap: { xs: 4, md: 6 },
-                                    animation: 'nameMarquee 22s linear infinite',
+                                    animation:
+                                        'nameMarquee 22s linear infinite',
                                     whiteSpace: 'nowrap',
                                     color: 'rgba(27,20,16,0.22)',
-                                    fontFamily: "'Playfair Display', 'Cambria', 'Georgia', serif",
+                                    fontFamily:
+                                        "'Playfair Display', 'Cambria', 'Georgia', serif",
                                     fontWeight: 500,
                                     letterSpacing: '0.1em',
                                     textTransform: 'uppercase',
                                     fontSize: { xs: '14vw', md: '9vw' },
                                     '@keyframes nameMarquee': {
                                         '0%': { transform: 'translateX(0%)' },
-                                        '100%': { transform: 'translateX(-50%)' },
+                                        '100%': {
+                                            transform: 'translateX(-50%)',
+                                        },
                                     },
                                 }}
                             >
@@ -259,9 +319,11 @@ const Footer = () => {
                         <Stack
                             direction={{ xs: 'row', md: 'row' }}
                             spacing={{ xs: 1.5, md: 1.75 }}
-                            justifyContent="center"
-                            alignItems="center"
-                            sx={{ color: 'rgba(27,20,16,0.65)' }}
+                            sx={{
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                color: 'rgba(27,20,16,0.65)',
+                            }}
                         >
                             <Box
                                 sx={{
@@ -277,10 +339,14 @@ const Footer = () => {
                                     alt="Irin Sultana Munni logo"
                                     width={54}
                                     height={54}
-                                    style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+                                    style={{
+                                        width: '100%',
+                                        height: '100%',
+                                        objectFit: 'contain',
+                                    }}
                                 />
                             </Box>
-                            <Stack spacing={0.25} alignItems="center">
+                            <Stack spacing={0.25} sx={{ alignItems: 'center' }}>
                                 <Typography
                                     variant="body2"
                                     sx={{
@@ -289,15 +355,26 @@ const Footer = () => {
                                         textTransform: 'uppercase',
                                         fontWeight: 600,
                                         textAlign: 'center',
-                                        fontFamily: "'Inter', 'Helvetica Neue', 'Arial', sans-serif",
+                                        fontFamily:
+                                            "'Inter', 'Helvetica Neue', 'Arial', sans-serif",
                                         display: 'flex',
                                         alignItems: 'center',
                                         justifyContent: 'center',
                                         gap: 1,
                                     }}
                                 >
-                                    <Box component="span" sx={{ display: 'inline-flex', gap: 0.25, alignItems: 'center' }}>
-                                        <Box component="span">© {new Date().getFullYear()} Irin Sultana Munni</Box>
+                                    <Box
+                                        component="span"
+                                        sx={{
+                                            display: 'inline-flex',
+                                            gap: 0.25,
+                                            alignItems: 'center',
+                                        }}
+                                    >
+                                        <Box component="span">
+                                            © {new Date().getFullYear()} Irin
+                                            Sultana Munni
+                                        </Box>
                                     </Box>
                                 </Typography>
                                 <Typography
@@ -308,7 +385,8 @@ const Footer = () => {
                                         textTransform: 'uppercase',
                                         fontWeight: 500,
                                         textAlign: 'center',
-                                        fontFamily: "'Inter', 'Helvetica Neue', 'Arial', sans-serif",
+                                        fontFamily:
+                                            "'Inter', 'Helvetica Neue', 'Arial', sans-serif",
                                     }}
                                 >
                                     Made with ♥ in Europe

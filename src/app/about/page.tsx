@@ -2,7 +2,13 @@
 
 import React from 'react'
 import { Box, Container, Stack, Typography } from '@mui/material'
-import { motion, useScroll, useSpring, useTransform } from 'framer-motion'
+import {
+    motion,
+    useReducedMotion,
+    useScroll,
+    useSpring,
+    useTransform,
+} from 'framer-motion'
 import { useSelector } from 'react-redux'
 import { selectDictionary } from '@/slice/language'
 import styles from '../page.module.css'
@@ -10,18 +16,26 @@ import styles from '../page.module.css'
 const fontFamily = "'Fancy Cut Pro', 'Cambria', 'Georgia', serif"
 const tileMinHeight = { xs: 340, md: 520 }
 const gradientOverlay =
-    'linear-gradient(180deg, rgba(198,172,143,0.6) 0%, rgba(234,224,213,0.9) 100%)'
+    'linear-gradient(160deg, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.38) 100%)'
 const tileVariants = {
-    hidden: { opacity: 0, y: 80 },
-    show: {
+    hidden: (custom: { shouldReduceMotion: boolean }) =>
+        custom.shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 80 },
+    show: (custom: { index: number; shouldReduceMotion: boolean }) => ({
         opacity: 1,
         y: 0,
-        transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const },
-    },
+        transition: custom.shouldReduceMotion
+            ? { duration: 0.12, ease: 'linear' as const }
+            : {
+                  duration: 0.6,
+                  delay: custom.index * 0.07,
+                  ease: [0.22, 1, 0.36, 1] as const,
+              },
+    }),
 }
 
 export default function AboutMePage() {
     const dict = useSelector(selectDictionary)
+    const shouldReduceMotion = useReducedMotion()
     const { scrollYProgress } = useScroll()
     const scrollProgress = useSpring(scrollYProgress, {
         stiffness: 140,
@@ -128,14 +142,14 @@ export default function AboutMePage() {
                     height: 2,
                     transformOrigin: '0% 50%',
                     scaleX: scrollProgress,
-                    backgroundColor: 'rgba(19,16,13,0.22)',
+                    backgroundColor: 'rgba(34,68,42,0.22)',
                     zIndex: 1400,
                 }}
             />
             <Box
                 sx={{
                     background:
-                        'linear-gradient(135deg, #f5ede3 0%, #ede5db 100%)',
+                        'linear-gradient(135deg, #eef6ea 0%, #dfeadd 100%)',
                     pt: { xs: 24, md: 32 },
                     pb: { xs: 8, md: 12 },
                     px: { xs: 3, md: 6 },
@@ -164,15 +178,15 @@ export default function AboutMePage() {
                             sx={{
                                 fontSize: { xs: '2.5rem', md: '3.5rem' },
                                 fontWeight: 300,
-                                color: '#13100d',
+                                color: '#0f2518',
                                 marginBottom: 2.5,
                                 fontFamily,
                                 letterSpacing: '-0.02em',
                             }}
-	                        >
-	                            {introTitle}
-	                        </Typography>
-	                    </motion.div>
+                        >
+                            {introTitle}
+                        </Typography>
+                    </motion.div>
 
                     <motion.div
                         initial={{ opacity: 0, y: 24 }}
@@ -186,18 +200,18 @@ export default function AboutMePage() {
                         <Typography
                             sx={{
                                 fontSize: { xs: '1rem', md: '1.1rem' },
-                                color: '#393026',
+                                color: '#2f4634',
                                 lineHeight: 1.75,
                                 maxWidth: '700px',
                                 fontFamily,
                                 marginBottom: 3,
                             }}
-	                        >
-	                            {introBody}
-	                        </Typography>
-	                    </motion.div>
+                        >
+                            {introBody}
+                        </Typography>
+                    </motion.div>
 
-	                    <motion.div
+                    <motion.div
                         initial={{ opacity: 0, y: 24 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{
@@ -205,283 +219,309 @@ export default function AboutMePage() {
                             delay: 0.2,
                             ease: [0.22, 1, 0.36, 1] as const,
                         }}
-	                        style={{ marginTop: '3rem', position: 'relative' }}
-	                    >
-	                        <Box
-	                            sx={{
-	                                display: 'flex',
-	                                alignItems: 'baseline',
-	                                gap: { xs: 1.5, md: 2 },
-	                                flexWrap: 'wrap',
-	                            }}
-	                        >
-	                            <Typography
-	                                component="span"
-	                                sx={{
-	                                    fontSize: {
-	                                        xs: '2.6rem',
-	                                        md: '3.2rem',
-	                                    },
-	                                    fontWeight: 700,
-	                                    color: '#13100d',
-	                                    letterSpacing: '-0.03em',
-	                                    fontFamily,
-	                                    lineHeight: 1.05,
-	                                }}
-	                            >
-	                                {heroHeading1}
-	                            </Typography>
-	                            <Typography
-	                                component="span"
-	                                sx={{
-	                                    fontSize: {
-	                                        xs: '2.1rem',
-	                                        md: '2.5rem',
-	                                    },
-	                                    fontWeight: 300,
-	                                    color: 'rgba(19,16,13,0.45)',
-	                                    lineHeight: 1,
-	                                    fontFamily,
-	                                    display: 'inline-block',
-	                                    transform: 'translateY(-1px)',
-	                                }}
-	                            >
-	                                &
-	                            </Typography>
-	                        </Box>
-	                            <Typography
-	                            sx={{
-	                                mt: { xs: 0.75, md: 1 },
-	                                fontSize: { xs: '2.6rem', md: '3.2rem' },
-	                                fontWeight: 700,
-	                                color: '#13100d',
-	                                letterSpacing: '-0.03em',
-	                                fontFamily,
-	                                lineHeight: 1.05,
-	                            }}
-	                            >
-	                            {heroHeading2}
-	                        </Typography>
-	                    </motion.div>
-	                </Box>
+                        style={{ marginTop: '3rem', position: 'relative' }}
+                    >
+                        <Box
+                            sx={{
+                                display: 'flex',
+                                alignItems: 'baseline',
+                                gap: { xs: 1.5, md: 2 },
+                                flexWrap: 'wrap',
+                            }}
+                        >
+                            <Typography
+                                component="span"
+                                sx={{
+                                    fontSize: {
+                                        xs: '2.6rem',
+                                        md: '3.2rem',
+                                    },
+                                    fontWeight: 700,
+                                    color: '#0f2518',
+                                    letterSpacing: '-0.03em',
+                                    fontFamily,
+                                    lineHeight: 1.05,
+                                }}
+                            >
+                                {heroHeading1}
+                            </Typography>
+                            <Typography
+                                component="span"
+                                sx={{
+                                    fontSize: {
+                                        xs: '2.1rem',
+                                        md: '2.5rem',
+                                    },
+                                    fontWeight: 300,
+                                    color: 'rgba(34,68,42,0.45)',
+                                    lineHeight: 1,
+                                    fontFamily,
+                                    display: 'inline-block',
+                                    transform: 'translateY(-1px)',
+                                }}
+                            >
+                                &
+                            </Typography>
+                        </Box>
+                        <Typography
+                            sx={{
+                                mt: { xs: 0.75, md: 1 },
+                                fontSize: { xs: '2.6rem', md: '3.2rem' },
+                                fontWeight: 700,
+                                color: '#0f2518',
+                                letterSpacing: '-0.03em',
+                                fontFamily,
+                                lineHeight: 1.05,
+                            }}
+                        >
+                            {heroHeading2}
+                        </Typography>
+                    </motion.div>
+                </Box>
 
-		                <Box
-		                    component={motion.div}
-		                    style={{
-		                        y: heroGlowY,
-		                        x: heroGlowX,
-		                        scale: heroGlowScale,
-		                    }}
-		                    sx={{
-		                        position: 'absolute',
-		                        right: { xs: '-50px', md: '0' },
-		                        bottom: { xs: '-30px', md: '-60px' },
-		                        width: { xs: '300px', md: '400px' },
-		                        height: { xs: '300px', md: '400px' },
-		                        background:
-		                            'radial-gradient(circle, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0) 70%)',
-		                        borderRadius: '50%',
-		                        zIndex: 1,
-		                        filter: 'blur(2px)',
-		                        pointerEvents: 'none',
-		                    }}
-		                />
-		            </Box>
+                <Box
+                    component={motion.div}
+                    style={{
+                        y: shouldReduceMotion ? 0 : heroGlowY,
+                        x: shouldReduceMotion ? 0 : heroGlowX,
+                        scale: shouldReduceMotion ? 1 : heroGlowScale,
+                    }}
+                    sx={{
+                        position: 'absolute',
+                        right: { xs: '-50px', md: '0' },
+                        bottom: { xs: '-30px', md: '-60px' },
+                        width: { xs: '300px', md: '400px' },
+                        height: { xs: '300px', md: '400px' },
+                        background:
+                            'radial-gradient(circle, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0) 70%)',
+                        borderRadius: '50%',
+                        zIndex: 1,
+                        filter: 'blur(2px)',
+                        pointerEvents: 'none',
+                    }}
+                />
+            </Box>
 
-            <Box sx={{ backgroundColor: '#f4efe9', py: { xs: 4, md: 6 } }}>
+            <Box sx={{ backgroundColor: '#f2f7ef', py: { xs: 4, md: 6 } }}>
                 <Container maxWidth={false} disableGutters>
-	                    <Box
-	                        sx={{
-	                            display: 'grid',
-	                            gridTemplateColumns: 'repeat(1, minmax(0, 1fr))',
-	                            gap: 0,
-	                            px: { xs: 0, md: 2 },
-	                        }}
-	                    >
-	                        {[tiles[0], tiles[1], tiles[2], tiles[3]].map(
-	                            (tile, index) => {
-	                                const reverse = index % 2 === 1
-	                                return (
-	                                    <motion.div
-	                                        key={tile.title}
-	                                        variants={tileVariants}
-	                                        initial="hidden"
-	                                        whileInView="show"
-	                                        whileHover={{ y: -6 }}
-	                                        whileTap={{ scale: 0.99 }}
-	                                        viewport={{ once: true, amount: 0.35 }}
-	                                        transition={{
-	                                            type: 'spring',
-	                                            stiffness: 260,
-	                                            damping: 22,
-	                                        }}
-	                                        style={{ height: '100%' }}
-	                                    >
-	                                        <Box
-	                                            sx={{
-	                                                height: '100%',
-	                                                overflow: 'hidden',
-	                                                borderTop:
-	                                                    '1px solid rgba(19,16,13,0.06)',
-	                                                borderRadius: {
-	                                                    xs: 0,
-	                                                    md: '22px',
-	                                                },
-	                                                backgroundColor:
-	                                                    'rgba(255,255,255,0.35)',
-	                                                transition:
-	                                                    'box-shadow 220ms ease, border-color 220ms ease, background-color 220ms ease',
-	                                                willChange: 'transform',
-	                                                '&:hover': {
-	                                                    borderTopColor:
-	                                                        'rgba(19,16,13,0.12)',
-	                                                    boxShadow:
-	                                                        '0 18px 40px rgba(19,16,13,0.10)',
-	                                                    backgroundColor:
-	                                                        'rgba(255,255,255,0.55)',
-	                                                },
-	                                                '&:focus-within': {
-	                                                    borderTopColor:
-	                                                        'rgba(19,16,13,0.12)',
-	                                                    boxShadow:
-	                                                        '0 18px 40px rgba(19,16,13,0.10)',
-	                                                    backgroundColor:
-	                                                        'rgba(255,255,255,0.55)',
-	                                                },
-	                                                '&:hover .aboutTileImage::before':
-	                                                    {
-	                                                        transform:
-	                                                            'scale(1.06)',
-	                                                    },
-	                                                '&:hover .aboutTileImage::after':
-	                                                    {
-	                                                        opacity: 1,
-	                                                    },
-	                                                '&:hover .aboutTileDivider': {
-	                                                    width: 72,
-	                                                },
-	                                            }}
-	                                        >
-	                                            <Box
-	                                                sx={{
-	                                                    display: 'flex',
-	                                                    flexDirection: reverse
-	                                                        ? 'row-reverse'
-	                                                        : 'row',
-	                                                    minHeight: tileMinHeight,
-	                                                    background: '#e8ded2',
-	                                                    borderRadius: {
-	                                                        xs: 0,
-	                                                        md: '22px',
-	                                                    },
-	                                                    overflow: 'hidden',
-	                                                    outline: 'none',
-	                                                    '&:focus-visible': {
-	                                                        boxShadow:
-	                                                            '0 0 0 3px rgba(19,16,13,0.18)',
-	                                                    },
-	                                                }}
-	                                                tabIndex={0}
-	                                            >
-	                                                <Box
-	                                                    sx={{
-	                                                        flex: '1 1 50%',
-	                                                        position: 'relative',
-	                                                        overflow: 'hidden',
-	                                                        minHeight:
-	                                                            tileMinHeight,
-	                                                        '&::before': {
-	                                                            content: "''",
-	                                                            position:
-	                                                                'absolute',
-	                                                            inset: 0,
-	                                                            backgroundImage: `${gradientOverlay}, url(${tile.image})`,
-	                                                            backgroundSize:
-	                                                                'cover',
-	                                                            backgroundPosition:
-	                                                                'center',
-	                                                            transform:
-	                                                                'scale(1.01)',
-	                                                            transition:
-	                                                                'transform 700ms cubic-bezier(0.22,1,0.36,1)',
-	                                                            willChange:
-	                                                                'transform',
-	                                                        },
-	                                                        '&::after': {
-	                                                            content: "''",
-	                                                            position:
-	                                                                'absolute',
-	                                                            inset: 0,
-	                                                            background:
-	                                                                'linear-gradient(180deg, rgba(19,16,13,0) 0%, rgba(19,16,13,0.10) 100%)',
-	                                                            opacity: 0,
-	                                                            transition:
-	                                                                'opacity 450ms ease',
-	                                                        },
-	                                                    }}
-	                                                    className="aboutTileImage"
-	                                                />
-		                                                <Box
-		                                                    sx={{
-		                                                        flex: '1 1 50%',
-		                                                        backgroundColor:
-		                                                            '#fbf9f7',
-		                                                        p: { xs: 3, md: 3.5 },
-		                                                        display: 'flex',
-		                                                        alignItems: 'center',
-		                                                        justifyContent:
-		                                                            'center',
-		                                                        transition:
-		                                                            'background-color 220ms ease',
-		                                                        '.MuiTypography-root':
-		                                                            {
-		                                                                transition:
-		                                                                    'color 220ms ease',
-		                                                            },
-		                                                        '&:hover': {
-		                                                            backgroundColor:
-		                                                                '#ffffff',
-		                                                        },
-		                                                    }}
-		                                                >
-		                                                    <Stack
-		                                                        spacing={1.25}
-		                                                        sx={{
-		                                                            width: '100%',
-		                                                            maxWidth: 520,
-		                                                        }}
-		                                                    >
-		                                                        <Box
-		                                                            sx={{
-		                                                                width: 44,
-		                                                                height: 2,
-		                                                                borderRadius: 999,
-		                                                                backgroundColor:
-		                                                                    'rgba(19,16,13,0.18)',
-		                                                                transition:
-		                                                                    'width 260ms ease',
-		                                                            }}
-		                                                            className="aboutTileDivider"
-		                                                        />
-	                                                        <Typography
-	                                                            variant="h6"
-	                                                            sx={{
-	                                                                fontWeight: 600,
-	                                                                color: '#13100d',
-	                                                                fontFamily,
-	                                                                fontSize: {
-	                                                                    xs: '1.55rem',
-	                                                                    md: '1.9rem',
-	                                                                },
-	                                                                letterSpacing:
-	                                                                    '-0.01em',
-	                                                            }}
-	                                                        >
-	                                                            {tile.title}
-	                                                        </Typography>
+                    <Box
+                        sx={{
+                            display: 'grid',
+                            gridTemplateColumns: 'repeat(1, minmax(0, 1fr))',
+                            gap: 0,
+                            px: { xs: 0, md: 2 },
+                        }}
+                    >
+                        {[tiles[0], tiles[1], tiles[2], tiles[3]].map(
+                            (tile, index) => {
+                                const reverse = index % 2 === 1
+                                return (
+                                    <motion.div
+                                        key={tile.title}
+                                        variants={tileVariants}
+                                        custom={{
+                                            index,
+                                            shouldReduceMotion,
+                                        }}
+                                        initial="hidden"
+                                        whileInView="show"
+                                        whileHover={
+                                            shouldReduceMotion
+                                                ? undefined
+                                                : { y: -6 }
+                                        }
+                                        whileTap={
+                                            shouldReduceMotion
+                                                ? undefined
+                                                : { scale: 0.99 }
+                                        }
+                                        viewport={{ once: true, amount: 0.35 }}
+                                        transition={{
+                                            type: 'spring',
+                                            stiffness: 260,
+                                            damping: 22,
+                                        }}
+                                        style={{ height: '100%' }}
+                                    >
+                                        <Box
+                                            sx={{
+                                                height: '100%',
+                                                overflow: 'hidden',
+                                                borderTop:
+                                                    '1px solid rgba(34,68,42,0.06)',
+                                                borderRadius: {
+                                                    xs: 0,
+                                                    md: '22px',
+                                                },
+                                                backgroundColor:
+                                                    'rgba(255,255,255,0.35)',
+                                                transition:
+                                                    'box-shadow 220ms ease, border-color 220ms ease, background-color 220ms ease',
+                                                willChange: 'transform',
+                                                '&:hover': {
+                                                    borderTopColor:
+                                                        'rgba(34,68,42,0.12)',
+                                                    boxShadow:
+                                                        '0 18px 40px rgba(34,68,42,0.10)',
+                                                    backgroundColor:
+                                                        'rgba(255,255,255,0.55)',
+                                                },
+                                                '&:focus-within': {
+                                                    borderTopColor:
+                                                        'rgba(34,68,42,0.12)',
+                                                    boxShadow:
+                                                        '0 18px 40px rgba(34,68,42,0.10)',
+                                                    backgroundColor:
+                                                        'rgba(255,255,255,0.55)',
+                                                },
+                                                '&:hover .aboutTileImage::before':
+                                                    {
+                                                        transform:
+                                                            'scale(1.06)',
+                                                    },
+                                                '&:hover .aboutTileImage::after':
+                                                    {
+                                                        opacity: 1,
+                                                    },
+                                                '&:hover .aboutTileDivider': {
+                                                    width: 72,
+                                                },
+                                            }}
+                                        >
+                                            <Box
+                                                sx={{
+                                                    display: 'flex',
+                                                    flexDirection: reverse
+                                                        ? 'row-reverse'
+                                                        : 'row',
+                                                    minHeight: tileMinHeight,
+                                                    background: '#e4eee0',
+                                                    borderRadius: {
+                                                        xs: 0,
+                                                        md: '22px',
+                                                    },
+                                                    overflow: 'hidden',
+                                                    outline: 'none',
+                                                    '&:focus-visible': {
+                                                        boxShadow:
+                                                            '0 0 0 3px rgba(34,68,42,0.18)',
+                                                    },
+                                                }}
+                                                tabIndex={0}
+                                            >
+                                                <Box
+                                                    sx={{
+                                                        flex: '1 1 50%',
+                                                        position: 'relative',
+                                                        overflow: 'hidden',
+                                                        minHeight:
+                                                            tileMinHeight,
+                                                        '&::before': {
+                                                            content: "''",
+                                                            position:
+                                                                'absolute',
+                                                            inset: 0,
+                                                            backgroundImage: `${gradientOverlay}, url(${tile.image})`,
+                                                            backgroundSize:
+                                                                'cover',
+                                                            backgroundPosition:
+                                                                'center',
+                                                            transform:
+                                                                'scale(1.01)',
+                                                            transition:
+                                                                'transform 700ms cubic-bezier(0.22,1,0.36,1)',
+                                                            willChange:
+                                                                'transform',
+                                                        },
+                                                        '&::after': {
+                                                            content: "''",
+                                                            position:
+                                                                'absolute',
+                                                            inset: 0,
+                                                            background:
+                                                                'linear-gradient(180deg, rgba(34,68,42,0) 0%, rgba(34,68,42,0.10) 100%)',
+                                                            opacity: 0,
+                                                            transition:
+                                                                'opacity 450ms ease',
+                                                        },
+                                                    }}
+                                                    className="aboutTileImage"
+                                                />
+                                                <Box
+                                                    sx={{
+                                                        flex: '1 1 50%',
+                                                        backgroundColor:
+                                                            '#f8fbf5',
+                                                        p: { xs: 3, md: 3.5 },
+                                                        display: 'flex',
+                                                        alignItems: 'center',
+                                                        justifyContent:
+                                                            'center',
+                                                        transition:
+                                                            'background-color 220ms ease',
+                                                        '.MuiTypography-root': {
+                                                            transition:
+                                                                'color 220ms ease',
+                                                        },
+                                                        '&:hover': {
+                                                            backgroundColor:
+                                                                '#ffffff',
+                                                        },
+                                                    }}
+                                                >
+                                                    <Stack
+                                                        spacing={1.25}
+                                                        sx={{
+                                                            width: '100%',
+                                                            maxWidth: 520,
+                                                        }}
+                                                    >
+                                                        <Box
+                                                            component={
+                                                                motion.div
+                                                            }
+                                                            whileHover={
+                                                                shouldReduceMotion
+                                                                    ? undefined
+                                                                    : {
+                                                                          scaleX: 1.16,
+                                                                      }
+                                                            }
+                                                            transition={{
+                                                                type: 'spring',
+                                                                stiffness: 420,
+                                                                damping: 24,
+                                                            }}
+                                                            sx={{
+                                                                width: 44,
+                                                                height: 2,
+                                                                borderRadius: 999,
+                                                                backgroundColor:
+                                                                    'rgba(34,68,42,0.18)',
+                                                                transition:
+                                                                    'width 260ms ease',
+                                                            }}
+                                                            className="aboutTileDivider"
+                                                        />
+                                                        <Typography
+                                                            variant="h6"
+                                                            sx={{
+                                                                fontWeight: 600,
+                                                                color: '#0f2518',
+                                                                fontFamily,
+                                                                fontSize: {
+                                                                    xs: '1.55rem',
+                                                                    md: '1.9rem',
+                                                                },
+                                                                letterSpacing:
+                                                                    '-0.01em',
+                                                            }}
+                                                        >
+                                                            {tile.title}
+                                                        </Typography>
                                                         <Typography
                                                             sx={{
-                                                                color: '#393026',
+                                                                color: '#2f4634',
                                                                 lineHeight: 1.7,
                                                                 fontFamily,
                                                             }}
@@ -491,7 +531,7 @@ export default function AboutMePage() {
                                                         {tile.extra ? (
                                                             <Typography
                                                                 sx={{
-                                                                    color: '#89755b',
+                                                                    color: '#66886a',
                                                                     lineHeight: 1.6,
                                                                     fontFamily,
                                                                 }}

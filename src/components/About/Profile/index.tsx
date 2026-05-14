@@ -27,7 +27,8 @@ export default function Profile() {
                     display: 'grid',
                     gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' },
                     minHeight: { md: '60vh' },
-                    background: 'linear-gradient(180deg, #f9f4ea 0%, #f4ede3 100%)',
+                    background:
+                        'linear-gradient(180deg, #f9f4ea 0%, #f4ede3 100%)',
                     borderRadius: 0,
                     overflow: 'hidden',
                 }}
@@ -36,7 +37,10 @@ export default function Profile() {
                     style={{ y: imageY }}
                     initial={{ opacity: 0, scale: 1.04 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
+                    transition={{
+                        duration: 0.6,
+                        ease: [0.22, 1, 0.36, 1] as const,
+                    }}
                 >
                     <Box
                         sx={{
@@ -57,6 +61,12 @@ export default function Profile() {
                                 objectFit: 'cover',
                                 display: 'block',
                                 borderRadius: 0,
+                                transition: 'transform 700ms cubic-bezier(0.22,1,0.36,1), filter 400ms ease',
+                                filter: 'brightness(1.0) saturate(1.0)',
+                                '&:hover': {
+                                    transform: 'scale(1.04)',
+                                    filter: 'brightness(1.04) saturate(1.08)',
+                                },
                             }}
                         />
                     </Box>
@@ -65,7 +75,12 @@ export default function Profile() {
                 <Slider
                     slidesData={[
                         <>
-                            <motion.div style={{ y: textY }} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
+                            <motion.div
+                                style={{ y: textY }}
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ duration: 0.5 }}
+                            >
                                 <Box
                                     sx={{
                                         order: { xs: 2, md: 2 },
@@ -83,10 +98,13 @@ export default function Profile() {
                                         variant={isMobile ? 'h5' : 'h4'}
                                         color="text.secondary"
                                         component="span"
-                                        fontSize={isSmall ? '22px' : '1.8rem'}
                                         sx={{
+                                            fontSize: isSmall
+                                                ? '22px'
+                                                : '1.8rem',
                                             lineHeight: 2.15,
-                                            fontFamily: "'Playfair Display', 'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
+                                            fontFamily:
+                                                "'Playfair Display', 'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
                                             fontStyle: 'italic',
                                             letterSpacing: '0.01em',
                                         }}
@@ -97,7 +115,12 @@ export default function Profile() {
                             </motion.div>
                         </>,
                         <>
-                            <motion.div style={{ y: textY }} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
+                            <motion.div
+                                style={{ y: textY }}
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ duration: 0.5 }}
+                            >
                                 <Box
                                     sx={{
                                         order: { xs: 2, md: 2 },
@@ -115,10 +138,13 @@ export default function Profile() {
                                         variant={isMobile ? 'h5' : 'h4'}
                                         color="text.secondary"
                                         component="span"
-                                        fontSize={isSmall ? '22px' : '1.8rem'}
                                         sx={{
+                                            fontSize: isSmall
+                                                ? '22px'
+                                                : '1.8rem',
                                             lineHeight: 2.15,
-                                            fontFamily: "'Playfair Display', 'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
+                                            fontFamily:
+                                                "'Playfair Display', 'Fancy Cut Pro', 'Cambria', 'Georgia', serif",
                                             fontStyle: 'italic',
                                             letterSpacing: '0.01em',
                                         }}

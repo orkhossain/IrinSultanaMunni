@@ -21,7 +21,6 @@ import Image18 from '@/assets/logos/Image18.webp'
 import Image19 from '@/assets/logos/Image19.webp'
 import Image20 from '@/assets/logos/Image20.webp'
 import Image21 from '@/assets/logos/Image21.webp'
-import ScrollAnimation from 'react-animate-on-scroll'
 
 import Marquee from 'react-fast-marquee'
 import { useSelector } from 'react-redux'
@@ -80,7 +79,7 @@ const CompanyMarquee = () => {
                     position: 'absolute',
                     inset: 0,
                     background:
-                        'linear-gradient(90deg, rgba(244,239,233,0.96) 0%, rgba(244,239,233,0.60) 6%, rgba(244,239,233,0.18) 14%, rgba(244,239,233,0) 24%), linear-gradient(270deg, rgba(244,239,233,0.96) 0%, rgba(244,239,233,0.60) 6%, rgba(244,239,233,0.18) 14%, rgba(244,239,233,0) 24%), linear-gradient(180deg, rgba(244,239,233,0.92) 0%, rgba(244,239,233,0.35) 12%, rgba(244,239,233,0) 30%), linear-gradient(0deg, rgba(244,239,233,0.92) 0%, rgba(244,239,233,0.35) 12%, rgba(244,239,233,0) 30%)',
+                        'linear-gradient(90deg, rgba(239,246,236,0.98) 0%, rgba(239,246,236,0.68) 7%, rgba(239,246,236,0.16) 18%, rgba(239,246,236,0) 28%), linear-gradient(270deg, rgba(239,246,236,0.98) 0%, rgba(239,246,236,0.68) 7%, rgba(239,246,236,0.16) 18%, rgba(239,246,236,0) 28%)',
                     zIndex: 2,
                 }}
             />
@@ -89,55 +88,47 @@ const CompanyMarquee = () => {
                 <div className="marqueeTitle">{marqueeTitle}</div>
                 <div className="marqueeSubtitle">{marqueeSubtitle}</div>
             </div>
-            <ScrollAnimation
-                animateIn="slideInRight"
-                animateOut="slideOutLeft"
-                animateOnce={true}
-            >
+            <div className="marqueeRows">
                 <Marquee
                     speed={marqueeSpeed}
                     pauseOnHover
                     pauseOnClick
                     gradient={false}
+                    autoFill
                 >
                     {imageUrls.map((imageUrl, index) => (
                         <div key={index} className="companyItem" tabIndex={0}>
                             <span className="companyLogoWrap">
                                 <Image
                                     src={imageUrl}
-                                    alt={`Image${index + 1}`}
+                                    alt={`Collaboration logo ${index + 1}`}
                                     height={logoHeight}
                                 />
                             </span>
                         </div>
                     ))}
                 </Marquee>
-            </ScrollAnimation>
-            <ScrollAnimation
-                animateIn="slideInLeft"
-                animateOut="slideOutRight"
-                animateOnce={true}
-            >
                 <Marquee
                     direction="right"
                     speed={marqueeSpeed}
                     pauseOnHover
                     pauseOnClick
                     gradient={false}
+                    autoFill
                 >
                     {imageUrls2.map((imageUrl, index) => (
                         <div key={index} className="companyItem" tabIndex={0}>
                             <span className="companyLogoWrap">
                                 <Image
                                     src={imageUrl}
-                                    alt={`Image${index + 1}`}
+                                    alt={`Collaboration logo ${index + 11}`}
                                     height={logoHeight}
                                 />
                             </span>
                         </div>
                     ))}
                 </Marquee>
-            </ScrollAnimation>
+            </div>
             <style jsx>{`
                 .marqueeWrap {
                     padding: 88px 0 84px;
@@ -148,11 +139,11 @@ const CompanyMarquee = () => {
                     inset: 0;
                     background: linear-gradient(
                         180deg,
-                        rgba(244, 239, 233, 0) 0%,
-                        rgba(231, 211, 185, 0.28) 18%,
-                        rgba(234, 219, 197, 0.48) 52%,
-                        rgba(231, 211, 185, 0.28) 82%,
-                        rgba(244, 239, 233, 0) 100%
+                        rgba(239, 246, 236, 0) 0%,
+                        rgba(213, 229, 205, 0.42) 20%,
+                        rgba(229, 239, 222, 0.72) 52%,
+                        rgba(213, 229, 205, 0.42) 82%,
+                        rgba(239, 246, 236, 0) 100%
                     );
                     z-index: 0;
                     pointer-events: none;
@@ -171,7 +162,7 @@ const CompanyMarquee = () => {
                     width: 56px;
                     height: 2px;
                     border-radius: 999px;
-                    background: rgba(19, 16, 13, 0.18);
+                    background: rgba(61, 103, 67, 0.34);
                     margin: 0 auto;
                 }
                 .marqueeTitle {
@@ -179,7 +170,7 @@ const CompanyMarquee = () => {
                     font-weight: 600;
                     font-style: italic;
                     letter-spacing: -0.02em;
-                    color: rgba(19, 16, 13, 0.9);
+                    color: #17351f;
                     font-size: 4.1rem;
                     line-height: 1.15;
                 }
@@ -188,11 +179,17 @@ const CompanyMarquee = () => {
                     font-weight: 400;
                     font-style: italic;
                     letter-spacing: 0.005em;
-                    color: rgba(57, 48, 38, 0.9);
+                    color: rgba(47, 70, 52, 0.9);
                     font-size: 1.25rem;
                     line-height: 1.6;
                     max-width: 780px;
                     margin: 0 auto;
+                }
+                .marqueeRows {
+                    position: relative;
+                    z-index: 1;
+                    display: grid;
+                    gap: 14px;
                 }
                 @media (max-width: 600px) {
                     .marqueeWrap {
@@ -210,40 +207,58 @@ const CompanyMarquee = () => {
                     }
                 }
                 .companyItem {
-                    padding: 40px;
+                    padding: 18px 22px;
+                    margin: 0 10px;
                     display: inline-flex;
                     align-items: center;
                     justify-content: center;
-                    cursor: pointer;
-                    border-radius: 16px;
+                    border-radius: 14px;
                     outline: none;
                     position: relative;
+                    min-width: 190px;
+                    min-height: 126px;
+                    background: rgba(250, 253, 248, 0.82);
+                    border: 1px solid rgba(72, 112, 76, 0.12);
+                    box-shadow: 0 14px 34px rgba(34, 68, 42, 0.07);
                     transform: translateZ(0);
                     will-change: transform;
+                    transition:
+                        transform 220ms ease,
+                        border-color 220ms ease,
+                        box-shadow 220ms ease,
+                        background-color 220ms ease;
                 }
                 .companyItem:focus-visible {
-                    box-shadow: 0 0 0 3px rgba(19, 16, 13, 0.18);
+                    box-shadow: 0 0 0 3px rgba(65, 99, 68, 0.22);
                 }
                 @media (max-width: 600px) {
                     .companyItem {
-                        padding: 16px 36px;
+                        padding: 14px 18px;
+                        min-width: 148px;
+                        min-height: 96px;
                     }
                 }
                 .companyLogoWrap {
                     display: inline-flex;
                     transform-origin: center;
                     will-change: transform, filter;
-                    transition: transform 240ms ease, filter 240ms ease;
+                    transition:
+                        transform 240ms ease,
+                        filter 240ms ease;
                 }
                 .companyItem:hover {
                     z-index: 3;
+                    transform: translateY(-3px);
+                    background: rgba(255, 255, 255, 0.95);
+                    border-color: rgba(61, 103, 67, 0.2);
+                    box-shadow: 0 18px 42px rgba(34, 68, 42, 0.12);
                 }
                 .companyItem:hover .companyLogoWrap {
-                    transform: scale(1.18);
-                    filter: drop-shadow(0 10px 18px rgba(19, 16, 13, 0.18));
+                    transform: scale(1.06);
+                    filter: drop-shadow(0 10px 18px rgba(34, 68, 42, 0.14));
                 }
                 .companyItem:focus-visible .companyLogoWrap {
-                    transform: scale(1.12);
+                    transform: scale(1.04);
                 }
             `}</style>
             <style jsx global>{`
@@ -260,7 +275,7 @@ const CompanyMarquee = () => {
                     transform: translate3d(0, 0, 0);
                 }
             `}</style>
-	        </div>
+        </div>
     )
 }
 
